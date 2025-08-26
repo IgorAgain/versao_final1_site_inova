@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inova Tecnologia - Controle de Acesso</title>
+    <link rel="stylesheet" href="assets/main.css">
+    <script src="assets/main.js" defer></script>
+    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Favicon - Logo na guia do navegador -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html"><img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image"></a>
+                </div>
+                <nav class="navbar">
+                    <button class="menu-toggle" aria-label="Abrir menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                    <ul class="nav-links">
+                        <li><a class="active" href="index.html">HOME</a></li>
+                        <li><a href="solucoes.html">SOLUÇÕES</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle">SEGMENTOS</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="drop-down-menu-item" href="educacao.html">Educação</a></li>
+                                <li><a class="drop-down-menu-item" href="empresas.html">Empresas</a></li>
+                                <li><a class="drop-down-menu-item" href="condominios.html">Condomínios</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="servicos.html">SERVIÇOS</a></li>
+                        <li><a href="clientes.html">CLIENTES</a></li>
+                    </ul>
+                    <button class="cta-comprar"><span><a href="contratar.html">CONTRATAR</a></span></button>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-background">
+                <!-- Aqui você vai trocar essas imagens pelas suas -->
+                <img src="assets/img/imagem controle de acesso 4.jpg" alt="Controle de Acesso 4" class="hero-image active">
+                <img src="assets/img/imagem controle de acesso 3.jpg" alt="Controle de Acesso 3" class="hero-image">
+                <img src="assets/img/imagem controle de acesso 2.jpg" alt="Controle de Acesso 2" class="hero-image">
+                <img src="assets/img/imagem controle de acesso 1.png" alt="Controle de Acesso 1" class="hero-image">
+            </div>
+            
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Especializados<br>
+                        em <span class="highlight-azul-escuro">Controle<br>
+                        de Acesso</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        A Inova proporciona segurança para sua<br>
+                        instituição. Integrando tecnologia<br>
+                        e aplicativos exclusivos, nosso<br>
+                        objetivo é modernizar o seu<br>
+                        controle de acesso.
+                    </p>
+                    
+                    <a href="#solucoes" class="hero-cta">Descubra nossas soluções</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Serviços -->
+        <section class="servicos">
+            <div class="servicos-container">
+                <div class="servicos-header">
+                    <h2 class="servicos-title">Nossos Serviços</h2>
+                    <p class="servicos-subtitle">Oferecemos serviços completos para melhorar o controle de acesso do seu condomínio, empresa e instituição de ensino.</p>
+                </div>
+                
+                <div class="servicos-grid">
+                    <!-- Card Acessos -->
+                    <div class="servico-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="servico-icon">
+                            <img class="servico-icon-change" src="assets/img/catraca vidro icon site.svg" alt="icone catra">
+                        </div>
+                        <h3 class="servico-titulo">Acessos</h3>
+                        <p class="servico-descricao">Conte com as tecnologias mais recentes de acesso com reconhecimento facial, QR Code, biometria e cartão RFID.</p>
+                        <!-- Conteúdo expandido - adicione antes do botão "Descubra sobre" -->
+                        <div class="servico-expandido">
+                            <div class="servico-imagem-container">
+                                <img src="assets/img/imagem controle de acesso 4.jpg" alt="Descrição da imagem" class="servico-imagem">
+                            </div>
+                            <ul class="servico-lista">
+                                <li>Possibilidade de Retrofit (reestruturação) das catracas já existentes</li>
+                                <li>Instalação e acompanhamento dos acessos e controle de ponto por especialistas</li>
+                                <li>Melhores materiais do mercado visando a durabilidade e custo benefício</li>
+                            </ul>
+                        </div>
+
+                        <!-- Modifique o botão existente para incluir data-action -->
+                        <button class="servico-cta" data-action="expand">
+                            <span>Descubra mais</span>
+                        </button>
+                    </div>
+
+                    <!-- Card Aplicativos -->
+                    <div class="servico-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="servico-icon">
+                            <img class="servico-icon-change" src="assets/img/suporte icon site.svg" alt="aplicativos icon">
+                        </div>
+                        <h3 class="servico-titulo">Aplicativos</h3>
+                        <p class="servico-descricao">Aplicativos móveis exclusivos que facilitam a gestão da sua empresa e auxiliam com dashboards interativos e relatórios diários.</p>
+                        <!-- Conteúdo expandido - adicione antes do botão "Descubra sobre" -->
+                        <div class="servico-expandido">
+                            <div class="servico-imagem-container">
+                                <img src="assets/img/imagem controle de acesso 2.jpg" alt="Descrição da imagem" class="servico-imagem">
+                            </div>
+                            <ul class="servico-lista">
+                                <li>Aplicativo exclusivos que permitem ao aluno ou colaborador acompanhar suas entradas, uso de serviços e relatórios.</li>
+                                <li>White Label personalizada com a identidade visual da sua empresa ou instituição</li>
+                                <li>Disponibilização da carteirinha digital ou física no app, trazendo praticidade e segurança.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Modifique o botão existente para incluir data-action -->
+                        <button class="servico-cta" data-action="expand">
+                            <span>Descubra mais</span>
+                        </button>
+                    </div>
+
+                    <!-- Card Integração -->
+                    <div class="servico-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="servico-icon">
+                            <img class="servico-icon-change" src="assets/img/controle acesso site.svg" alt="icone integração">
+                        </div>
+                        <h3 class="servico-titulo">Integração</h3>
+                        <p class="servico-descricao">Integração completa de sistemas e APIs, ideal para para quem visa maior segurança e controle nos acessos.</p>
+                        <!-- Conteúdo expandido - adicione antes do botão "Descubra sobre" -->
+                        <div class="servico-expandido">
+                            <div class="servico-imagem-container">
+                                <img src="assets/img/imagem controle de acesso 1.png" alt="Descrição da imagem" class="servico-imagem">
+                            </div>
+                            <ul class="servico-lista">
+                                <li>Integração com sistemas acadêmicos (SGA) — Conexão com plataformas de gestão acadêmica para controle automático de autorização de acesso.</li>
+                                <li>Sincronização com controle de jornada e folha de pagamento — Para empresas, integração com sistemas de ponto que alimentam a folha de pagamento.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Modifique o botão existente para incluir data-action -->
+                        <button class="servico-cta" data-action="expand">
+                            <span>Descubra mais</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats" id="stats">
+            <div class="stats-container">
+                <!-- Título adicionado AQUI -->
+                <h2 class="stats-title">Números que comprovam nossa eficiência!</h2>
+        
+                <!-- Container dos stats com divisórias -->
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="2000000">0</span>
+                        <span class="stat-label">Usuários ativos</span>
+                    </div>
+            
+                    <div class="stat-divider"></div>
+            
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="1000">0</span>
+                        <span class="stat-label">Controles de acesso</span>
+                    </div>
+            
+                    <div class="stat-divider"></div>
+            
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="300">0</span>
+                        <span class="stat-label">Clientes</span>
+                    </div>
+            
+                    <div class="stat-divider"></div>
+            
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="24">0</span>
+                        <span class="stat-label">Anos no mercado</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção Nossas Soluções -->
+        <section class="nossas-solucoes" id="solucoes">
+            <div class="nossas-solucoes-container">
+                <div class="nossas-solucoes-header">
+                    <h2 class="nossas-solucoes-title">Nossas Soluções</h2>
+                    <p class="nossas-solucoes-subtitle">
+                        Desenvolvemos soluções personalizadas para cada segmento, 
+                        garantindo máxima eficiência e segurança em todos os ambientes.
+                    </p>
+                </div>
+            
+                <div class="solucoes-grid">
+                    <!-- Card Educação -->
+                    <div class="solucao-card educacao">
+                        <div class="solucao-icon">
+                            <img class="solucao-icon-grid" src="assets/img/school.png" alt="esola-icone">
+                        </div>
+                        <h3 class="solucao-titulo">Educação</h3>
+                        <img src="assets/img/imagem controle de acesso 4.jpg" alt="Educação - Controle de Acesso" class="solucao-imagem">
+                        <p class="solucao-descricao">
+                            Referência dentro do mercado! Nosso diferencial está na capacidade
+                            de processar grandes volumes de dados, ideal para atender instituições de ensino que demandam
+                            um sistema escalável a fim de cuidar de milhares de alunos.
+                        </p>
+                        <ul class="servico-lista">
+                            <li>App Carteirinha Estudantil Digital</li>
+                            <li>Controle de Acesso por QR Code e Reconhecimento Facial</li>
+                            <li>Integração com Sistema Acadêmico Existente</li>
+                            <li>Portal do Aluno Integrado</li>
+                            <li>Portal do Aluno Integrado</li>
+                        </ul>
+                        <button class="cta-comprar"><span><a href="educacao.html">Descubra mais sobre</a></span></button>
+                    </div>
+                
+                    <!-- Card Empresas -->
+                    <div class="solucao-card empresas">
+                        <div class="solucao-icon">
+                            <img class="solucao-icon-grid" src="assets/img/office-building.png" alt="esola-icone">
+                        </div>
+                        <h3 class="solucao-titulo">Empresas</h3>
+                        <img src="assets/img/imagem controle de acesso 3.jpg" alt="Empresas - Controle de Acesso" class="solucao-imagem">
+                        <p class="solucao-descricao">
+                            Integrando segurança e eficiência, oferecemos soluções inteligentes para o controle de acesso 
+                            e registro de ponto da sua empresa, tudo gerenciado de forma simples e ágil 
+                            através do nossos aplicativo exclusivo.
+                        </p>
+                        <ul class="servico-lista">
+                            <li>Controle de Ponto Eletrônico</li>
+                            <li>Gestão de Funcionários</li>
+                            <li>Catracas e Torniquetes Modernos</li>
+                            <li>Relatórios de Acesso</li>
+                            <li>Dashboards Interativos</li>
+                            <li>Integração com RH</li>
+                           
+                        </ul>
+                        <button class="cta-comprar"><span><a href="empresas.html">Descubra mais sobre</a></span></button>
+                    </div>
+                
+                <!-- Card Condomínios -->
+                    <div class="solucao-card condominios">
+                        <div class="solucao-icon">
+                            <img class="solucao-icon-grid" src="assets/img/house.png" alt="esola-icone">
+                        </div>
+                        <h3 class="solucao-titulo">Condomínios</h3>
+                        <img src="assets/img/imagem controle de acesso 2.jpg" alt="Condomínios - Controle de Acesso" class="solucao-imagem">
+                        <p class="solucao-descricao">
+                            Ofereça aos seus condôminos um espaço onde segurança, 
+                            conveniência, conectividade e comunidade se unem em perfeita harmonia, proporcionada pelas nossas 
+                            soluções de controle de acesso.
+                        </p>
+                        <ul class="servico-lista">
+                            <li>Controle de Moradores</li>
+                            <li>Gestão de Visitantes</li>
+                            <li>Câmeras de Segurança com IA</li>
+                            <li>Interfones Inteligentes</li>
+                            <li>App Exclusivo para Moradores</li>
+                            <li>Comunicação Interna</li>
+                        </ul>
+                        <button class="cta-comprar"><span><a href="condominios.html">Descubra mais sobre</a></span></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quem confia Section -->
+        <section class="quem-confia" id="clientes">
+            <div class="quem-confia-container">
+                <h2 class="quem-confia-title">Quem confia na Inova</h2>
+                <p class="quem-confia-subtitle">Mais de 300 empresas e instituições confiam nas soluções da Inova</p>
+                <p class="quem-confia-categories">Instituições de Ensino Superior | Escolas | Empresas | Condomínios | Shoppings | Unidades de Saúde</p>
+        
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- Primeira sequência de logos -->
+                        <div class="carousel-item">
+                            <img src="assets/img/logo-cruzeiro-sul.svg" alt="Cruzeiro do Sul" class="client-logo">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/logo-santander.svg" alt="Santander" class="client-logo">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/logo-belas-artes.svg" alt="Belas Artes" class="client-logo">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/logo-praia-mar.svg" alt="Praia Mar" class="client-logo">
+                        </div>
+        
+                        <!-- Segunda sequência (duplicação para loop infinito) -->
+                        <div class="carousel-item">
+                            <img src="assets/img/logo-cruzeiro-sul.svg" alt="Cruzeiro do Sul" class="client-logo">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/logo-santander.svg" alt="Santander" class="client-logo">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/logo-belas-artes.svg" alt="Belas Artes" class="client-logo">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/logo-praia-mar.svg" alt="Praia Mar" class="client-logo">
+                        </div>
+        
+                        <!-- Terceira sequência (garantir transição suave) -->
+                        <div class="carousel-item">
+                            <img src="assets/img/logo-cruzeiro-sul.svg" alt="Cruzeiro do Sul" class="client-logo">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/logo-santander.svg" alt="Santander" class="client-logo">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/logo-belas-artes.svg" alt="Belas Artes" class="client-logo">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/img/logo-praia-mar.svg" alt="Praia Mar" class="client-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner WhatsApp -->
+        <section class="whatsapp-comercial">
+            <div class="whatsapp-comercial-image">
+                <img src="assets/img/INOVA_SO_LOGO.png" alt="logo inova">
+            </div>
+            <div class="whatsapp-comercial-content">
+                <div class="whatsapp-comercial-text">
+                    <h3 class="whatsapp-comercial-title">
+                        Converse Diretamente com nosso comercial através do WhatsApp
+                    </h3>
+                    <p class="whatsapp-comercial-subtitle">
+                        Tire dúvidas e solicite orçamentos, respondemos em até 24 horas.
+                    </p>
+                </div>
+                <a href="https://wa.me/5511912214289" 
+                class="whatsapp-comercial-button" 
+                target="_blank">
+                    Converse no WhatsApp
+                </a>
+            </div>
+        </section>
+
+        <!-- Seção Segmentos -->
+        <section class="segmentos" id="segmentos">
+            <div class="segmentos-container">
+                <div class="segmentos-header">
+                    <h2 class="segmentos-title">Segmentos</h2>
+                    <p class="segmentos-subtitle">
+                        Descubra mais sobre os principais segmentos que atuamos e quais as soluções que atendem exclusivamente cada um deles.
+                    </p>
+                </div>
+            
+                <div class="segmentos-carousel">
+                    <!-- Navigation Buttons -->
+                    <button class="carousel-nav prev" onclick="changeSegmento(-1)">‹</button>
+                    <button class="carousel-nav next" onclick="changeSegmento(1)">›</button>
+                
+                    <!-- Carousel Content -->
+                    <div class="carousel-content">
+                        <!-- Segmento 1: Instituições de Ensino Superior -->
+                        <div class="segmento-item instituicoes active">
+                            <div class="segmento-image">
+                                <img src="assets/img/imagem controle de acesso 4.jpg" alt="Instituições de Ensino Superior">
+                            </div>
+                            <div class="segmento-content">
+                                <h3 class="segmento-titulo">Instituições de Ensino</h3>
+                                <p class="segmento-descricao">
+                                    Um dos principais segmentos da Inova, possuímos diversas soluções exclusivas 
+                                    para a sua instituição incluindo a integração dos dados já existentes dos alunos com o novo sistema, 
+                                    evitando complicações e promovendo um sistema escalável para atender milhares de alunos.
+                                </p>
+                                <button class="cta-comprar-sections"><span><a href="contratar.html">Confira</a></span></button>
+                            </div>
+                        </div>
+                    
+                        <!-- Segmento 2: Empresas -->
+                        <div class="segmento-item empresas">
+                            <div class="segmento-image">
+                                <img src="assets/img/imagem controle de acesso 3.jpg" alt="Empresas">
+                            </div>
+                            <div class="segmento-content">
+                                <h3 class="segmento-titulo">Empresas</h3>
+                                <p class="segmento-descricao">
+                                    Soluções corporativas completas para controle de acesso e ponto, buscamos promover uma gestão eficiente de funcionários e segurança empresarial. 
+                                    Conte também com o nosso aplicativo Inova Access para obter dashboards interativos com as principais informações.
+                                </p>
+                                <button class="cta-comprar-sections"><span><a href="contratar.html">Confira</a></span></button>
+                            </div>
+                        </div>
+                    
+                        <!-- Segmento 3: Condomínios -->
+                        <div class="segmento-item condominios">
+                            <div class="segmento-image">
+                                <img src="assets/img/imagem controle de acesso 2.jpg" alt="Condomínios">
+                            </div>
+                            <div class="segmento-content">
+                                <h3 class="segmento-titulo">Condomínios</h3>
+                                <p class="segmento-descricao">
+                                    Modernize a segurança do seu condomínio com soluções inteligentes para controle 
+                                    de moradores, visitantes e prestadores de serviço, contando com nosso 
+                                    aplicativo para gerenciar de forma prática a entrada dos condôminos e a 
+                                    gestão dos visitantes.
+                                </p>
+                                <button class="cta-comprar-sections"><span><a href="contratar.html">Confira</a></span></button>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Progress Indicators -->
+                    <div class="carousel-indicators">
+                        <div class="indicator active" onclick="goToSegmento(0)"></div>
+                        <div class="indicator" onclick="goToSegmento(1)"></div>
+                        <div class="indicator" onclick="goToSegmento(2)"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer atualizado -->
+        <footer class="footer">
+            <div class="footer-container">
+                <!-- Coluna do Logo -->
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/img/logo inova rodape site.png" alt="Inova Tecnologia">
+                    </div>
+                    
+                    <!-- Ícones das redes sociais -->
+                    <div class="social-media-container">
+                        <a href="https://www.facebook.com/socialinova/" target="_blank" class="social-icon facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/inova.tecnologia/" target="_blank" class="social-icon instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/inova-tecnologia-ltda/posts/?feedView=all" target="_blank" class="social-icon linkedin">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Mapa da empresa -->
+                    <div class="company-map">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.0234234234!2d-46.8358558!3d-23.5064977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf01000bfba25d%3A0xc31447c548ca2f19!2sOffice%20Shopping%20Tambor%C3%A9!5e0!3m2!1spt-BR!2sbr!4v1640000000000!5m2!1spt-BR!2sbr" 
+                            width="100%" 
+                            height="200" 
+                            style="border:0; border-radius: 12px;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Coluna de Navegação -->
+                <div class="footer-nav">
+                    <h3 class="footer-title">Navegação</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="solucoes.html">SOLUÇÕES</a></li>
+                        <li><a href="educacao.html">EDUCAÇÃO</a></li>
+                        <li><a href="empresas.html">EMPRESAS</a></li>
+                        <li><a href="condominios.html">CONDOMÍNIOS</a></li>
+                        <li><a href="servicos.html">SERVIÇOS</a></li>
+                        <li><a href="clientes.html">CLIENTES</a></li>
+                        <li><a href="contratar.html">CONTRATAR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Coluna de Contatos -->
+                <div class="footer-contact">
+                    <h3 class="footer-title">Contatos</h3>
+                    <div class="contact-box">
+                        <div class="contact-info">
+
+                            <!-- Localização -->
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#2E3F5B" viewBox="0 0 24 24">
+                                        <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/>
+                                    </svg>
+                                </div>
+                                <a href="https://www.google.com/maps/place/Inova+Tecnologia/@-23.5064977,-46.8358558,17z/data=!4m6!3m5!1s0x94cf021ed96ff145:0xe024955498852991!8m2!3d-23.5063422!4d-46.8345553!16s%2Fg%2F11bzq2w2g3?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
+                                class="contact-info-value-footer" target="_blank">
+                                    Av. Marcos Penteado de Ulhoa Rodrigues, 1119 - 
+                                    Sala 714 – Tamboré - Barueri/SP, 06460-040
+                                </a>
+                            </div>
+
+                            <!-- Telefone -->
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#2E3F5B" viewBox="0 0 24 24">
+                                        <path d="M6.6 10.8c1.1 2.1 2.8 3.9 4.9 4.9l1.6-1.6c.2-.2.6-.3.9-.2 1 .3 2.1.5 3.3.5.5 0 .9.4.9.9V19c0 .5-.4.9-.9.9C10.8 20 4 13.2 4 5.9 4 5.4 4.4 5 4.9 5H8c.5 0 .9.4.9.9 0 1.2.2 2.3.5 3.3.1.3 0 .7-.2.9l-1.6 1.7z"/>
+                                    </svg>
+                                </div>
+                                <a href="tel:+551142801002" class="contact-info-value-footer">(11) 4280-1002</a>
+                            </div>
+
+                            <!-- WhatsApp -->
+                            <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#2E3F5B" viewBox="0 0 24 24">
+                                    <path d="M6.6 10.8c1.1 2.1 2.8 3.9 4.9 4.9l1.6-1.6c.2-.2.6-.3.9-.2 1 .3 2.1.5 3.3.5.5 0 .9.4.9.9V19c0 .5-.4.9-.9.9C10.8 20 4 13.2 4 5.9 4 5.4 4.4 5 4.9 5H8c.5 0 .9.4.9.9 0 1.2.2 2.3.5 3.3.1.3 0 .7-.2.9l-1.6 1.7z"/>
+                                </svg>
+                            </div>
+                            <a href="https://wa.me/5511912214289?text=Ol%C3%A1%21+Gostaria+de+conhecer+as+solu%C3%A7%C3%B5es+da+Inova+Tecnologia." 
+                                class="contact-info-value-footer" target="_blank">
+                                (11) 91221-4289
+                            </a>
+                            </div>
+                            <a href="https://api.whatsapp.com/send/?phone=5511912214289&text=Ol%C3%A1%21+Gostaria+de+conhecer+as+solu%C3%A7%C3%B5es+da+Inova+Tecnologia.&type=phone_number&app_absent=0" class="whatsapp-button" target="_blank">
+                                Falar no WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-marca">
+                <p>© 2025 Inova Tecnologia. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
