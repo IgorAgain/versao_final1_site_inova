@@ -243,48 +243,66 @@ const statsObserver = new IntersectionObserver((entries) => {
 });
 
 // ========================================
-// CARROSSEL DOS SEGMENTOS
+// CARROSSEL DOS SEGMENTOS - VERSÃO CORRIGIDA
 // ========================================
 
 let currentSegmento = 0;
-const segmentos = document.querySelectorAll('.segmento-item');
-const indicators = document.querySelectorAll('.indicator');
+let segmentos = [];
+let indicators = [];
 let autoSlideInterval = null;
 let isTransitioning = false;
+
+// Inicialização quando DOM estiver pronto
+document.addEventListener('DOMContentLoaded', function() {
+    // Captura elementos após DOM carregar
+    segmentos = document.querySelectorAll('.segmento-item');
+    indicators = document.querySelectorAll('.indicator');
+    
+    // Garante que o primeiro item esteja ativo
+    if (segmentos.length > 0) {
+        segmentos[0].classList.add('active');
+    }
+    if (indicators.length > 0) {
+        indicators[0].classList.add('active');
+    }
+    
+    // Inicia auto-slide
+    startAutoSlide();
+    
+    // Para auto-slide quando usuário interage
+    setupInteractionHandlers();
+});
         
-// Função para atualizar a visualização
+// Função para atualizar a visualização - MELHORADA
 function updateCarousel() {
     if (isTransitioning) return;
             
     isTransitioning = true;
             
-    // Remove active de todos
-    segmentos.forEach((item, index) => {
-        if (index !== currentSegmento) {
-            item.classList.remove('active');
-        }
-    });
+    // Remove active de todos os segmentos e indicadores
+    segmentos.forEach(item => item.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
             
-    indicators.forEach((indicator, index) => {
-        indicator.classList.remove('active');
-    });
+    // Força o reflow do browser antes de adicionar as novas classes
+    document.body.offsetHeight;
             
-    // Pequeno delay para garantir a transição
+    // Adiciona active apenas ao atual
+    if (segmentos[currentSegmento]) {
+        segmentos[currentSegmento].classList.add('active');
+    }
+    if (indicators[currentSegmento]) {
+        indicators[currentSegmento].classList.add('active');
+    }
+    
+    // Libera transição após tempo suficiente para a animação CSS
     setTimeout(() => {
-        // Adiciona active apenas ao atual
-        if (segmentos[currentSegmento]) {
-            segmentos[currentSegmento].classList.add('active');
-        }
-        if (indicators[currentSegmento]) {
-            indicators[currentSegmento].classList.add('active');
-        }
         isTransitioning = false;
-    }, 50);
+    }, 100);
 }
         
 // Função para mudar segmento
 function changeSegmento(direction) {
-    if (isTransitioning) return;
+    if (isTransitioning || segmentos.length === 0) return;
             
     const previousSegmento = currentSegmento;
     currentSegmento += direction;
@@ -304,7 +322,7 @@ function changeSegmento(direction) {
         
 // Função para ir diretamente a um segmento
 function goToSegmento(index) {
-    if (isTransitioning || index === currentSegmento) return;
+    if (isTransitioning || index === currentSegmento || !segmentos[index]) return;
             
     currentSegmento = index;
     updateCarousel();
@@ -336,6 +354,25 @@ function resetAutoSlide() {
     startAutoSlide();
 }
 
+// Configurar handlers para pausar auto-slide durante interação
+function setupInteractionHandlers() {
+    const carousel = document.querySelector('.segmentos-carousel');
+    
+    if (carousel) {
+        // Pausa auto-slide no hover
+        carousel.addEventListener('mouseenter', stopAutoSlide);
+        carousel.addEventListener('mouseleave', startAutoSlide);
+        
+        // Pausa auto-slide no touch (mobile)
+        carousel.addEventListener('touchstart', stopAutoSlide);
+        carousel.addEventListener('touchend', () => {
+            setTimeout(startAutoSlide, 2000); // Reativa após 2s
+        });
+    }
+}
+
+// Limpeza ao sair da página
+window.addEventListener('beforeunload', stopAutoSlide);
 // ========================================
 // INICIALIZAÇÃO GERAL
 // ========================================
