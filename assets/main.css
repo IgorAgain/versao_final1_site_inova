@@ -1579,7 +1579,6 @@ body {
 
 .educacao-image {
     width: 100%;
-    max-width: 500px;
     height: auto;
     border-radius: 15px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -1753,117 +1752,245 @@ body {
 
 .nova-sessao {
     background: #F8F9FA;
-    padding: 40px 100px;
+    padding: 60px 100px;
     overflow: hidden;
 }
 
 .nova-sessao-container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+}
+
+.nova-sessao-header {
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .nova-sessao-title {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #2E3F5B;
     margin-bottom: 20px;
 }
 
 .nova-sessao-subtitle {
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #4A4A4A;
     max-width: 800px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto;
+    line-height: 1.6;
 }
 
-.nova-sessao-grid {
+.parceiros-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+ }
+
+.parceiro-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(46, 63, 91, 0.1);
 }
 
-.nova-sessao-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-}
-
-/* Animação no hover */
-.nova-sessao-item:hover img {
-    transform: scale(1.05);
-}
-
-.nova-sessao-item:hover {
+.parceiro-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    border-color: rgba(46, 63, 91, 0.2);
 }
 
-/* Responsividade */
-@media (max-width: 1024px) {
-    .nova-sessao-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
+.parceiro-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #E9ECEF;
 }
 
-/* Banner Educação */
-.banner-educacao {
-    position: relative;
-    width: 100%;
-    height: 300px;
+.parceiro-logo {
+    width: 80px;
+    height: 80px;
+    background: #F8F9FA;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 20px;
+    border: 2px solid #E9ECEF;
+}
+
+.parceiro-logo img {
+    max-width: 60px;
+    max-height: 60px;
+    object-fit: contain;
+}
+
+.parceiro-info h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #2E3F5B;
+    margin: 0 0 5px 0;
+}
+
+.parceiro-info .categoria {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #6C757D;
+    background: #E7F3FF;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.info-section {
+    margin-bottom: 25px;
+}
+
+.info-section:last-child {
+    margin-bottom: 0;
+}
+
+.info-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #2E3F5B;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.info-title::before {
+    content: "";
+    width: 4px;
+    height: 16px;
+    background: linear-gradient(135deg, #007BFF, #0056B3);
+    border-radius: 2px;
+    margin-right: 10px;
+}
+
+.info-content {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    color: #495057;
+    line-height: 1.6;
+    margin-left: 14px;
+}
+
+.tecnologias-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-left: 14px;
+}
+
+.tech-tag {
+    background: linear-gradient(135deg, #007BFF, #0056B3);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.resultados-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-left: 14px;
+}
+
+.resultado-item {
+    background: #F8F9FA;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #28A745;
+}
+
+.resultado-numero {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #28A745;
+    margin-bottom: 5px;
+}
+
+.resultado-descricao {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.85rem;
+    color: #495057;
+    line-height: 1.4;
+}
+
+
+/* Banner Educação */
+/* OPÇÃO 4: Minimalista com texto escuro */
+.banner-educacao {
+    position: relative;
+    height: 45vh;
+    display: flex;
+    align-items: center;
     overflow: hidden;
 }
 
-.banner-image {
+.banner-educacao .banner-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0;
+    filter: brightness(1.2) contrast(0.5) saturate(0.4);
+    z-index: 1;
 }
 
-.banner-overlay {
+.banner-educacao .banner-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    
-    z-index: 1;
-}
-
-.banner-content {
-    position: relative;
+    background: rgba(255,255,255,0.7);
     z-index: 2;
-    text-align: center;
 }
 
-.banner-title {
+.banner-educacao .banner-content {
+    position: relative;
+    z-index: 3;
+    margin: 0 auto;
+}
+
+.banner-educacao .banner-title {
     font-family: 'Poppins', sans-serif;
     font-size: 3rem;
-    font-weight: 700;
-    color: #2E3F5B;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.2;
     margin: 0;
+    text-align: left;
+    position: relative;
+    padding-left: 20px;
 }
 
-/* Opção 3: Box minimalista com linha lateral */
-.banner-content {
-    background: #F8F9FA;
-    border-radius: 8px;
-    padding: 20px 40px;
-    border-left: 7px solid #00bcd4;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+.banner-educacao .banner-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: linear-gradient(180deg, #3498db, #2980b9);
+    border-radius: 3px;
 }
+
 
 /* Seção Compromentimento com Segurança */
 .compromentimento-seguranca {
@@ -1892,6 +2019,7 @@ body {
     margin: 0;
     line-height: 1.2;
     text-align: left;
+    z-index: 2;
 }
 
 .compromentimento-subtitle {
@@ -2050,14 +2178,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 25px;
-}
-
-.tecnologia-box-description {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-    color: #4A4A4A;
-    line-height: 1.6;
-    margin: 0;
 }
 
 /* Seção de características */
