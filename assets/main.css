@@ -99,60 +99,87 @@ body {
 }
 
 /* ========================================= */
-/* DROPDOWN MENU SEGMENTOS */
+/* DROPDOWN MENU SEGMENTOS - VERSÃO CRIATIVA */
 /* ========================================= */
 
 .dropdown {
     position: relative;
 }
 
-/* CORREÇÃO 1: Remover estilos que desalinham o menu */
 .dropdown-toggle {
-    /* Remove todos os estilos personalizados para manter alinhamento */
+    cursor: pointer;
     position: relative;
-    /* Não adiciona padding ou display flex que pode desalinhar */
+    padding: 8px 0;
+    transition: color 0.3s ease;
+    border: none;
+    background: none;
+    text-decoration: none;
+    color: #4A4A4A;
+    font-weight: 500;
+    font-size: 14px;
 }
 
-/* Remove a seta completamente */
-.dropdown-toggle::after {
-    display: none;
+/* Animação de linha embaixo (igual aos outros links) */
+.drop-down-menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #4a4a4a;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* IMPORTANTE: Remove o ::before customizado para não interferir na animação padrão */
-/* A animação de linha já existe nos estilos padrão do .nav-links a */
+.dropdown-toggle:hover::after {
+    transform: scaleX(1);
+}
 
+.dropdown-toggle:hover {
+    color: #2E3F5B;
+}
+
+/* Menu dropdown com design moderno */
 .dropdown-menu {
     position: absolute;
-    top: calc(100% + 15px);
+    top: calc(100% + 20px);
     left: 50%;
     transform: translateX(-50%);
-    background: #F8F9FA;
-    border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    padding: 20px 0;
-    min-width: 200px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+    border-radius: 16px;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.1),
+        0 4px 16px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    min-width: 220px;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transform: translateX(-50%) translateY(-10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateX(-50%) translateY(-15px) scale(0.95);
     z-index: 1000;
-    border: 2px solid transparent;
+    border: 1px solid rgba(37, 186, 207, 0.2);
+    backdrop-filter: blur(10px);
 }
 
-/* Seta do dropdown */
+/* Seta moderna com gradiente */
 .dropdown-menu::before {
     content: '';
     position: absolute;
-    top: -8px;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
+
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 8px solid #25BACF;
 }
 
+/* Mostrar menu no hover com animação suave */
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
@@ -160,73 +187,56 @@ body {
     border: 2px solid #25BACF;
 }
 
+/* Container dos itens */
 .dropdown-menu li {
     list-style: none;
-    margin: 0 auto;
+    margin: 0;
+    overflow: hidden; /* IMPORTANTE: Contém as animações */
 }
 
+/* Itens do menu com design moderno */
 .drop-down-menu-item {
     display: block;
+    padding: 14px 20px;
     color: #4A4A4A;
     text-decoration: none;
     font-weight: 500;
     font-size: 14px;
-    transition: all 0.3s ease;
+    text-align: center; /* CENTRALIZADO */
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
-    border: none;
-    border-radius: 0;
+    margin-bottom: 4px;
+    overflow: hidden; /* Contém o efeito de preenchimento */
 }
 
-.dropdown-menu a::after {
-    display: none;
-}
-
-/* Animação da borda esquerda para direita */
-.dropdown-menu a::before {
-    content: '';
-    position: absolute;
-    left: 35px; /* CORREÇÃO 2: Ajusta posição da linha conforme o padding */
-    bottom: 8px;
-    width: calc(100% - 70px); /* CORREÇÃO 2: Ajusta largura da linha */
-    height: 2px;
-    background: #25BACF;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.3s ease;
-}
-
-.dropdown-menu a:hover {
-    color: #2E3F5B;
-    background: transparent;
-    transform: none;
-    margin: 0;
-    border-radius: 0;
-}
-
-.dropdown-menu a:hover::before {
-    transform: scaleX(1);
-}
-
-/* Animação de entrada dos itens */
+/* Animação de entrada escalonada dos itens */
 .dropdown-menu li {
     opacity: 0;
-    transform: translateY(-5px);
-    animation: none;
+    transform: translateY(15px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .dropdown:hover .dropdown-menu li {
-    animation: dropdownSlideIn 0.3s ease forwards;
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.dropdown:hover .down-menu li:nth-child(1) { animation-delay: 0.1s; }
-.dropdown:hover .dropdown-menu li:nth-child(2) { animation-delay: 0.15s; }
-.dropdown:hover .dropdown-menu li:nth-child(3) { animation-delay: 0.2s; }
+.dropdown:hover .dropdown-menu li:nth-child(1) { 
+    transition-delay: 0.1s; 
+}
+.dropdown:hover .dropdown-menu li:nth-child(2) { 
+    transition-delay: 0.18s; 
+}
+.dropdown:hover .dropdown-menu li:nth-child(3) { 
+    transition-delay: 0.26s; 
+}
 
-@keyframes dropdownSlideIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Efeito de brilho sutil no hover do container */
+.dropdown:hover .dropdown-menu {
+    box-shadow: 
+        0 15px 50px rgba(37, 186, 207, 0.15),
+        0 6px 20px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
  /* ========================================= */
@@ -269,7 +279,7 @@ body {
     left: 0;
     width: 100%;
     height: 2px;
-    background: #2E3F5B;
+    background: #25BACF;
     transform: scaleX(1); /* Sempre visível */
     transform-origin: center;
 }
@@ -282,7 +292,7 @@ body {
     left: 0;
     width: 100%;
     height: 2px;
-    background: #4a4a4a;
+    background: #25BACF;
             
     /* Animação do centro para bordas */
     transform: scaleX(0);
@@ -540,16 +550,6 @@ body {
     max-width: 1200px;
 }
 
-.stats-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2rem;
-    color: #2E3F5B;
-    text-align: center;
-    margin: 0;
-    line-height: 1.2;
-}
-
 .stat-divider {
     width: 2px;
     height: 80px;
@@ -606,17 +606,6 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 60px;
-}
-        
-.nossas-solucoes-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2rem;
-    color: #2E3F5B;
-    text-align: center;
-    margin-bottom: 20px;
-    z-index: 1;
-    line-height: 2.5rem;
 }
         
 .nossas-solucoes-subtitle {
@@ -767,14 +756,6 @@ body {
     text-align: center;
 }
 
-.quem-confia-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2rem;
-    color: #2E3F5B;
-    margin-bottom: 20px;
-}
-
 .quem-confia-subtitle {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.1rem;
@@ -872,14 +853,6 @@ body {
         
 .segmentos-header {
     text-align: center;
-}
-        
-.segmentos-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2rem;
-    color: #2E3F5B;
-    margin-bottom: 20px;
 }
         
 .segmentos-subtitle {
@@ -1339,14 +1312,6 @@ body {
     text-align: center;
 }
 
-.vantagens-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2rem;
-    color: #2E3F5B;
-    margin-bottom: 20px;
-}
-
 .vantagens-subtitle {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
@@ -1553,15 +1518,6 @@ body {
 }
 
 /* Título principal centralizado */
-.porque-escolher-title-main {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2.2rem;
-    color: #2E3F5B;
-    text-align: center;
-    margin: 0;
-    line-height: 1.2;
-}
 
 .porque-escolher-content {
     display: grid;
@@ -1766,14 +1722,6 @@ body {
     margin-bottom: 50px;
 }
 
-.nova-sessao-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2.5rem;
-    color: #2E3F5B;
-    margin-bottom: 20px;
-}
-
 .nova-sessao-subtitle {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.2rem;
@@ -1814,20 +1762,17 @@ body {
 }
 
 .parceiro-logo {
-    width: 80px;
-    height: 80px;
-    background: #F8F9FA;
-    border-radius: 12px;
+    width: 110px;
+    height: 110px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 20px;
-    border: 2px solid #E9ECEF;
 }
 
 .parceiro-logo img {
-    max-width: 60px;
-    max-height: 60px;
+    width: 110px;
+    height: auto;
     object-fit: contain;
 }
 
@@ -1966,6 +1911,8 @@ body {
     position: relative;
     z-index: 3;
     margin: 0 auto;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .banner-educacao .banner-title {
@@ -2049,15 +1996,6 @@ body {
 /* Cabeçalho */
 .tecnologias-section-header {
     text-align: center;
-}
-
-.tecnologias-section-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2.5rem;
-    color: #2E3F5B;
-    margin: 0;
-    line-height: 1.2;
 }
 
 /* Grid dos boxes principais */
@@ -2283,6 +2221,7 @@ body {
     font-size: 2rem;
     color: #2E3F5B;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .servicos-subtitle {
@@ -2721,15 +2660,6 @@ body {
 
 .clientes-header {
     text-align: center;
-}
-
-.clientes-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2rem;
-    color: #2E3F5B;
-    margin: 0;
-    line-height: 1.2;
 }
 
 /* Grid dos depoimentos */
