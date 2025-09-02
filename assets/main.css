@@ -3355,10 +3355,15 @@ body {
     }
 
     .tecnologias-section {
-        padding: 60px 300px;
+        padding: 60px 300px 80px 300px;
     }
 
     .porque-escolher-educacao {
+        padding: 60px 300px;
+    }
+
+    .nova-sessao {
+        margin: 0;
         padding: 60px 300px;
     }
 
