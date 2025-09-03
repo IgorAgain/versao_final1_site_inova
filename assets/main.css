@@ -147,13 +147,13 @@ body {
     top: calc(100% + 20px);
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #F8F9FA 100%);
     border-radius: 16px;
     box-shadow: 
         0 10px 40px rgba(0, 0, 0, 0.1),
         0 4px 16px rgba(0, 0, 0, 0.06),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    padding: 15px;
     min-width: 220px;
     opacity: 0;
     visibility: hidden;
@@ -312,7 +312,7 @@ body {
 .cta-comprar {
     width: auto;
     background: #2E3F5B;
-    color: white;
+    color: #F8F9FA;
     padding: 12px 30px;
     border: none;
     border-radius: 10px;
@@ -336,7 +336,7 @@ body {
 }
 
 .cta-comprar:hover span {
-    color: #FFFFFF;
+    color: #f8f9fa;
 }
 
 .cta-comprar::before {
@@ -360,7 +360,7 @@ body {
 .cta-verifique-sections {
     width: auto;
     background: #2E3F5B;
-    color: white;
+    color: #F8F9FA;
     padding: 12px 30px;
     border: none;
     border-radius: 10px;
@@ -385,7 +385,7 @@ body {
 }
 
 .cta-verifique-sections:hover span {
-    color: #FFFFFF;
+    color: #f8f9fa;
 }
 
 .cta-verifique-sections::before {
@@ -403,6 +403,60 @@ body {
 }
 
 .cta-verifique-sections:hover::before {
+    transform: scaleX(1);
+}
+
+.cta-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-comprar-integracao {
+    width: auto;
+    background: #25BACF;
+    color: #F8F9FA;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: auto 0;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-top: 40px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-comprar-integracao span {
+    position: relative;
+    z-index: 10;
+    transition: color 0.4s;
+}
+
+.cta-comprar-integracao:hover span {
+    color: #f8f9fa;
+}
+
+.cta-comprar-integracao::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2E3F5B;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+    z-index: 5;
+}
+
+.cta-comprar-integracao:hover::before {
     transform: scaleX(1);
 }
 
@@ -674,14 +728,12 @@ body {
     width: 80px;
     height: 80px;
     margin: 0 auto 25px;
-    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 35px;
     color: white;
     transition: all 0.3s ease;
-    background: #25BACF;
 }
         
 .solucao-card:hover .solucao-icon {
@@ -689,8 +741,8 @@ body {
 }
 
 .solucao-icon-grid {
-    width: 60%;
-    height: 60%;
+    width: 100%;
+    height: 100%;
 }
         
 .solucao-titulo {
@@ -1504,20 +1556,40 @@ body {
 }
 
 .porque-escolher-educacao {
-    background: #F8F9FA;
-    padding: 40px 100px;
+    background: #f8f9fa;
+    padding: 60px 100px;
     overflow: hidden;
 }
 
 .porque-escolher-container {
-    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 50px;
 }
 
-/* Título principal centralizado */
+.nova-sessao-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.servicos-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #2E3F5B;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.nova-sessao-subtitle {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: #6C757D;
+    margin: 0 auto;
+    line-height: 1.6;
+}
 
 .porque-escolher-content {
     display: grid;
@@ -1526,7 +1598,6 @@ body {
     align-items: center;
 }
 
-/* Lado esquerdo - Imagem */
 .porque-escolher-image {
     display: flex;
     justify-content: center;
@@ -1536,70 +1607,77 @@ body {
 .educacao-image {
     width: 100%;
     height: auto;
-    border-radius: 15px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Lado direito - Conteúdo */
+.educacao-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
 .porque-escolher-text {
     padding-left: 40px;
 }
 
-.porque-escolher-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2.2rem;
-    color: #2E3F5B;
-    margin-bottom: 15px;
-    line-height: 1.2;
-}
-
-.porque-escolher-subtitle {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 1.8rem;
-    color: #2E3F5B;
-    margin-bottom: 40px;
-}
-
-/* Lista de diferenciais */
 .diferenciais-list {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 35px;
 }
 
 .diferencial-item {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
+    gap: 25px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+     border-left: 4px solid transparent;
+}
+
+.diferencial-item:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.9);
+    border-left-color: #25BACF;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .diferencial-icon-space {
-    flex: 0 0 60px;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: auto 0;
+
 }
 
 .diferencial-icon-space img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
+    width: 70px;
+    height: auto;
 }
 
-.diferencial-text {
+.diferencial-content {
     flex: 1;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.diferencial-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #2E3F5B;
+    margin-bottom: 5px;
 }
 
 .diferencial-text p {
     font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    color: #4A4A4A;
+    font-size: 15px;
+    color: #5A6C7D;
     line-height: 1.6;
     margin: 0;
 }
@@ -1726,7 +1804,6 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.2rem;
     color: #4A4A4A;
-    max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
 }
@@ -1837,13 +1914,13 @@ body {
 }
 
 .tech-tag {
-    background: linear-gradient(135deg, #007BFF, #0056B3);
-    color: white;
+    background: #25BACF;
+    color: #F8F9FA;
     padding: 6px 12px;
     border-radius: 20px;
     font-family: 'Open Sans', sans-serif;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .resultados-grid {
@@ -1938,44 +2015,231 @@ body {
     border-radius: 3px;
 }
 
-
-/* Seção Compromentimento com Segurança */
-.compromentimento-seguranca {
+/* Seção Integração Completa */
+.integracao-section {
     background: #F8F9FA;
-    padding: 80px 100px 40px 100px;
-    overflow: hidden;
-}
-
-.compromentimento-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.compromentimento-header {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 60px;
+    padding: 60px 100px;
+    display: flex;
     align-items: center;
 }
 
-.compromentimento-title {
+.integracao-container {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.integracao-header {
+    text-align: center;
+    margin-bottom: 0px;
+    position: relative;
+}
+
+.header-badge {
+    background: #25BACF;
+    color: #F8F9FA;
+    padding: 12px 40px;
+    border-radius: 50px;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 2rem;
-    color: #2E3F5B;
-    margin: 0;
-    line-height: 1.2;
-    text-align: left;
-    z-index: 2;
+    display: inline-block;
+    margin-bottom: 0px;
+    box-shadow: 0 8px 25px rgba(23, 162, 184, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
-.compromentimento-subtitle {
-    font-family: 'Open Sans', sans-serif;
+/* Diagrama */
+.integracao-diagram {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Linha vertical principal conectando diretamente ao badge */
+.main-connector {
+    width: 4px;
+    height: 60px;
+    background: #25BACF;
+    border-radius: 2px;
+    margin: 0 auto;
+    position: relative;
+    animation: pulse 2s infinite;
+}
+
+/* Nova linha horizontal conectando todos os cards */
+.horizontal-connector {
+    width: 77%;
+    height: 4px;
+    background: #25BACF;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    position: relative;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* Grid dos apps */
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    width: 100%;
+    position: relative;
+}
+
+/* Conectores individuais para cada card */
+.card-connector {
+    position: absolute;
+    top: -26px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 26px;
+    background: #25BACF;
+    border-radius: 2px;
+    animation: pulse 2s infinite;
+}
+
+/* Cards dos apps */
+.app-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(23, 162, 184, 0.1);
+    position: relative;
+}
+
+.app-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border: 2px solid #25BACF;
+}
+
+.app-icon {
+    max-width: 80px;
+    height: auto;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-icon img{
+    width: 80px;
+    height: auto;
+}
+
+.app-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     font-size: 1.1rem;
+    color: #2E3F5B;
+    margin-bottom: 15px;
+}
+
+.app-description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.9rem;
+    color: #6C757D;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+}
+
+/* Seção Parceria Exclusiva */
+.parceria-exclusiva {
+    background: #f8f9fa;
+    padding: 60px 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.parceria-container {
+    margin: 0 auto;
+    background: rgba(229, 62, 62, 0.02);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.parceria-card {
+    background: transparent;
+    border: 3px solid #e53e3e;
+    border-radius: 20px;
+    padding: 50px 20px;
+    color: #e53e3e;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(229, 62, 62, 0.15);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.parceria-card h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin: 0;
+    color: #e25656;
+    text-align: right;
+}
+
+.lucide-circle-check-big {
+    color: #e53e3e;
+}
+
+.parceria-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.parceria-description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
     color: #4A4A4A;
     line-height: 1.6;
-    margin: 0;
-    text-align: left;
+}
+
+.beneficios-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #2E3F5B;
+    margin: 0 0 20px 0;
+}
+
+.beneficios-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.beneficio-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #4A4A4A;
+    transition: all 0.3s ease;
 }
 
 /* Seção Tecnologias */
@@ -3569,7 +3833,7 @@ body {
     }
 
     .vantagens {
-        padding: 100px 300px;
+        padding: 60px 300px;
     }
     
     .vantagens-container {
@@ -3587,7 +3851,7 @@ body {
 
     .diferenciais {
     background: #F8F9FA;
-    padding: 40px 300px;
+    padding: 60px 300px;
     overflow: hidden;
     }
 
@@ -3642,6 +3906,14 @@ body {
     }
 
     .porque-escolher-educacao {
+        padding: 60px 300px;
+    }
+
+    .parceria-exclusiva {
+        padding: 60px 300px;
+    }
+
+    .integracao-section {
         padding: 60px 300px;
     }
 
@@ -3772,6 +4044,19 @@ body {
     
     .servicos-title {
         font-size: 2.2rem;
+    }
+
+    .integracao-container {
+        padding: 0 50px;
+    }
+            
+    .apps-grid {
+        gap: 25px;
+    }
+            
+    .header-badge {
+        font-size: 1.8rem;
+        padding: 12px 35px;
     }
 }
 
@@ -3964,6 +4249,38 @@ body {
     
     .servicos-title {
         font-size: 2rem;
+    }
+
+    .parceria-exclusiva {
+        padding: 60px 50px;
+    }
+    
+    .parceria-container {
+        grid-template-columns: 350px 1fr;
+        gap: 60px;
+    }
+    
+    .parceria-card {
+        padding: 50px 30px;
+    }
+
+    .integracao-container {
+        padding: 0 40px;
+    }
+            
+    .apps-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+            
+    .horizontal-connector {
+        width: 60%;
+        align-self: center;
+    }
+            
+    .header-badge {
+        font-size: 1.6rem;
+        padding: 10px 30px;
     }
 }
 
@@ -4499,6 +4816,79 @@ body {
         flex-direction: column;
         text-align: center;
     }
+
+    .parceria-exclusiva {
+        padding: 40px 20px;
+    }
+    
+    .parceria-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .parceria-card {
+        padding: 40px 30px;
+    }
+    
+    .parceria-card h2 {
+        font-size: 1.8rem;
+    }
+
+    .integracao-section {
+        padding: 30px 15px;
+    }
+            
+    .integracao-container {
+        padding: 0 20px;
+    }
+            
+    .apps-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+            
+    .horizontal-connector {
+        display: none;
+    }
+            
+    .header-badge {
+        font-size: 1.4rem;
+        padding: 10px 25px;
+    }
+            
+    .main-connector {
+        height: 40px;
+    }
+            
+    .card-connector {
+        height: 15px;
+        top: -15px;
+    }
+            
+    .app-card {
+        padding: 20px 15px;
+    }
+            
+    .app-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+            
+    .app-icon::before {
+        font-size: 24px;
+    }
+            
+    .app-title {
+        font-size: 1rem;
+    }
+            
+    .app-description {
+        font-size: 0.85rem;
+    }
 }
 
 /* Celulares pequenos */
@@ -4908,5 +5298,51 @@ body {
     .modal-features li,
     .modal-benefits li {
         font-size: 13px;
+    }
+
+    .integracao-section {
+        padding: 20px 10px;
+    }
+            
+    .integracao-container {
+        padding: 0 15px;
+    }
+            
+    .header-badge {
+        font-size: 1.2rem;
+        padding: 8px 20px;
+    }
+            
+    .main-connector {
+        height: 30px;
+    }
+            
+    .card-connector {
+        height: 12px;
+        top: -12px;
+    }
+            
+    .app-card {
+        padding: 15px 10px;
+    }
+            
+    .app-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 12px;
+    }
+            
+    .app-icon::before {
+        font-size: 22px;
+    }
+            
+    .app-title {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+            
+    .app-description {
+        font-size: 0.8rem;
+        line-height: 1.4;
     }
 }
