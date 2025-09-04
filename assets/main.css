@@ -119,20 +119,6 @@ body {
     font-size: 14px;
 }
 
-/* Animação de linha embaixo (igual aos outros links) */
-.drop-down-menu-item::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #4a4a4a;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
 .dropdown-toggle:hover::after {
     transform: scaleX(1);
 }
@@ -229,6 +215,18 @@ body {
 }
 .dropdown:hover .dropdown-menu li:nth-child(3) { 
     transition-delay: 0.26s; 
+}
+
+.dropdown:hover .dropdown-menu li:nth-child(4) { 
+    transition-delay: 0.34s; 
+}
+
+.dropdown:hover .dropdown-menu li:nth-child(5) { 
+    transition-delay: 0.42s; 
+}
+
+.dropdown:hover .dropdown-menu li:nth-child(6) { 
+    transition-delay: 0.50s; 
 }
 
 /* Efeito de brilho sutil no hover do container */
@@ -432,32 +430,10 @@ body {
     overflow: hidden;
 }
 
-.cta-comprar-integracao span {
-    position: relative;
-    z-index: 10;
-    transition: color 0.4s;
-}
-
-.cta-comprar-integracao:hover span {
-    color: #f8f9fa;
-}
-
-.cta-comprar-integracao::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #2E3F5B;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
-    z-index: 5;
-}
-
-.cta-comprar-integracao:hover::before {
-    transform: scaleX(1);
+.cta-comprar-integracao:hover {
+    background: #25BACF;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(46, 63, 91, 0.3);
 }
 
 /* Hero Section - REFORMULADA */
@@ -559,7 +535,6 @@ body {
 }
 
 .hero-cta:hover {
-    background: #1E2A3A;
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(46, 63, 91, 0.3);
 }
@@ -1573,15 +1548,6 @@ body {
     margin-bottom: 30px;
 }
 
-.servicos-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
-    font-size: 2.5rem;
-    color: #2E3F5B;
-    margin-bottom: 15px;
-    line-height: 1.2;
-}
-
 .nova-sessao-subtitle {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
@@ -1598,10 +1564,26 @@ body {
     align-items: center;
 }
 
-.porque-escolher-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.float-wrapper {
+  width: 280px;
+  height: 580px;
+  margin: 50px auto;
+  animation: float 4s ease-in-out infinite;
+  /* força apenas translateY */
+  transform: translateY(0) !important;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.phone {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  border: 8px solid #2d2d2d;
+  overflow: hidden;
 }
 
 .educacao-image {
@@ -1680,6 +1662,144 @@ body {
     color: #5A6C7D;
     line-height: 1.6;
     margin: 0;
+}
+
+/* Seção Vídeo */
+.video-section {
+    padding: 60px 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.video-container {
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.video-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.video-wrapper {
+    max-width: 1100px;
+    position: relative;
+    margin: 0 auto 40px;
+    background: #F8F9FA;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.video-wrapper:hover {
+    transform: translateY(-10px);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.15),
+        0 12px 36px rgba(0, 0, 0, 0.12);
+}
+
+.video-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #25BACF, #2E3F5B, #25BACF);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-wrapper:hover::before {
+    opacity: 1;
+}
+
+.video-frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+}
+
+.video-frame iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+}
+
+.video-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.video-cta-text {
+    font-size: 1.1rem;
+    color: #4A4A4A;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.video-cta .cta-comprar {
+    background: linear-gradient(135deg, #25BACF 0%, #2E3F5B 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 18px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.video-cta .cta-comprar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.video-cta .cta-comprar:hover::before {
+    left: 100%;
+}
+
+.video-cta .cta-comprar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(52, 152, 219, 0.4);
+}
+
+.video-cta .cta-comprar span a {
+    color: white;
+    text-decoration: none;
 }
 
 /* Seção Tecnologias */
@@ -2108,7 +2228,7 @@ body {
 
 /* Cards dos apps */
 .app-card {
-    background: white;
+    background: #f8f9fa;
     border-radius: 16px;
     padding: 25px 20px;
     text-align: center;
@@ -2156,96 +2276,262 @@ body {
     margin: 0;
 }
 
+/* ============================= */
+/* Sessão Introdução Educação    */
+/* ============================= */
+.introducao-educacao {
+  background: #F8F9FA;
+  padding: 80px 100px;
+  text-align: center;
+}
+
+.introducao-header {
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.introducao-titulo {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2E3F5B;
+  margin-bottom: 20px;
+}
+
+.introducao-subtitle {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  color: #4A4A4A;
+  line-height: 1.6;
+}
+
+/* Grid de Cards */
+.introducao-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.introducao-card {
+  background: #FFFFFF;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.introducao-card:hover {
+  transform: translateY(-8px);
+  border-color: #25BACF;
+  box-shadow: 0 18px 35px rgba(37,186,207,0.25);
+}
+
+.card-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+}
+
+.card-icon img {
+  width: 100%;
+  height: auto;
+}
+
+.card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2E3F5B;
+  margin-bottom: 15px;
+}
+
+.card-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #4A4A4A;
+  line-height: 1.6;
+}
+
 /* Seção Parceria Exclusiva */
 .parceria-exclusiva {
-    background: #f8f9fa;
+    background: linear-gradient(135deg, #fdf3f3, #ffffff);
     padding: 60px 100px;
-    overflow: hidden;
-    position: relative;
+    border-radius: 20px;
 }
 
-.parceria-container {
-    margin: 0 auto;
-    background: rgba(229, 62, 62, 0.02);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    display: grid;
-    grid-template-columns: 400px 1fr;
-    gap: 80px;
-    align-items: center;
-}
-
-.parceria-card {
-    background: transparent;
-    border: 3px solid #e53e3e;
-    border-radius: 20px;
-    padding: 50px 20px;
-    color: #e53e3e;
+.parceria-header {
     text-align: center;
-    box-shadow: 0 10px 30px rgba(229, 62, 62, 0.15);
-    transform: translateY(0);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+    margin-bottom: 50px;
 }
 
-.parceria-card h2 {
+.parceria-header h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    font-size: 2.8rem;
-    line-height: 1.2;
-    margin: 0;
-    color: #e25656;
-    text-align: right;
+    font-size: 2rem;
+    color: #e53e3e;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.parceria-subtitle {
+    font-size: 1.2rem;
+    color: #444;
+    margin-top: 8px;
+}
+
+.parceria-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: stretch;
+}
+
+.parceria-texto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.beneficios-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2E3F5B;
+    margin: 20px 0;
+}
+
+.beneficios-lista {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.beneficios-lista li {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #444;
+    gap: 10px;
 }
 
 .lucide-circle-check-big {
     color: #e53e3e;
 }
 
-.parceria-content {
+/* Define o tamanho do card */
+.parceria-card {
+    width: 100%;
+    height: auto;
     display: flex;
-    flex-direction: column;
-    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    overflow: visible; /* Mudança aqui para permitir que os quadrados saiam do container */
+    position: relative; /* Necessário para posicionamento absoluto dos quadrados */
 }
 
-.parceria-description {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.2rem;
-    color: #4A4A4A;
-    line-height: 1.6;
+/* Ajusta a imagem dentro do bloco */
+.parceria-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 15px;
+    position: relative;
+    z-index: 2; /* Garante que a imagem fique na frente */
 }
 
-.beneficios-title {
-    font-family: 'Poppins', sans-serif;
+/* Estilos dos quadrados flutuantes */
+.floating-square {
+    position: absolute;
+    border-radius: 12px;
+    z-index: 1; /* Fica atrás da imagem */
+}
+
+.square-1 {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #e53e3e, #ff6b6b);
+    top: -20px;
+    right: -30px;
+    animation: float1 6s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.square-2 {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff6b6b, #e53e3e);
+    bottom: -15px;
+    left: -25px;
+    animation: float2 8s ease-in-out infinite reverse;
+    opacity: 0.7;
+}
+
+/* Animações de flutuação */
+@keyframes float1 {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+@keyframes float2 {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(-3deg);
+    }
+}
+
+/* Adicione este CSS ao seu arquivo de estilos */
+.parceria-cta {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.btn-parceria {
+    background: #e53e3e;
+    color: #F8F9FA;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
     font-weight: 600;
-    font-size: 1.3rem;
-    color: #2E3F5B;
-    margin: 0 0 20px 0;
-}
-
-.beneficios-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.beneficio-item {
+    border-radius: 8px;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1rem;
-    color: #4A4A4A;
+    gap: 8px;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(229, 62, 62, 0.2);
+}
+
+.btn-parceria:hover {
+    background: #c53030;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(229, 62, 62, 0.3);
+}
+
+.btn-parceria:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.btn-arrow {
+    transition: transform 0.3s ease;
 }
 
 /* Seção Tecnologias */
 .tecnologias-section {
     background: #F8F9FA;
-    padding: 40px 100px 80px 100px;
+    padding: 60px 100px 80px 100px;
     overflow: hidden;
 }
 
@@ -3749,10 +4035,6 @@ body {
         margin: 0 auto;
     }
 
-    .hero-title {
-        font-size: 3.1rem;
-    }
-
     .stats {
         padding: 60px 200px;
     }
@@ -3929,6 +4211,11 @@ body {
     .fale-conosco {
         padding: 80px 300px;
     }
+
+    /* Seção Vídeo */
+    .video-section {
+        padding: 60px 300px;
+    }
 }
 
 /* Tablets grandes */
@@ -4057,6 +4344,40 @@ body {
     .header-badge {
         font-size: 1.8rem;
         padding: 12px 35px;
+    }
+
+    .parceria-exclusiva {
+        padding: 50px 80px;
+    }
+    
+    .parceria-grid {
+        gap: 40px;
+    }
+    
+    .parceria-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .parceria-texto p {
+        font-size: 1rem;
+    }
+    
+    .beneficios-title {
+        font-size: 1.2rem;
+    }
+    
+    .square-1 {
+        width: 70px;
+        height: 70px;
+        top: -15px;
+        right: -25px;
+    }
+    
+    .square-2 {
+        width: 50px;
+        height: 50px;
+        bottom: -10px;
+        left: -20px;
     }
 }
 
@@ -4281,6 +4602,44 @@ body {
     .header-badge {
         font-size: 1.6rem;
         padding: 10px 30px;
+    }
+
+    .parceria-exclusiva {
+        padding: 40px 60px;
+    }
+    
+    .parceria-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .parceria-header h2 {
+        font-size: 1.7rem;
+    }
+    
+    .parceria-texto {
+        order: 2;
+    }
+    
+    .parceria-card {
+        order: 1;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .beneficios-lista {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .parceria-cta {
+        justify-content: center;
+    }
+    
+    .btn-parceria {
+        padding: 14px 28px;
+        font-size: 0.95rem;
     }
 }
 
@@ -4889,6 +5248,101 @@ body {
     .app-description {
         font-size: 0.85rem;
     }
+
+    .parceria-exclusiva {
+        padding: 30px 40px;
+    }
+    
+    .parceria-header {
+        margin-bottom: 30px;
+    }
+    
+    .parceria-header h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .nova-sessao-subtitle {
+        font-size: 1rem;
+    }
+    
+    .parceria-texto p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .beneficios-title {
+        font-size: 1.1rem;
+        margin: 15px 0;
+    }
+    
+    .beneficios-lista li {
+        font-size: 0.9rem;
+        gap: 8px;
+    }
+    
+    .lucide-circle-check-big {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .parceria-card {
+        max-width: 300px;
+    }
+    
+    .square-1 {
+        width: 60px;
+        height: 60px;
+        top: -10px;
+        right: -20px;
+    }
+    
+    .square-2 {
+        width: 45px;
+        height: 45px;
+        bottom: -8px;
+        left: -15px;
+    }
+    
+    .btn-parceria {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-arrow {
+        width: 18px;
+        height: 18px;
+    }
+
+    .video-section {
+        padding: 60px 0;
+    }
+    
+    .video-container {
+        padding: 0 15px;
+    }
+    
+    .video-header .servicos-title {
+        font-size: 2rem;
+    }
+    
+    .video-header .nova-sessao-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .video-wrapper {
+        padding: 15px;
+        border-radius: 16px;
+    }
+    
+    .video-frame {
+        border-radius: 12px;
+    }
+    
+    .video-cta .cta-comprar {
+        padding: 16px 32px;
+        font-size: 1rem;
+    }
 }
 
 /* Celulares pequenos */
@@ -5344,5 +5798,137 @@ body {
     .app-description {
         font-size: 0.8rem;
         line-height: 1.4;
+    }
+
+    .parceria-exclusiva {
+        padding: 25px 20px;
+        border-radius: 15px;
+    }
+    
+    .parceria-header {
+        margin-bottom: 25px;
+    }
+    
+    .parceria-header h2 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    
+    .nova-sessao-subtitle {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .parceria-grid {
+        gap: 30px;
+    }
+    
+    .parceria-texto p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    .beneficios-title {
+        font-size: 1rem;
+        margin: 12px 0;
+    }
+    
+    .beneficios-lista {
+        gap: 12px;
+    }
+    
+    .beneficios-lista li {
+        font-size: 0.85rem;
+        line-height: 1.4;
+        gap: 6px;
+    }
+    
+    .lucide-circle-check-big {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+    }
+    
+    .parceria-card {
+        max-width: 280px;
+    }
+    
+    .parceria-img {
+        border-radius: 12px;
+    }
+    
+    .square-1 {
+        width: 50px;
+        height: 50px;
+        top: -8px;
+        right: -15px;
+    }
+    
+    .square-2 {
+        width: 35px;
+        height: 35px;
+        bottom: -5px;
+        left: -10px;
+    }
+    
+    .parceria-cta {
+        margin-top: 25px;
+    }
+    
+    .btn-parceria {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+        border-radius: 6px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .btn-arrow {
+        width: 16px;
+        height: 16px;
+    }
+    
+    /* Animações mais suaves em telas pequenas */
+    @keyframes float1 {
+        0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-10px) rotate(3deg);
+        }
+    }
+    
+    @keyframes float2 {
+        0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-8px) rotate(-2deg);
+        }
+    }
+
+    .video-section {
+        padding: 40px 0;
+    }
+    
+    .video-header {
+        margin-bottom: 30px;
+    }
+    
+    .video-header .servicos-title {
+        font-size: 1.7rem;
+    }
+    
+    .video-wrapper {
+        padding: 12px;
+    }
+    
+    .video-cta {
+        margin-top: 30px;
+    }
+    
+    .video-cta .cta-comprar {
+        padding: 14px 28px;
+        font-size: 0.95rem;
     }
 }
