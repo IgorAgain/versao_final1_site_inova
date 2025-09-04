@@ -2281,12 +2281,11 @@ body {
 /* ============================= */
 .introducao-educacao {
   background: #F8F9FA;
-  padding: 80px 100px;
+  padding: 60px 100px;
   text-align: center;
 }
 
 .introducao-header {
-  max-width: 800px;
   margin: 0 auto 60px;
 }
 
@@ -2310,7 +2309,6 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -2442,7 +2440,7 @@ body {
     object-fit: contain;
     border-radius: 15px;
     position: relative;
-    z-index: 2; /* Garante que a imagem fique na frente */
+    z-index: 2;
 }
 
 /* Estilos dos quadrados flutuantes */
@@ -4215,6 +4213,10 @@ body {
     /* Seção Vídeo */
     .video-section {
         padding: 60px 300px;
+    }
+
+    .introducao-educacao {
+        padding: 80px 300px;
     }
 }
 
