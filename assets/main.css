@@ -2452,7 +2452,7 @@ body {
   text-align:center;
   gap:14px;
 
-  min-height:360px;
+  min-height:380px;
   height:100%;
 }
 
@@ -2984,7 +2984,7 @@ body {
 
 .servicos {
     background: #F8F9FA;
-    padding: 80px 100px 40px 100px;
+    padding: 80px 100px;
     overflow: hidden;
 }
 
@@ -4247,6 +4247,80 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(46, 63, 91, 0.3);
 }
+
+/* =======================================================
+   SERVIÇOS • ACESSOS (3 sections)  — escopo .svc-
+   Mantém sua identidade: #25BACF e #2E3F5B, cards com topbar
+   ======================================================= */
+.svc-section{ background:#F8F9FA; padding:40px 100px; }
+.svc-container{ max-width:1200px; margin:0 auto; display:flex; flex-direction:column; gap:28px; }
+.svc-header{ text-align:center; margin-bottom:8px; }
+.svc-subtitle{ font-size:1.05rem; color:#4A4A4A; }
+
+.svc-grid{ display:grid; gap:24px; }
+.svc-grid-3{ grid-template-columns:repeat(3,1fr); }
+.svc-grid-4{ grid-template-columns:repeat(4,1fr); }
+
+/* Card base (igual às outras sessões) */
+.svc-card{
+  background:#FEFEFE; border-radius:20px; border:2px solid transparent;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  padding:26px 22px; position:relative; overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  display:flex; flex-direction:column; gap:12px;
+}
+.svc-card::before{
+  content:''; position:absolute; top:0; left:0; width:100%; height:4px;
+  background:linear-gradient(90deg,#25BACF,#2E3F5B);
+  transform:scaleX(0); transform-origin:left; transition:transform .3s ease;
+}
+.svc-card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(0,0,0,.12); border-color:#25BACF; }
+.svc-card:hover::before{ transform:scaleX(1); }
+
+.svc-card-center{ align-items:center; text-align:center; }
+
+/* Figura opcional no topo dos cards */
+.svc-figure{
+  width:100%; aspect-ratio:16/9; border-radius:16px; overflow:hidden;
+  background:#F0FBFD; border:1px solid rgba(37,186,207,.18); box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+.svc-figure img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.svc-icon{
+  width:72px; height:72px; border-radius:14px; background:#F0FBFD;
+  display:grid; place-items:center; border:1px solid rgba(37,186,207,.2);
+}
+.svc-title{ font-family:'Poppins',sans-serif; font-weight:600; font-size:1.1rem; color:#2E3F5B; line-height:1.25; }
+.svc-text{ font-size:15px; color:#4A4A4A; line-height:1.6; }
+.svc-text-lg{ font-size:1rem; color:#4A4A4A; line-height:1.75; }
+
+/* Lista com bullets no padrão */
+.svc-list{ list-style:none; margin:6px 0 0 0; padding:0; display:grid; gap:8px; }
+.svc-list li{ display:flex; align-items:flex-start; justify-content:center; gap:8px; color:#2E3F5B; font-size:14px; }
+.svc-list li::before{ content:''; width:6px; height:6px; border-radius:50%; background:#25BACF; margin-top:.5em; flex:0 0 6px; }
+
+/* CTA local (mesmo estilo dos seus botões) */
+.svc-cta{
+  margin-top:10px; background:#2E3F5B; color:#fff; padding:10px 18px; border-radius:10px;
+  font-weight:600; font-size:14px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.svc-cta:hover{ background:#1E2A3A; transform:translateY(-2px); box-shadow:0 10px 24px rgba(46,63,91,.25); }
+.svc-cta-wrap{ display:flex; justify-content:center; }
+
+/* Retrofit: painel + steps */
+.svc-retrofit .svc-retrofit-layout{ display:grid; grid-template-columns:1.2fr .8fr; gap:24px; }
+.svc-panel{ min-height:280px; align-items:center; text-align:center; }
+.svc-panel::before{ transform:scaleX(1); }  /* barra sempre visível no painel */
+
+.svc-steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.svc-step-card{ padding:22px; }
+.svc-step-number{
+  width:32px; height:32px; border-radius:999px; display:grid; place-items:center;
+  background:#F0FBFD; border:1px solid rgba(37,186,207,.25); color:#2E3F5B; font-weight:700; margin:0 auto 8px;
+}
+
+
 
 /* ========================================= */
 /* MEDIA QUERIES RESPONSIVAS */
