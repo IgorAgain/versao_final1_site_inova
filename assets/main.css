@@ -1532,7 +1532,7 @@ body {
 
 .porque-escolher-educacao {
     background: #f8f9fa;
-    padding: 60px 100px;
+    padding: 40px 100px;
     overflow: hidden;
 }
 
@@ -1666,7 +1666,7 @@ body {
 
 /* Seção Vídeo */
 .video-section {
-    padding: 60px 100px;
+    padding: 40px 100px;
     position: relative;
     overflow: hidden;
 }
@@ -1906,7 +1906,7 @@ body {
 
 .nova-sessao {
     background: #F8F9FA;
-    padding: 60px 100px;
+    padding: 40px 100px;
     overflow: hidden;
 }
 
@@ -2138,7 +2138,7 @@ body {
 /* Seção Integração Completa */
 .integracao-section {
     background: #F8F9FA;
-    padding: 60px 100px;
+    padding: 40px 100px;
     display: flex;
     align-items: center;
 }
@@ -2281,7 +2281,7 @@ body {
 /* ============================= */
 .introducao-educacao {
   background: #F8F9FA;
-  padding: 60px 100px;
+  padding: 40px 100px;
   text-align: center;
 }
 
@@ -2305,58 +2305,295 @@ body {
 }
 
 /* Grid de Cards */
-.introducao-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin: 0 auto;
+.introducao-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  align-items:stretch;           /* todos os cards com mesma altura */
+  justify-items:stretch;
+}
+
+/* Card com centro perfeito e mesma estética dos Acessos */
+.introducao-card{
+  position:relative;
+  background:#F8F9FA;
+  border-radius:20px;
+  padding:26px 22px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  border:2px solid transparent;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;            /* tudo centralizado */
+  text-align:center;
+  gap:14px;
+
+  min-height:360px;              /* altura coerente entre cards */
+  height:100%;
 }
 
 .introducao-card {
-  background: #FFFFFF;
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.introducao-card {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .introducao-card:hover {
-  transform: translateY(-8px);
-  border-color: #25BACF;
-  box-shadow: 0 18px 35px rgba(37,186,207,0.25);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border: 2px solid #25BACF;
 }
 
-.card-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 20px;
+.introducao-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #25BACF, #2E3F5B);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
 }
 
-.card-icon img {
+.introducao-card:hover::before {
+    transform: scaleX(1);
+}
+
+.introducao-card .card-icon{
+  width:72px; height:72px;
+  border-radius:14px;
+  background:#F0FBFD;
+  display:grid; place-items:center;
+  border:1px solid rgba(37,186,207,.2);
+}
+.introducao-card .card-icon img{
+  width:44px; height:44px; object-fit:contain;
+}
+
+/* Tipografia consistente */
+.introducao-card .card-title{
+  font-family:'Poppins',sans-serif;
+  font-weight:600;
+  font-size:1.1rem;
+  color:#2E3F5B;
+  line-height:1.25;
+  min-height:2.6em;              /* estabiliza altura do título */
+}
+.introducao-card .card-text{
+  font-family:'Open Sans',sans-serif;
+  font-size:15px;
+  color:#4A4A4A;
+  line-height:1.6;
+  min-height:4.5em;              /* estabiliza o parágrafo */
+}
+
+/* Se o card tiver CTA, ele fica sempre alinhado no rodapé */
+.introducao-card .cta-container{ margin-top:auto; }
+.introducao-card .cta-comprar-integracao{
+  display:inline-flex; align-items:center; justify-content:center;
+}
+
+/* =======================================================
+   SESSÃO ACESSOS – alinhado ao centro e no padrão do site
+   ======================================================= */
+.acessos{
+  background:#F8F9FA;
+  padding:40px 100px;           /* mesmo respiro das outras sessões */
+  overflow:hidden;
+}
+
+.acessos-container{
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+}
+
+.acessos-header{ text-align:center; }
+
+/* GRID principal – pensado para 1300px (4 colunas) */
+.acessos-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  align-items:stretch;          /* todos os cards com mesma altura */
+  justify-items:stretch;
+}
+
+/* CARD */
+.acesso-card{
+  position:relative;
+  background:#FEFEFE;
+  border-radius:20px;
+  padding:26px 22px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08); /* mesma “vibe” dos outros */
+  border:2px solid transparent;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+
+  /* centro absoluto do conteúdo */
+  display:flex;
+  flex-direction:column;
+  align-items:center;           /* tudo centralizado */
+  text-align:center;
+  gap:14px;
+
+  min-height:360px;
+  height:100%;
+}
+
+/* 1) Garante clipping nos cantos (como .solucao-card / .vantagem-card) */
+.acesso-card{
+  position: relative;
+  overflow: hidden;                /* evita “vazar” no raio do card */
+  border: 2px solid transparent;   /* mesmo padrão visual */
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+/* 2) Barrinha superior no mesmo estilo das suas sessões anteriores */
+.acesso-card::before{
+  content: '';
+  position: absolute;
+  top: 0;            /* sem inset — igual ao padrão existente */
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 4px;
+  background: linear-gradient(90deg, #25BACF, #2E3F5B); /* mesmo gradiente */
+  transform: scaleX(0);           /* começa “fechada” */
+  transform-origin: left center;
+  transition: transform 0.3s ease;/* mesmo tempo/curva dos seus cards */
+  /* IMPORTANTE: removemos qualquer background-size/animation para igualar */
 }
 
-.card-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #2E3F5B;
-  margin-bottom: 15px;
+/* 3) Hover idêntico ao padrão (só abre a barra) */
+.acesso-card:hover::before {
+  transform: scaleX(1);
 }
 
-.card-text {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.95rem;
-  color: #4A4A4A;
-  line-height: 1.6;
+/* 4) Hover visual do card (igual ao que você já usa) */
+.acesso-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.12);
+  border-color: #25BACF;
+}
+
+/* --- Fix: barra do topo não sai do card no hover --- */
+.acesso-card,
+.introducao-card{
+  position: relative;   /* garante contexto para o ::before */
+  overflow: hidden;     /* CLIPA a barra dentro do raio do card */
+}
+
+/* Se suas bordas têm 2px, inset 2px.
+   Se mudar a espessura, ajuste o valor abaixo. */
+.acesso-card::before,
+.introducao-card::before{
+  top: 2px;             /* entra para dentro da borda */
+  left: 2px;
+  right: 2px;
+  height: 4px;
+  border-radius: 999px; /* termina redondinho e não espeta no canto */
+  background-size: 200% 100%;
+  will-change: transform, background-position;
+}
+
+@keyframes acessoShimmer{
+  0%{background-position:0% 0;}
+  100%{background-position:100% 0;}
+}
+
+/* Ícone dentro de “pill” – centralizado */
+.acesso-icon{
+  width:72px; height:72px;
+  border-radius:14px;
+  background:#F0FBFD;
+  display:grid; place-items:center;
+  border:1px solid rgba(37,186,207,.2);
+}
+.acesso-icon img{
+  width:44px; height:44px; object-fit:contain;
+}
+
+/* Tipografia no mesmo tom das demais seções */
+.acesso-title{
+  font-family:'Poppins',sans-serif;
+  font-weight:600;
+  font-size:1.1rem;
+  color:#2E3F5B;
+  line-height:1.25;
+  min-height:2.6em;             /* garante altura parecida entre cards */
+}
+.acesso-text{
+  font-family:'Open Sans',sans-serif;
+  font-size:15px;
+  color:#4A4A4A;
+  line-height:1.6;
+  min-height:4.5em;
+}
+
+/* Lista centralizada e consistente com o resto do site */
+.acesso-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:8px;
+  width:100%;
+}
+.acesso-list li{
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;       /* centraliza o conjunto */
+  gap:8px;
+  color:#2E3F5B;
+  font-size:14px;
+}
+.acesso-list li::before{
+  content:"";
+  width:6px; height:6px;
+  margin-top:.45em;
+  border-radius:50%;
+  background:#25BACF;
+  flex:0 0 6px;
+}
+
+/* CTA igual às demais sessões (central) */
+.acesso-cta{
+  margin-top:auto;              /* empurra o CTA pro rodapé do card */
+  background:#2E3F5B;
+  color:#FFFFFF;
+  padding:10px 18px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:14px;
+  text-decoration:none;
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.acesso-cta:hover{
+  background:#1E2A3A;
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(46,63,91,.25);
 }
 
 /* Seção Parceria Exclusiva */
 .parceria-exclusiva {
     background: linear-gradient(135deg, #fdf3f3, #ffffff);
-    padding: 60px 100px;
+    padding: 40px 100px;
     border-radius: 20px;
 }
 
@@ -2529,7 +2766,7 @@ body {
 /* Seção Tecnologias */
 .tecnologias-section {
     background: #F8F9FA;
-    padding: 60px 100px 80px 100px;
+    padding: 40px 100px 60px 100px;
     overflow: hidden;
 }
 
@@ -2790,7 +3027,7 @@ body {
 }
 
 .servico-card {
-    background: #FEFEFE;
+    background: #f8f9fa;
     border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
@@ -4217,6 +4454,10 @@ body {
 
     .introducao-educacao {
         padding: 80px 300px;
+    }
+
+    .acessos{
+        padding:60px 300px;           /* mesmo respiro das outras sessões */
     }
 }
 
