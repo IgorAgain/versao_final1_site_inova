@@ -847,3 +847,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+(function () {
+    const btn  = document.querySelector('.menu-toggle');
+    const nav  = document.querySelector('.navbar');
+    const list = nav ? nav.querySelector('.nav-links') : null;
+
+    if (!btn || !nav || !list) return;
+
+    // abre/fecha
+    btn.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      btn.setAttribute('aria-expanded', nav.classList.contains('active'));
+    });
+
+    // fecha ao clicar em qualquer link/âncora
+    list.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if (!a) return;
+      nav.classList.remove('active');
+      btn.setAttribute('aria-expanded', 'false');
+    });
+
+    // fecha se redimensionar para >1024
+    const mq = window.matchMedia('(min-width:1025px)');
+    mq.addEventListener('change', () => {
+      if (mq.matches) {
+        nav.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
