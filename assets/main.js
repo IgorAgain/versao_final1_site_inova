@@ -855,26 +855,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!btn || !nav || !list) return;
 
-    // abre/fecha
-    btn.addEventListener('click', () => {
-      nav.classList.toggle('active');
-      btn.setAttribute('aria-expanded', nav.classList.contains('active'));
-    });
-
-    // fecha ao clicar em qualquer link/âncora
-    list.addEventListener('click', (e) => {
-      const a = e.target.closest('a');
-      if (!a) return;
+    const open = () => {
+      nav.classList.add('active');
+      btn.setAttribute('aria-expanded', 'true');
+      document.documentElement.style.overflow = 'hidden';  // bloqueia scroll do fundo
+    };
+    const close = () => {
       nav.classList.remove('active');
       btn.setAttribute('aria-expanded', 'false');
+      document.documentElement.style.overflow = '';        // libera scroll
+    };
+
+    btn.addEventListener('click', () => {
+      nav.classList.contains('active') ? close() : open();
     });
 
-    // fecha se redimensionar para >1024
-    const mq = window.matchMedia('(min-width:1025px)');
-    mq.addEventListener('change', () => {
-      if (mq.matches) {
-        nav.classList.remove('active');
-        btn.setAttribute('aria-expanded', 'false');
-      }
+    // Fecha ao clicar em link ou fora do painel
+    document.addEventListener('click', (e) => {
+      const clickedInside = e.target.closest('.navbar');
+      if (!clickedInside && nav.classList.contains('active')) close();
+      const link = e.target.closest('.nav-links a');
+      if (link) close();
     });
+
+    // Fecha no ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('active')) close();
+    });
+
+    // Se voltar para >1024px, reseta
+    const mq = window.matchMedia('(min-width:1025px)');
+    mq.addEventListener('change', () => mq.matches && close());
   })();

@@ -4533,174 +4533,405 @@ body {
   }
 }
 
-/* Tablets */
 @media (max-width: 1024px) {
-      /* Evita "barriga" horizontal causada por 100vw + padding */
-  html, body{ overflow-x:hidden; }
+  
+  /* Segurança contra overflow lateral */
+  html, body { 
+    overflow-x: hidden; 
+    width: 100%;
+  }
 
-  /* Qualquer seção de largura total passa a respeitar 100% */
+  /* Largura/espaçamento consistente nas sections principais */
   .header, .hero, .servicos, .stats, .nossas-solucoes, .quem-confia,
   .whatsapp-comercial, .segmentos, .acessos, .introducao-educacao,
-  .video-section, .footer, .ponto-section, .svc-section, .banner-educacao{
-    width:100% !important;
-    max-width:100% !important;
+  .ponto-section, .svc-section, .footer {
+    width: 100% !important; 
+    max-width: 100% !important;
+    padding-left: 28px; 
+    padding-right: 28px;
+    padding-top: 32px;  
+    padding-bottom: 32px;
+    box-sizing: border-box;
   }
 
-  /* Imagens e mídias nunca ultrapassam o cartão/coluna */
-  img, video, svg{ max-width:100%; height:auto; }
-
-  /* Cards com efeito hover não "escapam" no mobile */
-  .solucao-card, .vantagem-card, .acesso-card, .introducao-card,
-  .ponto-card, .svc-step-card{
-    transform:none !important;     /* evita deslocamentos que cortam conteúdo */
-    will-change:auto;
-  }
-  .solucao-card:hover, .vantagem-card:hover, .acesso-card:hover,
-  .introducao-card:hover, .ponto-card:hover, .svc-step-card:hover{
-    transform:none !important;
-    box-shadow:0 10px 24px rgba(0,0,0,.10); /* mantém um leve destaque */
+  /* ========= HEADER / NAV ========= */
+  .header { 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    background: #F8F9FA;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  /* ===== Header → layout hambúrguer ===== */
-  .header{
-    position:sticky; top:0; z-index:1000;
-    background:#F8F9FA;   /* garante contraste sobre o hero */
+  /* botão hambúrguer aparece */
+  .menu-toggle { 
+    display: flex !important; 
+    align-items: center; 
+    gap: 6px; 
+  }
+  
+  .menu-toggle .bar { 
+    width: 26px; 
+    height: 3px; 
+    background: #2E3F5B; 
+    border-radius: 2px; 
   }
 
-  /* botão hambúrguer visível no mobile */
-  .menu-toggle{ display:flex !important; align-items:center; gap:6px; }
-  .menu-toggle .bar{ width:26px; height:3px; background:#2E3F5B; border-radius:2px; }
-
-  /* esconde navegação horizontal */
-  .nav-links{ display:none !important; }
-
-  /* dropdown/links viram painel suspenso */
-  .navbar{ position:relative; }
-  .navbar.active .nav-links{
-    display:flex !important;
-    flex-direction:column;
-    position:absolute;
-    top:100%; right:0;
-    width:min(86vw, 360px);
-    padding:14px;
-    gap:10px;
-    background:#fff;
-    border:1px solid rgba(37,186,207,.25);
-    border-radius:14px;
-    box-shadow:0 16px 36px rgba(0,0,0,.14);
+  /* esconde nav horizontal */
+  .nav-links { 
+    display: none !important; 
   }
-  .navbar.active .nav-links a{ padding:10px 12px; color:#2E3F5B; }
 
-  /* evita que o painel cubra o conteúdo do hero */
-  .hero{ padding-top: calc(var(--home-pad-y, 32px) + 10px); }
-
-  /* Grids: 1 coluna para impedir sobreposição */
-  .servicos-grid, .solucoes-grid, .stats-grid{
-    grid-template-columns:1fr !important;
-    gap:20px;
+  /* painel suspenso do menu */
+  .navbar { 
+    position: relative; 
   }
-  .stat-divider{ display:none; }
+  
+  .navbar.active .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; 
+    right: 0;
+    width: min(86vw, 360px);
+    max-width: calc(100vw - 40px); /* Previne overflow */
+    padding: 16px;
+    background: #fff;
+    border: 1px solid rgba(37,186,207,.25);
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(0,0,0,.14);
+    gap: 10px;
+    box-sizing: border-box;
+  }
+  
+  .navbar.active .nav-links a { 
+    padding: 10px 12px; 
+    color: #2E3F5B; 
+    word-wrap: break-word;
+  }
 
-  /* Carrossel: setas mais internas e sem "vazar" para fora */
-  .segmentos .carousel-nav.prev{ left:6px; }
-  .segmentos .carousel-nav.next{ right:6px; }
-  .segmentos .carousel-content{ gap:16px; }
+  /* ========= HERO (somente título/texto) ========= */
+  .hero { 
+    background-image: none !important; 
+  }
+  
+  .hero img { 
+    display: none !important; 
+  }
+  
+  .header .logo img { 
+    display: block !important; 
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero-content {
+    padding-left: 0 !important; 
+    margin-left: 0 !important;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .hero-title { 
+    font-size: clamp(2rem, 4.6vw, 2.6rem); 
+    line-height: 1.2;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .hero-description { 
+    font-size: clamp(1rem, 2.2vw, 1.06rem);
+    word-wrap: break-word;
+  }
+
+  /* CTAs ocupam largura confortável */
+  .cta-comprar, .cta-verifique-sections { 
+    width: 100%; 
+    max-width: 360px; 
+    margin-left: auto; 
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+
+  /* ========= GRIDs (evita sobreposição) ========= */
+  .servicos-grid, .solucoes-grid, .stats-grid,
+  .vantagens-grid, .diferenciais-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .stat-divider { 
+    display: none !important; 
+  }
+
+  /* cards não "saltam" no hover no mobile */
+  .servico-card, .solucao-card, .vantagem-card, .acesso-card, .introducao-card,
+  .ponto-card, .svc-step-card {
+    transform: none !important; 
+    will-change: auto;
+    padding: 20px 18px;
+    box-sizing: border-box;
+    width: 100%;
+    word-wrap: break-word;
+  }
+  
+  .servico-card:hover, .solucao-card:hover, .vantagem-card:hover,
+  .acesso-card:hover, .introducao-card:hover, .ponto-card:hover, .svc-step-card:hover {
+    transform: none !important;
+    box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  }
+
+  /* blocos de imagem menores */
+  .servico-imagem-container { 
+    height: 180px; 
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .solucao-imagem { 
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  /* conteúdo expandido SEM limite de altura */
+  .servico-expandido { 
+    max-height: none !important; 
+    overflow: visible !important; 
+  }
+
+  /* carrossel: setas dentro da área segura */
+  .segmentos .carousel-nav.prev { 
+    left: 8px; 
+  }
+  
+  .segmentos .carousel-nav.next { 
+    right: 8px; 
+  }
+  
+  .segmentos .carousel-content { 
+    gap: 20px;
+    overflow-x: auto;
+    padding: 0 10px;
+  }
 }
 
-/* Tablets pequenos e celulares grandes */
+/* =========================================================
+   ≤ 768px — mobile grande
+   ========================================================= */
 @media (max-width: 768px) {
-    /* Segurança contra overflow lateral em elementos "soltos" */
-  html, body{ overflow-x:hidden; }
-
-  /* Paddings coerentes (já tínhamos a layer de 768; aqui reforço) */
-  :root{ --home-pad-x:20px; --home-pad-y:28px; }
 
   .header, .hero, .servicos, .stats, .nossas-solucoes, .quem-confia,
-  .whatsapp-comercial, .segmentos, .footer{
-    padding-left:  var(--home-pad-x);
-    padding-right: var(--home-pad-x);
-    padding-top:   var(--home-pad-y);
-    padding-bottom:var(--home-pad-y);
-    width:100% !important; max-width:100% !important;
+  .whatsapp-comercial, .segmentos, .acessos, .introducao-educacao,
+  .ponto-section, .svc-section, .footer {
+    padding-left: 20px; 
+    padding-right: 20px;
+    padding-top: 28px;  
+    padding-bottom: 28px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
-  /* Header — hambúrguer + logo menores e painel mais largo */
-  .logo{ width:150px; }
-  .menu-toggle{ display:flex !important; }
-  .menu-toggle .bar{ width:26px; height:3px; }
-  .nav-links{ display:none !important; }
-  .navbar.active .nav-links{
-    width: 92vw; right: 50%; transform: translateX(50%); /* centraliza dropdown */
-    padding:16px; gap:12px;
+  .logo { 
+    width: 150px;
+    max-width: 150px;
   }
-  .navbar.active .nav-links a{ padding:12px 14px; font-size:0.95rem; }
 
-  /* Hero — títulos/descrição responsivos para não “quebrar” */
-  .hero-content{ text-align:center; padding-left:0 !important; margin-left:0 !important; }
-  .hero-title{ font-size: clamp(1.8rem, 6vw, 2.4rem); line-height:1.2; }
-  .hero-description{ font-size: clamp(.95rem, 2.8vw, 1rem); }
-  .cta-comprar, .cta-verifique-sections{ width:100%; max-width:340px; }
+  .navbar.active .nav-links {
+    width: min(92vw, calc(100vw - 20px));
+    right: 50%; 
+    transform: translateX(50%);
+    padding: 16px; 
+    gap: 12px;
+    box-sizing: border-box;
+  }
+  
+  .navbar.active .nav-links a { 
+    padding: 12px 14px; 
+    font-size: 0.95rem;
+    word-wrap: break-word;
+  }
 
-  /* Grids em 1 coluna com respiro moderado (já tínhamos; só reforço gaps) */
-  .servicos-grid, .solucoes-grid, .stats-grid{ grid-template-columns:1fr; gap:18px; }
-  .stat-divider{ display:none; }
+  .hero-title { 
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+    word-wrap: break-word;
+  }
+  
+  .hero-description { 
+    font-size: clamp(.95rem, 2.8vw, 1rem);
+    word-wrap: break-word;
+  }
 
-  /* Cards — menos “esticados” e hovers estáveis no mobile */
-  .solucao-card, .vantagem-card, .acesso-card, .introducao-card,
-  .ponto-card, .svc-step-card{ padding:20px 18px; transform:none !important; }
-  .acesso-icon, .svc-step-icon, .ponto-step-icon{ width:56px; height:56px; }
+  .servicos-grid, .solucoes-grid, .stats-grid,
+  .vantagens-grid, .diferenciais-grid { 
+    gap: 18px !important; 
+  }
 
-  /* Segmentos (carrossel) — setas dentro do padding e cards com gap menor */
-  .segmentos .carousel-nav.prev{ left:6px; }
-  .segmentos .carousel-nav.next{ right:6px; }
-  .segmentos .carousel-content{ gap:16px; }
+  .servico-imagem-container { 
+    height: 160px; 
+  }
+  
+  .solucao-imagem { 
+    height: 180px; 
+  }
 
-  /* Se você estiver usando a seção de Consultoria do Ponto com grid de imagem: stacka em coluna */
-  .ponto-panel-grid{ grid-template-columns:1fr; }
-  .ponto-panel-media{ aspect-ratio:16/9; margin-bottom:10px; }
+  /* Páginas de serviços (Ponto/Accessos): painel com imagem empilha */
+  .ponto-panel-grid { 
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+  
+  .ponto-panel-media { 
+    aspect-ratio: 16/9; 
+    margin-bottom: 10px;
+    width: 100%;
+    overflow: hidden;
+  }
 }
 
-/* Celulares pequenos */
+/* =========================================================
+   ≤ 480px — mobile "puro"
+   ========================================================= */
 @media (max-width: 480px) {
-    :root{ --home-pad-x:16px; --home-pad-y:24px; }
 
   .header, .hero, .servicos, .stats, .nossas-solucoes, .quem-confia,
-  .whatsapp-comercial, .segmentos, .footer{
-    padding-left:  var(--home-pad-x);
-    padding-right: var(--home-pad-x);
-    padding-top:   var(--home-pad-y);
-    padding-bottom:var(--home-pad-y);
-    width:100% !important; max-width:100% !important;
+  .whatsapp-comercial, .segmentos, .acessos, .introducao-educacao,
+  .ponto-section, .svc-section, .footer {
+    padding-left: 16px; 
+    padding-right: 16px;
+    padding-top: 24px;  
+    padding-bottom: 24px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
-  /* Header — elementos mais compactos e painel quase tela cheia */
-  .logo{ width:130px; }
-  .menu-toggle .bar{ width:24px; height:3px; }
-  .navbar.active .nav-links{
-    width: 94vw; right: 3vw; transform:none; /* encosta um pouco na lateral */
-    padding:14px; gap:10px;
+  .logo { 
+    width: 130px;
+    max-width: 130px;
   }
-  .navbar.active .nav-links a{ padding:12px; font-size:0.95rem; }
+  
+  .menu-toggle .bar { 
+    width: 24px; 
+    height: 3px; 
+  }
 
-  /* Hero compacto e centralizado */
-  .hero-title{ font-size: clamp(1.6rem, 7vw, 2rem); }
-  .hero-description{ font-size: .95rem; }
-  .cta-comprar, .cta-verifique-sections{ width:100%; max-width:none; }
+  .navbar.active .nav-links {
+    width: min(94vw, calc(100vw - 12px));
+    right: 3vw; 
+    transform: none;
+    padding: 14px; 
+    gap: 10px;
+    box-sizing: border-box;
+  }
+  
+  .navbar.active .nav-links a { 
+    padding: 12px; 
+    font-size: 0.95rem;
+    word-wrap: break-word;
+  }
 
-  /* Grids compactas */
-  .servicos-grid, .solucoes-grid, .stats-grid{ grid-template-columns:1fr; gap:14px; }
-  .servicos-grid > *, .solucoes-grid > *, .stats-grid > *{ min-height:auto; }
+  .hero-title { 
+    font-size: clamp(1.6rem, 7vw, 2rem);
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .hero-description { 
+    font-size: .95rem;
+    word-wrap: break-word;
+  }
+  
+  .cta-comprar, .cta-verifique-sections { 
+    max-width: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
 
-  /* Cards ainda mais enxutos */
-  .solucao-card, .vantagem-card, .acesso-card, .introducao-card,
-  .ponto-card, .svc-step-card{ padding:18px 16px; }
-  .acesso-icon, .svc-step-icon, .ponto-step-icon{ width:52px; height:52px; }
+  .servicos-grid, .solucoes-grid, .stats-grid,
+  .vantagens-grid, .diferenciais-grid { 
+    gap: 14px !important; 
+  }
 
-  /* Carrossel — setas bem internas e menor espaçamento entre itens */
-  .segmentos .carousel-nav.prev{ left:4px; }
-  .segmentos .carousel-nav.next{ right:4px; }
-  .segmentos .carousel-content{ gap:12px; }
+  .servico-card, .solucao-card { 
+    padding: 18px 16px;
+    box-sizing: border-box;
+  }
+  
+  .servico-imagem-container { 
+    height: 140px; 
+  }
+  
+  .solucao-imagem { 
+    height: 160px; 
+  }
 
-  /* Painel com imagem (Consultoria do Ponto) */
-  .ponto-panel-media{ aspect-ratio:16/9; }
+  /* setas bem internas no carrossel */
+  .segmentos .carousel-nav.prev { 
+    left: 4px; 
+  }
+  
+  .segmentos .carousel-nav.next { 
+    right: 4px; 
+  }
+  
+  .segmentos .carousel-content { 
+    gap: 12px;
+    padding: 0 5px;
+  }
+
+  /* Previne overflow em texto longo */
+  p, h1, h2, h3, h4, h5, h6, span, div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Garante que tabelas sejam responsivas */
+  table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+/* =========================================================
+   ≤ 360px — mobile muito pequeno
+   ========================================================= */
+@media (max-width: 360px) {
+  
+  .header, .hero, .servicos, .stats, .nossas-solucoes, .quem-confia,
+  .whatsapp-comercial, .segmentos, .acessos, .introducao-educacao,
+  .ponto-section, .svc-section, .footer {
+    padding-left: 12px; 
+    padding-right: 12px;
+    padding-top: 20px;  
+    padding-bottom: 20px;
+  }
+
+  .logo { 
+    width: 120px;
+    max-width: 120px;
+  }
+
+  .hero-title { 
+    font-size: clamp(1.4rem, 8vw, 1.8rem);
+  }
+  
+  .hero-description { 
+    font-size: 0.9rem;
+  }
+
+  .navbar.active .nav-links {
+    width: calc(100vw - 24px);
+    right: 12px;
+    left: 12px;
+  }
 }
