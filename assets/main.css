@@ -653,11 +653,11 @@ body {
 }
         
 .solucao-card {
-    background: #FEFEFE;
+    background: #fff;
     border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     border: 2px solid transparent;
     position: relative;
@@ -697,27 +697,6 @@ body {
         
 .solucao-card:hover::before {
     transform: scaleX(1);
-}
-        
-.solucao-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 35px;
-    color: white;
-    transition: all 0.3s ease;
-}
-        
-.solucao-card:hover .solucao-icon {
-    transform: scale(1.1) rotate(5deg);
-}
-
-.solucao-icon-grid {
-    width: 100%;
-    height: 100%;
 }
         
 .solucao-titulo {
@@ -1613,7 +1592,7 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 25px;
-    background: rgba(255, 255, 255, 0.7);
+    background: #fff;
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -2984,7 +2963,7 @@ body {
 
 .servicos {
     background: #F8F9FA;
-    padding: 80px 100px;
+    padding: 80px 100px 40px 100px;
     overflow: hidden;
 }
 
@@ -3074,9 +3053,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     transition: all 0.3s ease;
     position: relative;
+
+    border-radius:14px; background:#F0FBFD;
+    place-items:center; border:1px solid rgba(37,186,207,.2);
 }
 
 .servico-card:hover .servico-icon {
@@ -3084,8 +3065,8 @@ body {
 }
 
 .servico-icon-change{
-    width: 100px;
-    height: 100px;
+    width: 80%;
+    height: auto;
 }
 
 .servico-titulo {
@@ -3930,7 +3911,7 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 1.2rem;
-    color: #FEFEFE;
+    color: #f8f9fa;
     margin: 0;
     line-height: 1.3;
 }
@@ -3938,14 +3919,14 @@ body {
 .whatsapp-comercial-subtitle {
     font-family: 'Open Sans', sans-serif;
     font-size: 0.9rem;
-    color: #fefefe;
+    color: #f8f9fa;
     margin: 0;
     line-height: 1.5;
 }
 
 .whatsapp-comercial-button {
     background: #25C26E;
-    color: #FFFFFF;
+    color: #f8f9fa;
     padding: 15px 30px;
     border-radius: 25px;
     font-family: 'Poppins', sans-serif;
@@ -4050,7 +4031,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     color: #4A4A4A;
-    background: #FFFFFF;
+    background: #f8f9fa;
     transition: all 0.3s ease;
     box-sizing: border-box;
 }
@@ -4076,7 +4057,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     color: #4A4A4A;
-    background: #FFFFFF;
+    background: #f8f9fa;
     transition: all 0.3s ease;
     box-sizing: border-box;
     appearance: none;
@@ -4108,7 +4089,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     color: #4A4A4A;
-    background: #FFFFFF;
+    background: #f8f9fa;
     transition: all 0.3s ease;
     box-sizing: border-box;
     resize: vertical;
@@ -4136,7 +4117,7 @@ body {
 
 .form-button {
     background: #2E3F5B;
-    color: #FFFFFF;
+    color: #f8f9fa;
     padding: 16px 40px;
     border: none;
     border-radius: 25px;
@@ -4163,7 +4144,7 @@ body {
 
 /* Card de informações */
 .contact-info-card {
-    background: #FFFFFF;
+    background: #f8f9fa;
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -4323,19 +4304,27 @@ body {
 /* =======================================================
    SERVIÇOS • PONTO — estilos gerais (.ponto-)
    ======================================================= */
-.ponto-section{ background:#F8F9FA; padding:40px 100px; }
-.ponto-container{ max-width:1300px; margin:0 auto; display:flex; flex-direction:column; gap:28px; }
+.ponto-section{ background:#F8F9FA; padding:40px 100px 10px 100px; }
+.ponto-section-numebers{ background:#F8F9FA; padding:0px 100px 80px 100px; }
+.ponto-container{ max-width:1200px; margin:0 auto; display:flex; flex-direction:column; gap:28px; }
 .ponto-header{ text-align:center; margin-bottom:8px; }
-.ponto-subtitle{ font-size:1.05rem; color:#4A4A4A; }
-.ponto-numeros {padding:0px 100px 40px 100px}
+.ponto-subtitle{ font-size:1.05rem; color:#4A4A4A; text-align: center;}
+.ponto-numeros {padding: 0px 100px 40px 100px;}
+.recursos-avancados {padding: 40px 100px;}
 
 /* utilitários */
 .ponto-grid{ display:grid; gap:24px; }
 .ponto-grid-3{ grid-template-columns:repeat(3,1fr); }
 .ponto-grid-4{ grid-template-columns:repeat(4,1fr); }
 
+.foto-ponto{
+  width:80%; border-radius:16px; overflow:hidden; margin: 0 auto 15px;
+  background:#F0FBFD; border:1px solid rgba(37,186,207,.18); box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+.foto-ponto img{ width:100%; height:100%; object-fit:cover; display:block; }
+
 .ponto-card{
-  background:#FEFEFE; border-radius:20px; border:2px solid transparent;
+  background:#fff; border-radius:20px; border:2px solid transparent;
   box-shadow:0 10px 30px rgba(0,0,0,.08);
   padding:26px 22px; position:relative; overflow:hidden;
   transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
@@ -4344,16 +4333,21 @@ body {
 .ponto-card::before{
   content:''; position:absolute; top:0; left:0; width:100%; height:4px;
   background:linear-gradient(90deg,#25BACF,#2E3F5B);
-  transform:scaleX(0); transform-origin:left; transition:transform .3s ease;
+  transform:scaleX(0); transform-origin:center; transition:transform .3s ease;
 }
 .ponto-card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(0,0,0,.12); border-color:#25BACF; }
 .ponto-card:hover::before{ transform:scaleX(1); }
 .ponto-card-center{ align-items:center; text-align:center; }
 
 .ponto-icon{
-  width:72px; height:72px; border-radius:14px; background:#F0FBFD;
+  width:72px; height:72px; border-radius:14px; background:#f8f9fa;
   display:grid; place-items:center; border:1px solid rgba(37,186,207,.2);
 }
+
+.ponto-icon img {
+    width: 80%; height: auto;
+}
+
 .ponto-title{ font-family:'Poppins',sans-serif; font-weight:600; font-size:1.1rem; color:#2E3F5B; line-height:1.25; }
 .ponto-text{ font-size:15px; color:#4A4A4A; line-height:1.6; }
 .ponto-text-lg{ font-size:1rem; color:#4A4A4A; line-height:1.75; }
@@ -4381,7 +4375,7 @@ body {
 .ponto-retrofit-layout{ display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:start; }
 .ponto-panel{ min-height:280px; align-items:center; text-align:center; }
 .ponto-panel::before{ transform:scaleX(1); } /* barra sempre visível */
-.ponto-steps{ display:grid; grid-template-columns:1fr; gap:14px; }
+.ponto-steps{ display:grid; grid-template-columns:1fr; gap:15px; }
 .ponto-step-card{ position:relative; padding:22px; border-radius:18px; border:2px solid transparent; background:#FEFEFE; box-shadow:0 10px 30px rgba(0,0,0,.08); overflow:hidden; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; text-align:center; display:flex; flex-direction:column; align-items:center; gap:10px; min-height:150px; }
 .ponto-step-card::before{ content:""; position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg,#25BACF,#2E3F5B); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
 .ponto-step-card:hover{ transform:translateY(-6px); border-color:#25BACF; box-shadow:0 18px 40px rgba(0,0,0,.12); }
@@ -4395,7 +4389,135 @@ body {
 .ponto-experimente .ponto-band-item strong{ display:block; font-family:'Poppins',sans-serif; font-size:1.4rem; color:#2E3F5B; }
 .ponto-experimente .ponto-band-item span{ color:#4A4A4A; }
 
+/* =========================================================
+   PONTO • V2 (somente recursos & avançados)
+   Cores seguem o tema: #25BACF (azul), #2E3F5B (azul escuro)
+   ========================================================= */
 
+/* ---------- Recursos v2 ---------- */
+.ponto-recursos-sistema {padding: 40px 100px;}
+.ponto-recursos-avancados {padding: 40px 100px;}
+.ponto-consultoria {padding: 40px 100px;}
+
+.recursos-v2 .recursos-rail{
+  display:grid;
+  grid-template-columns: 0.9fr 1.6fr;
+  gap:32px;
+  align-items:start;
+}
+
+.recursos-v2 .recursos-aside{
+  position:sticky; top:90px;
+  align-self:start;
+}
+
+/* Centralizar título, subtítulo e chips da coluna esquerda */
+.recursos-v2 .recursos-aside{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centraliza tudo no eixo X */
+}
+
+/* Centralizar as linhas de chips (App, Web, ...) */
+.recursos-v2 .recursos-chips{
+  display: flex;         /* já existe, reforçado aqui */
+  flex-wrap: wrap;
+  justify-content: center;   /* <-- faz os itens irem para o meio */
+  align-content: center;     /* centraliza quando quebrar de linha */
+  width: 100%;
+}
+
+.recursos-v2 .recursos-chips{
+  display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;
+}
+.recursos-v2 .recursos-chips li{
+  list-style:none;
+  padding:6px 10px;
+  border:1px solid rgba(37,186,207,.25);
+  border-radius:999px;
+  font-size:.9rem; color:#2E3F5B; background:#fff;
+}
+
+/* lista conectada */
+.recursos-v2 .recursos-list{
+  position:relative;
+  display:flex; flex-direction:column; gap:18px;
+  padding-left:18px;
+}
+.recursos-v2 .recursos-list::before{
+  content:""; position:absolute; left:0; top:4px; bottom:4px;
+  width:3px; border-radius:3px;
+  background: linear-gradient(#25BACF,#2E3F5B);
+  opacity:.45;
+}
+
+.recurso-row{
+  display:grid; grid-template-columns: 56px 1fr; gap:16px;
+  background:#fff; border-radius:16px; padding:18px;
+  border:1px solid rgba(37,186,207,.18);
+  box-shadow:0 10px 24px rgba(0,0,0,.06);
+}
+.recurso-icon{
+  width:56px; height:56px; border-radius:14px;
+  display:grid; place-items:center;
+  background:#EAF8FB; border:1px solid rgba(37,186,207,.25);
+}
+.recurso-body h3{
+  margin:0 0 6px; font:600 1.15rem/1.2 Poppins,system-ui;
+  color:#2E3F5B;
+}
+.recurso-body p{ margin:0; color:#4A4A4A; }
+.recurso-meta{ display:flex; gap:10px; margin-top:10px; align-items:center; flex-wrap:wrap;}
+.badge{
+  border:1px solid rgba(46,63,91,.18);
+  background:#F7FAFB; color:#2E3F5B; border-radius:999px;
+  padding:4px 10px; font-size:.8rem;
+}
+.recurso-link{
+  border:none; background:#2E3F5B; color:#fff;
+  padding:8px 12px; border-radius:10px; cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.recurso-link:hover{ transform:translateY(-2px); box-shadow:0 8px 20px rgba(46,63,91,.25); }
+
+/* ---------- Avançados v2 (accordion) ---------- */
+.av-accordion{ display:flex; flex-direction:column; gap:14px; }
+.av-item{
+  border:1px solid rgba(37,186,207,.2);
+  border-radius:16px; background:#fff;
+  box-shadow:0 10px 24px rgba(0,0,0,.06);
+  overflow:hidden;
+}
+.av-summary{
+  list-style:none; display:flex; align-items:center; gap:12px;
+  padding:16px 18px; cursor:pointer;
+}
+.av-summary::-webkit-details-marker{ display:none; }
+.av-icon{
+  width:52px; height:52px; border-radius:12px; flex:0 0 52px;
+  display:grid; place-items:center; background:#EAF8FB;
+  border:1px solid rgba(37,186,207,.25);
+}
+.av-summary h3{ margin:0; font:600 1.05rem/1.2 Poppins,system-ui; color:#2E3F5B; }
+.chev{
+  margin-left:auto; width:14px; height:14px; border-right:3px solid #2E3F5B; border-bottom:3px solid #2E3F5B; transform:rotate(-45deg);
+  transition:transform .2s ease;
+}
+.av-item[open] .chev{ transform:rotate(45deg); }
+
+.av-content{
+  display:grid; grid-template-columns: 1.1fr 1.3fr; gap:18px;
+  padding:0 18px 18px;
+}
+.av-media{
+  border:1px solid rgba(37,186,207,.18);
+  border-radius:14px; overflow:hidden; background:#F0FBFD;
+  aspect-ratio: 16/9;
+}
+.av-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+.av-list{ margin:0; padding-left:18px; }
+.av-list li{ margin:6px 0; color:#4A4A4A; }
 
 /* ========================================= */
 /* MEDIA QUERIES RESPONSIVAS */
