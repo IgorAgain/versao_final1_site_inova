@@ -1594,18 +1594,10 @@ html{
     align-items: center;
 }
 
-.float-wrapper {
+.float-wrapper{
   width: 280px;
   height: 580px;
   margin: 50px auto;
-  animation: float 4s ease-in-out infinite;
-  /* força apenas translateY */
-  transform: translateY(0) !important;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
 }
 
 .phone {
@@ -4623,10 +4615,6 @@ html{
   align-items:start;
 }
 
-.recursos-v2 .recursos-aside{
-  position:sticky; top:90px;
-  align-self:start;
-}
 
 /* Centralizar título, subtítulo e chips da coluna esquerda */
 .recursos-v2 .recursos-aside{
@@ -4737,8 +4725,7 @@ html{
 /* Lista de características */
 .recursos-avancados-list {
     list-style: none;
-    margin: auto 0;
-    margin-bottom: 10px;
+    margin: 0 auto;
 }
 
 .recursos-avancados-list li {
@@ -4864,15 +4851,7 @@ html{
   .ponto-panel-grid{ grid-template-columns: 1.05fr 1.15fr; gap: 28px; }
   .ponto-steps{ gap: 18px; }
 
-  /* Recursos do sistema (v2 – rail + linhas) */
-  .recursos-v2 .recursos-rail{
-    grid-template-columns: 0.95fr 1.6fr;
-    gap: 36px;
-  }
-  .recursos-v2 .recursos-aside{ max-width: 560px; }
-  .recursos-v2 .recursos-list{ padding-left: 22px; gap: 22px; }
-  .recurso-row{ padding: 22px; gap: 18px; }
-  .recurso-body h3{ font-size: 1.2rem; }
+  
 
   /* Avançados (v2 – accordion) */
   .av-accordion{ gap: 16px; }
@@ -4992,9 +4971,6 @@ html{
   .ponto-metrics{ grid-template-columns:1fr; gap:18px; }
 
   /* Recursos v2: rail vira 1 coluna e aside deixa de ser sticky */
-  .recursos-v2 .recursos-rail{ grid-template-columns:1fr; gap:22px; }
-  .recursos-v2 .recursos-aside{ position:static; text-align:center; align-items:center; }
-  .recursos-v2 .recursos-chips{ justify-content:center; }
 
   /* Avançados v2: conteúdo em 1 coluna */
   .av-content{ grid-template-columns:1fr; }
