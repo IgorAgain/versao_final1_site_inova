@@ -887,3 +887,44 @@ document.addEventListener('DOMContentLoaded', function() {
     const mq = window.matchMedia('(min-width:1025px)');
     mq.addEventListener('change', () => mq.matches && close());
   })();
+
+/* ========== Tabs de Arquitetura ========== */
+(() => {
+  const tabs = document.querySelectorAll('.arch-tab');
+  const panels = {
+    facial: document.getElementById('arch-facial'),
+    qr:     document.getElementById('arch-qr'),
+    bio:    document.getElementById('arch-bio')
+  };
+  if (!tabs.length) return;
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('is-active'));
+      Object.values(panels).forEach(p => { p.classList.remove('is-active'); p.hidden = true; });
+
+      btn.classList.add('is-active');
+      const key = btn.dataset.arch;
+      panels[key].hidden = false;
+      panels[key].classList.add('is-active');
+    });
+  });
+})();
+
+/* ========== Carrossel de Kits (scroll-snap + botões) ========== */
+(() => {
+  const wrap = document.querySelector('[data-kits]');
+  if (!wrap) return;
+  const track = wrap.querySelector('.kits-track');
+  const prev  = wrap.querySelector('.kits-nav.prev');
+  const next  = wrap.querySelector('.kits-nav.next');
+
+  const step = () => track.clientWidth * 0.9;
+
+  prev.addEventListener('click', () => {
+    track.scrollBy({ left: -step(), behavior: 'smooth' });
+  });
+  next.addEventListener('click', () => {
+    track.scrollBy({ left: step(), behavior: 'smooth' });
+  });
+})();

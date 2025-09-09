@@ -19,6 +19,57 @@ body {
     line-height: 1.6;
 }
 
+/* 1) Nunca deixe a página rolar na horizontal */
+html, body { overflow-x: hidden; }
+
+/* ==========================================
+   SCROLLBAR – identidade visual do site
+   (global; aplique a um container se preferir)
+   ========================================== */
+:root{
+  --scroll-track: #EAF8FB;   /* fundo clarinho (tema) */
+  --scroll-thumb: #2E3F5B;   /* polegar (azul-escuro) */
+  --scroll-thumb-hover: #1E2A3A;
+  --scroll-accent: #25BACF;  /* ciano do tema (borda/realce) */
+}
+
+/* Firefox */
+html{
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+  scrollbar-width: auto; /* auto | thin | none */
+}
+
+/* WebKit (Chrome, Edge, Safari) */
+*::-webkit-scrollbar{
+  width: 12px;               /* verticais */
+  height: 12px;              /* horizontais */
+}
+*::-webkit-scrollbar-track{
+  background: var(--scroll-track);
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgba(37,186,207,.25); /* fio ciano discreto */
+}
+*::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, var(--scroll-thumb), #2a3b54);
+  border-radius: 999px;
+  border: 2px solid var(--scroll-track); /* cria “trilho” vazado */
+  box-shadow: 0 1px 4px rgba(0,0,0,.18);
+}
+*::-webkit-scrollbar-thumb:hover{
+  background: linear-gradient(180deg, var(--scroll-thumb-hover), #223146);
+}
+*::-webkit-scrollbar-corner{ background: transparent; }
+
+/* Tweak nos principais containers horizontais da página de Acessos */
+.kits-track::-webkit-scrollbar{ height: 10px; }
+.compare-wrapper::-webkit-scrollbar{ height: 10px; }
+
+/* Estado focado (acessibilidade): realça o thumb quando o container recebe focus */
+.kits-track:focus::-webkit-scrollbar-thumb,
+.compare-wrapper:focus::-webkit-scrollbar-thumb{
+  box-shadow: 0 0 0 2px var(--scroll-accent), 0 1px 4px rgba(0,0,0,.18);
+}
+
 .highlight-azul-escuro {
     color: #2E3F5B;
 }
@@ -2995,6 +3046,7 @@ body {
     max-width: 800px;
     line-height: 1.6;
     font-weight: 300;
+    text-align: center;
 }
 
 .servicos-grid {
@@ -4229,76 +4281,241 @@ body {
     box-shadow: 0 8px 20px rgba(46, 63, 91, 0.3);
 }
 
-/* =======================================================
-   SERVIÇOS • ACESSOS (3 sections)  — escopo .svc-
-   Mantém sua identidade: #25BACF e #2E3F5B, cards com topbar
-   ======================================================= */
-.svc-section{ background:#F8F9FA; padding:40px 100px; }
-.svc-container{ max-width:1200px; margin:0 auto; display:flex; flex-direction:column; gap:28px; }
-.svc-header{ text-align:center; margin-bottom:8px; }
-.svc-subtitle{ font-size:1.05rem; color:#4A4A4A; }
+/* =========================================================
+   ACESSOS — PADRONIZAÇÃO DE SESSÕES (comparativo, kits, operação)
+   Segue o padrão global do site (cores, raios, sombras, paddings)
+   ========================================================= */
 
-.svc-grid{ display:grid; gap:24px; }
-.svc-grid-3{ grid-template-columns:repeat(3,1fr); }
-.svc-grid-4{ grid-template-columns:repeat(4,1fr); }
-
-/* Card base (igual às outras sessões) */
-.svc-card{
-  background:#FEFEFE; border-radius:20px; border:2px solid transparent;
-  box-shadow:0 10px 30px rgba(0,0,0,.08);
-  padding:26px 22px; position:relative; overflow:hidden;
-  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  display:flex; flex-direction:column; gap:12px;
+/* -------- Base + paddings alinhados -------- */
+:root{
+  /* padrão das páginas (sides 100px / vertical 40px) */
+  --svc-pad-x: 100px;
+  --svc-pad-y: 40px;
+  --svc-card-br: 18px;
+  --svc-card-bd: 1px solid rgba(37,186,207,.18);
+  --svc-card-shadow: 0 12px 26px rgba(0,0,0,.07);
+  --svc-blue: #25BACF;
+  --svc-ink: #2E3F5B;
+  --svc-bg: #F8F9FA;
 }
-.svc-card::before{
-  content:''; position:absolute; top:0; left:0; width:100%; height:4px;
-  background:linear-gradient(90deg,#25BACF,#2E3F5B);
-  transform:scaleX(0); transform-origin:center; transition:transform .3s ease;
+
+#acessos-comparativo,
+#acessos-kits,
+#acessos-operacao{
+  background: var(--svc-bg);
+  padding-left:  var(--svc-pad-x);
+  padding-right: var(--svc-pad-x);
+  padding-top:   var(--svc-pad-y);
+  padding-bottom:var(--svc-pad-y);
 }
-.svc-card:hover{ transform:translateY(-6px); box-shadow:0 18px 40px rgba(0,0,0,.12); border-color:#25BACF; }
-.svc-card:hover::before{ transform:scaleX(1); }
 
-.svc-card-center{ align-items:center; text-align:center; }
-
-/* Figura opcional no topo dos cards */
-.svc-figure{
-  width:100%; aspect-ratio:16/9; border-radius:16px; overflow:hidden;
-  background:#F0FBFD; border:1px solid rgba(37,186,207,.18); box-shadow:0 6px 18px rgba(0,0,0,.06);
+.svc-section .svc-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
-.svc-figure img{ width:100%; height:100%; object-fit:cover; display:block; }
 
-.svc-icon{
-  width:72px; height:72px; border-radius:14px; background:#F0FBFD;
-  display:grid; place-items:center; border:1px solid rgba(37,186,207,.2);
+.svc-header{ text-align:center; }
+.svc-subtitle{ color:#4A4A4A; }
+
+/* ---------- paddings padrão da página ---------- */
+:root{
+  --svc-pad-x: 100px;
+  --svc-pad-y: 40px;
+  --svc-ink: #2E3F5B;
+  --svc-blue: #25BACF;
+  --svc-card-br: 18px;
 }
-.svc-title{ font-family:'Poppins',sans-serif; font-weight:600; font-size:1.1rem; color:#2E3F5B; line-height:1.25; }
-.svc-text{ font-size:15px; color:#4A4A4A; line-height:1.6; }
-.svc-text-lg{ font-size:1rem; color:#4A4A4A; line-height:1.75; }
 
-/* Lista com bullets no padrão */
-.svc-list{ list-style:none; margin:6px 0 0 0; padding:0; display:grid; gap:8px; }
-.svc-list li{ display:flex; align-items:flex-start; justify-content:center; gap:8px; color:#2E3F5B; font-size:14px; }
-.svc-list li::before{ content:''; width:6px; height:6px; border-radius:50%; background:#25BACF; margin-top:.5em; flex:0 0 6px; }
-
-/* CTA local (mesmo estilo dos seus botões) */
-.svc-cta{
-  margin-top:10px; background:#2E3F5B; color:#fff; padding:10px 18px; border-radius:10px;
-  font-weight:600; font-size:14px; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+/* aplica apenas nas 3 sections */
+#acessos-comparativo,
+#acessos-kits,
+#acessos-operacao{
+  padding-inline: var(--svc-pad-x);
+  padding-block: var(--svc-pad-y);
+  background: #F8F9FA;
+  position: relative;
+  overflow: clip;            /* recorta sombras/linhas decorativas */
 }
-.svc-cta:hover{ background:#1E2A3A; transform:translateY(-2px); box-shadow:0 10px 24px rgba(46,63,91,.25); }
-.svc-cta-wrap{ display:flex; justify-content:center; }
 
-/* Retrofit: painel + steps */
-.svc-retrofit .svc-retrofit-layout{ display:grid; grid-template-columns:1.2fr .8fr; gap:24px; }
-.svc-panel{ min-height:280px; align-items:center; text-align:center; }
-.svc-panel::before{ transform:scaleX(1); }  /* barra sempre visível no painel */
+.svc-section .svc-container{
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
 
-.svc-steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-.svc-step-card{ padding:22px; }
-.svc-step-number{
-  width:32px; height:32px; border-radius:999px; display:grid; place-items:center;
-  background:#F0FBFD; border:1px solid rgba(37,186,207,.25); color:#2E3F5B; font-weight:700; margin:0 auto 8px;
+/* =========================================================
+   1) COMPARATIVO — scroll local (nunca no body)
+   ========================================================= */
+.svc-compare .compare-wrapper{
+  max-width: 100%;
+  overflow-x: auto;                /* rolagem só aqui */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  border-radius: var(--svc-card-br);
+  border: 1px solid rgba(37,186,207,.18);
+  background:#fff;
+  box-shadow: 0 12px 26px rgba(0,0,0,.07);
+}
+.svc-compare .compare-table{
+  width: 100%;
+  min-width: 720px;               /* força scroll local se faltar espaço */
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.svc-compare thead th{
+  background:#F7FAFB; color:var(--svc-ink);
+  font-weight:700; padding:14px; text-align:left;
+  border-bottom:1px solid rgba(46,63,91,.12);
+}
+.svc-compare tbody td{
+  padding:14px; color:var(--svc-ink);
+  border-bottom:1px solid rgba(46,63,91,.08);
+}
+.svc-compare tbody tr:last-child td{ border-bottom:none; }
+.svc-compare .state{ position:relative; }
+.svc-compare .state[data-state="yes"]::before{ content:"✓"; color:#1f9d6a; font-weight:800; }
+.svc-compare .state[data-state="partial"]::before{ content:"~"; color:#e2a32b; font-weight:800; }
+.svc-compare .state[data-state="no"]::before{ content:"—"; color:#9aa3af; font-weight:800; }
+
+/* cards “quando usar” */
+.svc-compare .use-cases{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:16px; margin-top:16px;
+}
+.svc-compare .uc-card{
+  background:#fff; border:1px solid rgba(37,186,207,.18);
+  border-radius:16px; padding:16px; box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+.svc-compare .uc-card h3{ margin:0 0 6px; color:var(--svc-ink); font-size:1.05rem; }
+.svc-compare .uc-card ul{ margin:0; padding-left:18px; color:#4A4A4A; }
+
+/* ================================
+   ACESSOS — Cards (v3)
+   ================================ */
+:root{
+  --ax-pad-x: var(--svc-pad-x, 100px);
+  --ax-pad-y: var(--svc-pad-y, 40px);
+  --ax-ink:  #2E3F5B;
+  --ax-blue: #25BACF;
+  --ax-bg:   #F8F9FA;
+}
+
+#acessos-cards-v3{
+  padding-inline: var(--ax-pad-x);
+  padding-block:  var(--ax-pad-y);
+  background: var(--ax-bg);
+  position: relative;
+  overflow: clip; /* evita qualquer “vazamento” */
+}
+
+#acessos-cards-v3 .svc-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex; flex-direction: column; gap: 18px;
+}
+
+/* Grid responsivo */
+.ax-grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 16px;
+}
+
+/* Card */
+.ax-card{
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; text-align:center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid rgba(37,186,207,.18);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 12px 26px rgba(0,0,0,.07);
+  min-height: 340px;
+  transition: box-shadow .25s ease, border-color .25s ease;
+}
+.ax-card::before{
+  content:""; position:absolute; inset:0 0 auto 0; height:4px;
+  background: linear-gradient(90deg, var(--ax-blue), var(--ax-ink));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .28s ease;
+}
+.ax-card:hover{ border-color: var(--ax-blue); box-shadow: 0 18px 40px rgba(0,0,0,.12); }
+.ax-card:hover::before{ transform: scaleX(1); }
+
+.ax-icon{
+  width: 70px; height: 70px; border-radius: 14px;
+  display: grid; place-items: center;
+  background: #EAF8FB; border: 1px solid rgba(37,186,207,.25);
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+}
+.ax-icon svg{ width: 42px; height: 42px; stroke: var(--ax-ink); stroke-width: 2; }
+
+.ax-title{ color: var(--ax-ink); font-weight: 700; font-size: 1.05rem; }
+.ax-text{ color:#4A4A4A; }
+.ax-list{
+  list-style:none; padding:0; margin:0; display:grid; gap:6px;
+}
+.ax-list li{
+  display:flex; gap:8px; justify-content:center; color:var(--ax-ink);
+}
+.ax-list li::before{
+  content:""; width:6px; height:6px; border-radius:999px; margin-top:.55em;
+  background: var(--ax-blue);
+}
+
+/* Botões */
+.ax-btn, .ax-cta{
+  background: var(--ax-ink); color:#fff; text-decoration:none;
+  padding:10px 18px; border-radius:10px; font-weight:600;
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.ax-btn:hover, .ax-cta:hover{ background:#1E2A3A; transform: translateY(-2px); box-shadow:0 10px 24px rgba(46,63,91,.25); }
+.ax-cta-row{ display:flex; justify-content:center; margin-top:6px; }
+
+/* =========================================================
+   3) OPERAÇÃO — timeline com linha segura (clipada)
+   ========================================================= */
+.svc-ops .ops-rail{
+  position:relative; overflow:hidden;    /* clipa a linha decorativa */
+  display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+  padding:18px; background:#fff; border-radius:var(--svc-card-br);
+  border:1px solid rgba(37,186,207,.18); box-shadow:0 12px 26px rgba(0,0,0,.07);
+}
+.svc-ops .ops-rail::before{
+  content:"";
+  position:absolute; top:34px; height:3px;
+  /* nunca encosta na borda do container */
+  left: 24px; right: 24px;
+  background:linear-gradient(90deg,var(--svc-blue),var(--svc-ink));
+  opacity:.35; border-radius:3px;
+}
+.svc-ops .ops-step{ text-align:center; padding-top:24px; }
+.svc-ops .ops-dot{
+  width:36px; height:36px; border-radius:999px; margin:-42px auto 8px;
+  display:grid; place-items:center; background:var(--svc-ink); color:#fff; font-weight:700;
+  border:2px solid var(--svc-blue); box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+.svc-ops .ops-kpis{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:16px;
+}
+.svc-ops .kpi{
+  background:#fff; border:1px solid rgba(46,63,91,.12);
+  border-radius:14px; text-align:center; padding:14px;
+}
+.svc-ops .kpi strong{ display:block; color:var(--svc-ink); font-size:1.2rem; }
+.svc-ops .kpi span{ color:#4A4A4A; font-size:.95rem; }
+
+/* mídias nunca estouram */
+#acessos-comparativo img, #acessos-kits img, #acessos-operacao img,
+#acessos-comparativo svg, #acessos-kits svg, #acessos-operacao svg{
+  max-width:100%; height:auto; display:block;
 }
 
 /* =======================================================
@@ -4521,6 +4738,7 @@ body {
 .recursos-avancados-list {
     list-style: none;
     margin: auto 0;
+    margin-bottom: 10px;
 }
 
 .recursos-avancados-list li {
@@ -4666,6 +4884,12 @@ body {
   /* Faixa “Experimente agora” (band) */
   .ponto-band{ gap: 22px; }
 }
+:root{ --svc-pad-x: 300px; --svc-pad-y: 60px; }
+  .svc-section .svc-container{ max-width: 1360px; }
+
+  .svc-compare .use-cases{ gap:20px; }
+  .svc-ops .ops-rail{ gap:20px; }
+  .kits-nav.prev{ left:-2px; } .kits-nav.next{ right:-2px; }
 }
 
 /* Tablets grandes */
@@ -4742,6 +4966,46 @@ body {
   .stats-grid > *{
     min-height: auto; /* evita alturas exageradas herdadas de telas maiores */
   }
+
+  :root{ --ponto-pad-x: 40px; --ponto-pad-y: 40px; }
+
+  /* Sections desta página alinhadas */
+  #ponto-intro, #ponto-numeros, #ponto-consultoria, #ponto-recursos,
+  #ponto-avancados, #ponto-equipamentos, #ponto-experimente{
+    padding-left:  var(--ponto-pad-x);
+    padding-right: var(--ponto-pad-x);
+    padding-top:   var(--ponto-pad-y);
+    padding-bottom:var(--ponto-pad-y);
+    width:100% !important; max-width:100% !important;
+  }
+
+  /* Containers acompanham a borda da section */
+  .ponto-container{
+    max-width:none; margin-left:0; margin-right:0;
+  }
+
+  /* Consultoria: painel e steps empilham confortavelmente */
+  .ponto-panel-grid{ grid-template-columns:1fr; gap:22px; }
+  .ponto-panel-media{ aspect-ratio:16/9; }
+
+  /* Métricas em coluna única */
+  .ponto-metrics{ grid-template-columns:1fr; gap:18px; }
+
+  /* Recursos v2: rail vira 1 coluna e aside deixa de ser sticky */
+  .recursos-v2 .recursos-rail{ grid-template-columns:1fr; gap:22px; }
+  .recursos-v2 .recursos-aside{ position:static; text-align:center; align-items:center; }
+  .recursos-v2 .recursos-chips{ justify-content:center; }
+
+  /* Avançados v2: conteúdo em 1 coluna */
+  .av-content{ grid-template-columns:1fr; }
+
+  :root{ --svc-pad-x: 40px; --svc-pad-y: 40px; }
+  .svc-section .svc-container{ max-width:none; }
+
+  .svc-compare .use-cases{ grid-template-columns:1fr; }
+  .svc-ops .ops-rail{ grid-template-columns:repeat(2,1fr); }
+  .svc-ops .ops-rail::before{ left:12%; right:12%; }
+  .kits-nav.prev{ left:4px; } .kits-nav.next{ right:4px; }
 }
 
 @media (max-width: 1024px) {
@@ -4930,7 +5194,42 @@ body {
     overflow-x: auto;
     padding: 0 10px;
   }
+
+  :root{ --ponto-pad-x: 28px; --ponto-pad-y: 32px; }
+
+  #ponto-intro, #ponto-numeros, #ponto-consultoria, #ponto-recursos,
+  #ponto-avancados, #ponto-equipamentos, #ponto-experimente{
+    padding-left:  var(--ponto-pad-x);
+    padding-right: var(--ponto-pad-x);
+    padding-top:   var(--ponto-pad-y);
+    padding-bottom:var(--ponto-pad-y);
+  }
+
+  /* Segurança contra overflow lateral */
+  html, body{ overflow-x:hidden; }
+  img, video, svg{ max-width:100%; height:auto; display:block; }
+
+  /* Cards e steps não “saltam” no hover em telas menores */
+  .ponto-card, .ponto-step-card{ transform:none !important; }
+  .ponto-card:hover, .ponto-step-card:hover{ transform:none !important; box-shadow:0 10px 24px rgba(0,0,0,.10); }
+
+  /* Recursos v2 – linhas levemente mais compactas */
+  .recurso-row{ padding:16px; gap:14px; grid-template-columns:52px 1fr; }
+  .recurso-icon{ width:52px; height:52px; }
+
+  /* Avançados v2 – título/ícone mais enxutos */
+  .av-summary{ padding:14px 16px; }
+  .av-icon{ width:52px; height:52px; }
+
+   :root{ --svc-pad-x: 28px; --svc-pad-y: 32px; }
+  html, body{ overflow-x:hidden; }
+  img, video, svg{ max-width:100%; height:auto; display:block; }
+
+  /* cartas mais compactas */
+  .kit-card{ padding:16px; }
+  .svc-ops .kpi strong{ font-size:1.1rem; }
 }
+
 
 /* =========================================================
    ≤ 768px — mobile grande
@@ -5004,6 +5303,42 @@ body {
     width: 100%;
     overflow: hidden;
   }
+
+  :root{ --ponto-pad-x: 20px; --ponto-pad-y: 28px; }
+
+  #ponto-intro, #ponto-numeros, #ponto-consultoria, #ponto-recursos,
+  #ponto-avancados, #ponto-equipamentos, #ponto-experimente{
+    padding-left:  var(--ponto-pad-x);
+    padding-right: var(--ponto-pad-x);
+    padding-top:   var(--ponto-pad-y);
+    padding-bottom:var(--ponto-pad-y);
+  }
+
+  /* Tipografia e ícones um pouco menores */
+  .ponto-title{ font-size:1.05rem; }
+  .ponto-icon{ width:60px; height:60px; }
+
+  /* Painel consultoria: imagem em 16:9 + centralizações */
+  .ponto-panel-media{ aspect-ratio:16/9; }
+  .ponto-panel-body{ align-items:center; text-align:center; }
+
+  /* Recursos v2 – linhas mais estreitas */
+  .recurso-row{ grid-template-columns:48px 1fr; gap:12px; }
+  .recurso-icon{ width:48px; height:48px; border-radius:12px; }
+
+  /* Avançados v2 – acordeon confortável em uma coluna */
+  .av-content{ gap:14px; padding:0 14px 14px; }
+  .av-summary h3{ font-size:1rem; }
+
+  /* Faixa “Experimente” em coluna única */
+  .ponto-experimente .ponto-band{ grid-template-columns:1fr; gap:12px; text-align:center; }
+
+  :root{ --svc-pad-x: 20px; --svc-pad-y: 28px; }
+  .svc-ops .ops-rail{ grid-template-columns:1fr; }
+  .svc-ops .ops-rail::before{ display:none; }
+  .svc-ops .ops-kpis{ grid-template-columns:1fr; }
+
+  .svc-arch .arch-board{ grid-template-columns:repeat(2,1fr); } /* caso ainda use arquitetura antiga */
 }
 
 /* =========================================================
@@ -5111,38 +5446,32 @@ body {
     display: block;
     white-space: nowrap;
   }
-}
 
-/* =========================================================
-   ≤ 360px — mobile muito pequeno
-   ========================================================= */
-@media (max-width: 360px) {
-  
-  .header, .hero, .servicos, .stats, .nossas-solucoes, .quem-confia,
-  .whatsapp-comercial, .segmentos, .acessos, .introducao-educacao,
-  .ponto-section, .svc-section, .footer {
-    padding-left: 12px; 
-    padding-right: 12px;
-    padding-top: 20px;  
-    padding-bottom: 20px;
+  :root{ --ponto-pad-x: 16px; --ponto-pad-y: 24px; }
+
+  #ponto-intro, #ponto-numeros, #ponto-consultoria, #ponto-recursos,
+  #ponto-avancados, #ponto-equipamentos, #ponto-experimente{
+    padding-left:  var(--ponto-pad-x);
+    padding-right: var(--ponto-pad-x);
+    padding-top:   var(--ponto-pad-y);
+    padding-bottom:var(--ponto-pad-y);
   }
 
-  .logo { 
-    width: 120px;
-    max-width: 120px;
-  }
+  .ponto-title{ font-size:1rem; }
+  .ponto-text{ font-size:14px; }
+  .ponto-cta{ width:100%; max-width:none; }
 
-  .hero-title { 
-    font-size: clamp(1.4rem, 8vw, 1.8rem);
-  }
-  
-  .hero-description { 
-    font-size: 0.9rem;
-  }
+  .recurso-row{ gap:10px; padding:14px; }
+  .recurso-body h3{ font-size:1rem; }
+  .badge{ font-size:.78rem; }
 
-  .navbar.active .nav-links {
-    width: calc(100vw - 24px);
-    right: 12px;
-    left: 12px;
-  }
+  .av-summary{ padding:12px 14px; }
+  .av-icon{ width:46px; height:46px; }
+  .av-list{ padding-left:16px; }
+
+  :root{ --svc-pad-x: 16px; --svc-pad-y: 24px; }
+
+  .svc-compare .compare-table{ min-width:680px; } /* rolagem horizontal suave */
+  .kits-nav{ display:none; }  /* no mobile, swipe apenas */
+  .kit-card{ flex-basis: 88vw; }
 }
