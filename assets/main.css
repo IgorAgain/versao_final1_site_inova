@@ -4304,9 +4304,9 @@ body {
 /* =======================================================
    SERVIÇOS • PONTO — estilos gerais (.ponto-)
    ======================================================= */
-.ponto-section{ background:#F8F9FA; padding:40px 100px 10px 100px; }
+.ponto-section{ background:#F8F9FA; padding:40px 100px 60px 100px; }
 .ponto-section-numebers{ background:#F8F9FA; padding:0px 100px 80px 100px; }
-.ponto-container{ max-width:1200px; margin:0 auto; display:flex; flex-direction:column; gap:28px; }
+.ponto-container{ margin:0 auto; display:flex; flex-direction:column; gap:28px; margin-top: 10px;}
 .ponto-header{ text-align:center; margin-bottom:8px; }
 .ponto-subtitle{ font-size:1.05rem; color:#4A4A4A; text-align: center;}
 .ponto-numeros {padding: 0px 100px 40px 100px;}
@@ -4516,8 +4516,37 @@ body {
   aspect-ratio: 16/9;
 }
 .av-media img{ width:100%; height:100%; object-fit:cover; display:block; }
-.av-list{ margin:0; padding-left:18px; }
-.av-list li{ margin:6px 0; color:#4A4A4A; }
+
+/* Lista de características */
+.recursos-avancados-list {
+    list-style: none;
+    margin: auto 0;
+}
+
+.recursos-avancados-list li {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #4A4A4A;
+    border-bottom: 1px solid #E8E8E8;
+    position: relative;
+    padding-left: 20px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.recursos-avancados-list li:last-child {
+    border-bottom: none;
+}
+
+/* Ícone de check para os itens da lista */
+.recursos-avancados-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #25BACF;
+    font-weight: 600;
+    font-size: 14px;
+}
 
 /* ========================================= */
 /* MEDIA QUERIES RESPONSIVAS */
@@ -4577,6 +4606,66 @@ body {
   /* Navegação do carrossel permanece dentro do padding */
   .segmentos .carousel-nav.prev{ left: 16px; }
   .segmentos .carousel-nav.next{ right: 16px; }
+
+  :root{
+    --ponto-pad-x: 300px;
+    --ponto-pad-y: 60px;
+
+  /* Sections desta página */
+  #ponto-intro,
+  #ponto-numeros,
+  #ponto-consultoria,
+  #ponto-recursos,
+  #ponto-avancados,
+  #ponto-equipamentos,
+  #ponto-experimente{
+    padding-left:  var(--ponto-pad-x);
+    padding-right: var(--ponto-pad-x);
+    padding-top:   var(--ponto-pad-y);
+    padding-bottom:var(--ponto-pad-y);
+  }
+
+
+  /* Containers internos usam a mesma largura lógica da página grande */
+  .ponto-container{
+    margin-left:  auto;
+    margin-right: auto;
+  }
+
+  /* Intro: cards em 3 colunas com mais respiro */
+  .ponto-grid{ gap: 32px; }
+  .ponto-grid.ponto-grid-3{ grid-template-columns: repeat(3, 1fr); }
+
+  /* Métricas (prova social) */
+  .ponto-metrics{ gap: 28px; }
+  .ponto-metric-number{ font-size: 1.8rem; }
+  .ponto-metric-label{ font-size: 1rem; }
+
+  /* Consultoria & Serviços */
+  .ponto-retrofit-layout{ display:grid; grid-template-columns: 1.1fr 1fr; gap: 28px; }
+  .ponto-panel-grid{ grid-template-columns: 1.05fr 1.15fr; gap: 28px; }
+  .ponto-steps{ gap: 18px; }
+
+  /* Recursos do sistema (v2 – rail + linhas) */
+  .recursos-v2 .recursos-rail{
+    grid-template-columns: 0.95fr 1.6fr;
+    gap: 36px;
+  }
+  .recursos-v2 .recursos-aside{ max-width: 560px; }
+  .recursos-v2 .recursos-list{ padding-left: 22px; gap: 22px; }
+  .recurso-row{ padding: 22px; gap: 18px; }
+  .recurso-body h3{ font-size: 1.2rem; }
+
+  /* Avançados (v2 – accordion) */
+  .av-accordion{ gap: 16px; }
+  .av-content{ grid-template-columns: 1.1fr 1.2fr; gap: 22px; }
+
+  /* Equipamentos & assistência */
+  #ponto-equipamentos .ponto-grid{ gap: 32px; }
+
+  /* Faixa “Experimente agora” (band) */
+  .ponto-band{ gap: 22px; }
+}
 }
 
 /* Tablets grandes */
