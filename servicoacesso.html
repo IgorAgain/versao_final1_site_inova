@@ -46,7 +46,6 @@
                                 <li><a class="drop-down-menu-item" href="servicoacesso.html">Acessos</a></li>
                                 <li><a class="drop-down-menu-item" href="servicoaplicativo.html">Aplicativos</a></li>
                                 <li><a class="drop-down-menu-item" href="servicoponto.html">Ponto</a></li>
-                                <li><a class="drop-down-menu-item" href="servicosuporte.html">Suporte</a></li>
                             </ul>
                         </li>
                         <li><a href="clientes.html">CLIENTES</a></li>
@@ -163,162 +162,192 @@
                         </ul>
                     </article>
                 </div>
-                <div class="cta-container">
-                    <a href="contratar.html">
-                        <button class="cta-comprar-integracao" aria-label="Quero uma integração completa"><span>Quero Expandir minha Segurança</span></button>
-                    </a>
-                </div>
+                <a class="acesso-cta" href="servicoacesso.html">Ver com mais detalhes</a>
             </div>
         </section>
 
         <!-- ===============================================
             ACESSOS — Cards (v3)
             =============================================== -->
-        <section id="acessos-cards-v3" class="svc-section ax">
-        <div class="svc-container">
-            <header class="svc-header">
-            <h2 class="servicos-title">Acessos</h2>
-            <p class="svc-subtitle">
-                Tecnologias que aceleram a entrada, elevam a segurança e integram com o ERP acadêmico.
-            </p>
-            </header>
+        <!-- Sessão ACESSOS -->
+        <section id="acessos" class="acessos">
+            <div class="acessos-container">
+                <div class="acessos-header">
+                    <h2 class="servicos-title">Conheça um pouco sobre nossos acessos e monitoramento.</h2>
+                    <h3 class="nova-sessao-subtitle">
+                        Tecnologias que aceleram a entrada, elevam a segurança e integram com o ERP acadêmico.
+                    </h3>
+                </div>
 
-            <div class="ax-grid">
-            <!-- Facial -->
-            <article class="ax-card">
-                <span class="ax-icon" aria-hidden="true">
-                <!-- Câmera / rosto -->
-                <svg viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="6" width="18" height="12" rx="2"/>
-                    <circle cx="12" cy="12" r="3"/>
-                </svg>
-                </span>
-                <h3 class="ax-title">Catracas com Reconhecimento Facial</h3>
-                <p class="ax-text">Autenticação sem contato, alta velocidade e baixa taxa de fraude.</p>
-                <ul class="ax-list">
-                    <li>Validação em &lt; 1s</li>
-                    <li>Anti-spoofing (foto/vídeo)</li>
-                    <li>Conformidade LGPD</li>
-                </ul>
-            </article>
+                    <div class="acessos-grid">
+                        <!-- Card 1 – Catracas com Reconhecimento Facial -->
+                        <article class="acesso-card">
+                            <!-- removido: <div class="acesso-topbar"></div> -->
+                            <div class="acesso-icon">
+                                <img src="assets/img/catraca vidro icon site.svg" alt="Ícone de reconhecimento facial" width="72" height="72" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="acesso-title">Catracas com Reconhecimento Facial</h3>
+                            <p class="acesso-text">Autenticação sem contato, alta velocidade e baixa taxa de fraude. Ideal para picos de entrada.</p>
+                            <ul class="servico-lista">
+                                <li>Validação em <strong>&lt; 1s</strong></li>
+                                <li>Anti-spoofing (foto/vídeo)</li>
+                                <li>Conformidade LGPD</li>
+                            </ul>
+                        </article>
 
-            <!-- QR Code -->
-            <article class="ax-card">
-                <span class="ax-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="3" width="7" height="7"/>
-                    <rect x="14" y="3" width="7" height="7"/>
-                    <rect x="14" y="14" width="7" height="7"/>
-                    <rect x="3" y="14" width="7" height="7"/>
-                </svg>
-                </span>
-                <h3 class="ax-title">Catracas com QR Code</h3>
-                <p class="ax-text">Praticidade para alunos/visitantes com tokens dinâmicos e criptografados.</p>
-                <ul class="ax-list">
-                    <li>QR dinâmico e seguro</li>
-                    <li>Válido no app carteirinha</li>
-                    <li>Logs completos de acesso</li>
-                </ul>
-            </article>
+                        <!-- Card 2 – Catracas com QR Code -->
+                        <article class="acesso-card">
+                            <!-- removido: <div class="acesso-topbar"></div> -->
+                            <div class="acesso-icon">
+                                <img src="assets/img/qr-code.png" alt="Ícone de reconhecimento facial" width="72" height="72" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="acesso-title">Catracas com QR Code</h3>
+                            <p class="acesso-text">Praticidade para alunos e visitantes com tokens dinâmicos e criptografados no APP.</p>
+                            <ul class="servico-lista">
+                                <li>QR dinâmico e seguro</li>
+                                <li>Válido no app carteirinha</li>
+                                <li>Logs completos de acesso</li>
+                            </ul>
+                        </article>
 
-            <!-- Biometria -->
-            <article class="ax-card">
-                <span class="ax-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M7 12c0-2.8 2.2-5 5-5s5 2.2 5 5"/>
-                    <path d="M6 12c0 4 2 7 6 7s6-3 6-7"/>
-                </svg>
-                </span>
-                <h3 class="ax-title">Catracas com Biometria</h3>
-                <p class="ax-text">Alta precisão e funcionamento offline para garantir a passagem.</p>
-                <ul class="ax-list">
-                    <li>Template criptografado</li>
-                    <li>Baixa taxa de falso-positivo</li>
-                    <li>Alta durabilidade</li>
-                </ul>
-            </article>
+                        <!-- Card 3 – Catracas com Biometria -->
+                        <article class="acesso-card">
+                            <!-- removido: <div class="acesso-topbar"></div> -->
+                            <div class="acesso-icon">
+                                <img src="assets/img/controle acesso site.svg" alt="Ícone de reconhecimento facial" width="72" height="72" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="acesso-title">Catracas com Biometria</h3>
+                            <p class="acesso-text">Precisão elevada e funcionamento offline para garantir a passagem mesmo sem rede.</p>
+                            <ul class="servico-lista">
+                                <li>Template criptografado</li>
+                                <li>Baixa taxa de falso-positivo</li>
+                                <li>Alta durabilidade</li>
+                            </ul>
+                        </article>
 
-            <!-- Câmeras com IA -->
-            <article class="ax-card">
-                <span class="ax-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                    <path d="M7 17h10a4 4 0 0 0 0-8 6 6 0 0 0-11.5 1"/>
-                </svg>
-                </span>
-                <h3 class="ax-title">Câmeras com Reconhecimento Facial (IA)</h3>
-                <p class="ax-text">Monitoramento inteligente em tempo real, com alertas e relatórios.</p>
-                <ul class="ax-list">
-                    <li>Detecção e match em tempo real</li>
-                    <li>Alertas por evento</li>
-                    <li>Relatórios centralizados</li>
-                </ul>
-            </article>
+                        <!-- Card 4 – Câmeras com Reconhecimento Facial (IA) -->
+                        <article class="acesso-card">
+                            <!-- removido: <div class="acesso-topbar"></div> -->
+                            <div class="acesso-icon">
+                                <img src="assets/img/icone camera monitoramente.svg" alt="Ícone de reconhecimento facial" width="72" height="72" loading="lazy" decoding="async">
+                            </div>
+                            <h3 class="acesso-title">Câmeras integradas com IA</h3>
+                            <p class="acesso-text">Monitoramento inteligente em tempo real, alertas e relatórios integrados ao ERP.</p>
+                            <ul class="servico-lista">
+                                <li>Detecção e match em tempo real</li>
+                                <li>Alertas por evento</li>
+                                <li>Relatórios centralizados</li>
+                            </ul>
+                        </article>
+                    </div>
+                    <a class="acesso-cta" href="servicoacesso.html">Ver com mais detalhes</a>
+                </div>
             </div>
-
-            <!-- CTA opcional -->
-            <div class="ax-cta-row">
-            <a class="ax-cta" href="contratar.html">Quero conhecer todos os acessos</a>
-            </div>
-        </div>
         </section>
 
         <!-- =======================================================
             6) JORNADA DO USUÁRIO (TIMELINE)
             ======================================================= -->
-        <section id="acessos-operacao" class="svc-section svc-ops">
-            <div class="svc-container">
-                <header class="svc-header">
+        <section class="svc-ops" id="operacao-dia-a-dia">
+            <div class="ops-header">
                 <h2 class="servicos-title">Operação no dia a dia</h2>
-                <p class="nossas-solucoes-subtitle">Do pré-cadastro ao monitoramento: o que acontece em cada etapa.</p>
-                </header>
+                <p class="ops-subtitle">Do pré-cadastro ao monitoramento: o que acontece em cada etapa.</p>
+            </div>
 
-                <div class="ops-rail">
+            <!-- Grade 2×2 de etapas -->
+            <div class="ops-rail">
+                <!-- 1. Pré-cadastro -->
                 <article class="ops-step">
-                    <div class="ops-dot">1</div>
-                    <h3 class="svc-title">Pré-cadastro</h3>
-                    <ul class="svc-list">
-                        <li>Importação do ERP e políticas de acesso</li>
-                        <li>Convite para App (QR) ou coleta de facial/bio</li>
-                        <li>Teste de controladoras e rede</li>
-                    </ul>
-                </article>
-
-                <article class="ops-step">
-                    <div class="ops-dot">2</div>
-                    <h3 class="svc-title">Entrada</h3>
-                    <ul class="svc-list">
-                        <li>Filas rápidas com validação em &lt; 1–2s</li>
-                        <li>Tratamento de exceções (sem rede / visitante)</li>
-                        <li>Regras por período e áreas</li>
-                    </ul>
-                </article>
-
-                <article class="ops-step">
-                    <div class="ops-dot">3</div>
-                    <h3 class="svc-title">Autenticação</h3>
-                    <ul class="svc-list">
-                        <li>Logs com imagem/token e número da catraca</li>
-                        <li>Integração com ERP / carteirinha</li>
-                        <li>Eventos de bloqueio e alertas</li>
-                    </ul>
-                </article>
-
-                <article class="ops-step">
-                    <div class="ops-dot">4</div>
-                    <h3 class="svc-title">Monitoramento</h3>
-                    <ul class="svc-list">
-                        <li>Dashboard em tempo real e relatórios</li>
-                        <li>Alertas por e-mail/WhatsApp</li>
-                        <li>Exportações e auditoria LGPD</li>
-                    </ul>
-                </article>
+                <span class="ops-dot">1</span>
+                <div class="ops-media">
+                    <img
+                    src="assets/img/imagem controle de acesso 1.png"
+                    alt="Pré-cadastro — importação do ERP, convites e testes de rede"
+                    loading="lazy"
+                    />
                 </div>
+                <h3 class="svc-title">Pré-cadastro de colaboradores integrado ao ERP</h3>
+                <ul class="svc-list">
+                    <li>Importação do ERP e políticas de acesso.</li>
+                    <li>Convite por app (QR Code) ou coleta de biometria facial/bio em segundos.</li>
+                    <li>Validação de infraestrutura (controladoras/rede) com checklist e log de testes.</li>
+                </ul>
+                </article>
 
-                <aside class="ops-kpis" aria-label="Indicadores">
-                <div class="kpi"><strong>1s</strong><span>Validação facial média</span></div>
-                <div class="kpi"><strong>99.9%</strong><span>Controle on-line</span></div>
-                <div class="kpi"><strong>100%</strong><span>Eventos logados</span></div>
-                </aside>
+                <!-- 2. Entrada -->
+                <article class="ops-step">
+                <span class="ops-dot">2</span>
+                <div class="ops-media">
+                    <img
+                    src="assets/img/imagem controle de acesso 2.jpg"
+                    alt="Entrada — filas rápidas, exceções e regras por período"
+                    loading="lazy"
+                    />
+                </div>
+                <h3 class="svc-title">Entrada rápida com reconhecimento facial</h3>
+                <ul class="svc-list">
+                    <li>Reconhecimento facial com alta acurácia, mesmo em alto fluxo.</li>
+                    <li>Tratamento de exceções (sem rede, visitantes, manual de contingência).</li>
+                    <li>Perfis e regras por turnos, áreas restritas e níveis de acesso.</li>
+                </ul>
+                </article>
+
+                <!-- 3. Autenticação -->
+                <article class="ops-step">
+                <span class="ops-dot">3</span>
+                <div class="ops-media">
+                    <img
+                    src="assets/img/imagem controle de acesso 2.jpg"
+                    alt="Autenticação — logs, integração e eventos de bloqueio"
+                    loading="lazy"
+                    />
+                </div>
+                <h3 class="svc-title">Autenticação segura com logs e auditoria</h3>
+                <ul class="svc-list">
+                    <li>Registro detalhado de eventos com imagem e metadados da catraca.</li>
+                    <li>Integração nativa com ERP, carteirinhas e leitores (RFID/QR).</li>
+                    <li>Alertas e bloqueios por tentativas inválidas, antifraude e listas de acesso.</li>
+                </ul>
+                </article>
+
+                <!-- 4. Monitoramento -->
+                <article class="ops-step">
+                <span class="ops-dot">4</span>
+                <div class="ops-media">
+                    <img
+                    src="assets/img/imagem controle de acesso 4.jpg"
+                    alt="Monitoramento — dashboard em tempo real, alertas e auditoria"
+                    loading="lazy"
+                    />
+                </div>
+                <h3 class="svc-title">Monitoramento em tempo real e relatórios</h3>
+                <ul class="svc-list">
+                    <li>Dashboard em tempo real (fila, falhas, bloqueios, ocupação).</li>
+                    <li>Alertas automáticos de incidentes, portas abertas e exceções.</li>
+                    <li>Exportações (CSV/Excel/BI) com trilha de auditoria e retenção.</li>
+                </ul>
+                </article>
+            </div>
+
+            <!-- KPIs (mantidos logo abaixo) -->
+            <div class="ops-kpis">
+                <div class="kpi-card">
+                <div class="kpi-value">1s</div>
+                <div class="kpi-label">Validação facial média</div>
+                </div>
+                <div class="kpi-card">
+                <div class="kpi-value">99.9%</div>
+                <div class="kpi-label">Controle on-line</div>
+                </div>
+                <div class="kpi-card">
+                <div class="kpi-value">100%</div>
+                <div class="kpi-label">Eventos logados</div>
+                </div>
+            </div>
+            <div class="cta-container">
+                <a href="#acessos">
+                    <button class="cta-comprar-integracao" aria-label="Quero uma integração completa"><span>Quero contar com os Acessos da Inova</span></button>
+                </a>
             </div>
         </section>
 

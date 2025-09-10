@@ -680,7 +680,7 @@ html{
 }
         
 .nossas-solucoes-container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -699,6 +699,13 @@ html{
 .solucoes-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    width: 100%;
+}
+
+.solucoes-grid-app {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
     width: 100%;
 }
@@ -722,6 +729,20 @@ html{
     object-fit: cover;
     margin-bottom: 25px;
     transition: all 0.3s ease;
+}
+
+.solucao-imagem-app {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+    border: 2px solid #25BACF;
+}
+
+.solucao-card:hover .solucao-imagem-app {
+    transform: scale(1.05);
 }
 
 .solucao-card:hover .solucao-imagem {
@@ -1608,6 +1629,11 @@ html{
   overflow: hidden;
 }
 
+.phone-img {
+    width: 100%;
+    height: auto;
+}
+
 .educacao-image {
     width: 100%;
     height: auto;
@@ -2342,7 +2368,7 @@ html{
   border-radius:20px;
   padding:26px 22px;
   box-shadow:0 10px 30px rgba(0,0,0,.08);
-  border:2px solid transparent;
+  border: solid transparent;
   transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
 
   display:flex;
@@ -2353,20 +2379,6 @@ html{
 
   min-height:360px;              /* altura coerente entre cards */
   height:100%;
-}
-
-.introducao-card {
-    background: #f8f9fa;
-    border-radius: 20px;
-    padding: 40px 30px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(30px);
 }
 
 .introducao-card {
@@ -2496,7 +2508,7 @@ html{
   height: 4px;
   background: linear-gradient(90deg, #25BACF, #2E3F5B); /* mesmo gradiente */
   transform: scaleX(0);           /* começa “fechada” */
-  transform-origin: left center;
+  transform-origin: center;
   transition: transform 0.3s ease;/* mesmo tempo/curva dos seus cards */
   /* IMPORTANTE: removemos qualquer background-size/animation para igualar */
 }
@@ -2524,10 +2536,6 @@ html{
    Se mudar a espessura, ajuste o valor abaixo. */
 .acesso-card::before,
 .introducao-card::before{
-  top: 2px;             /* entra para dentro da borda */
-  left: 2px;
-  right: 2px;
-  height: 4px;
   border-radius: 999px; /* termina redondinho e não espeta no canto */
   background-size: 200% 100%;
   will-change: transform, background-position;
@@ -2601,10 +2609,11 @@ html{
   padding:10px 18px;
   border-radius:10px;
   font-weight:600;
-  font-size:14px;
+  font-size:1rem;
   text-decoration:none;
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  transition:transform .2s ease, box-shadow .2s ease;
+  margin: 0 auto;
 }
 .acesso-cta:hover{
   background:#1E2A3A;
@@ -2957,8 +2966,8 @@ html{
 }
 
 .caracteristica-icon {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -3050,7 +3059,7 @@ html{
 }
 
 .servico-card {
-    background: #f8f9fa;
+    background: #fff;
     border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
@@ -4301,14 +4310,6 @@ html{
   padding-bottom:var(--svc-pad-y);
 }
 
-.svc-section .svc-container{
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
 .svc-header{ text-align:center; }
 .svc-subtitle{ color:#4A4A4A; }
 
@@ -4337,7 +4338,7 @@ html{
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 32px;
 }
 
 /* =========================================================
@@ -4377,8 +4378,9 @@ html{
 /* cards “quando usar” */
 .svc-compare .use-cases{
   display:grid; grid-template-columns:repeat(3,1fr);
-  gap:16px; margin-top:16px;
+  gap:16px;
 }
+
 .svc-compare .uc-card{
   background:#fff; border:1px solid rgba(37,186,207,.18);
   border-radius:16px; padding:16px; box-shadow:0 8px 20px rgba(0,0,0,.06);
@@ -4406,7 +4408,7 @@ html{
 }
 
 #acessos-cards-v3 .svc-container{
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   display: flex; flex-direction: column; gap: 18px;
 }
@@ -4474,41 +4476,110 @@ html{
 /* =========================================================
    3) OPERAÇÃO — timeline com linha segura (clipada)
    ========================================================= */
-.svc-ops .ops-rail{
-  position:relative; overflow:hidden;    /* clipa a linha decorativa */
-  display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
-  padding:18px; background:#fff; border-radius:var(--svc-card-br);
-  border:1px solid rgba(37,186,207,.18); box-shadow:0 12px 26px rgba(0,0,0,.07);
-}
-.svc-ops .ops-rail::before{
-  content:"";
-  position:absolute; top:34px; height:3px;
-  /* nunca encosta na borda do container */
-  left: 24px; right: 24px;
-  background:linear-gradient(90deg,var(--svc-blue),var(--svc-ink));
-  opacity:.35; border-radius:3px;
-}
-.svc-ops .ops-step{ text-align:center; padding-top:24px; }
-.svc-ops .ops-dot{
-  width:36px; height:36px; border-radius:999px; margin:-42px auto 8px;
-  display:grid; place-items:center; background:var(--svc-ink); color:#fff; font-weight:700;
-  border:2px solid var(--svc-blue); box-shadow:0 8px 20px rgba(0,0,0,.12);
-}
-.svc-ops .ops-kpis{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:16px;
-}
-.svc-ops .kpi{
-  background:#fff; border:1px solid rgba(46,63,91,.12);
-  border-radius:14px; text-align:center; padding:14px;
-}
-.svc-ops .kpi strong{ display:block; color:var(--svc-ink); font-size:1.2rem; }
-.svc-ops .kpi span{ color:#4A4A4A; font-size:.95rem; }
+.svc-ops {padding: 40px 100px;}
+.svc-ops .ops-header{ text-align:center; margin-bottom: 14px; }
+.svc-ops .ops-subtitle{ color: #5b6b73; margin-top: 4px; }
 
-/* mídias nunca estouram */
-#acessos-comparativo img, #acessos-kits img, #acessos-operacao img,
-#acessos-comparativo svg, #acessos-kits svg, #acessos-operacao svg{
-  max-width:100%; height:auto; display:block;
+/* Grid 2×2 de etapas */
+.svc-ops .ops-rail{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 20px;
+  padding: 18px;
+  background: #25BACF;
+  border: 1px solid rgba(37,186,207,.18);
+  border-radius: var(--svc-card-br, 16px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.07);
+  position: relative;
+  overflow: hidden;
 }
+.svc-ops .ops-rail::before{ content: none !important; } /* remove linha do layout antigo, se houver */
+
+/* Card da etapa */
+.svc-ops .ops-step{
+  position: relative;
+  background: #fff;
+  border: 1px solid rgba(37,186,207,.18);
+  border-radius: 16px;
+  padding: 20px 18px 18px 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.06);
+  transition: box-shadow .25s ease, border-color .25s ease, transform .25s ease;
+}
+.svc-ops .ops-step:hover{
+  border-color: var(--svc-blue, #25BACE);
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+  transform: translateY(-2px);
+}
+
+/* Badge numérico (1–4) */
+.svc-ops .ops-step .ops-dot{
+  position: absolute;
+  top: 12px; left: 12px;
+  width: 34px; height: 34px;
+  border-radius: 999px;
+  display: grid; place-items: center;
+  background: var(--svc-ink, #0a2a2e);
+  color: #fff; font-weight: 700;
+  border: 2px solid var(--svc-blue, #25BACE);
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+
+/* Área de imagem da etapa */
+.svc-ops .ops-media{
+  margin: 6px 0 12px 54px;       /* alinha com o recuo do badge */
+  display: flex; align-items: center; gap: 12px;
+}
+.svc-ops .ops-media img{
+  width: 100%; height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+/* Títulos e listas */
+.svc-ops .ops-step .svc-title{
+  margin: 0 0 8px 0;
+  padding-left: 54px;             /* respiro para o badge */
+  color: var(--svc-ink, #0a2a2e);
+}
+.svc-ops .ops-step .svc-list{
+  list-style: none;
+  padding: 0 0 0 54px;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.svc-ops .ops-step .svc-list li{
+  position: relative;
+  color: #4A4A4A;
+  line-height: 1.55;
+  padding-left: 14px;             /* bullet custom */
+}
+.svc-ops .ops-step .svc-list li::before{
+  content:"";
+  position: absolute;
+  left: 0; top: .65em;
+  width: 6px; height: 6px;
+  border-radius: 999px;
+  background: var(--svc-blue, #25BACE);
+}
+
+/* KPIs abaixo (mantidos, só garantimos grid e respiro) */
+.svc-ops .ops-kpis{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+.svc-ops .kpi-card{
+  background: #fff;
+  border: 1px solid rgba(37,186,207,.18);
+  border-radius: 16px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(0,0,0,.06);
+}
+.svc-ops .kpi-value{ font-size: 1.6rem; font-weight: 800; color: var(--svc-ink, #0a2a2e); }
+.svc-ops .kpi-label{ color: #5b6b73; }
 
 /* =======================================================
    SERVIÇOS • PONTO — estilos gerais (.ponto-)
@@ -4753,6 +4824,7 @@ html{
     font-size: 14px;
 }
 
+
 /* ========================================= */
 /* MEDIA QUERIES RESPONSIVAS */
 /* ========================================= */
@@ -4864,11 +4936,54 @@ html{
   .ponto-band{ gap: 22px; }
 }
 :root{ --svc-pad-x: 300px; --svc-pad-y: 60px; }
-  .svc-section .svc-container{ max-width: 1360px; }
+  .svc-section .svc-container{ max-width: 1500px; }
 
   .svc-compare .use-cases{ gap:20px; }
   .svc-ops .ops-rail{ gap:20px; }
   .kits-nav.prev{ left:-2px; } .kits-nav.next{ right:-2px; }
+
+  /* paddings laterais amplos e containers */
+  .banner-educacao,
+  .introducao-educacao,
+  .acessos,
+  .parceria-exclusiva,
+  .nova-sessao,
+  .integracao-section,
+  .porque-escolher-educacao,
+  .tecnologias-section,
+  .svc-ops,
+  .video-section {
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  /* Banner mais alto e títulos com clamp suave */
+  .banner-educacao { height: 640px; }
+  .banner-educacao .banner-title { font-size: clamp(2.8rem, 2.6vw, 4rem); }
+
+  /* Introdução: 3 colunas largas, cards mais altos */
+  .introducao-educacao .introducao-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .introducao-educacao .introducao-card { min-height: 380px; padding: 32px 26px; }
+
+  /* Acessos: 4 colunas confortáveis (página Educação) */
+  .acessos .acessos-grid { grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .acessos .acesso-card { min-height: 380px; padding: 28px; }
+
+  /* Parceria: 1.3fr / 1fr e imagem maior */
+  .parceria-exclusiva .parceria-grid { grid-template-columns: 1.3fr 1fr; gap: 56px; }
+  .parceria-exclusiva .parceria-img { max-width: 550px; }
+
+  /* Projetos/Parceiros: 2 colunas */
+  .nova-sessao .parceiros-grid { grid-template-columns: repeat(2, 1fr); gap: 36px; }
+
+  /* Integração (apps): 4 colunas */
+  .integracao-section .apps-grid { grid-template-columns: repeat(4, 1fr); gap: 28px; }
+  .integracao-section .app-card { min-height: 280px; padding: 26px; }
+
+  /* Por que escolher: 1.1fr / 1fr com gap maior */
+  .porque-escolher-educacao .porque-escolher-content { grid-template-columns: 1.1fr 1fr; gap: 64px; }
 }
 
 /* Tablets grandes */
@@ -4982,7 +5097,41 @@ html{
   .svc-ops .ops-rail{ grid-template-columns:repeat(2,1fr); }
   .svc-ops .ops-rail::before{ left:12%; right:12%; }
   .kits-nav.prev{ left:4px; } .kits-nav.next{ right:4px; }
+
+  .banner-educacao,
+  .introducao-educacao,
+  .acessos,
+  .parceria-exclusiva,
+  .nova-sessao,
+  .integracao-section,
+  .porque-escolher-educacao,
+  .tecnologias-section,
+  .svc-ops,
+  .video-section {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .banner-educacao { height: 50vh; }
+  .banner-educacao .banner-title { font-size: clamp(2.2rem, 3.2vw, 2.6rem); }
+
+  .introducao-educacao .introducao-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .acessos .acessos-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+  .parceria-exclusiva .parceria-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .nova-sessao .parceiros-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+
+  .integracao-section .apps-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .porque-escolher-educacao .porque-escolher-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+
+.acessos .acessos-grid{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
 }
+
 
 @media (max-width: 1024px) {
   
@@ -5204,9 +5353,65 @@ html{
   /* cartas mais compactas */
   .kit-card{ padding:16px; }
   .svc-ops .kpi strong{ font-size:1.1rem; }
+
+  .banner-educacao,
+  .introducao-educacao,
+  .acessos,
+  .parceria-exclusiva,
+  .nova-sessao,
+  .integracao-section,
+  .porque-escolher-educacao,
+  .tecnologias-section,
+  .svc-ops,
+  .video-section {
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .banner-educacao { height: 42vh; }
+  .banner-educacao .banner-title { font-size: clamp(1.9rem, 3.8vw, 2.2rem); }
+
+  /* Grids: 2 colunas para tudo que for card */
+  .introducao-educacao .introducao-grid,
+  .acessos .acessos-grid,
+  .integracao-section .apps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .parceria-exclusiva .parceria-grid { grid-template-columns: 1fr; }
+  .parceria-exclusiva .parceria-card { order: -1; } /* imagem primeiro, se quiser inverter retire esta linha */
+
+  .nova-sessao .parceiros-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .porque-escolher-educacao .porque-escolher-content { grid-template-columns: 1fr; gap: 28px; }
+
+  /* Hovers suavizados para toque */
+  .introducao-educacao .introducao-card:hover,
+  .acessos .acesso-card:hover,
+  .integracao-section .app-card:hover { transform: none; box-shadow: 0 10px 24px rgba(0,0,0,.10); }
+
+.acessos{
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+  .acessos .acessos-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .acessos .acesso-card{
+    min-height: auto;
+    padding: 20px 18px;
+    transform: none !important;
+  }
+  .acessos .acesso-card:hover{
+    transform: none !important;
+    box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  }
+  .acessos .acesso-title{ font-size: 1rem; }
+  .acessos .acesso-text{  font-size: .95rem; }
 }
-
-
 /* =========================================================
    ≤ 768px — mobile grande
    ========================================================= */
@@ -5315,6 +5520,60 @@ html{
   .svc-ops .ops-kpis{ grid-template-columns:1fr; }
 
   .svc-arch .arch-board{ grid-template-columns:repeat(2,1fr); } /* caso ainda use arquitetura antiga */
+
+  .banner-educacao,
+  .introducao-educacao,
+  .acessos,
+  .parceria-exclusiva,
+  .nova-sessao,
+  .integracao-section,
+  .porque-escolher-educacao,
+  .tecnologias-section,
+  .svc-ops,
+  .video-section {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .banner-educacao { height: auto; min-height: 38vh; }
+  .banner-educacao .banner-title { font-size: clamp(1.6rem, 6vw, 1.9rem); }
+
+  /* Tudo em 1 coluna */
+  .introducao-educacao .introducao-grid,
+  .acessos .acessos-grid,
+  .integracao-section .apps-grid,
+  .nova-sessao .parceiros-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  /* Ícones e tipografia um pouco menores */
+  .introducao-educacao .card-title,
+  .acessos .acesso-title,
+  .integracao-section .app-title { font-size: 1rem; }
+
+  .introducao-educacao .card-text,
+  .acessos .acesso-text,
+  .integracao-section .app-description { font-size: .95rem; }
+
+  /* Evita “pulo” visual no hover */
+  .introducao-educacao .introducao-card,
+  .acessos .acesso-card,
+  .integracao-section .app-card { transform: none !important; }
+
+  .acessos{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .acessos .acessos-grid{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .acessos .acesso-icon{ width: 64px; height: 64px; }
+  .acessos .acesso-icon img{ width: 40px; height: auto; }
+  .acessos .acesso-cta{ width: 100%; }
 }
 
 /* =========================================================
@@ -5450,4 +5709,114 @@ html{
   .svc-compare .compare-table{ min-width:680px; } /* rolagem horizontal suave */
   .kits-nav{ display:none; }  /* no mobile, swipe apenas */
   .kit-card{ flex-basis: 88vw; }
+
+  .banner-educacao,
+  .introducao-educacao,
+  .acessos,
+  .parceria-exclusiva,
+  .nova-sessao,
+  .integracao-section,
+  .porque-escolher-educacao,
+  .tecnologias-section,
+  .svc-ops,
+  .video-section {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+
+  /* Banner */
+  .banner-educacao { min-height: 34vh; height: auto; }
+  .banner-educacao .banner-title {
+    /* Título enxuto em telas bem estreitas */
+    font-size: clamp(1.35rem, 6.5vw, 1.6rem);
+    line-height: 1.15;
+  }
+
+  /* Grids: tudo em 1 coluna com gaps menores */
+  .introducao-educacao .introducao-grid,
+  .acessos .acessos-grid,
+  .integracao-section .apps-grid,
+  .nova-sessao .parceiros-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Cards: menos padding, sem hover/elevação forte */
+  .introducao-educacao .introducao-card,
+  .acessos .acesso-card,
+  .integracao-section .app-card {
+    padding: 18px 16px;
+    min-height: auto;
+    box-shadow: 0 6px 16px rgba(0,0,0,.08);
+    transform: none !important;
+  }
+
+  /* Tipografia compacta dos cards */
+  .introducao-educacao .card-title,
+  .acessos .acesso-title,
+  .integracao-section .app-title { font-size: .98rem; }
+
+  .introducao-educacao .card-text,
+  .acessos .acesso-text,
+  .integracao-section .app-description,
+  .acessos .acesso-list li { font-size: .92rem; line-height: 1.4; }
+
+  /* Listas de features mais “respiráveis” */
+  .acessos .acesso-list { margin-top: 8px; }
+  .acessos .acesso-list li { margin-bottom: 6px; }
+
+  /* Parceria: empilha e centraliza imagem com largura total */
+  .parceria-exclusiva .parceria-grid { grid-template-columns: 1fr; gap: 18px; }
+  .parceria-exclusiva .parceria-img { max-width: 100%; width: 100%; height: auto; display: block; margin: 0 auto; }
+
+  /* “Por que escolher”: uma coluna e espaçamento curto */
+  .porque-escolher-educacao .porque-escolher-content { grid-template-columns: 1fr; gap: 18px; }
+  .diferenciais-list { gap: 16px; }
+  .diferencial-item { padding: 16px; }
+  .diferencial-title { font-size: 1rem; }
+  .diferencial-text p { font-size: .92rem; }
+
+  /* Vídeo: garante largura cheia com altura proporcional */
+  .video-section iframe,
+  .video-section .video-embed,
+  .video-section .video-wrapper {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Botões/CTAs dentro das seções da Educação */
+  .banner-educacao .btn,
+  .introducao-educacao .btn,
+  .acessos .btn,
+  .parceria-exclusiva .btn,
+  .nova-sessao .btn,
+  .integracao-section .btn,
+  .porque-escolher-educacao .btn,
+  .video-section .btn {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: .98rem;
+  }
+
+  /* Imagens/ícones menores para evitar quebra */
+  .introducao-educacao .card-icon img { width: 54px; height: auto; }
+
+  .acessos{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .acessos .acesso-card{
+    padding: 18px 16px;
+    box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  }
+  .acessos .acesso-title{ font-size: .98rem; }
+  .acessos .acesso-text,
+  .acessos .servico-lista li{
+    font-size: .92rem;
+    line-height: 1.4;
+  }
 }
