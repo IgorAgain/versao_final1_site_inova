@@ -1,0 +1,306 @@
+/* ============================================================
+   INOVA — inova-theme-restore.css (V2 – clientes.html)
+   Objetivo: Reaproximar o visual do site antigo mantendo a
+   base responsiva do main.consolidado.css.
+   Carregar DEPOIS do main.consolidado.css.
+   ============================================================ */
+
+/* Paleta e tipografia */
+@font-face{
+  font-family: "Poppins";
+  src: local("Poppins"),
+       url("https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2") format("woff2");
+  font-display: swap;
+}
+
+:root{
+  --ink:#2E3F5B;
+  --ink-80:#3a4c6f;
+  --cyan:#25BACF;
+  --muted:#4A4A4A;
+  --card:#ffffff;
+  --shadow-sm: 0 8px 20px rgba(0,0,0,.06);
+  --shadow-md: 0 10px 30px rgba(0,0,0,.10);
+  --ring: rgba(37,186,207,.20);
+}
+
+body{ color: var(--muted); background:#F8F9FA; }
+h1,h2,h3,.servicos-title{ font-family:Poppins,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; color:var(--ink); }
+
+/* ---------- Cabeçalhos / títulos das seções ---------- */
+.cl-header{ text-align:center; }
+.cl-subtitle{ color:#4A4A4A; max-width:68ch; margin:0 auto; font-size: clamp(14px, 1.6vw, 16px); }
+.servicos-title{ font-weight:700; font-size: clamp(20px, 2.4vw, 28px); letter-spacing:.2px; }
+
+/* ---------- Banner título com filete (igual ao antigo) ---------- */
+.banner-educacao{ position:relative; overflow:hidden; }
+.banner-educacao .banner-content{
+  position:relative; z-index:1;
+  margin: 0 auto;
+  padding: clamp(14px, 3vw, 22px) clamp(16px, 6vw, 100px);
+}
+.banner-educacao .banner-title{
+  font: 600 clamp(24px, 4.2vw, 48px)/1.2 Poppins,system-ui;
+  color:#2c3e50;
+  position:relative;
+  padding-left: clamp(14px, 2vw, 20px);
+  margin:0;
+  text-align:left;
+}
+.banner-educacao .banner-title::before{
+  content:"";
+  position:absolute; left:0; top:0; bottom:0; width:6px;
+  background: linear-gradient(180deg, #3498db, #2980b9);
+  border-radius:3px;
+}
+
+/* =====================================================
+   1) LOGO WALL — “Quem confia”
+   (volta o look grayscale com hover colorido)
+   ===================================================== */
+.cl-logo-grid{
+  margin:18px 0 8px; padding:0; list-style:none;
+  display:grid; gap:35px;
+  grid-template-columns: repeat(6, minmax(120px,1fr));
+}
+.cl-logo-grid li{
+  display:grid; place-items:center;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.cl-logo-grid img{
+  max-width:100%; height:auto; object-fit:contain;
+  filter: grayscale(100%) contrast(.9) opacity(.8);
+  transition: filter .2s ease, transform .2s ease, opacity .2s ease;
+}
+.cl-logo-grid li:hover{ transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,.12); }
+.cl-logo-grid li:hover img{ filter: none; opacity: 1; }
+
+@media (max-width:1200px){ .cl-logo-grid{ grid-template-columns: repeat(4, minmax(100px,1fr)); gap:28px; } }
+@media (max-width:768px){ .cl-logo-grid{ grid-template-columns: repeat(3,1fr); gap:22px; } }
+@media (max-width:480px){ .cl-logo-grid{ grid-template-columns: repeat(2,1fr); gap:18px; } }
+@media (max-width:360px){ .cl-logo-grid{ grid-template-columns: 1fr 1fr; gap:14px; } }
+
+/* =====================================================
+   2) DEPOIMENTOS — grid e cartões próximos do antigo
+   ===================================================== */
+.cl-t-track{
+  display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px;
+  scroll-snap-type:x mandatory; padding-bottom:6px;
+}
+.cl-t-track > .cl-t-card{ scroll-snap-align:start; min-width:280px; }
+
+.cl-t-card{
+  background:#fff;
+  border-radius:16px;
+  padding: clamp(16px,2vw,20px);
+  box-shadow: var(--shadow-sm);
+  border:1px solid rgba(46,63,91,.10);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.cl-t-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+.cl-t-head{ display:flex; gap:12px; align-items:center; margin-bottom:8px; }
+.cl-t-avatar{
+  width:56px; height:56px; border-radius:12px; padding:8px;
+  background:#F0FBFD; border:1px solid rgba(37,186,207,.2);
+}
+.cl-t-name{ font:700 1rem/1.1 Poppins,system-ui; color:var(--ink); }
+.cl-t-role{ display:block; font-size:.9rem; color:#667; }
+.cl-t-quote p{ margin:0; color:#4A4A4A; }
+.cl-t-stars{ color:#f39c12; letter-spacing:2px; font-size:1.05rem; }
+.cl-t-badges{ display:flex; gap:8px; margin-top:6px; }
+.cl-badge, .tech-tag{
+  display:inline-block; border:1px solid rgba(46,63,91,.18);
+  background:#F7FAFB; color:var(--ink);
+  border-radius:999px; padding:4px 10px; font:500 .82rem/1 Poppins,system-ui;
+}
+
+/* Queda de colunas mantendo o card “cheio” */
+@media (max-width:1024px){ .cl-t-track{ grid-template-columns: 1fr; } }
+
+/* =====================================================
+   3) FAIXA WHATSAPP — layout e cores do estilo antigo
+   ===================================================== */
+.whatsapp-comercial{
+  background:#F8F9FA;
+  padding: 40px 100px;
+  display:flex; gap:20px; align-items:center; justify-content:center;
+}
+.whatsapp-comercial-image{ width:100px; display:flex; align-items:center; justify-content:center; }
+.whatsapp-comercial-image img{ width:64px; height:64px; object-fit:contain; }
+
+.whatsapp-comercial-content{
+  background:#2E3F5B; color:#fff;
+  padding: 20px 30px;
+  display:grid; grid-template-columns: 1fr auto; gap:30px; align-items:center;
+  border-radius:20px; box-shadow: var(--shadow-md);
+}
+.whatsapp-comercial-title{ font:600 clamp(18px,2.2vw,22px)/1.2 Poppins,system-ui; margin:0 0 6px; }
+.whatsapp-comercial-subtitle{ margin:0 0 8px; color:#e6eaf0; }
+.whatsapp-comercial-button{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 16px; border-radius:12px;
+  background:#25D366; color:#fff; font-weight:700; text-decoration:none;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.whatsapp-comercial-button:hover{ background:#22B865; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,194,110,.30); }
+
+@media (max-width:900px){
+  .whatsapp-comercial{ padding: 28px 20px; }
+  .whatsapp-comercial-content{ grid-template-columns: 1fr; gap:14px; text-align:center; }
+}
+@media (max-width:480px){
+  .whatsapp-comercial{ padding: 22px 14px; }
+  .whatsapp-comercial-image{ width:auto; }
+}
+
+/* =====================================================
+   4) PARCEIROS (“Projetos de Sucesso”) — estilo antigo
+   ===================================================== */
+.parceiros-grid{
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap:40px; margin-top:40px;
+}
+.parceiro-card{
+  background:#fff; border-radius:16px; padding:30px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+  transition:transform .2s ease, box-shadow .2s ease;
+  border:1px solid rgba(46,63,91,.10);
+}
+.parceiro-card:hover{ transform: translateY(-2px); box-shadow: 0 16px 36px rgba(0,0,0,.12); }
+
+.parceiro-header{ display:flex; align-items:center; margin-bottom:20px; padding-bottom:20px; border-bottom:2px solid #E9ECEF; gap:20px; }
+.parceiro-logo{ width:110px; height:110px; display:flex; align-items:center; justify-content:center; }
+.parceiro-logo img{ max-width:100%; height:auto; object-fit:contain; }
+.parceiro-info h3{ font:600 1.4rem/1.1 Poppins,system-ui; color:#2E3F5B; margin:0 0 5px; }
+.parceiro-info .categoria{ font:500 .9rem/1 Open Sans,system-ui; color:#6C757D; background:#E7F3FF; padding:4px 10px; border-radius:999px; }
+
+/* Seções descritivas (mesma “cara”) */
+.info-section{ margin-top:10px; }
+.info-title{ font:700 .95rem/1.1 Poppins,system-ui; color:#2E3F5B; margin:0 0 4px; }
+.info-content{ margin:0; color:#4A4A4A; }
+
+.resultados-grid{ display:grid; gap:10px; grid-template-columns: repeat(3, minmax(0,1fr)); }
+@media (max-width:900px){ .resultados-grid{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width:520px){ .resultados-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width:360px){ .resultados-grid{ grid-template-columns: 1fr; } }
+
+.resultado-item{
+  background:#fff; border:1px solid rgba(37,186,207,.12); border-radius:12px;
+  padding:10px; text-align:center; box-shadow: var(--shadow-sm);
+}
+.resultado-numero{ font:800 1.2rem/1 Poppins,system-ui; color:#2E3F5B; }
+.resultado-descricao{ font-size:.9rem; color:#666; }
+
+/* =====================================================
+   5) Pequenos refinamentos para ficar “igualzinho”
+   ===================================================== */
+.nav-links a{
+  text-transform: uppercase; letter-spacing:.4px; font-weight:600;
+}
+.nav-links a:hover{ color: var(--ink-80); }
+
+.card, .servico-card, .solucao-card, .cl-t-card, .parceiro-card{ border:1px solid rgba(37,186,207,.08); }
+.kit-card, .stat-item{ border:1px solid rgba(37,186,207,.08); }
+.stat-number{ color:#2E3F5B; }
+
+/* 360 px — ajustes bem finos */
+@media (max-width:360px){
+  .banner-educacao .banner-title{ font-size: 22px; }
+  .parceiro-header{ flex-wrap:wrap; }
+  .cl-t-head{ flex-wrap:wrap; }
+}
+
+/* =============================== */
+/* PROJETOS DE SUCESSO — FIX V3    */
+/* Colar após todas as folhas CSS  */
+/* =============================== */
+
+.nova-sessao{
+  padding: clamp(24px, 5vw, 100px) clamp(16px, 6vw, 100px);
+}
+
+/* 1) Grid fluida: 3 colunas no desktop, 2 no tablet, 1 no mobile */
+.parceiros-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr)); /* antes: minmax(400px,1fr) */
+  gap: clamp(16px, 2.5vw, 40px);
+}
+@media (max-width: 1200px){
+  .parceiros-grid{ grid-template-columns: repeat(2, minmax(260px, 1fr)); }
+}
+@media (max-width: 768px){
+  .parceiros-grid{ grid-template-columns: 1fr; }
+}
+
+/* 2) Card e header: mais compacto e adaptável */
+.parceiro-card{
+  background:#fff;
+  border:1px solid rgba(46,63,91,.10);
+  border-radius:16px;
+  padding: clamp(16px, 2.4vw, 30px);
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+
+.parceiro-header{
+  display:flex; align-items:center; flex-wrap:wrap; /* permite quebrar */
+  gap: clamp(12px, 2vw, 20px);
+  margin-bottom:20px; padding-bottom: clamp(12px, 1.6vw, 20px);
+  border-bottom:2px solid #E9ECEF;
+}
+
+/* Logo com “moldura” do tema e tamanhos fluidos */
+.parceiro-logo{
+  width: clamp(76px, 8vw, 110px);
+  height: clamp(76px, 8vw, 110px);
+  display:flex; align-items:center; justify-content:center;
+  background:#F0FBFD; border:1px solid rgba(37,186,207,.25);
+  border-radius:20px; padding: clamp(8px, 1.2vw, 12px);
+}
+.parceiro-logo img{ max-width:100%; max-height:100%; object-fit:contain; }
+
+/* Título e “badge” iguais ao site antigo, mas fluidos */
+.parceiro-info h3{
+  margin:0;
+  font: 700 clamp(18px, 2.2vw, 24px)/1.2 "Poppins", system-ui;
+  color:#2E3F5B;
+  word-break: break-word; overflow-wrap:anywhere; /* nomes longos */
+}
+.parceiro-info .categoria{
+  display:inline-block; margin-top:6px;
+  padding:6px 12px; border-radius:999px;
+  background:#E7F3FF; color:#6C757D; font:600 .9rem "Open Sans",system-ui;
+}
+
+/* 3) Conteúdos internos */
+.info-section{ margin: clamp(14px, 2.2vw, 24px) 0; }
+.info-title{
+  display:flex; align-items:center; gap:10px;
+  font:700 .95rem/1.1 "Poppins",system-ui; color:#2E3F5B; margin:0 0 6px;
+}
+.info-title::before{
+  content:""; width:4px; height:16px;
+  background: linear-gradient(135deg, #007BFF, #0056B3); border-radius:2px;
+}
+.info-content{ margin:0; color:#495057; }
+
+.tecnologias-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-left:0; }
+.tech-tag{ background:#25BACF; color:#fff; padding:6px 12px; border-radius:20px; font-weight:700; }
+
+/* 4) Resultados: grid que de fato desce para 2 e 1 colunas */
+.resultados-grid{
+  display:grid; gap:12px;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+}
+@media (max-width: 900px){ .resultados-grid{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 520px){ .resultados-grid{ grid-template-columns: 1fr; } }
+
+.resultado-item{
+  background:#F8F9FA; border-left:4px solid #28A745;
+  border-radius:12px; padding:12px;
+}
+.resultado-numero{ font:800 1.2rem/1 "Poppins",system-ui; color:#28A745; }
+.resultado-descricao{ font-size:.9rem; color:#495057; }
+
+/* 5) Hardening: evita overflow horizontal por min-widths herdados */
+.parceiros-grid, .parceiro-card, .parceiro-header, .parceiro-logo, .parceiro-info h3{ min-width:0; }

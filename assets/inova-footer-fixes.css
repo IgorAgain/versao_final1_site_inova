@@ -1,0 +1,111 @@
+/* ================================================================
+   INOVA — FOOTER RESPONSIVE FIXES (append after your main.css)
+   Focus: telas pequenas (≤1024, ≤680/640, ≤480 e ≤360px)
+   Versão: 2025-09-15
+   ================================================================ */
+
+/* 0) Reforços utilitários dentro do footer */
+.footer * { box-sizing: border-box; }
+.footer img { max-width: 100%; height: auto; display: block; }
+.footer a {
+  /* Reaplica comportamento padrão de link, pois o CSS global tem "a { all: unset }" */
+  color: #F8F9FA;
+  text-decoration: none;
+  cursor: pointer;
+}
+.footer a:focus-visible { outline: 2px solid #25BACF; outline-offset: 3px; border-radius: 8px; }
+
+/* 1) Padding fluido do bloco principal */
+.footer{
+  padding: clamp(28px, 5vw, 60px) clamp(16px, 6vw, 100px) clamp(20px, 3.5vw, 40px);
+}
+
+/* 2) Grid com áreas nomeadas para permitir reordenação sem mexer no HTML */
+.footer-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: clamp(24px, 6vw, 80px);
+  align-items: start;
+  grid-template-areas: "brand nav contact";
+}
+.footer-brand   { grid-area: brand; }
+.footer-nav     { grid-area: nav; }
+.footer-contact { grid-area: contact; }
+
+/* 3) Ajustes visuais gerais do conteúdo */
+.footer-logo img{ max-width: clamp(160px, 28vw, 300px); }
+.footer-tagline{ max-width: 56ch; margin-inline: auto; text-align: center; color: #E5E5E5; }
+.footer-title{ position: relative; padding-bottom: 12px; }
+.footer-title::after{ content:""; position:absolute; left:0; bottom:0; width: 110px; height:2px; background:#25BACF; }
+.footer-links{ display:flex; flex-direction:column; gap: 10px; }
+.footer-links a{ padding: 8px 6px; border-radius: 10px; }
+.footer-links a:hover{ color:#25BACF; background: rgba(255,255,255,.06); }
+.social-media-container{ display:flex; justify-content:center; gap:16px; }
+.social-icon{ width: 40px; height: 40px; border-radius: 12px; display:flex; align-items:center; justify-content:center; }
+
+.contact-box{ background:#fff; border-radius: 15px; padding: 22px; box-shadow: 0 8px 25px rgba(0,0,0,.08); }
+.contact-info{ display:flex; flex-direction:column; gap: 14px; }
+.contact-item{ display:flex; align-items:center; gap:10px; }
+.contact-item a{ color:#2E3F5B; }
+
+.company-map{ width:100%; border-radius: 12px; overflow:hidden; }
+.company-map iframe{ width:100%; aspect-ratio: 16 / 9; height:auto; display:block; }
+
+.footer-marca{ border-top: 1px solid rgba(255,255,255,.12); margin-top: 28px; padding-top: 12px; text-align:center; }
+.footer-marca p{ color:#F8F9FA; }
+
+/* 4) Quebra progressiva */
+
+/* ≤ 1200: alivia gaps e reduz colunas para duas */
+@media (max-width: 1200px){
+  .footer-container{
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand contact"
+      "nav   nav";
+    gap: 36px;
+  }
+  .footer-title::after{ left: 50%; transform: translateX(-50%); }  /* sublinhado centralizado */
+  .footer-nav{ align-items: center; text-align: center; }
+  .footer-links{ align-items: center; }
+}
+
+/* ≤ 680 (ou 640): empilha em 1 coluna e centraliza tudo */
+@media (max-width: 680px){
+  .footer-container{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "contact"
+      "nav";
+    gap: 22px;
+  }
+  .footer{ padding: 24px 14px 18px; }
+  .footer-logo img{ max-width: 190px; margin-inline:auto; }
+  .footer-tagline{ font-size: .98rem; }
+  .social-media-container{ gap: 14px; }
+  .social-icon{ width: 38px; height: 38px; border-radius: 10px; }
+
+  .contact-box{ padding: 18px; }
+  .company-map iframe{ aspect-ratio: 16 / 10; min-height: 200px; }
+  .whatsapp-button{ width: 100%; max-width: 520px; margin-inline:auto; }
+}
+
+/* ≤ 480: reduz um pouco tipografia/ícones e mantem toque confortável */
+@media (max-width: 480px){
+  .footer-links a{ font-size: .98rem; padding: 10px 8px; }
+  .footer-title{ font-size: 1.05rem; }
+  .footer-title::after{ width: 88px; }
+  .social-icon{ width: 36px; height: 36px; }
+  .contact-item a{ font-size: 1rem; }
+}
+
+/* ≤ 360: compacta ainda mais sem quebrar layout */
+@media (max-width: 360px){
+  .footer{ padding: 18px 12px 14px; }
+  .footer-container{ gap: 18px; }
+  .footer-logo img{ max-width: 160px; }
+  .footer-title::after{ width: 64px; }
+  .social-icon{ width: 34px; height: 34px; border-radius: 8px; }
+  .company-map iframe{ min-height: 180px; }
+}

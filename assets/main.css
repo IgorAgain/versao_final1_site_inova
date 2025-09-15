@@ -5744,3 +5744,122 @@ html{
   .cl-testimonials.cl-v2{ padding:24px 16px; }
   .cl-t-track{ grid-auto-columns: 88%; }
 }
+
+@media (max-width:360px){
+
+  /* Sessão nova segue a estrutura introducao-educacao */
+  .introducao-educacao { padding: 24px 12px; }
+  .introducao-header { margin-bottom: 20px; }
+
+  .introducao-educacao .servicos-title { font-size: 1.25rem; }
+  .introducao-educacao .nova-sessao-subtitle { font-size: .95rem; line-height: 1.5; }
+
+  .introducao-grid { gap: 12px; }
+  .introducao-card { padding: 14px; }
+
+  .card-icon img { width: 32px; height: 32px; }
+  .card-title { font-size: 1.05rem; }
+  .card-text { font-size: .95rem; }
+
+  .servico-lista li { font-size: .92rem; padding: 6px 0 6px 18px; }
+  .servico-lista li::before { font-size: 13px; top: 6px; }
+
+  /* CTA ocupa largura confortável */
+  .cta-comprar { width: 100%; max-width: 360px; box-sizing: border-box; }
+}
+
+
+/* Reverte efeitos nocivos do reset */
+a{
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(37,186,207,.25);
+}
+
+/* Header: padding fluido e off-canvas no mobile */
+@media (max-width: 1024px){
+  .header{ padding: 12px 18px; }
+  .menu-toggle{ display: flex; }
+
+  /* Transforma o menu em painel lateral */
+  .nav-links{
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: min(30%, 380px);
+    transform: translateX(100%);
+    transition: transform .28s ease;
+    background: #fff;
+    padding: 20px 18px 32px;
+    display: flex; flex-direction: column; gap: 10px;
+    overflow-y: auto; z-index: 1015;
+  }
+  .navbar.active .nav-links{ transform: translateX(0); }
+
+  /* Dropdown por clique no mobile */
+  .dropdown > .dropdown-menu{
+    position: static; transform:none; opacity:1; visibility:visible;
+    border:0; box-shadow:none; padding:0; display:none;
+  }
+  .dropdown.mobile-open > .dropdown-menu{ display:block; }
+}
+@media (max-width: 480px){
+  .header{ padding: 10px 12px; }
+  .nav-links{ left: 10%; }
+}
+@media (max-width: 360px){
+  .nav-links{ left: 0; } /* drawer 100% */
+}
+
+/* Hero: alturas e recuos mais suaves */
+.hero{ max-height: none; min-height: 56vh; }
+.hero-content{
+  padding-left: clamp(16px, 5vw, 48px);
+  min-height: auto; max-height: none;
+}
+@media (max-width: 768px){
+  .hero-overlay{
+    width: 100%;
+    clip-path: none;
+    background: linear-gradient(180deg, rgba(37,186,207,.85), rgba(37,186,207,.15));
+  }
+}
+
+/* Stats: derruba colunas e esconde “dividers” */
+@media (max-width: 1200px){
+  .stats{ padding: 28px 20px; }
+  .stats-grid{ grid-template-columns: 1fr 1fr; gap: 20px; }
+  .stat-divider{ display: none; }
+}
+@media (max-width: 680px){
+  .stats-grid{ grid-template-columns: 1fr; }
+}
+
+/* Nossas soluções / cards em grid */
+@media (max-width: 1200px){
+  .nossas-solucoes{ padding: 32px 20px; }
+  .solucoes-grid{ grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+@media (max-width: 768px){
+  .solucoes-grid{ grid-template-columns: 1fr; }
+  .solucoes-grid-app{ grid-template-columns: 1fr; }
+}
+
+/* Segmentos / carrosséis: esconda setas nas telas estreitas */
+@media (max-width: 680px){
+  .carousel-nav{ display: none; }
+}
+
+/* Padding geral de seções grandes */
+@media (max-width: 1024px){
+  .quem-confia, .segmentos { padding: 32px 20px; }
+}
+@media (max-width: 480px){
+  .quem-confia, .segmentos { padding: 24px 14px; }
+}
+
+/* Footer / Mapa: dá altura suficiente para o infowindow do Google */
+@media (max-width: 480px){
+  .company-map iframe{ min-height: 260px; }
+}
+@media (max-width: 360px){
+  .company-map iframe{ min-height: 300px; }
+}
