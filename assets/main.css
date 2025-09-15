@@ -114,16 +114,16 @@ html{
 }
 
 /* Header */
-.header {
-    background: #F8F9FA;
-    padding: 20px 100px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: relative;
-    z-index: 100;
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(248,249,250,0.95);
+  backdrop-filter: saturate(180%) blur(6px);
 }
 
 .header-content {
-    max-width: 1200px; 
+
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -147,6 +147,16 @@ html{
     display: flex;
     align-items: center;
     gap: 40px;
+}
+
+
+/* Acessibilidade: foco visível */
+.nav-links a:focus-visible,
+.menu-toggle:focus-visible,
+.dropdown-toggle:focus-visible,
+.cta-comprar:focus-visible{
+  outline: 2px solid #25BACF;
+  outline-offset: 2px;
 }
 
 /* ========================================= */
@@ -680,7 +690,6 @@ html{
 }
         
 .nossas-solucoes-container {
-    max-width: 1300px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -4511,7 +4520,7 @@ html{
 .ponto-retrofit-layout{ display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:start; }
 .ponto-panel{ min-height:280px; align-items:center; text-align:center; }
 .ponto-panel::before{ transform:scaleX(1); } /* barra sempre visível */
-.ponto-steps{ display:grid; grid-template-columns:1fr; gap:15px; }
+.ponto-steps{ display:grid; grid-template-columns:1fr; gap:7px; }
 .ponto-step-card{ position:relative; padding:22px; border-radius:18px; border:2px solid transparent; background:#FEFEFE; box-shadow:0 10px 30px rgba(0,0,0,.08); overflow:hidden; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; text-align:center; display:flex; flex-direction:column; align-items:center; gap:10px; min-height:150px; }
 .ponto-step-card::before{ content:""; position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg,#25BACF,#2E3F5B); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
 .ponto-step-card:hover{ transform:translateY(-6px); border-color:#25BACF; box-shadow:0 18px 40px rgba(0,0,0,.12); }
@@ -4777,7 +4786,7 @@ html{
   /* Consultoria & Serviços */
   .ponto-retrofit-layout{ display:grid; grid-template-columns: 1.1fr 1fr; gap: 28px; }
   .ponto-panel-grid{ grid-template-columns: 1.05fr 1.15fr; gap: 28px; }
-  .ponto-steps{ gap: 18px; }
+  .ponto-steps{ gap: 45px; }
 
   
 
@@ -5048,8 +5057,18 @@ html{
   }
 
   /* esconde nav horizontal */
-  .nav-links { 
-    display: none !important; 
+  .nav-links{
+    position: fixed;
+    inset: 0 0 0 30%;
+    transform: translateX(100%);
+    transition: transform .3s ease;
+    background: #F8F9FA;
+    padding: 24px;
+    box-shadow: -8px 0 20px rgba(0,0,0,.12);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
   }
 
   /* painel suspenso do menu */
@@ -5073,7 +5092,8 @@ html{
     gap: 10px;
     box-sizing: border-box;
   }
-  
+  .navbar.active .nav-links{ transform: translateX(0); }
+
   .navbar.active .nav-links a { 
     padding: 10px 12px; 
     color: #2E3F5B; 
@@ -5123,6 +5143,17 @@ html{
     margin-right: auto;
     box-sizing: border-box;
   }
+
+  .dropdown .dropdown-menu{
+    position: static;
+    display: none;
+    opacity: 1;
+    transform: none;
+    box-shadow: none;
+    padding-left: 8px;
+    margin-top: 4px;
+  }
+  .dropdown.mobile-open > .dropdown-menu{ display:block; }
 
   /* ========= GRIDs (evita sobreposição) ========= */
   .servicos-grid, .solucoes-grid, .stats-grid,
@@ -5495,6 +5526,9 @@ html{
     box-sizing: border-box;
   }
   
+  .nav-links a{ padding: 10px 0; font-size: 0.95rem; }
+  .logo{ width:130px; max-width:130px; }
+
   .navbar.active .nav-links a { 
     padding: 12px; 
     font-size: 0.95rem;

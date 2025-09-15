@@ -2,64 +2,71 @@
 // DROPDOWN MENU SEGMENTOS
 // ========================================
 
-document.addEventListener('DOMContentLoaded', function() {
-    const dropdown = document.querySelector('.dropdown');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    let dropdownTimeout;
+// ========== MENU MOBILE (acessível, sem duplicação) ==========
+// ========== MENU MOBILE (acessível, sem duplicação) ==========
+(() => {
+  const btn  = document.querySelector('.menu-toggle');
+  const nav  = document.querySelector('.navbar');
+  const list = nav ? nav.querySelector('.nav-links') : null;
+  if (!btn || !nav || !list) return;
 
-    if (dropdown && dropdownMenu) {
-        // Mostrar dropdown no hover
-        dropdown.addEventListener('mouseenter', function() {
-            clearTimeout(dropdownTimeout);
-            dropdown.classList.add('active');
-        });
+  const open = () => {
+    nav.classList.add('active');
+    btn.setAttribute('aria-expanded','true');
+    document.documentElement.style.overflow = 'hidden'; // trava scroll de fundo
+  };
+  const close = () => {
+    nav.classList.remove('active');
+    btn.setAttribute('aria-expanded','false');
+    document.documentElement.style.overflow = '';
+  };
 
-        // Esconder dropdown quando sair do hover (com delay)
-        dropdown.addEventListener('mouseleave', function() {
-            dropdownTimeout = setTimeout(() => {
-                dropdown.classList.remove('active');
-            }, 150); // Pequeno delay para melhor UX
-        });
+  btn.addEventListener('click', () => nav.classList.contains('active') ? close() : open());
 
-        // Prevenir fechamento quando hover no menu
-        dropdownMenu.addEventListener('mouseenter', function() {
-            clearTimeout(dropdownTimeout);
-        });
+  // Fecha ao clicar fora do painel ou em um link
+  document.addEventListener('click', (e) => {
+    const insideNav = e.target.closest('.navbar');
+    const link = e.target.closest('.nav-links a');
+    if ((!insideNav && nav.classList.contains('active')) || link) close();
+  });
 
-        // Fechar dropdown ao clicar em um item
-        dropdownMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function() {
-                dropdown.classList.remove('active');
-                
-                // Fechar menu mobile se estiver aberto
-                const navbar = document.querySelector('.navbar');
-                if (navbar) {
-                    navbar.classList.remove('active');
-                }
-            });
-        });
+  // Fecha no ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('active')) close();
+  });
+
+  // Se voltou para desktop, reseta
+  const mq = window.matchMedia('(min-width:1025px)');
+  mq.addEventListener('change', () => mq.matches && close());
+})();
+
+// ========== DROPDOWNS (desktop = hover; mobile = clique) ==========
+(() => {
+  const DROPDOWN_BP = 1024;
+  document.querySelectorAll('.dropdown').forEach(dd => {
+    const toggle = dd.querySelector('.dropdown-toggle');
+    const menu   = dd.querySelector('.dropdown-menu');
+    if (!toggle || !menu) return;
+
+    // Desktop: manter hover via CSS; Mobile: clique para abrir/fechar
+    toggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= DROPDOWN_BP) {
+        e.preventDefault();
+        const open = !dd.classList.contains('mobile-open');
+        document.querySelectorAll('.dropdown.mobile-open').forEach(x => x.classList.remove('mobile-open'));
+        dd.classList.toggle('mobile-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+    });
+  });
+
+  // Fecha dropdowns ao clicar fora
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.dropdown')) {
+      document.querySelectorAll('.dropdown.mobile-open').forEach(x => x.classList.remove('mobile-open'));
     }
-
-    // Controle para mobile - toggle do dropdown
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    if (dropdownToggle) {
-        dropdownToggle.addEventListener('click', function(e) {
-            // Só funciona em mobile
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                dropdown.classList.toggle('mobile-active');
-            }
-        });
-    }
-});
-
-// Fechar dropdown ao clicar fora
-document.addEventListener('click', function(e) {
-    const dropdown = document.querySelector('.dropdown');
-    if (dropdown && !dropdown.contains(e.target)) {
-        dropdown.classList.remove('active', 'mobile-active');
-    }
-});
+  });
+})();
 
 // ========================================
 // CARROSSEL DO HERO - VERSÃO CORRIGIDA
