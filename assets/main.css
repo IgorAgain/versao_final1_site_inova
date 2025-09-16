@@ -1380,15 +1380,17 @@ html{
 }
 
 /* =======================================================
-   SOLUÇÕES — V4 (escopo sol-v4)
+   SOLUÇÕES — V4 (multi-grids)  — complementos
    ======================================================= */
 :root{
-  --solv4-ink:#2E3F5B; --solv4-cyan:#25BACF; --solv4-bg:#F8F9FA;
-  --solv4-radius:18px; --solv4-shadow:0 12px 26px rgba(0,0,0,.08);
-  --solv4-pad-x: 100px; --solv4-pad-y: 40px;
+  --solv4-ink: var(--ink, #2E3F5B);
+  --solv4-cyan: var(--cyan, #25BACF);
+  --solv4-bg: var(--bg, #F8F9FA);
+  --solv4-radius: 18px;
+  --solv4-shadow: 0 12px 26px rgba(0,0,0,.08);
+  --solv4-pad-x: 100px;
+  --solv4-pad-y: 40px;
 }
-
-
 @media (min-width:1920px){
   :root{ --solv4-pad-x: 300px; --solv4-pad-y: 60px; }
 }
@@ -1398,33 +1400,38 @@ html{
   padding: var(--solv4-pad-y) var(--solv4-pad-x);
   overflow: clip;
 }
-.sol-v4__container{ max-width: 1360px; margin: 0 auto; display:flex; flex-direction:column; gap:18px; }
-.sol-v4__header{ text-align:center; }
-.sol-v4__subtitle{ color:#4A4A4A; max-width:860px; margin:8px auto 0; }
+.sol-v4__container{ margin: 0 auto; display:flex; flex-direction:column; gap:20px; }
+.sol-v4__header{ text-align:center; display:flex; flex-direction:column; gap:12px; }
+.sol-v4__subtitle{ color:#4A4A4A; max-width: 860px; margin: 6px auto 0; }
 
-/* 1) KPIs + highlights */
-.sol-v4__kpis{ list-style:none; padding:0; margin:8px 0 4px; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+/* KPIs */
+.sol-v4__kpis{
+  list-style:none; padding:0; margin: 8px auto 0;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width: 900px;
+}
 .sol-v4__kpis li{
   background:#fff; border:1px solid rgba(37,186,207,.18); border-radius:16px; padding:14px; text-align:center;
   box-shadow: var(--solv4-shadow);
 }
-.sol-v4__kpis strong{ display:block; color:var(--solv4-ink); font-size:1.4rem; }
-.sol-v4__kpis span{ color:#4A4A4A; }
+.sol-v4__kpis strong{ display:block; color:var(--solv4-ink); font-size: clamp(18px, 2.2vw, 24px); }
+.sol-v4__kpis span{ color:#4A4A4A; font-size: .95rem; }
 
+/* Chips */
 .sol-v4__highlights{
-  list-style:none; padding:0; margin:6px auto 0; display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+  list-style:none; padding:0; margin: 6px auto 6px;
+  display:flex; gap:10px; flex-wrap:wrap; justify-content:center; max-width: 980px;
 }
 .sol-v4__highlights li{
   padding:8px 12px; border-radius:999px; background:#fff; color:var(--solv4-ink);
-  border:1.5px solid rgba(37,186,207,.35); font-weight:600;
+  border:1.5px solid rgba(37,186,207,.35); font-weight:600; white-space:nowrap;
 }
 
-/* 2) Grid de ofertas */
-.sol-v4__grid{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px; }
+/* Cards (grid 3x) */
+.sol-v4__grid{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px; margin-top: 35px; }
 .sol-v4__card{
   background:#fff; border:1px solid rgba(37,186,207,.18); border-radius:var(--solv4-radius); padding:18px;
   box-shadow: var(--solv4-shadow);
-  transition:.25s ease; position:relative; display:flex; flex-direction:column; gap:8px;
+  transition:.25s ease; position:relative; display:flex; flex-direction:column; gap:10px;
 }
 .sol-v4__card::before{
   content:""; position:absolute; inset:0 0 auto 0; height:4px;
@@ -1435,15 +1442,16 @@ html{
 .sol-v4__card:hover::before{ transform: scaleX(1); }
 .sol-v4__icon{ width:44px; height:44px; border-radius:12px; display:grid; place-items:center; background:#EAF8FB; border:1px solid rgba(37,186,207,.25); }
 .sol-v4__icon img{ width:24px; height:24px; object-fit:contain; }
-.sol-v4__card h3{ margin:6px 0 4px; color:var(--solv4-ink); }
-.sol-v4__card p{ margin:0; color:#4A4A4A; }
-.sol-v4__list{ margin:6px 0 0; padding-left:18px; color:#2E3F5B; }
+.sol-v4__card h3{ margin:2px 0 2px; color:var(--solv4-ink); font-size: clamp(18px,2vw,20px); }
+.sol-v4__card p{ margin:0; color:#4A4A4A; font-size: .98rem; }
+.sol-v4__list{ margin:2px 0 0; padding-left:18px; color:#2E3F5B; display:grid; gap:4px; }
+.sol-v4__card .solucao-cta{ margin-top:auto; align-self:flex-start; }
 
-/* 3) Timeline (Como funciona) */
+/* Rail / Timeline 4x */
 .sol-v4__rail{
   position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
   background:#fff; border:1px solid rgba(37,186,207,.18); border-radius:var(--solv4-radius); padding:18px;
-  box-shadow: var(--solv4-shadow); overflow:hidden;
+  box-shadow: var(--solv4-shadow); overflow:hidden; margin-top: 35px;
 }
 .sol-v4__rail::before{
   content:""; position:absolute; top:34px; left:24px; right:24px; height:3px;
@@ -1455,22 +1463,45 @@ html{
   display:grid; place-items:center; background:var(--solv4-ink); color:#fff; font-weight:700;
   border:2px solid var(--solv4-cyan); box-shadow:0 8px 20px rgba(0,0,0,.12);
 }
-.sol-v4__step h4{ margin:0 0 4px; color:var(--solv4-ink); }
-.sol-v4__step p{ margin:0; color:#4A4A4A; }
+.sol-v4__step h4{ margin:0 0 4px; color:var(--solv4-ink); font-size: 1rem; }
+.sol-v4__step p{ margin:0; color:#4A4A4A; font-size:.95rem; }
 
-/* 4) Kits (scroll-snap) */
-.sol-v4__kits{
-  display:flex; gap:16px; overflow-x:auto; padding:6px; scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling: touch;
+/* Mosaico assimétrico */
+.sol-v4__mosaic{
+  margin-top: 35px;
+  display:grid; gap:12px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 170px;
 }
-.sol-v4__kit{
-  min-width: 260px; background:#fff; border:1px solid rgba(37,186,207,.18); border-radius:var(--solv4-radius);
-  padding:12px; box-shadow: var(--solv4-shadow); scroll-snap-align:start; transition:.25s ease;
+.mosaic__item{ position:relative; border-radius:16px; overflow:hidden; }
+.mosaic__item img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter: saturate(105%); transition: transform .35s ease; }
+.mosaic__overlay{
+  position:absolute; inset:auto 0 0 0; padding:16px; background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.55) 90%);
+  color:#fff; display:flex; flex-direction:column; gap:4px;
 }
-.sol-v4__kit img{ width:100%; height:140px; object-fit:cover; border-radius:12px; display:block; }
-.sol-v4__kit h4{ margin:10px 0 2px; color:var(--solv4-ink); }
-.sol-v4__kit p{ margin:0; color:#4A4A4A; }
-.sol-v4__kit:hover{ transform: translateY(-3px); }
+.mosaic__overlay h3{ font-size: 1.05rem; line-height:1.15; }
+.mosaic__overlay p{ font-size:.95rem; opacity:.95; }
+
+.mosaic__item:hover img{ transform: scale(1.04); }
+
+/* Áreas (desktop) */
+.mosaic__item.a{ grid-column: span 6; grid-row: span 2; }
+.mosaic__item.b{ grid-column: span 3; grid-row: span 1; }
+.mosaic__item.c{ grid-column: span 3; grid-row: span 1; }
+.mosaic__item.d{ grid-column: span 4; grid-row: span 1; }
+.mosaic__item.e{ grid-column: span 8; grid-row: span 1; }
+
+/* Comparativo 3x */
+.sol-v4__compare{
+  margin-top: 35px;
+  display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px;
+}
+.cmp-card{
+  background:#fff; border:1px solid rgba(37,186,207,.18); border-radius:16px; padding:16px;
+  box-shadow: var(--solv4-shadow);
+}
+.cmp-card h4{ color:var(--solv4-ink); margin: 0 0 6px; font-size: 1rem; }
+.cmp-card ul{ margin:0; padding-left: 18px; display:grid; gap:4px; }
 
 .porque-escolher-educacao {
     background: #f8f9fa;
@@ -2934,6 +2965,7 @@ html{
     line-height: 1.6;
     font-weight: 300;
     text-align: center;
+    margin: 0 auto;
 }
 
 .servicos-grid {
@@ -4664,6 +4696,7 @@ html{
 .recursos-avancados-list {
     list-style: none;
     margin: 0 auto;
+    padding-top: 45px;
 }
 
 .recursos-avancados-list li {
@@ -4697,12 +4730,12 @@ html{
 
 /* containers já existem; aqui estão reforços de layout */
 .sol-v4.section{ background:#F8F9FA; padding: var(--solv4-pad-y,40px) var(--solv4-pad-x,100px); }
-.sol-v4__container{ max-width: 1200px; margin: 0 auto; display:flex; flex-direction:column; gap: 18px; }
+.sol-v4__container{ margin: 0 auto; display:flex; flex-direction:column; gap: 18px; }
 .sol-v4__header{ text-align:center; }
 .sol-v4__subtitle{ color:#4A4A4A; max-width:860px; margin:8px auto 0; }
 
 /* KPIs */
-.sol-v4__kpis{ list-style:none; padding:0; margin:10px 0 0; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.sol-v4__kpis{ list-style:none; padding:0; margin:35px auto 0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
 .sol-v4__kpis li{ background:#fff; border:1px solid rgba(37,186,207,.18); border-radius:16px; padding:14px; text-align:center; box-shadow:0 12px 26px rgba(0,0,0,.08); }
 .sol-v4__kpis strong{ display:block; color:#2E3F5B; font-weight:800; font-size: clamp(20px, 3.6vw, 28px); }
 .sol-v4__kpis span{ color:#4A4A4A; font-weight:600; }
@@ -4728,6 +4761,8 @@ html{
 .sol-v4__rail::before{ content:""; position:absolute; top:34px; left:24px; right:24px; height:3px; background:linear-gradient(90deg,#25BACF,#2E3F5B); opacity:.35; border-radius:3px; }
 .sol-v4__step{ text-align:center; padding-top:24px; }
 .sol-v4__dot{ width:36px; height:36px; border-radius:999px; margin:-42px auto 8px; display:grid; place-items:center; background:#2E3F5B; color:#fff; font-weight:800; border:2px solid #25BACF; box-shadow:0 8px 20px rgba(0,0,0,.12); }
+
+.seg {padding: 40px 0px;}
 
 /* ========================================= */
 /* MEDIA QUERIES RESPONSIVAS */
@@ -5037,19 +5072,13 @@ html{
   .integracao-section .apps-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .porque-escolher-educacao .porque-escolher-content { grid-template-columns: 1fr 1fr; gap: 40px; }
 
-.acessos .acessos-grid{
+  .acessos .acessos-grid{
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
 
-  .cl-section{ padding:40px; }
-  .cl-logo-grid{ grid-template-columns: repeat(5, minmax(110px,1fr)); }
-  .cl-t-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-
-  .cl-testimonials.cl-v2{ padding:40px; }
-  .cl-t-track{ grid-template-columns:repeat(2, minmax(0,1fr)); }
-
   .sol-v4__grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .sol-v4__rail{ grid-template-columns: repeat(4, 1fr); }
 }
 
 @media (max-width: 1024px) {
@@ -5333,7 +5362,7 @@ html{
   .acessos .acesso-card:hover,
   .integracao-section .app-card:hover { transform: none; box-shadow: 0 10px 24px rgba(0,0,0,.10); }
 
-.acessos{
+  .acessos{
     padding-left: 28px;
     padding-right: 28px;
   }
@@ -5356,6 +5385,15 @@ html{
   .cl-logo-grid{ grid-template-columns: repeat(4, minmax(100px,1fr)); }
 
   .cl-testimonials.cl-v2{ padding:32px 28px; }
+
+  .sol-v4.section{ padding: 40px 60px; }
+  .sol-v4__kpis{ grid-template-columns: 1fr 1fr 1fr; }
+  .sol-v4__grid{ grid-template-columns: 1fr 1fr; }
+  .sol-v4__rail{ grid-template-columns: 1fr 1fr; }
+  .sol-v4__mosaic{ grid-template-columns: repeat(6,1fr); grid-auto-rows: 160px; }
+  .mosaic__item.a{ grid-column: span 6; grid-row: span 2; }
+  .mosaic__item.b, .mosaic__item.c, .mosaic__item.d, .mosaic__item.e{ grid-column: span 3; grid-row: span 1; }
+  .sol-v4__compare{ grid-template-columns: 1fr; }
 }
 
 /* =========================================================
@@ -5530,11 +5568,13 @@ html{
   .cl-t-hero{ margin-bottom:4px; }
   .cl-t-track{ grid-auto-flow:column; grid-auto-columns: 80%; grid-template-columns:none; }
 
-  .sol-v4.section{ padding: 32px 22px; }
-  .sol-v4__kpis{ grid-template-columns: 1fr; }
+  .sol-v4.section{ padding: 32px 24px; }
+  .sol-v4__kpis{ grid-template-columns: 1fr; max-width: 520px; }
   .sol-v4__grid{ grid-template-columns: 1fr; }
-  .sol-v4__rail{ grid-template-columns: repeat(2,1fr); }
-  .sol-v4__rail::before{ top:auto; bottom:auto; display:none; } /* evita linha atravessando em 2 colunas */
+  .sol-v4__rail{ grid-template-columns: 1fr; }
+  .sol-v4__mosaic{ grid-template-columns: repeat(4,1fr); grid-auto-rows: 150px; }
+  .mosaic__item.a{ grid-column: span 4; grid-row: span 2; }
+  .mosaic__item.b, .mosaic__item.c, .mosaic__item.d, .mosaic__item.e{ grid-column: span 4; grid-row: span 1; }
 }
 
 /* =========================================================
@@ -5792,7 +5832,9 @@ html{
   .cl-t-track{ grid-auto-columns: 88%; }
 
   .sol-v4.section{ padding: 22px 14px; }
-  .sol-v4__dot{ width:30px; height:30px; margin:-36px auto 8px; }
+  .sol-v4__card{ padding:14px; border-radius:14px; }
+  .sol-v4__kpis li{ padding:12px; }
+  .mosaic__overlay{ padding:12px; }
 }
 
 @media (max-width:360px){
@@ -5818,7 +5860,6 @@ html{
   .cta-comprar { width: 100%; max-width: 360px; box-sizing: border-box; }
 
   .sol-v4.section{ padding: 18px 12px; }
-  .sol-v4__kpis strong{ font-size: 20px; }
-  .sol-v4__kpis span{ font-size: .95rem; }
-  .sol-v4__icon{ width:40px; height:40px; }
+  .sol-v4__card{ border-radius:12px; }
+  .mosaic__item{ border-radius:12px; }
 }
