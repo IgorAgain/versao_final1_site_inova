@@ -1,0 +1,148 @@
+/*!
+ * index.responsive.css — FIX v3 (mobile overflow)
+ * Foco: impedir conteúdo "sobressair" em telas pequenas (<= 800px),
+ * principalmente na hero (formas anguladas/overlays) e elementos absolutos.
+ */
+
+/* ---------- Barragem global de overflow ---------- */
+html, body{
+  max-width: 100%;
+  width: 100%;
+  overflow-x: clip;       /* evita arraste lateral moderno */
+}
+@supports not (overflow-x: clip){
+  html, body{ overflow-x: hidden; } /* fallback */
+}
+*, *::before, *::after{ box-sizing: border-box; }
+img, svg, video, canvas, iframe{ max-width: 100%; height: auto; display: block; }
+section, header, footer, main{ max-width: 100%; }
+
+/* ---------- >= 1920px ---------- */
+@media (min-width: 1920px){
+  .hero-content,
+  .servicos,
+  .stats,
+  .nossas-solucoes,
+  .quem-confia,
+  .segmentos,
+  .footer{
+    padding-left: 300px;
+    padding-right: 300px;
+  }
+  .servicos,
+  .stats,
+  .nossas-solucoes,
+  .quem-confia,
+  .segmentos{
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+/* ---------- <= 1200px ---------- */
+@media (max-width: 1200px){
+  .servicos-grid,
+  .solucoes-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
+  .stats-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+  .stat-divider{ display: none; }
+}
+
+/* ---------- <= 1024px (cobre ~800px) ---------- */
+@media (max-width: 1024px){
+  /* Menu drop-in (sem off-canvas que empurra a viewport) */
+  .menu-toggle{ display: flex; }
+  .nav-links{
+    position: absolute !important;
+    top: 80px; right: 20px; left: auto !important; bottom: auto !important;
+    transform: none !important;
+    width: min(94vw, calc(100vw - 40px));
+    max-width: calc(100vw - 40px);
+    background: #fff; border: 1px solid rgba(0,0,0,.06);
+    border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,.12);
+    padding: 16px; display: flex; flex-direction: column; gap: 12px; z-index: 1000;
+  }
+
+  /* ---------- HERO: correções cruciais ---------- */
+  .hero{
+    position: relative;
+    overflow: hidden;          /* garante que pseudo-elementos/overlays não vazem */
+    width: 100%;
+  }
+  /* Se houver overlays/pseudo com ângulo/clip que ultrapassam 100vw */
+  .hero-overlay,
+  .hero::before,
+  .hero::after{
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;    /* substitui 100vw que gera overflow em mobile */
+    transform: none !important;
+  }
+
+  /* Em telas <=1024 removemos ângulos agressivos para layout estável */
+  .hero-overlay{
+    clip-path: none !important;
+    border-bottom-right-radius: 22px;
+    border-bottom-left-radius: 0;
+  }
+
+  .hero-content{ padding: 40px 24px 48px; }
+  .hero-text{ max-width: 680px; margin: 0; }
+}
+
+/* ---------- <= 768px ---------- */
+@media (max-width: 768px){
+  .header{ padding: 16px 20px; }
+  .servicos,
+  .stats,
+  .nossas-solucoes,
+  .quem-confia,
+  .segmentos{ padding: 32px 20px; }
+
+  .logo{ width: 160px; max-width: 60vw; }
+
+  .servicos-grid,
+  .solucoes-grid,
+  .stats-grid{ grid-template-columns: 1fr; gap: 18px; }
+
+  .hero-title{ font-size: clamp(1.8rem, 6vw, 2.2rem); }
+  .hero-description{ font-size: .98rem; }
+
+  /* Evita "sangria" proposital em seções: desabilita variações 'bleed' */
+  [class*="bleed"],
+  .u-bleed,
+  .full-bleed{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+}
+
+/* ---------- <= 480px ---------- */
+@media (max-width: 480px){
+  .header-content{ padding: 10px 12px; }
+  .cta-comprar{ padding: 10px 14px; border-radius: 8px; }
+
+  .hero{ min-height: 56vh; }
+  .hero-title{ font-size: 1.75rem; }
+  .hero-cta{ width: 100%; text-align: center; }
+
+  .servicos,
+  .nossas-solucoes{ padding: 22px 14px; }
+
+  .servico-card,
+  .solucao-card{ padding: 18px 14px; }
+}
+
+/* ---------- <= 360px ---------- */
+@media (max-width: 360px){
+  .nav-links{ right: 12px; width: calc(100vw - 24px); }
+  .hero-title{ font-size: 1.55rem; }
+  .servicos,
+  .nossas-solucoes{ padding: 18px 12px; }
+  .servico-card,
+  .solucao-card{ padding: 14px 12px; border-radius: 12px; }
+}
+
+/* ---------- Embeds (mapa, iframes) ---------- */
+.company-map{ width: 100%; max-width: 100%; overflow: hidden; }
+.company-map iframe{ min-width: 100% !important; }

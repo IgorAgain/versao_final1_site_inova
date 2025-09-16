@@ -1,0 +1,191 @@
+/*!
+ * servicos.responsive.css — Inova Tecnologia (servicos.html)
+ * Padrão herdado das últimas páginas:
+ * - Header sticky >1024px; mobile off-canvas (mostra todos itens)
+ * - Esconder CTA <650px (regra global)
+ * - Banner com título legível em mobile
+ * - Grid/containers responsivos; footer com gutters pequenos
+ * - Overflow lateral protegido
+ */
+
+/* ===== Barragens globais ===== */
+html, body{ width:100%; max-width:100%; overflow-x: clip; }
+@supports not (overflow-x: clip){ html, body{ overflow-x: hidden; } }
+*, *::before, *::after{ box-sizing: border-box; }
+img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
+main, section, header, footer{ max-width:100%; }
+
+/* ===== Header / Navbar ===== */
+/* Desktop */
+@media (min-width: 1025px){
+  .header{ position: sticky; top:0; z-index:2000; backdrop-filter: saturate(120%) blur(2px); }
+  .menu-toggle{ display:none !important; }
+  .nav-links{
+    position: static !important;
+    transform:none !important;
+    display:flex !important;
+    flex-direction: row !important;
+    width:auto !important; height:auto !important;
+    box-shadow:none !important; background:transparent !important;
+    padding:0 !important;
+  }
+}
+/* Mobile/Tablet */
+@media (max-width: 1024px){
+  .menu-toggle{ display:flex; z-index:1300; }
+
+  .nav-links{
+    position: fixed !important;
+    top:0; right:0; bottom:0; left:min(30%, 120px);
+    transform: translateX(100%);
+    transition: transform .3s ease;
+    background:#fff;
+    padding: 18px 16px 28px;
+    display:flex; flex-direction:column; gap: 6px;
+    overflow-y:auto; z-index: 2200;
+    box-shadow:-12px 0 30px rgba(0,0,0,.14);
+    border-radius: 12px 0 0 12px;
+  }
+  /* Largura total em telas muito pequenas */
+  @media (max-width: 400px){
+    .nav-links{ left: 0; border-radius: 0; }
+  }
+
+  /* Abre */
+  .navbar.active .nav-links{ transform: translateX(0); }
+  body.no-scroll{ overflow:hidden; }
+
+  /* Reset seguro da lista/links */
+  .nav-links ul{ list-style:none; margin:0; padding:0; }
+  .nav-links > li{ display:block; }
+  .nav-links a{ display:block; padding:12px 8px; }
+
+  /* Em mobile mostramos todos os itens de dropdown como lista expandida */
+  .dropdown > .dropdown-menu{
+    position: static !important;
+    opacity: 1 !important; visibility: visible !important; transform: none !important;
+    border: 0 !important; box-shadow: none !important;
+    padding: 0 !important; margin-left: 10px;
+    display: block !important;
+  }
+}
+
+/* ===== Regra global: esconder CTA do header em <650px ===== */
+@media (max-width: 650px){
+  .btn-contratar,
+  .cta-contratar,
+  .cta-comprar,
+  .header .nav-cta,
+  .navbar a[href*="contratar"]{
+    display: none !important;
+  }
+}
+
+/* ===== Banner / Título ===== */
+.banner-educacao{ position: relative; overflow: hidden; width:100%; }
+.banner-educacao .banner-image{
+  width:100%; height: clamp(260px, 36vw, 520px);
+  object-fit: cover; object-position: center;
+}
+.banner-educacao .banner-overlay{ position:absolute; inset:0; }
+.banner-educacao .banner-content{ position:absolute; inset:0; display:flex; align-items:center; }
+
+.banner-title{
+  margin-left: min(6vw, 64px); margin-right: min(6vw, 64px);
+  font-size: clamp(1.6rem, 7.2vw, 3rem);
+  line-height: 1.15; letter-spacing:-.02em;
+  text-wrap: balance; max-inline-size: 22ch;
+  word-break: normal !important; overflow-wrap: break-word;
+}
+@media (max-width: 1024px){
+  .banner-educacao .banner-overlay{
+    clip-path: none !important; transform:none !important; width:100% !important; left:0 !important; right:0 !important;
+  }
+  .banner-title{ margin: 0 24px; }
+}
+/* Título legível em telas pequenas */
+@media (max-width: 650px){
+  .banner-educacao .banner-content{ padding: 18px 16px 26px; }
+  .banner-title{ max-inline-size: clamp(24ch, 86vw, 28ch); font-size: clamp(1.3rem, 6.2vw, 1.9rem); }
+}
+@media (max-width: 420px){
+  .banner-title{ max-inline-size: clamp(26ch, 92vw, 30ch); font-size: clamp(1.2rem, 6.6vw, 1.6rem); }
+}
+
+/* ===== Containers ===== */
+.servicos{ padding: 40px 100px; }
+.servicos-container{ max-width: 1200px; margin-inline: auto; }
+.servicos-header{ max-width: 960px; margin: 0 auto 12px; text-align: center; }
+.servicos-subtitle{ margin-top: 6px; }
+
+@media (min-width: 1920px){
+  .header{ padding: 30px 300px; }
+  .servicos{ padding-left:300px; padding-right:300px; padding-top:60px; padding-bottom:60px; }
+}
+@media (max-width: 768px){
+  .servicos{ padding: 32px 20px; }
+}
+@media (max-width: 500px){
+  .servicos{ padding: 26px 16px; }
+  .header{ padding-left: 16px; padding-right: 16px; }
+  .servicos-header h2{ font-size: clamp(1.3rem, 6vw, 1.6rem); line-height:1.25; margin-bottom:10px; }
+  .servicos-header p{ font-size:.96rem; line-height:1.5; margin:6px auto 0; max-width:60ch; }
+}
+@media (max-width: 360px){
+  .servicos{ padding: 20px 12px; }
+  .header{ padding-left: 12px; padding-right: 12px; }
+}
+
+/* ===== Grid de serviços ===== */
+.servicos-grid{
+  display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin-top: 18px;
+}
+.servico-card{ height:100%; display:flex; flex-direction:column; gap: 10px; padding: 18px; }
+.servico-icon{ width: 64px; height: 64px; }
+.servico-icon img, .servico-icon-change{ width:100%; height:100%; object-fit: contain; }
+.servico-titulo{ margin: 6px 0; }
+.servico-descricao{ margin: 0; }
+.servico-cta-servicos{ margin-top:auto; }
+
+@media (max-width: 1200px){
+  .servicos-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+}
+@media (max-width: 768px){
+  .servicos-grid{ grid-template-columns: 1fr; gap: 16px; }
+}
+
+/* ===== Footer ===== */
+.footer, footer{ padding-left:100px; padding-right:100px; } /* base desktop */
+.footer-container{
+  display:grid; grid-template-columns: 1.2fr .8fr 1fr; gap: 24px;
+  padding: 32px min(6vw, 64px);
+}
+.footer-logo img{ width:100%; width:100%; height:auto; }
+.social-media-container{ display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; }
+.company-map{ width:100%; max-width:100%; overflow:hidden; margin-top:12px; }
+.company-map iframe{ min-width:100% !important; border-radius: 12px; }
+.footer-nav .footer-links{ columns:2; gap:12px; }
+
+@media (max-width: 1200px){
+  .footer-container{ grid-template-columns: 1fr 1fr; }
+  .footer-nav .footer-links{ columns: 1; }
+}
+@media (max-width: 768px){
+  .footer, footer{ padding-left:20px; padding-right:20px; }
+  .footer-container{ grid-template-columns: 1fr; }
+  .footer-logo img{ width:100%; max-width:100%; }
+}
+@media (max-width: 460px){
+  .footer, footer{ padding-left:14px !important; padding-right:14px !important; }
+  .footer-container{ padding: 24px 14px; }
+}
+@media (max-width: 360px){
+  .footer, footer{ padding-left:12px !important; padding-right:12px !important; }
+  .footer-container{ padding: 20px 12px; }
+}
+
+/* ===== Scrollbar opcional ===== */
+@media (max-width: 500px){
+  html, body{ overflow-y:auto; scrollbar-width:none; -ms-overflow-style:none; }
+  html::-webkit-scrollbar, body::-webkit-scrollbar{ width:0; height:0; }
+}
