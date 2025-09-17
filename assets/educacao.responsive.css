@@ -314,3 +314,7 @@ main, section, header, footer{ max-width:100%; }
 @media (max-width: 360px){
   .header{ padding-left: 12px; padding-right: 12px; }
 }
+
+@media (max-width: 1024px){
+  .porque-escolher-text{ padding-left: 0 !important; }
+}

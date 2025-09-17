@@ -1,6 +1,6 @@
 /*!
- * empresas.responsive.css — Inova Tecnologia (empresas.html)
- * Padrão consolidado:
+ * condominios.responsive.css — Inova Tecnologia (condominios.html)
+ * Padrão consolidado das sessões anteriores:
  * - Header sticky >1024px; mobile off-canvas (dropdowns expandidos)
  * - Esconde CTA <650px (regra global)
  * - Banner com título legível em mobile
@@ -62,7 +62,7 @@ main, section, header, footer{ max-width:100%; }
   .nav-links > li{ display:block; }
   .nav-links a{ display:block; padding:12px 8px; }
 
-  /* Em mobile mostramos todos os itens de dropdown como lista expandidos */
+  /* Em mobile mostramos todos os itens de dropdown como lista expandida */
   .dropdown > .dropdown-menu{
     position: static !important;
     opacity: 1 !important; visibility: visible !important; transform: none !important;
@@ -261,23 +261,12 @@ main, section, header, footer{ max-width:100%; }
 
 /* === Header padding fix (only) === */
 .header{ padding-left: 100px; padding-right: 100px; } /* mantém desktop */
+@media (max-width: 1024px){ .header{ padding-left: 32px; padding-right: 32px; } }
+@media (max-width: 768px){ .header{ padding-left: 20px; padding-right: 20px; } }
+@media (max-width: 500px){ .header{ padding-left: 16px; padding-right: 16px; } }
+@media (max-width: 360px){ .header{ padding-left: 12px; padding-right: 12px; } }
 
-@media (max-width: 1024px){
-  .header{ padding-left: 32px; padding-right: 32px; }
-}
-
-@media (max-width: 768px){
-  .header{ padding-left: 20px; padding-right: 20px; }
-}
-
-@media (max-width: 500px){
-  .header{ padding-left: 16px; padding-right: 16px; }
-}
-
-@media (max-width: 360px){
-  .header{ padding-left: 12px; padding-right: 12px; }
-}
-
+/* Ajuste de alinhamento conhecido em ≤1024px (padding lateral no texto) */
 @media (max-width: 1024px){
   .porque-escolher-text{ padding-left: 0 !important; }
 }
