@@ -1,13 +1,8 @@
 /*!
- * servicoacesso.responsive.css — Inova Tecnologia (servicoacesso.html)
- * Padrão consolidado:
- * - Header sticky >1024px; menu mobile off-canvas (dropdowns expandidos)
- * - Esconde CTA do header <650px (regra global)
- * - Banner com título legível em mobile
- * - Paddings móveis (sem 100px nas laterais em telas pequenas)
- * - Grids responsivas: comparativo, use-cases 3→1, acessos 4→2→1, ops 2→1, KPIs 3→1
- * - Footer padronizado com gutters pequenos e logo maior no mobile
- * - Sem overflow lateral e com barra oculta no mobile
+ * servicoacesso.responsive.css — FIX v3 (remove tabela <690px + reforço mobile)
+ * - Esconde a PRIMEIRA TABELA em telas <690px (sem ocupar espaço)
+ * - Reforça a responsividade do restante: cards/grids quebram corretamente
+ * - Mantém padrão consolidado (header, gutters móveis, footer, etc.)
  */
 
 /* ===== Barragens globais ===== */
@@ -25,7 +20,7 @@ ul{ padding-inline-start: 1.2em; }
 @media (max-width:500px){ .header{ padding-left:16px; padding-right:16px; } }
 @media (max-width:360px){ .header{ padding-left:12px; padding-right:12px; } }
 
-/* ===== Gutters das seções desta página ===== */
+/* ===== Gutters das seções ===== */
 @media (max-width:1024px){
   .svc-section, .acessos, .svc-ops{ padding-left:32px; padding-right:32px; }
 }
@@ -39,68 +34,82 @@ ul{ padding-inline-start: 1.2em; }
   .svc-section, .acessos, .svc-ops{ padding-left:12px; padding-right:12px; }
 }
 
-/* ===== Comparativo (tabela) ===== */
-.svc-container{ max-width: 1200px; margin-inline: auto; }
-.svc-header{ max-width: 960px; margin: 0 auto 12px; text-align:center; }
-.compare-wrapper{ overflow-x:auto; -webkit-overflow-scrolling: touch; margin-top: 12px; }
-.compare-table{ border-collapse: collapse; width: 100%; min-width: 640px; table-layout: fixed; }
-.compare-table th, .compare-table td{ padding: 12px 10px; text-align: left; vertical-align: middle; overflow-wrap:anywhere; }
-.compare-table thead th{ position: sticky; top: 0; z-index: 1; }
-.compare-table td.state[data-state="yes"]{ color:#0a8f5b; font-weight:600; }
-.compare-table td.state[data-state="no"]{ color:#c0392b; font-weight:600; }
-.compare-table td.state[data-state="partial"]{ color:#b37a00; font-weight:600; }
+/* ===== 1) REMOVER a PRIMEIRA TABELA no mobile (≤690px) ===== */
+@media (max-width:900px){
+  #acessos-comparativo,
+  section#acessos-comparativo,
+  .svc-comparativo,
+  section.compare-section{
+    display:none !important;
+  }
+}
 
-/* Use cases: 3 → 1 */
-.use-cases{ margin-top: 18px; display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
-.uc-card{ padding: 16px; border-radius: 12px; display:flex; flex-direction:column; gap: 10px; min-width:0; }
-@media (max-width: 1024px){ .use-cases{ grid-template-columns: 1fr 1fr; } }
-@media (max-width: 768px){ .use-cases{ grid-template-columns: 1fr; } }
-.acesso-cta{ display:inline-flex; margin-top: 16px; }
+/* ===== 2) Use cases — 3→2→1 ===== */
+.use-cases{ margin-top:18px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.uc-card{ padding:16px; border-radius:12px; display:flex; flex-direction:column; gap:10px; min-width:0; }
+@media (max-width:1024px){ .use-cases{ grid-template-columns:1fr 1fr; } }
+@media (max-width:690px){  .use-cases{ grid-template-columns:1fr; } }
 
-/* ===== ACESSOS — Cards 4 → 2 → 1 ===== */
-.acessos-container{ max-width: 1200px; margin-inline:auto; }
-.acessos-header{ max-width: 960px; margin: 0 auto 12px; text-align:center; }
-.acessos-grid{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 24px; margin-top: 18px; }
-.acesso-card{ height:100%; display:flex; flex-direction:column; gap: 10px; padding: 18px; min-width:0; }
+/* ===== 3) ACESSOS — Cards 4→2→1 ===== */
+.acessos-container{ max-width:1200px; margin-inline:auto; }
+.acessos-header{ max-width:960px; margin:0 auto 12px; text-align:center; }
+.acessos-grid{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; margin-top:18px; }
+.acesso-card{ height:100%; display:flex; flex-direction:column; gap:10px; padding:18px; min-width:0; }
+.ops-step{ height:100%; display:flex; flex-direction:column; gap:10px; padding:18px; min-width:0; }
 .acesso-icon{ width:64px; height:64px; }
-.acesso-title{ margin: 6px 0; overflow-wrap:anywhere; }
-.acesso-text{ margin: 0; }
-.servico-lista{ margin: 6px 0 0 16px; }
-@media (max-width: 1200px){ .acessos-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; } }
-@media (max-width: 768px){ .acessos-grid{ grid-template-columns: 1fr; gap: 16px; } }
+.acesso-title{ margin:6px 0; overflow-wrap:anywhere; }
+.acesso-text{ margin:0; }
+.servico-lista{ margin:6px 0 0 16px; }
+@media (max-width:1200px){ .acessos-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; } }
+@media (max-width:690px){  .acessos-grid{ grid-template-columns:1fr; gap:16px; } }
 
-/* ===== Operação (timeline) ===== */
-.ops-header{ max-width: 960px; margin: 0 auto 12px; text-align:center; }
-.ops-rail{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items:start; margin-top: 18px; }
-.ops-step{ display:flex; flex-direction:column; gap: 10px; padding: 16px; border-radius: 12px; min-width:0; }
-.ops-dot{ width:28px; height:28px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; }
+/* ===== 4) Operação (timeline) 2→1 ===== */
+.ops-header{ max-width:960px; margin:0 auto 12px; text-align:center; }
+.ops-rail{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; margin-top:18px; }
+.ops-step{ display:flex; flex-direction:column; gap:10px; padding:16px; border-radius:12px; min-width:0; }
 .ops-media img{ width:100%; border-radius:12px; }
-.svc-title{ margin: 6px 0; }
-.svc-list{ margin: 6px 0 0 16px; }
-@media (max-width: 1024px){ .ops-rail{ grid-template-columns: 1fr; } }
+@media (max-width:1024px){ .ops-rail{ grid-template-columns:1fr; } }
 
-/* KPIs 3 → 1 */
-.ops-kpis{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; margin-top: 18px; }
-.kpi-card{ display:flex; flex-direction:column; align-items:center; text-align:center; gap: 4px; padding: 14px; border-radius: 12px; }
-.kpi-value{ font-weight: 800; font-size: clamp(1.2rem, 4.5vw, 1.8rem); }
-.kpi-label{ opacity: .9; }
-@media (max-width: 768px){ .ops-kpis{ grid-template-columns: 1fr; } }
+/* ===== 5) KPIs 3→1 ===== */
+.ops-kpis{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin-top:18px; }
+.kpi-card{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:4px; padding:14px; border-radius:12px; }
+.kpi-value{ font-weight:800; font-size:clamp(1.2rem,4.5vw,1.8rem); }
+@media (max-width:690px){ .ops-kpis{ grid-template-columns:1fr; } }
 
 /* CTA final nunca ultrapassa a caixa */
-.cta-container{ margin-top: 16px; display:flex; justify-content:center; }
+.cta-container{ margin-top:16px; display:flex; justify-content:center; }
 .cta-container .cta-comprar-integracao{
-  display: inline-flex; align-items:center; justify-content:center;
-  padding: 12px 16px; border-radius: 10px;
-  max-width: 100%; box-sizing: border-box; width: 100%;
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 16px; border-radius:10px;
+  max-width:100%; box-sizing:border-box; width:100%;
 }
 
 /* ===== Esconder a barra de rolagem no mobile ===== */
-@media (max-width: 500px){
-  html, body{
-    overflow-y: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  html::-webkit-scrollbar, body::-webkit-scrollbar{ width: 0; height: 0; }
+@media (max-width:500px){
+  html, body{ overflow-y:auto; scrollbar-width:none; -ms-overflow-style:none; }
+  html::-webkit-scrollbar, body::-webkit-scrollbar{ width:0; height:0; }
 }
 
+@media (max-width:1000px){
+    .ops-media {margin: 0 !important; 
+        padding-top: 50px;
+    }
+    .svc-title {padding: 0 !important; text-align: center;}
+    .svc-list {padding: 0 !important; text-align: center;}
+}
+
+/* A partir de 540px, as grids viram 1 coluna */
+@media (max-width: 540px){
+  .ops-rail,
+  .acessos-grid,
+  .use-cases{
+    grid-template-columns: 1fr !important;
+  }
+
+  /* opcional: evita “vazar” conteúdo dos cards */
+  .ops-rail > *, .acessos-grid > *, .use-cases > *{ min-width: 0; }
+}
+
+@media (max-width: 390px){
+    .kpi-card{padding: 10px !important;}
+}
