@@ -1,0 +1,156 @@
+/*!
+ * servicoaplicativo.responsive.css — Inova Tecnologia (servicoaplicativo.html)
+ * Padrão consolidado:
+ * - Header sticky >1024px; menu mobile off-canvas (dropdowns expandidos)
+ * - Esconde CTA do header <650px (regra global)
+ * - Banner com título legível em mobile (sem clip/overflow)
+ * - Grids e containers responsivos (serviços, soluções, diferenciais)
+ * - Footer padronizado com gutters pequenos e logo maior em telas pequenas
+ * - Overflow lateral protegido e barra oculta no mobile
+ */
+
+/* ===== Segurança global contra overflow ===== */
+html, body{ width:100%; max-width:100%; overflow-x: clip; }
+@supports not (overflow-x: clip){ html, body{ overflow-x: hidden; } }
+*, *::before, *::after{ box-sizing: border-box; }
+img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
+main, section, header, footer{ max-width:100%; }
+
+/* ===== Header padding fix (desktop 100px; menores escalonado) ===== */
+.header{ padding-left:100px; padding-right:100px; }
+@media (max-width:1024px){ .header{ padding-left:32px; padding-right:32px; } }
+@media (max-width:768px){ .header{ padding-left:20px; padding-right:20px; } }
+@media (max-width:500px){ .header{ padding-left:16px; padding-right:16px; } }
+@media (max-width:360px){ .header{ padding-left:12px; padding-right:12px; } }
+
+/* ===== Seção Serviços (cards 3→2→1) ===== */
+.servicos-container{ max-width: 1200px; margin-inline:auto; }
+.servicos-header{ max-width: 960px; margin: 0 auto 12px; text-align:center; }
+.servicos-grid{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin-top: 18px; }
+.servico-card{ display:flex; flex-direction:column; gap:12px; padding:18px; min-width:0; }
+.servico-icon{ width:64px; height:64px; }
+.servico-titulo{ margin:6px 0; overflow-wrap:anywhere; }
+.servico-descricao{ margin:0; }
+.servico-expandido .servico-imagem{ border-radius:12px; }
+.servico-lista{ margin:6px 0 0 16px; }
+.servico-cta{ align-self:center; }
+
+@media (max-width:1200px){ .servicos-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width:768px){ .servicos-grid{ grid-template-columns: 1fr; } }
+
+/* ===== Nossas Soluções (2 cards lado a lado → 1) ===== */
+.nossas-solucoes-container{ max-width: 1200px; margin-inline:auto; }
+.nossas-solucoes-header{ max-width: 960px; margin: 0 auto 12px; text-align:center; }
+.solucoes-grid-app{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 18px; }
+.solucao-card{ display:flex; flex-direction:column; gap: 10px; padding: 18px; min-width:0; }
+.solucao-imagem-app{ width:100%; border-radius:12px; }
+.solucao-titulo{ margin: 0 0 4px; }
+.solucao-descricao{ margin: 0; }
+@media (max-width:1024px){ .solucoes-grid-app{ grid-template-columns: 1fr; } }
+
+/* ===== Diferenciais (2 colunas → 1; texto sem padding-left em mobile) ===== */
+.porque-escolher-container{ max-width: 1200px; margin-inline:auto; }
+.porque-escolher-content{ display:grid; grid-template-columns: 1fr 1.1fr; gap: 24px; align-items:center; }
+.float-wrapper{ display:flex; justify-content:center; }
+.phone{ width: 280px; position: relative; }
+.phone-img{ width: 100%; border-radius: 20px; }
+.notch{ position:absolute; top:6px; left:50%; transform: translateX(-50%); width: 40%; height: 10px; border-radius: 10px; }
+.porque-escolher-text{ display:flex; flex-direction:column; gap: 12px; }
+.diferenciais-list{ display:flex; flex-direction:column; gap: 14px; }
+.diferencial-item{ display:grid; grid-template-columns: 40px 1fr; gap: 10px; align-items:flex-start; }
+.diferencial-icon-space img{ width: 32px; height: auto; }
+.diferencial-title{ margin: 0 0 4px; }
+.diferencial-text p{ margin: 0; }
+
+@media (max-width:1024px){
+  .porque-escolher-content{ grid-template-columns: 1fr; }
+  .float-wrapper{ order: -1; }
+  .porque-escolher-text{ padding-left: 0 !important; }
+}
+
+/* ===== Esconder a barra de rolagem no mobile ===== */
+@media (max-width: 500px){
+  html, body{
+    overflow-y: auto;            /* mantém rolagem */
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* IE/Edge legacy */
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar{
+    width: 0;
+    height: 0;                   /* Chrome/Safari/Edge */
+  }
+}
+
+/* === Mobile padding override (alta especificidade) === */
+@media (max-width: 1024px){
+  section.servicos,
+  section#servicos,
+  .servicos,
+  section.nossas-solucoes,
+  section#solucoes,
+  #solucoes.nossas-solucoes,
+  section.porque-escolher-educacao,
+  section#porque-escolher-educacao,
+  #porque-escolher-educacao.porque-escolher-educacao{
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+}
+@media (max-width: 768px){
+  section.servicos,
+  section#servicos,
+  .servicos,
+  section.nossas-solucoes,
+  section#solucoes,
+  #solucoes.nossas-solucoes,
+  section.porque-escolher-educacao,
+  section#porque-escolher-educacao,
+  #porque-escolher-educacao.porque-escolher-educacao{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+@media (max-width: 500px){
+  section.servicos,
+  section#servicos,
+  .servicos,
+  section.nossas-solucoes,
+  section#solucoes,
+  #solucoes.nossas-solucoes,
+  section.porque-escolher-educacao,
+  section#porque-escolher-educacao,
+  #porque-escolher-educacao.porque-escolher-educacao{
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+@media (max-width: 360px){
+  section.servicos,
+  section#servicos,
+  .servicos,
+  section.nossas-solucoes,
+  section#solucoes,
+  #solucoes.nossas-solucoes,
+  section.porque-escolher-educacao,
+  section#porque-escolher-educacao,
+  #porque-escolher-educacao.porque-escolher-educacao{
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+/* === Forçar quebra das grades em mobile (caso CSS anterior prenda) === */
+@media (max-width: 1200px){
+  .servicos-grid{ grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 768px){
+  .servicos-grid{ grid-template-columns: 1fr !important; }
+}
+@media (max-width: 1024px){
+  .solucoes-grid-app{ grid-template-columns: 1fr !important; }
+  .porque-escolher-content{ grid-template-columns: 1fr !important; }
+  .float-wrapper{ order: -1; margin-bottom: 12px; }
+}
+/* prevenção de overflow dentro dos cards */
+.servico-card, .solucao-card, .porque-escolher-text{ min-width: 0; }

@@ -1,245 +1,121 @@
 /*!
- * servicoponto.responsive.css — Inova Tecnologia (servicoponto.html)
- * Padrão consolidado:
- * - Header sticky >1024px; menu mobile off-canvas (dropdowns expandidos)
- * - Esconde CTA do header <650px (regra global)
- * - Banner com título legível em mobile
- * - Paddings/containers responsivos (ponto-*, recursos, avançados, equipamentos)
- * - Grids 3→2→1 e rail 1.1fr/.9fr → 1 col
- * - Vídeo/iframes 16:9 e mapas 100% (se houver)
- * - Footer padronizado com gutters pequenos e logo maior em telas pequenas
- * - Overflow lateral protegido
+ * servicoponto.responsive.css — FIX v4 (carregado após main.css)
+ * Foco: forçar menu mobile + quebras das grids em mobile, eliminar qualquer overflow.
+ * Regras com maior especificidade e !important para sobrepor main.css.
  */
 
-/* ===== Barragens globais ===== */
+/* ===== Segurança global contra overflow ===== */
 html, body{ width:100%; max-width:100%; overflow-x: clip; }
 @supports not (overflow-x: clip){ html, body{ overflow-x: hidden; } }
 *, *::before, *::after{ box-sizing: border-box; }
 img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
-main, section, header, footer{ max-width:100%; }
-ul{ padding-inline-start: 1.2em; }
 
-/* ===== Header / Navbar ===== */
-/* Desktop */
-@media (min-width: 1025px){
-  .header{ position: sticky; top:0; z-index:2000; backdrop-filter: saturate(120%) blur(2px); }
-  .menu-toggle{ display:none !important; }
-  .nav-links{
-    position: static !important;
-    transform:none !important;
-    display:flex !important;
-    flex-direction: row !important;
-    width:auto !important; height:auto !important;
-    box-shadow:none !important; background:transparent !important;
-    padding:0 !important;
+/* ===== GUTTERS (todas as seções desta página) ===== */
+@media (max-width:1024px){
+  #ponto-intro, #ponto-numeros, #ponto-consultoria, #ponto-recursos, #ponto-avancados, #ponto-equipamentos, #ponto-experimente,
+  .ponto-section, .recursos-v2, .avancados-v2{
+    padding-left:32px; padding-right:32px;
   }
 }
-/* Mobile/Tablet */
-@media (max-width: 1024px){
-  .menu-toggle{ display:flex; z-index:1300; }
-
-  .nav-links{
-    position: fixed !important;
-    top:0; right:0; bottom:0; left:min(30%, 120px);
-    transform: translateX(100%);
-    transition: transform .3s ease;
-    background:#fff;
-    padding: 18px 16px 28px;
-    display:flex; flex-direction:column; gap: 6px;
-    overflow-y:auto; z-index: 2200;
-    box-shadow:-12px 0 30px rgba(0,0,0,.14);
-    border-radius: 12px 0 0 12px;
-  }
-  @media (max-width: 400px){
-    .nav-links{ left: 0; border-radius: 0; }
-  }
-  .navbar.active .nav-links{ transform: translateX(0); }
-  body.no-scroll{ overflow:hidden; }
-
-  .nav-links ul{ list-style:none; margin:0; padding:0; }
-  .nav-links > li{ display:block; }
-  .nav-links a{ display:block; padding:12px 8px; }
-
-  .dropdown > .dropdown-menu{
-    position: static !important;
-    opacity: 1 !important; visibility: visible !important; transform: none !important;
-    border: 0 !important; box-shadow: none !important;
-    padding: 0 !important; margin-left: 10px;
-    display: block !important;
-  }
+@media (max-width:768px){
+  #ponto-intro, #ponto-numeros, #ponto-consultoria, #ponto-recursos, #ponto-avancados, #ponto-equipamentos, #ponto-experimente,
+  .ponto-section, .recursos-v2, .avancados-v2{ padding-left:20px; padding-right:20px; }
+}
+@media (max-width:500px){
+  #ponto-intro, #ponto-numeros, #ponto-consultoria, #ponto-recursos, #ponto-avancados, #ponto-equipamentos, #ponto-experimente,
+  .ponto-section, .recursos-v2, .avancados-v2{ padding-left:16px; padding-right:16px; }
+}
+@media (max-width:360px){
+  #ponto-intro, #ponto-numeros, #ponto-consultoria, #ponto-recursos, #ponto-avancados, #ponto-equipamentos, #ponto-experimente,
+  .ponto-section, .recursos-v2, .avancados-v2{ padding-left:12px; padding-right:12px; }
 }
 
-/* Regra global: esconder CTA do header em <650px */
-@media (max-width: 650px){
-  .header .cta-comprar,
-  .header .nav-cta,
-  .navbar a[href*="contratar"]{
-    display: none !important;
-  }
-}
+/* ===== GRIDs QUEBRANDO CORRETAMENTE ===== */
 
-/* ===== Banner / Título ===== */
-.banner-educacao{ position: relative; overflow: hidden; width:100%; }
-.banner-educacao .banner-image{
-  width:100%; height: clamp(260px, 36vw, 520px);
-  object-fit: cover; object-position: center;
-}
-.banner-educacao .banner-overlay{ position:absolute; inset:0; }
-.banner-educacao .banner-content{ position:absolute; inset:0; display:flex; align-items:center; }
-.banner-title{
-  margin-left: min(6vw, 64px); margin-right: min(6vw, 64px);
-  font-size: clamp(1.6rem, 7.2vw, 3rem);
-  line-height: 1.15; letter-spacing:-.02em;
-  text-wrap: balance; max-inline-size: 22ch;
-  word-break: normal !important; overflow-wrap: break-word;
-}
-@media (max-width: 1024px){
-  .banner-educacao .banner-overlay{
-    clip-path: none !important; transform:none !important; width:100% !important; left:0 !important; right:0 !important;
-  }
-  .banner-title{ margin: 0 24px; }
-}
-@media (max-width: 650px){
-  .banner-educacao .banner-content{ padding: 18px 16px 26px; }
-  .banner-title{ max-inline-size: clamp(24ch, 86vw, 28ch); font-size: clamp(1.3rem, 6.2vw, 1.9rem); }
-}
-@media (max-width: 420px){
-  .banner-title{ max-inline-size: clamp(26ch, 92vw, 30ch); font-size: clamp(1.2rem, 6.6vw, 1.6rem); }
-}
-
-/* ===== Containers / Paddings ===== */
-.ponto-section, .recursos-v2, .avancados-v2{ padding: 40px 100px; }
-.ponto-container{ max-width: 1200px; margin-inline: auto; }
-.ponto-header, .ponto-header + p{ text-align: center; }
-@media (max-width: 768px){
-  .ponto-section, .recursos-v2, .avancados-v2{ padding: 32px 20px; }
-}
-@media (max-width: 500px){
-  .ponto-section, .recursos-v2, .avancados-v2{ padding: 26px 16px; }
-}
-@media (max-width: 360px){
-  .ponto-section, .recursos-v2, .avancados-v2{ padding: 20px 12px; }
-}
-
-/* ===== Intro & Benefícios ===== */
-.ponto-grid{ display:grid; gap: 24px; margin-top: 18px; }
+/* Intro cards 3→2→1 */
+.ponto-grid{ display:grid; gap:24px; }
 .ponto-grid-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
-.ponto-card{ height: 100%; display:flex; flex-direction:column; gap:10px; padding:18px; }
-.ponto-card-center{ align-items:center; text-align:center; }
-.ponto-icon{ width:64px; height:64px; }
-.ponto-icon img{ width:100%; height:100%; object-fit: contain; }
-.ponto-title{ margin: 6px 0; }
-.ponto-text{ margin: 0; }
+@media (max-width:1200px){ .ponto-grid-3{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width:768px){ .ponto-grid-3{ grid-template-columns: 1fr !important; } }
 
-@media (max-width: 1200px){
-  .ponto-grid-3{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
-}
-@media (max-width: 768px){
-  .ponto-grid-3{ grid-template-columns: 1fr; gap: 16px; }
+/* Consultoria 2 colunas → 1 em ≤1024 */
+.ponto-retrofit-layout{ display:grid; grid-template-columns: 1.05fr .95fr; gap:24px; align-items:start; }
+.ponto-retrofit-layout>*{ min-width:0; }
+@media (max-width:1024px){
+  .ponto-retrofit-layout{ grid-template-columns: 1fr !important; }
 }
 
-/* Métricas */
+/* Recursos do sistema (rail) 2→1 e título em cima */
+.recursos-rail{ display:grid; grid-template-columns: .95fr 1.05fr; gap:24px; align-items:start; }
+.recursos-rail>*{ min-width:0; }
+@media (max-width:1024px){
+  .recursos-rail{ grid-template-columns: 1fr !important; }
+  .recursos-aside{ position: static !important; order: -1; margin-bottom: 14px; }
+}
+/* Rows dos recursos sem overflow */
+.recurso-row{ display:grid; grid-template-columns: minmax(36px,44px) 1fr; gap:12px; align-items:flex-start; padding:16px; border-radius:12px; min-width:0; }
+.recurso-icon{ width:44px; height:44px; flex:0 0 auto; display:flex; align-items:center; justify-content:center; }
+.recurso-body{ min-width:0; }
+@media (max-width:500px){ .recurso-row{ grid-template-columns:32px 1fr; padding:14px; gap:10px; } .recurso-icon{ width:32px; height:32px; } }
+
+/* Banda de benefícios 4→2→1 */
+.ponto-band{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:16px; align-items:center; padding:14px; border-radius:12px; }
+@media (max-width:1024px){ .ponto-band{ grid-template-columns: 1fr 1fr !important; } }
+@media (max-width:600px){ .ponto-band{ grid-template-columns: 1fr !important; } .ponto-cta{ width:100%; } }
+
+/* ===== Header padding fix (desktop 100px; menores escalonado) ===== */
+.header{ padding-left:100px; padding-right:100px; }
+@media (max-width:1024px){ .header{ padding-left:32px; padding-right:32px; } }
+@media (max-width:768px){ .header{ padding-left:20px; padding-right:20px; } }
+@media (max-width:500px){ .header{ padding-left:16px; padding-right:16px; } }
+@media (max-width:360px){ .header{ padding-left:12px; padding-right:12px; } }
+
+
+/* Métricas — forçar quebra responsiva (3→2→1) */
 .ponto-metrics{
-  display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px;
-  margin-top: 18px; align-items: stretch;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 16px !important;
 }
-.ponto-metric{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:4px; padding: 14px; }
-.ponto-metric-number{ font-weight: 700; }
-.ponto-metric-label{ opacity:.9; }
-@media (max-width: 768px){ .ponto-metrics{ grid-template-columns: 1fr; } }
+.ponto-metrics > *{ min-width: 0; } /* evita overflow dos cards */
 
-/* CTA central */
-.cta-container{ margin-top: 16px; display:flex; justify-content:center; }
-.cta-comprar-integracao{ display:inline-flex; align-items:center; justify-content:center; padding: 12px 16px; border-radius: 10px; }
-
-/* ===== Consultoria & Serviços ===== */
-.ponto-retrofit-layout{ display:grid; grid-template-columns: 1.05fr .95fr; gap: 24px; align-items:start; margin-top: 18px; }
-.solucao-card.empresas{ height:100%; display:flex; flex-direction:column; gap: 12px; padding: 18px; }
-.foto-ponto img{ width:100%; border-radius: 12px; }
-.ponto-steps{ display:flex; flex-direction:column; gap: 14px; }
-
-@media (max-width: 1024px){ .ponto-retrofit-layout{ grid-template-columns: 1fr; } }
-
-/* ===== Recursos do sistema — rail ===== */
-.recursos-rail{ display:grid; grid-template-columns: .95fr 1.05fr; gap: 24px; align-items:start; }
-.recursos-aside{ position: sticky; top: 88px; align-self:start; }
-@media (max-width: 1024px){ .recursos-aside{ position: static; } }
-.recursos-list{ display:flex; flex-direction:column; gap: 12px; }
-
-.recurso-row{ display:grid; grid-template-columns: 44px 1fr; gap: 12px; align-items:flex-start; padding: 16px; border-radius: 12px; }
-.recurso-icon{ width: 44px; height: 44px; display:flex; align-items:center; justify-content:center; }
-.recurso-body h3{ margin: 0 0 4px; }
-.recurso-meta{ display:flex; gap:8px; flex-wrap:wrap; margin-top: 6px; }
-.tech-tag{ display:inline-block; padding: 4px 8px; border-radius: 999px; font-size:.85em; }
-
-@media (max-width: 1024px){ .recursos-rail{ grid-template-columns: 1fr; } }
-@media (max-width: 500px){ .recurso-row{ grid-template-columns: 36px 1fr; padding: 14px; } .recurso-icon{ width:36px; height:36px; } }
-
-/* ===== Avançados — accordion ===== */
-.av-accordion{ display:flex; flex-direction:column; gap: 10px; margin-top: 18px; }
-.av-item{ border-radius: 12px; overflow: hidden; }
-.av-summary{ display:grid; grid-template-columns: 36px 1fr 20px; align-items:center; gap: 10px; padding: 14px 16px; cursor: pointer; list-style:none; }
-.av-summary::-webkit-details-marker{ display:none; }
-.av-summary h3{ margin:0; font-size:1rem; }
-.av-content{ display:grid; grid-template-columns: .9fr 1.1fr; gap: 16px; padding: 12px 16px 16px; }
-.av-media img{ width:100%; border-radius: 12px; }
-.recursos-avancados-list{ margin: 0; padding-left: 1.2em; display:grid; gap: 8px; }
-
-@media (max-width: 1024px){ .av-content{ grid-template-columns: 1fr; } }
-@media (max-width: 500px){ .av-summary{ grid-template-columns: 28px 1fr 16px; padding: 12px 14px; } }
-
-/* ===== Equipamentos & assistência ===== */
-.ponto-band{
-  display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px;
-  align-items:center; margin-top: 18px; padding: 14px; border-radius: 12px;
-}
-.ponto-band-item{ display:flex; flex-direction:column; gap: 4px; text-align:center; }
-.ponto-cta{ display:inline-flex; align-items:center; justify-content:center; padding: 10px 14px; border-radius: 10px; text-align:center; }
-@media (max-width: 1024px){ .ponto-band{ grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px){ .ponto-band{ grid-template-columns: 1fr; } .ponto-cta{ width:100%; } }
-
-/* ===== Footer ===== */
-.footer, footer{ padding-left:100px; padding-right:100px; } /* base desktop */
-.footer-container{
-  display:grid; grid-template-columns: 1.2fr .8fr 1fr; gap: 24px;
-  padding: 32px min(6vw, 64px);
-}
-.footer-logo img{ width:100%; max-width: 260px; height:auto; } /* logo maior em telas pequenas reforçado abaixo */
-.social-media-container{ display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; }
-.company-map{ width:100%; max-width:100%; overflow:hidden; margin-top:12px; }
-.company-map iframe{ min-width:100% !important; border-radius: 12px; }
-.footer-nav .footer-links{ columns:2; gap:12px; }
-
-@media (max-width: 1200px){
-  .footer-container{ grid-template-columns: 1fr 1fr; }
-  .footer-nav .footer-links{ columns:1; }
-}
-@media (max-width: 768px){
-  .footer, footer{ padding-left:20px; padding-right:20px; }
-  .footer-container{ grid-template-columns: 1fr; }
-  .footer-logo img{ width: 80%; max-width: 280px; }
-}
-@media (max-width: 460px){
-  .footer, footer{ padding-left:14px !important; padding-right:14px !important; }
-  .footer-container{ padding: 24px 14px; }
-  .footer-logo img{ width: 100%; max-width: 300px; }
-}
-@media (max-width: 360px){
-  .footer, footer{ padding-left:12px !important; padding-right:12px !important; }
-  .footer-container{ padding: 20px 12px; }
-  .footer-logo img{ width: 100%; max-width: 320px; }
+/* 2 colunas em tablets */
+@media (max-width: 1024px){
+  .ponto-metrics{ grid-template-columns: 1fr 1fr !important; }
 }
 
-/* ===== Scrollbar opcional ===== */
+/* 1 coluna no mobile */
+@media (max-width: 640px){
+  .ponto-metrics{ grid-template-columns: 1fr !important; }
+}
+
+/* CTA da última sessão: nunca ultrapassar a caixa */
+.ponto-band .ponto-cta,
+.ponto-band a.btn,
+.ponto-band a[class*="cta"],
+.ponto-band button{
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important; /* inclui o padding na largura */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: center;
+}
+
+/* garante que o arredondado do container não “corte” feio */
+.ponto-band{ overflow: hidden; }
+
+/* Esconder a barra de rolagem em dispositivos pequenos */
 @media (max-width: 500px){
-  html, body{ overflow-y:auto; scrollbar-width:none; -ms-overflow-style:none; }
-  html::-webkit-scrollbar, body::-webkit-scrollbar{ width:0; height:0; }
+  html, body{
+    overflow-y: auto;            /* continua rolando */
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* IE/Edge antigo */
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar{
+    width: 0;
+    height: 0;                   /* Chrome/Safari/Edge */
+  }
 }
-
-/* === Header padding fix (only) === */
-.header{ padding-left: 100px; padding-right: 100px; } /* mantém desktop */
-@media (max-width: 1024px){ .header{ padding-left: 32px; padding-right: 32px; } }
-@media (max-width: 768px){ .header{ padding-left: 20px; padding-right: 20px; } }
-@media (max-width: 500px){ .header{ padding-left: 16px; padding-right: 16px; } }
-@media (max-width: 360px){ .header{ padding-left: 12px; padding-right: 12px; } }
-
