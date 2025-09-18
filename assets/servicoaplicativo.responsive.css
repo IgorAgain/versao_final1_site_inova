@@ -16,13 +16,6 @@ html, body{ width:100%; max-width:100%; overflow-x: clip; }
 img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
 main, section, header, footer{ max-width:100%; }
 
-/* ===== Header padding fix (desktop 100px; menores escalonado) ===== */
-.header{ padding-left:100px; padding-right:100px; }
-@media (max-width:1024px){ .header{ padding-left:32px; padding-right:32px; } }
-@media (max-width:768px){ .header{ padding-left:20px; padding-right:20px; } }
-@media (max-width:500px){ .header{ padding-left:16px; padding-right:16px; } }
-@media (max-width:360px){ .header{ padding-left:12px; padding-right:12px; } }
-
 /* ===== Seção Serviços (cards 3→2→1) ===== */
 .servicos-container{ max-width: 1200px; margin-inline:auto; }
 .servicos-header{ max-width: 960px; margin: 0 auto 12px; text-align:center; }

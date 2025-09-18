@@ -1,0 +1,167 @@
+/*!
+ * clientes.responsive.css — Inova Tecnologia (clientes.html)
+ * Padrão consolidado das páginas anteriores:
+ * - Header sticky >1024px; menu mobile off-canvas; CTA some <650px
+ * - Banner com título legível e sem overflow
+ * - Gutters móveis (sem 100px nas laterais em telas pequenas)
+ * - Logo wall responsivo (6→4→3→2)
+ * - Depoimentos: card hero + trilho (grid no desktop; carrossel no mobile)
+ * - WhatsApp banner responsivo (lado a lado >1024px; empilhado no mobile)
+ * - Parceiros/projetos: grid 2→1; subgrades (tecnologias/resultados) responsivas
+ * - Footer padronizado; barra de rolagem oculta no mobile
+ */
+html, body{ width:100%; max-width:100%; overflow-x: clip; }
+@supports not (overflow-x: clip){ html, body{ overflow-x: hidden; } }
+*, *::before, *::after{ box-sizing: border-box; }
+img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
+main, section, header, footer{ max-width:100%; }
+
+/* Gutters de seção */
+@media (max-width:1024px){ .cl-section, .whatsapp-comercial, .nova-sessao{ padding-left:32px; padding-right:32px; } }
+@media (max-width:768px){ .cl-section, .whatsapp-comercial, .nova-sessao{ padding-left:20px; padding-right:20px; } }
+@media (max-width:500px){ .cl-section, .whatsapp-comercial, .nova-sessao{ padding-left:16px; padding-right:16px; } }
+@media (max-width:360px){ .cl-section, .whatsapp-comercial, .nova-sessao{ padding-left:12px; padding-right:12px; } }
+/* Logo wall */
+.cl-container{ margin-inline:auto; }
+.cl-header{ max-width:960px; margin:0 auto 12px; text-align:center; }
+.cl-subtitle{ margin:0; }
+.cl-logo-grid{ list-style:none; padding:0; margin:18px 0 0; display:grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 18px; align-items:center; justify-items:center; }
+.cl-logo-grid li{ display:flex; align-items:center; justify-content:center; }
+.cl-logo-grid img{ height:auto; width: 100%; }
+@media (max-width:1200px){ .cl-logo-grid{ grid-template-columns: repeat(5, minmax(0,1fr)); } .cl-logo-grid img{ max-height:80px; } }
+@media (max-width:900px){  .cl-logo-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); } .cl-logo-grid img{ max-height:60px; } }
+@media (max-width:560px){  .cl-logo-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } .cl-logo-grid img{ max-height:60px; } }
+/* Depoimentos */
+.cl-testimonials .cl-container{ margin-inline:auto; }
+.cl-t-hero{ border-radius:16px; padding:18px; margin: 10px 0 18px; }
+.cl-t-head{ display:flex; align-items:center; gap:12px; }
+.cl-t-avatar{ width:56px; height:56px; object-fit:contain; border-radius:10px; background:#fff; padding:6px; }
+.cl-t-id{ display:flex; flex-direction:column; gap:2px; }
+.cl-t-name{ font-weight:700; }
+.cl-t-role{ opacity:.9; font-size:.95rem; }
+.cl-t-quote p{ margin:10px 0 0; }
+.cl-t-foot{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:12px; flex-wrap:wrap; }
+.cl-t-stars{ letter-spacing:2px; }
+.cl-badge{ display:inline-block; padding:4px 8px; border-radius:999px; font-size:.8rem; }
+.cl-t-track{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:18px; }
+.cl-t-track .cl-t-card{ border-radius:14px; padding:16px; min-width:0; }
+@media (max-width:1024px){ .cl-t-track{ grid-template-columns: 1fr 1fr; } }
+@media (max-width:720px){ .cl-t-track{ display:flex; overflow-x:auto; -webkit-overflow-scrolling:touch; gap:14px; padding-bottom:6px; } .cl-t-track .cl-t-card{ flex: 0 0 78%; } }
+@media (max-width:480px){ .cl-t-track .cl-t-card{ flex-basis: 86%; } }
+/* WhatsApp banner */
+.whatsapp-comercial{ display:grid; grid-template-columns: .9fr 1.4fr; align-items:center; gap: 20px; }
+.whatsapp-comercial-image{ display:flex; justify-content:center; }
+.whatsapp-comercial-image img{ width:140px; height:auto; }
+.whatsapp-comercial-text{ text-align:left; }
+.whatsapp-comercial-title{ margin:0 0 6px; }
+.whatsapp-comercial-subtitle{ margin:0; }
+.whatsapp-comercial-button{ align-self:center; justify-self:start; display:inline-flex; align-items:center; justify-content:center; padding:12px 16px; border-radius:10px; }
+@media (max-width:900px){ .whatsapp-comercial{ grid-template-columns: 1fr; text-align:center; } .whatsapp-comercial-text{ text-align:center; } .whatsapp-comercial-button{ justify-self:center; width:100%; max-width:520px; } .whatsapp-comercial-image img{ width:120px; } }
+/* Parceiros / Projetos */
+.nova-sessao-header{ max-width:960px; margin:0 auto 12px; text-align:center; }
+.parceiros-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 18px; }
+.parceiro-card{ border-radius:16px; padding:18px; display:flex; flex-direction:column; gap:14px; min-width:0; }
+.parceiro-header{ display:flex; align-items:center; gap:12px; }
+.parceiro-logo{ width:72px; height:72px; display:flex; align-items:center; justify-content:center; border-radius:12px; background:#fff; padding:8px; }
+.parceiro-logo img{ width:100%; height:auto; object-fit:contain; }
+.parceiro-info h3{ margin:0; }
+.info-section{ display:flex; flex-direction:column; gap:6px; }
+.info-title{ margin:0; }
+.info-content{ margin:0; }
+.tecnologias-tags{ display:flex; flex-wrap:wrap; gap:8px; }
+.tech-tag{ display:inline-block; padding:6px 10px; border-radius:999px; font-size:.85rem; }
+.resultados-grid{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:12px; }
+.resultado-item{ text-align:center; padding:10px; border-radius:12px; }
+.resultado-numero{ font-weight:800; font-size: clamp(1.1rem, 3.8vw, 1.6rem); }
+.resultado-descricao{ opacity:.9; }
+@media (max-width:1024px){ .parceiros-grid{ grid-template-columns: 1fr; } .resultados-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width:560px){ .tecnologias-tags{ gap:6px; } .resultados-grid{ grid-template-columns: 1fr; } }
+
+/* Depoimentos (cl-section cl-testimonials cl-v2) — remover 100px nas laterais */
+@media (max-width: 1024px){
+  section.cl-section.cl-testimonials.cl-v2{
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+}
+@media (max-width: 768px){
+  section.cl-section.cl-testimonials.cl-v2{
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+@media (max-width: 500px){
+  section.cl-section.cl-testimonials.cl-v2{
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+@media (max-width: 360px){
+  section.cl-section.cl-testimonials.cl-v2{
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+}
+
+/* ====== FIX v2 — Depoimentos responsivos (quebrar grid em linhas) ====== */
+@media (max-width: 1024px){
+  section.cl-section.cl-testimonials.cl-v2{ padding-left:32px!important; padding-right:32px!important; }
+}
+@media (max-width: 768px){
+  section.cl-section.cl-testimonials.cl-v2{ padding-left:20px!important; padding-right:20px!important; }
+}
+@media (max-width: 500px){
+  section.cl-section.cl-testimonials.cl-v2{ padding-left:16px!important; padding-right:16px!important; }
+}
+@media (max-width: 360px){
+  section.cl-section.cl-testimonials.cl-v2{ padding-left:12px!important; padding-right:12px!important; }
+}
+
+/* Trilho em grid 3→2→1 */
+.cl-section.cl-testimonials .cl-t-track{
+  display:grid!important; grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px; overflow:visible!important; padding-bottom:0!important;
+}
+.cl-section.cl-testimonials .cl-t-track .cl-t-card{ min-width:0; }
+@media (max-width:1024px){
+  .cl-section.cl-testimonials .cl-t-track{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:780px){
+  .cl-section.cl-testimonials .cl-t-track{ grid-template-columns:1fr; }
+}
+
+/* Hero full width + ajustes finos */
+.cl-section.cl-testimonials .cl-t-hero{ width:100%; max-width:100%; }
+@media (max-width:420px){
+  .cl-section.cl-testimonials .cl-t-name{ font-size:1rem; }
+  .cl-section.cl-testimonials .cl-t-role{ font-size:.92rem; }
+  .cl-section.cl-testimonials .cl-t-quote p{ font-size:.98rem; }
+}
+
+/* ===== FIX v3 — Logo wall mobile (cl-logo-grid) ===== */
+/* Corrige quebra abaixo de 420px e aumenta o tamanho dos logos */
+@media (max-width: 420px){
+  .cl-logo-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+  .cl-logo-grid li{ padding: 6px 4px; }
+  .cl-logo-grid img{
+    max-height: 72px !important; /* maior que o antigo 48px */
+    width: auto;
+    object-fit: contain;
+  }
+}
+@media (max-width: 360px){
+  .cl-logo-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+  .cl-logo-grid img{ max-height: 60px !important; }
+}
+
+@media (min-width: 1920px) {
+  .cl-section {padding: 60px 300px;}
+  .cl-testimonials {padding: 60px 300px !important;}
+  .nova-sessao {padding: 60px 300px;}
+}

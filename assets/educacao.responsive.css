@@ -29,6 +29,7 @@ main, section, header, footer{ max-width:100%; }
 .introducao-card .card-title{ margin: 6px 0; }
 .introducao-card .card-text{ margin: 0; }
 .introducao-card .cta-container{ margin-top:auto; }
+@media (min-width: 1920px){ .introducao-educacao{ padding: 60px 300px; }}
 @media (max-width: 1200px){ .introducao-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; } }
 @media (max-width: 768px){ .introducao-educacao{ padding: 32px 20px; } .introducao-grid{ grid-template-columns: 1fr; gap: 16px; } }
 @media (max-width: 500px){
@@ -40,7 +41,6 @@ main, section, header, footer{ max-width:100%; }
 
 /* ===== Sessão Acessos ===== */
 .acessos{ padding: 40px 100px; }
-.acessos-container{ max-width: 1200px; margin-inline:auto; }
 .acessos-header{ max-width: 960px; margin: 0 auto 12px; text-align:center; }
 .acessos-grid{
   display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 24px; margin-top:18px;
@@ -51,6 +51,7 @@ main, section, header, footer{ max-width:100%; }
 .acesso-text{ margin: 0; }
 .servico-lista{ margin: 6px 0 0 16px; }
 .acesso-cta{ display:inline-block; margin-top: 16px; }
+@media (min-width: 1920px){ .acessos{ padding: 60px 300px; }}
 @media (max-width: 1200px){ .acessos-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; } }
 @media (max-width: 768px){ .acessos{ padding: 32px 20px; } .acessos-grid{ grid-template-columns: 1fr; gap: 16px; } }
 @media (max-width: 500px){ .acessos{ padding: 26px 16px; } }
@@ -72,6 +73,7 @@ main, section, header, footer{ max-width:100%; }
 .btn-parceria{ display:inline-flex; align-items:center; gap:8px; padding: 12px 16px; border-radius: 10px; }
 .btn-arrow{ flex: 0 0 auto; }
 
+@media (min-width: 1920px){ .parceria-exclusiva{ padding: 60px 300px; } }
 @media (max-width: 1024px){ .parceria-grid{ grid-template-columns: 1fr; } .parceria-img{ margin: 0 auto; } }
 @media (max-width: 768px){ .parceria-exclusiva{ padding: 32px 20px; } }
 @media (max-width: 500px){ .parceria-exclusiva{ padding: 26px 16px; } }
@@ -79,7 +81,7 @@ main, section, header, footer{ max-width:100%; }
 
 /* ===== Sessão Projetos/Parceiros ===== */
 .nova-sessao{ padding: 40px 100px; }
-.nova-sessao-container{ max-width: 1200px; margin-inline:auto; }
+.nova-sessao-container{ margin-inline:auto; }
 .nova-sessao-header{ max-width: 960px; margin: 0 auto 12px; text-align:center; }
 .parceiros-grid{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; margin-top: 18px; }
 .parceiro-card{ display:flex; flex-direction:column; gap: 12px; padding: 18px; }
@@ -91,6 +93,10 @@ main, section, header, footer{ max-width:100%; }
 .tecnologias-tags{ display:flex; gap: 8px; flex-wrap: wrap; }
 .resultados-grid{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
 .resultado-item{ display:flex; flex-direction:column; gap: 4px; align-items:center; text-align:center; }
+
+@media (min-width: 1920px){
+  .nova-sessao{ padding: 60px 300px; }
+}
 
 @media (max-width: 1200px){
   .parceiros-grid{ grid-template-columns: 1fr; }
@@ -110,7 +116,6 @@ main, section, header, footer{ max-width:100%; }
 
 /* ===== Sessão Integração ===== */
 .integracao-section{ padding: 40px 100px; }
-.integracao-container{ max-width: 1200px; margin-inline:auto; }
 .integracao-header{ text-align:center; }
 .header-badge{ display:inline-block; padding: 10px 14px; border-radius: 12px; }
 .main-connector{ width: 90px; height: 4px; margin: 12px auto 0; border-radius: 3px; }
@@ -123,6 +128,7 @@ main, section, header, footer{ max-width:100%; }
 .app-title{ margin: 6px 0; }
 .app-description{ margin: 0; }
 
+@media (min-width: 1920px){ .integracao-section{ padding: 60px 300px; } }
 @media (max-width: 1200px){ .apps-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 768px){ .integracao-section{ padding: 32px 20px; } .apps-grid{ grid-template-columns: 1fr; } }
 @media (max-width: 500px){ .integracao-section{ padding: 26px 16px; } }
@@ -130,7 +136,6 @@ main, section, header, footer{ max-width:100%; }
 
 /* ===== Sessão Diferenciais ===== */
 .porque-escolher-educacao{ padding: 40px 100px; }
-.porque-escolher-container{ max-width: 1200px; margin-inline:auto; }
 .porque-escolher-content{ display:grid; grid-template-columns: 1fr 1.1fr; gap: 24px; align-items:center; }
 .float-wrapper{ display:flex; justify-content:center; }
 .phone{ width: 280px; position: relative; }
@@ -144,6 +149,7 @@ main, section, header, footer{ max-width:100%; }
 .diferencial-title{ margin: 0 0 4px; }
 .diferencial-text p{ margin: 0; }
 
+@media (min-width: 1920px){ .porque-escolher-educacao{ padding: 60px 300px; } }
 @media (max-width: 1024px){ .porque-escolher-content{ grid-template-columns: 1fr; } .float-wrapper{ order: -1; } }
 @media (max-width: 768px){ .porque-escolher-educacao{ padding: 32px 20px; } }
 @media (max-width: 500px){ .porque-escolher-educacao{ padding: 26px 16px; } }
@@ -162,32 +168,3 @@ main, section, header, footer{ max-width:100%; }
 @media (max-width: 768px){ .video-section{ padding: 32px 20px; } }
 @media (max-width: 500px){ .video-section{ padding: 26px 16px; } }
 @media (max-width: 360px){ .video-section{ padding: 20px 12px; } }
-
-/* ===== Scrollbar opcional ===== */
-@media (max-width: 500px){
-  html, body{ overflow-y:auto; scrollbar-width:none; -ms-overflow-style:none; }
-  html::-webkit-scrollbar, body::-webkit-scrollbar{ width:0; height:0; }
-}
-
-/* === Header padding fix (only) === */
-.header{ padding-left: 100px; padding-right: 100px; } /* mantém desktop */
-
-@media (max-width: 1024px){
-  .header{ padding-left: 32px; padding-right: 32px; }
-}
-
-@media (max-width: 768px){
-  .header{ padding-left: 20px; padding-right: 20px; }
-}
-
-@media (max-width: 500px){
-  .header{ padding-left: 16px; padding-right: 16px; }
-}
-
-@media (max-width: 360px){
-  .header{ padding-left: 12px; padding-right: 12px; }
-}
-
-@media (max-width: 1024px){
-  .porque-escolher-text{ padding-left: 0 !important; }
-}

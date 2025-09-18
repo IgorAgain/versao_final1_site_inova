@@ -53,7 +53,6 @@ main, section, header, footer{ max-width:100%; }
 }
 
 /* ===== Acessos (4 cards) ===== */
-.acessos-container{ max-width: 1200px; margin-inline:auto; }
 .acessos-header{ max-width: 960px; margin: 0 auto 12px; text-align:center; }
 .acessos-grid{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 24px; margin-top:18px; }
 .acesso-card{ height:100%; display:flex; flex-direction:column; gap: 10px; padding: 18px; }
@@ -66,7 +65,6 @@ main, section, header, footer{ max-width:100%; }
 @media (max-width: 768px){ .acessos-grid{ grid-template-columns: 1fr; gap: 16px; } }
 
 /* ===== Parceiros/Projetos ===== */
-.nova-sessao-container{ max-width: 1200px; margin-inline:auto; }
 .nova-sessao-header{ max-width: 960px; margin: 0 auto 12px; text-align:center; }
 .parceiros-grid{ display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; margin-top: 18px; }
 .parceiro-card{ display:flex; flex-direction:column; gap: 12px; padding: 18px; }
@@ -86,7 +84,6 @@ main, section, header, footer{ max-width:100%; }
 @media (max-width: 360px){ .resultados-grid{ grid-template-columns: 1fr; } }
 
 /* ===== Integração ===== */
-.integracao-container{ max-width: 1200px; margin-inline:auto; }
 .integracao-header{ text-align:center; }
 .header-badge{ display:inline-block; padding: 10px 14px; border-radius: 12px; }
 .main-connector{ width: 90px; height: 4px; margin: 12px auto 0; border-radius: 3px; }
@@ -102,7 +99,6 @@ main, section, header, footer{ max-width:100%; }
 @media (max-width: 768px){ .apps-grid{ grid-template-columns: 1fr; } }
 
 /* ===== Diferenciais ===== */
-.porque-escolher-container{ max-width: 1200px; margin-inline:auto; }
 .porque-escolher-content{ display:grid; grid-template-columns: 1fr 1.1fr; gap: 24px; align-items:center; }
 .float-wrapper{ display:flex; justify-content:center; }
 .phone{ width: 280px; position: relative; }
@@ -117,7 +113,6 @@ main, section, header, footer{ max-width:100%; }
 @media (max-width: 1024px){ .porque-escolher-content{ grid-template-columns: 1fr; } .float-wrapper{ order: -1; } }
 
 /* ===== Vídeo ===== */
-.video-container{ max-width: 960px; margin-inline:auto; }
 .video-header{ text-align:center; }
 .video-wrapper{ margin-top: 18px; }
 .video-frame{ position: relative; width:100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 12px; }
@@ -125,20 +120,15 @@ main, section, header, footer{ max-width:100%; }
 .video-cta{ margin-top: 14px; text-align:center; }
 .video-cta .cta-comprar{ display:inline-flex; align-items:center; justify-content:center; padding: 12px 16px; border-radius: 10px; }
 
-/* ===== Scrollbar opcional ===== */
-@media (max-width: 500px){
-  html, body{ overflow-y:auto; scrollbar-width:none; -ms-overflow-style:none; }
-  html::-webkit-scrollbar, body::-webkit-scrollbar{ width:0; height:0; }
-}
-
-/* === Header padding fix (only) === */
-.header{ padding-left: 100px; padding-right: 100px; } /* mantém desktop */
-@media (max-width: 1024px){ .header{ padding-left: 32px; padding-right: 32px; } }
-@media (max-width: 768px){ .header{ padding-left: 20px; padding-right: 20px; } }
-@media (max-width: 500px){ .header{ padding-left: 16px; padding-right: 16px; } }
-@media (max-width: 360px){ .header{ padding-left: 12px; padding-right: 12px; } }
-
 /* Ajuste de alinhamento conhecido em ≤1024px (padding lateral no texto) */
 @media (max-width: 1024px){
   .porque-escolher-text{ padding-left: 0 !important; }
+}
+
+@media (min-width: 1920px) {
+  .introducao-educacao {padding: 60px 300px;}
+  .acessos {padding: 60px 300px;}
+  .nova-sessao {padding: 60px 300px;}
+  .integracao-section {padding: 60px 300px;}
+  .porque-escolher-educacao {padding: 60px 300px;}
 }

@@ -2041,13 +2041,13 @@ html{
     overflow: hidden;
 }
 
-.banner-educacao .banner-image {
+.banner-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     filter: brightness(1.2) contrast(0.5) saturate(0.4);
     z-index: 1;
 }
@@ -3678,7 +3678,7 @@ html{
   transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 .cl-logo-grid img{
-  max-width:100%; max-height:auto; width:auto; height:auto; object-fit:contain;
+  max-width:120px; max-height:auto; width:auto; height:auto; object-fit:contain;
   filter:grayscale(100%) contrast(.9) opacity(.8);
   transition: filter .2s ease, transform .2s ease, opacity .2s ease;
 }
@@ -4760,7 +4760,7 @@ html{
 .footer, footer{ padding-left:100px; padding-right:100px; } /* base, reduzimos abaixo */
 .footer-container{
   display:grid; grid-template-columns: 1.2fr .8fr 1fr; gap:24px;
-  padding:32px min(6vw, 64px);
+  
 }
 
 .footer-logo {margin: 0 auto;}
@@ -4771,8 +4771,11 @@ html{
 .company-map iframe{ min-width:100% !important; border-radius:12px; }
 .footer-links{ columns:2; gap:12px; }
 
+@media (min-width:1920px){
+  .footer {padding: 60px 300px;}
+}
+
 @media (max-width:1200px){
-  .footer-container{ grid-template-columns: 1fr 1fr; }
   .footer-links{ columns: 1; }
 }
 @media (max-width:768px){
@@ -4782,11 +4785,9 @@ html{
 }
 @media (max-width:460px){
   .footer, footer{ padding-left:14px !important; padding-right:14px !important; }
-  .footer-container{ padding:24px 14px; }
 }
 @media (max-width:360px){
   .footer, footer{ padding-left:12px !important; padding-right:12px !important; }
-  .footer-container{ padding:20px 12px; }
 }
 
 
@@ -4798,7 +4799,7 @@ html{
 }
 
 @media (max-width: 674px) {
-    .banner-educacao{ position: relative; overflow: hidden; width:100%; height: 65vh; }
+    .banner-educacao{ position: relative; overflow: hidden; width:100%; height: 70vh; }
     .banner-educacao .banner-image{
         width:100%; height: 100%;
         object-fit: cover; object-position: center;
@@ -4882,4 +4883,107 @@ html{
   .navbar a[href*="contratar"]{
     display: none !important;
   }
+}
+
+/* Ocultar barra no mobile */
+@media (max-width: 500px){
+  html, body{ overflow-y: auto; scrollbar-width: none; -ms-overflow-style: none; }
+  html::-webkit-scrollbar, body::-webkit-scrollbar{ width: 0; height: 0; }
+}
+
+/* Ocultar barra no mobile */
+@media (max-width: 768px){
+  .footer-title {text-align: center;}
+ 
+}
+
+/* === Header padding fix (only) === */
+.header{ padding-left: 100px; padding-right: 100px; } /* mantém desktop */
+
+@media (min-width: 1920px) {
+    .header{padding: 30px 300px;}
+}
+
+@media (max-width: 1024px){
+  .header{ padding-left: 32px; padding-right: 32px; }
+}
+
+@media (max-width: 768px){
+  .header{ padding-left: 20px; padding-right: 20px; }
+}
+
+@media (max-width: 500px){
+  .header{ padding-left: 16px; padding-right: 16px; }
+}
+
+@media (max-width: 360px){
+  .header{ padding-left: 12px; padding-right: 12px; }
+}
+
+@media (max-width: 1024px){
+  .porque-escolher-text{ padding-left: 0 !important; }
+}
+
+@media (min-width: 1920px) {
+    .banner-content {padding-left: 300px !important;  padding-right: 300px !important;}
+}
+
+/* ===== BANNER – PATCH DE RESPONSIVIDADE ===== */
+
+/* Base: garante que a imagem sempre cubra toda a área do banner */
+.banner-educacao{
+  height: clamp(360px, 52vh, 720px); /* substitui o 45vh e adapta ao viewport */
+  position: relative; /* redundante, mas garante o contexto */
+  overflow: hidden;
+}
+.banner-educacao .banner-image{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100% !important;         /* cobre todo o banner */
+  object-fit: cover !important;    /* evita “faixas” e cortes estranhos */
+  object-position: center;
+}
+
+/* Conteúdo sem paddings fixos nas faixas intermediárias */
+.banner-educacao .banner-content{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 !important;           /* zera os 100px antigos */
+}
+
+/* Título realmente responsivo (mais específico que .banner-title isolado) */
+.banner-educacao .banner-title{
+  font-size: clamp(1.6rem, 6.6vw, 3rem);
+  line-height: 1.15;
+  margin: 0 min(6vw, 64px);
+  padding-left: 16px;
+}
+
+/* Intermediárias (≤ 674px): reduz fonte e dá respiro lateral */
+@media (max-width: 674px){
+  .banner-educacao{ height: 68vh; }
+  .banner-educacao .banner-title{
+    font-size: clamp(1.25rem, 5.5vw, 1.9rem);
+    margin: 0 16px;
+    padding-left: 12px;
+  }
+}
+
+/* Telas pequenas (≤ 466px): um pouco menor e mais compacto */
+@media (max-width: 466px){
+  .banner-educacao{ height: 64vh; }
+  .banner-educacao .banner-title{
+    font-size: clamp(1.1rem, 5.4vw, 1.6rem);
+    margin: 0 14px;
+    padding-left: 10px;
+  }
+}
+
+/* Telas grandes (≥ 1920px): banner mais alto e grande respiro lateral */
+@media (min-width: 1920px){
+  .banner-educacao{ height: 60vh; }
+  .banner-educacao .banner-content{ padding: 0 300px !important; }
 }

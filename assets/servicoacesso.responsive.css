@@ -13,13 +13,6 @@ img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
 main, section, header, footer{ max-width:100%; }
 ul{ padding-inline-start: 1.2em; }
 
-/* Header padding fix */
-.header{ padding-left:100px; padding-right:100px; }
-@media (max-width:1024px){ .header{ padding-left:32px; padding-right:32px; } }
-@media (max-width:768px){ .header{ padding-left:20px; padding-right:20px; } }
-@media (max-width:500px){ .header{ padding-left:16px; padding-right:16px; } }
-@media (max-width:360px){ .header{ padding-left:12px; padding-right:12px; } }
-
 /* ===== Gutters das seções ===== */
 @media (max-width:1024px){
   .svc-section, .acessos, .svc-ops{ padding-left:32px; padding-right:32px; }
@@ -51,7 +44,6 @@ ul{ padding-inline-start: 1.2em; }
 @media (max-width:690px){  .use-cases{ grid-template-columns:1fr; } }
 
 /* ===== 3) ACESSOS — Cards 4→2→1 ===== */
-.acessos-container{ max-width:1200px; margin-inline:auto; }
 .acessos-header{ max-width:960px; margin:0 auto 12px; text-align:center; }
 .acessos-grid{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; margin-top:18px; }
 .acesso-card{ height:100%; display:flex; flex-direction:column; gap:10px; padding:18px; min-width:0; }
@@ -84,12 +76,6 @@ ul{ padding-inline-start: 1.2em; }
   max-width:100%; box-sizing:border-box; width:100%;
 }
 
-/* ===== Esconder a barra de rolagem no mobile ===== */
-@media (max-width:500px){
-  html, body{ overflow-y:auto; scrollbar-width:none; -ms-overflow-style:none; }
-  html::-webkit-scrollbar, body::-webkit-scrollbar{ width:0; height:0; }
-}
-
 @media (max-width:1000px){
     .ops-media {margin: 0 !important; 
         padding-top: 50px;
@@ -112,4 +98,10 @@ ul{ padding-inline-start: 1.2em; }
 
 @media (max-width: 390px){
     .kpi-card{padding: 10px !important;}
+}
+
+@media (min-width: 1920px){
+  .svc-compare {padding: 60px 300px !important;}
+  .acessos {padding: 60px 300px;}
+  .svc-ops {padding: 60px 300px;}
 }
