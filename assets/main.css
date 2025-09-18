@@ -501,7 +501,6 @@ html{
 .hero {
     position: relative;
     overflow: hidden;
-    max-height: 80vh;
     display: flex;
     align-items: center;
 }

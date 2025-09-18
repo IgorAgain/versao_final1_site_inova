@@ -1,148 +1,303 @@
 /*!
- * index.responsive.css — FIX v3 (mobile overflow)
- * Foco: impedir conteúdo "sobressair" em telas pequenas (<= 800px),
- * principalmente na hero (formas anguladas/overlays) e elementos absolutos.
+ * index.responsive.css — Inova Tecnologia (home/index.html)
+ * Padrões aplicados:
+ * - Header sticky >1024px; mobile off-canvas; CTA oculto <650px
+ * - HERO: imagem cover; em mobile REMOVE o slide infinito (mostra só a 1ª)
+ * - Grids responsivos: serviços, stats, soluções, logos (quem-confia), segmentos
+ * - Banner WhatsApp responsivo
+ * - Footer padronizado e gutters móveis
  */
 
-/* ---------- Barragem global de overflow ---------- */
-html, body{
-  max-width: 100%;
-  width: 100%;
-  overflow-x: clip;       /* evita arraste lateral moderno */
-}
-@supports not (overflow-x: clip){
-  html, body{ overflow-x: hidden; } /* fallback */
-}
+/* ===== Segurança global ===== */
+html, body{ width:100%; max-width:100%; overflow-x: clip; }
+@supports not (overflow-x: clip){ html, body{ overflow-x: hidden; } }
 *, *::before, *::after{ box-sizing: border-box; }
-img, svg, video, canvas, iframe{ max-width: 100%; height: auto; display: block; }
-section, header, footer, main{ max-width: 100%; }
+img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
+main, section, header, footer{ max-width:100%; }
 
-/* ---------- >= 1920px ---------- */
-@media (min-width: 1920px){
-  .hero-content,
-  .servicos,
-  .stats,
-  .nossas-solucoes,
-  .quem-confia,
-  .segmentos,
-  .footer{
-    padding-left: 300px;
-    padding-right: 300px;
-  }
-  .servicos,
-  .stats,
-  .nossas-solucoes,
-  .quem-confia,
-  .segmentos{
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
+/* ===== HERO ===== */
+.hero{ position: relative; overflow:hidden; min-height: clamp(420px, 62vh, 760px); }
+.hero-background{ position:absolute; inset:0; }
+.hero-image{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit: cover; object-position:center;
+  opacity:0; transition: opacity .5s ease;
 }
-
-/* ---------- <= 1200px ---------- */
-@media (max-width: 1200px){
-  .servicos-grid,
-  .solucoes-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
-  .stats-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
-  .stat-divider{ display: none; }
+.hero-image.active{ opacity:1; }
+.hero-overlay{ position:absolute; inset:0; background: radial-gradient(transparent 20%, rgba(0,0,0,.28) 100%); z-index:1; }
+.hero-content{
+  position:absolute; inset:0; z-index:2; display:flex; align-items:center;
+  padding: 0 min(6vw, 64px);
 }
+.hero-text{ max-width: 760px; }
+.hero-title{ font-size: clamp(1.8rem, 6.8vw, 3.2rem); line-height:1.1; margin:0 0 12px; text-wrap:balance; }
+.hero-description{ margin: 0 0 18px; max-width: 50ch; }
+.hero-cta{ display:inline-flex; align-items:center; justify-content:center; padding:12px 16px; border-radius:10px; }
 
-/* ---------- <= 1024px (cobre ~800px) ---------- */
-@media (max-width: 1024px){
-  /* Menu drop-in (sem off-canvas que empurra a viewport) */
-  .menu-toggle{ display: flex; }
-  .nav-links{
-    position: absolute !important;
-    top: 80px; right: 20px; left: auto !important; bottom: auto !important;
-    transform: none !important;
-    width: min(94vw, calc(100vw - 40px));
-    max-width: calc(100vw - 40px);
-    background: #fff; border: 1px solid rgba(0,0,0,.06);
-    border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,.12);
-    padding: 16px; display: flex; flex-direction: column; gap: 12px; z-index: 1000;
-  }
-
-  /* ---------- HERO: correções cruciais ---------- */
-  .hero{
-    position: relative;
-    overflow: hidden;          /* garante que pseudo-elementos/overlays não vazem */
-    width: 100%;
-  }
-  /* Se houver overlays/pseudo com ângulo/clip que ultrapassam 100vw */
-  .hero-overlay,
-  .hero::before,
-  .hero::after{
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;    /* substitui 100vw que gera overflow em mobile */
-    transform: none !important;
-  }
-
-  /* Em telas <=1024 removemos ângulos agressivos para layout estável */
-  .hero-overlay{
-    clip-path: none !important;
-    border-bottom-right-radius: 22px;
-    border-bottom-left-radius: 0;
-  }
-
-  .hero-content{ padding: 40px 24px 48px; }
-  .hero-text{ max-width: 680px; margin: 0; }
-}
-
-/* ---------- <= 768px ---------- */
-@media (max-width: 768px){
-  .header{ padding: 16px 20px; }
-  .servicos,
-  .stats,
-  .nossas-solucoes,
-  .quem-confia,
-  .segmentos{ padding: 32px 20px; }
-
-  .logo{ width: 160px; max-width: 60vw; }
-
-  .servicos-grid,
-  .solucoes-grid,
-  .stats-grid{ grid-template-columns: 1fr; gap: 18px; }
-
-  .hero-title{ font-size: clamp(1.8rem, 6vw, 2.2rem); }
+/* MOBILE: desabilita o slide infinito — deixa só a 1ª imagem estática */
+@media (max-width: 690px){
+  .hero-image{ animation: none !important; } /* se houver animação via CSS */
+  .hero-background .hero-image{ display:none; }
+  .hero-background .hero-image:first-child{ display:block; opacity:1; }
+  .hero-content{ padding: 0 16px; }
+  .hero-title{ font-size: clamp(1.4rem, 7vw, 1.8rem); }
   .hero-description{ font-size: .98rem; }
+}
 
-  /* Evita "sangria" proposital em seções: desabilita variações 'bleed' */
-  [class*="bleed"],
-  .u-bleed,
-  .full-bleed{
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    width: 100% !important;
+/* ===== SERVIÇOS ===== */
+.servicos{ padding: 40px 100px; }
+.servicos-container{ max-width:1200px; margin-inline:auto; }
+.servicos-header{ text-align:center; max-width: 980px; margin:0 auto 12px; }
+.servicos-grid{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; margin-top: 18px; }
+.servico-card{ display:flex; flex-direction:column; gap:10px; padding:16px; border-radius:12px; min-width:0; }
+.servico-expandido .servico-imagem{ border-radius:10px; }
+.servico-lista{ margin: 6px 0 0 16px; }
+@media (max-width:1024px){ .servicos{ padding: 32px 20px; } .servicos-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width:690px){ .servicos{ padding: 26px 16px; } .servicos-grid{ grid-template-columns: 1fr; } }
+@media (max-width:360px){ .servicos{ padding: 20px 12px; } }
+
+/* ===== STATS ===== */
+.stats{ padding: 30px 100px; }
+.stats-container{ max-width: 1100px; margin-inline:auto; }
+.stats-grid{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; align-items: stretch; }
+.stat-item{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:4px; padding: 14px; border-radius: 12px; min-width:0; }
+.stat-divider{ display:block; width:1px; background: rgba(0,0,0,.08); }
+@media (max-width:1024px){ .stats{ padding: 26px 20px; } .stats-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } .stat-divider{ display:none; } }
+@media (max-width:560px){ .stats{ padding: 22px 16px; } .stats-grid{ grid-template-columns: 1fr; } }
+
+/* ===== NOSSAS SOLUÇÕES ===== */
+.nossas-solucoes{ padding: 40px 100px; }
+.nossas-solucoes-container{ max-width:1200px; margin-inline:auto; }
+.nossas-solucoes-header{ text-align:center; max-width:960px; margin:0 auto 12px; }
+.solucoes-grid{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; margin-top: 18px; }
+.solucao-card{ display:flex; flex-direction:column; gap:10px; padding:16px; border-radius:12px; min-width:0; }
+.solucao-card .solucao-imagem{ border-radius: 12px; }
+@media (max-width:1024px){ .nossas-solucoes{ padding: 32px 20px; } .solucoes-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width:690px){ .nossas-solucoes{ padding: 26px 16px; } .solucoes-grid{ grid-template-columns: 1fr; } }
+@media (max-width:360px){ .nossas-solucoes{ padding: 20px 12px; } }
+
+/* ===== QUEM CONFIA (logos) ===== */
+.quem-confia{ padding: 40px 100px; }
+.quem-confia-container{ max-width:1200px; margin-inline:auto; text-align:center; }
+.carousel-track{ display:flex; align-items:center; gap: 20px; will-change: transform; }
+.carousel-item{ flex: 0 0 auto; }
+.client-logo{ height: 80px; width:auto; margin: 0 auto; }
+
+/* ===== BANNER WHATSAPP ===== */
+.whatsapp-comercial{ display:grid; grid-template-columns: .9fr 1.4fr; align-items:center; gap:20px; padding: 20px 100px 40px; }
+.whatsapp-comercial-image{ display:flex; justify-content:center; }
+.whatsapp-comercial-image img{ width:140px; height:auto; }
+.whatsapp-comercial-text{ text-align:left; }
+.whatsapp-comercial-content{ width: 100%; }
+.whatsapp-comercial-button{ align-self:center; justify-self:start; display:inline-flex; align-items:center; justify-content:center; padding:12px 16px; border-radius:10px; }
+@media (max-width:1024px){
+  .whatsapp-comercial{ padding: 20px 20px 32px; }
+}
+@media (max-width:900px){
+  .whatsapp-comercial{ grid-template-columns: 1fr; text-align:center; }
+  .whatsapp-comercial-text{ text-align:center; }
+  .whatsapp-comercial-button{ justify-self:center; width:100%; max-width:520px; }
+  .whatsapp-comercial-image img{ width:120px; }
+}
+@media (max-width:360px){
+  .whatsapp-comercial{ padding: 12px 12px 24px; }
+}
+
+/* ===== SEGMENTOS ===== */
+.segmentos{ padding: 40px 100px; }
+.segmentos-container{ max-width:1200px; margin-inline:auto; }
+.segmentos-header{ text-align:center; max-width: 960px; margin:0 auto 12px; }
+.segmentos-carousel .carousel-content{ display:grid; gap:18px; }
+.segmento-item{ display:grid; grid-template-columns: 1.2fr 1fr; gap:18px; align-items:center; border-radius:12px; padding:16px; }
+.segmento-image img{ border-radius:12px; width:100%; height:auto; }
+.segmento-titulo{ margin:0 0 6px; }
+@media (max-width:1024px){
+  .segmentos{ padding: 32px 20px; }
+  .segmento-item{ grid-template-columns: 1fr; }
+}
+@media (max-width:690px){
+  .segmentos{ padding: 26px 16px; }
+}
+@media (max-width:360px){
+  .segmentos{ padding: 20px 12px; }
+}
+
+/* =============== HERO — DESKTOP (≥1200px) =============== */
+/* Tela cheia + texto em card azul por cima da foto */
+@media (min-width: 1200px){
+  .hero{
+    min-height: 80vh;                /* ocupa 100% da tela */
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-image{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit: cover; object-position:center;
+  }
+  .hero-overlay{                       /* mantém legibilidade do texto */
+    position:absolute; inset:0; 
+    background: rgba(255,255,255,0.7);
+    z-index: 1;
+  }
+  .hero-content{
+    position:absolute; inset:0; z-index:2;
+    display:flex; align-items:center; justify-content:flex-start;
+    padding-left: max(6vw, 100px); padding-right: max(6vw, 100px);
+  }
+
+  /* “Card” azul por trás do texto */
+  :root{ --hero-blue: #1aaec1; }       /* ajuste se quiser outro tom */
+  .hero-text{
+    background: color-mix(in srgb, var(--hero-blue) 92%, #0d5c6b 8%);
+    color:#fff;
+    padding: 28px 32px;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0,0,0,.18);
+    max-width: 760px;
+    backdrop-filter: saturate(110%) blur(1px);
+  }
+  .hero-title{
+    color:#fff;
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: 1.1;
+    margin: 0 0 10px;
+  }
+  .hero-description{ color: rgba(255,255,255,.96); font-size: 1.06rem; }
+  .hero-cta{ background:#24364c; color:#fff; border-radius:12px; padding:12px 18px; }
+
+  .hero-background {width: 100%;}
+}
+
+/* =============== HERO — MOBILE (≤900px) =============== */
+/* Remove o carrossel e mostra fundo azul com conteúdo centralizado */
+@media (max-width: 900px){
+  .hero{
+    min-height: clamp(380px, 62vh, 640px);
+  }
+
+  .hero-content{
+    position: relative; inset: auto;
+    display: grid; place-items: center;
+    text-align: center;
+    padding: 28px 18px;
+  }
+
+  .hero-text{
+    background: transparent;          /* só o fundo azul da seção */
+    max-width: 42ch;
+    margin: 0 auto;
+  }
+  .hero-title{
+    color:#fff;
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    line-height: 1.15;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  .hero-description{ color: rgba(255,255,255,.92); margin: 0 0 16px; }
+
+  /* CTA destacada e confortável no toque */
+  .hero-cta{
+    inline-size: 100%;
+    justify-content: center;
+    padding: 14px 18px;
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(0,0,0,.18);
   }
 }
 
-/* ---------- <= 480px ---------- */
-@media (max-width: 480px){
-  .header-content{ padding: 10px 12px; }
-  .cta-comprar{ padding: 10px 14px; border-radius: 8px; }
-
-  .hero{ min-height: 56vh; }
-  .hero-title{ font-size: 1.75rem; }
-  .hero-cta{ width: 100%; text-align: center; }
-
-  .servicos,
-  .nossas-solucoes{ padding: 22px 14px; }
-
-  .servico-card,
-  .solucao-card{ padding: 18px 14px; }
+/* =============== WHATSAPP — ESCONDER NO MOBILE (≤800px) =============== */
+@media (max-width: 800px){
+  .whatsapp-comercial{ display:none !important; }
 }
 
-/* ---------- <= 360px ---------- */
-@media (max-width: 360px){
-  .nav-links{ right: 12px; width: calc(100vw - 24px); }
-  .hero-title{ font-size: 1.55rem; }
-  .servicos,
-  .nossas-solucoes{ padding: 18px 12px; }
-  .servico-card,
-  .solucao-card{ padding: 14px 12px; border-radius: 12px; }
+/* =========================================================
+   HERO — PADRÃO UNIFICADO (usa as MESMAS classes)
+   ========================================================= */
+
+/* Reseta possíveis heranças conflitantes do CSS antigo */
+.hero { max-height: none; position: relative; overflow: hidden; }
+.hero-background { position: absolute; inset: 0; width: 100% !important; height: 100% !important; z-index: 0; }
+.hero-image {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  opacity: 0; visibility: hidden; transition: opacity .5s ease, visibility .5s ease;
+}
+.hero-image.active { opacity: 1; visibility: visible; }
+
+/* remove o triângulo/clip-path do CSS anterior e deixa véu claro de legibilidade */
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,.70) !important; /* “fundo claro” como os outros banners */
+  clip-path: none !important; width: 100% !important; height: 100% !important;
+  z-index: 1;
 }
 
-/* ---------- Embeds (mapa, iframes) ---------- */
-.company-map{ width: 100%; max-width: 100%; overflow: hidden; }
-.company-map iframe{ min-width: 100% !important; }
+.hero-content {
+  position: relative; z-index: 2;
+  width: 100%;
+  display: flex; align-items: center; justify-content: flex-start;
+  padding-left: clamp(40px, 8vw, 120px);
+  padding-right: clamp(40px, 6vw, 120px);
+  min-height: clamp(560px, 100vh, 920px); /* ocupa a tela em desktops */
+}
+
+:root { --hero-blue: #1AB1C7; } /* ajuste fino do tom, se quiser */
+
+/* “retângulo azul” atrás do texto */
+.hero-text {
+  background: color-mix(in srgb, var(--hero-blue) 92%, #0d5c6b 8%);
+  color: #fff;
+  padding: clamp(20px, 3vw, 36px);
+  border-radius: 16px;
+  box-shadow: 0 14px 36px rgba(0,0,0,.18);
+  max-width: 760px;
+  backdrop-filter: saturate(110%) blur(1px);
+}
+
+.hero-title {
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.08;
+  margin: 0 0 12px;
+}
+.hero-description { color: rgba(255,255,255,.96); font-size: clamp(1rem, 1.15vw, 1.15rem); margin: 0 0 18px; }
+.hero-cta { background: #2E3F5B; color: #fff; padding: 12px 18px; border-radius: 12px; }
+
+/* ====== DESKTOP/TABLET (≥768px) ====== */
+@media (min-width: 768px){
+  .hero{ min-height: 100vh; }         /* tela cheia */
+  .hero-background{ display: block !important; }
+  .hero-overlay{ display: block !important; }
+}
+
+/* ====== MOBILE (≤768px) — limpa imagens/carrossel e centraliza ====== */
+@media (max-width: 768px){
+  .hero{
+    min-height: clamp(420px, 64vh, 640px);
+    display: grid; place-items: center;
+    padding: 24px 16px;
+  }
+
+  .hero-content{
+    position: relative; inset: auto;
+    display: grid; place-items: center;
+    text-align: center; padding: 0;
+    min-height: auto;
+  }
+  .hero-text{
+    background: #1AB1C7;       /* sem card – o próprio fundo já é azul */
+    max-width: 50ch; margin: 0 auto;
+  }
+  .hero-title{
+    font-size: clamp(1.6rem, 7.2vw, 2.35rem);
+    line-height: 1.15; margin: 0 0 10px; text-wrap: balance;
+  }
+  .hero-description{ color: rgba(255,255,255,.95); margin: 0 0 16px; }
+  .hero-cta{
+    width: 100%;
+    justify-content: center; border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(0,0,0,.18);
+  }
+}
+
