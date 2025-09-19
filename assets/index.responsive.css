@@ -120,7 +120,7 @@ main, section, header, footer{ max-width:100%; }
 }
 
 /* (1) Forçar CTA visível em <650px — sobrepõe regra global que escondia */
-@media (max-width:650px){
+@media (max-width:992px){
   .nossas-solucoes .solucao-cta,
   .nossas-solucoes .cta-comprar{
     display:inline-flex !important;
@@ -216,3 +216,140 @@ main, section, header, footer{ max-width:100%; }
     justify-content:center;
   }
 }
+
+/* ================== STATS — layout melhor em telas pequenas ================== */
+
+/* 2 colunas no mobile, com itens centralizados e sem os divisores */
+@media (max-width: 768px){
+  .stats-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 14px 16px;              /* espaçamento entre cards */
+    align-items: center;
+    justify-items: center;
+  }
+
+  /* esconde qualquer divisor vertical/horizontal */
+  .stat-divider{ display: none !important; }
+
+  /* cada item de estatística centralizado e com respiro */
+  .stats-grid > *:not(.stat-divider){
+    text-align: center;
+    padding: 10px 8px;
+  }
+
+  /* valor: forte, fluido e sem quebra (“+2 Milhões” numa linha) */
+  .stats-grid .stat-value,
+  .stats-grid strong,
+  .stats-grid h3{
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1.1;
+    white-space: nowrap;      /* evita quebrar o número/símbolo + */
+  }
+
+  .stat-number {font-size: 3rem !important;}
+
+  /* rótulo: menor e com leve transparência */
+  .stats-grid .stat-label,
+  .stats-grid p,
+  .stats-grid span{
+    font-size: 1.2rem;
+    line-height: 1.25;
+    margin-top: 4px;
+    opacity: .85;
+  }
+}
+
+/* telas muito estreitas mantêm 2 colunas, com gaps menores */
+@media (max-width: 360px){
+  .stats-grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 12px;
+  }
+}
+
+/* 2 colunas no mobile, com itens centralizados e sem os divisores */
+@media (max-width: 590px){
+  .stats-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 14px 16px;              /* espaçamento entre cards */
+    align-items: center;
+    justify-items: center;
+  }
+
+  /* esconde qualquer divisor vertical/horizontal */
+  .stat-divider{ display: none !important; }
+
+  /* cada item de estatística centralizado e com respiro */
+  .stats-grid > *:not(.stat-divider){
+    text-align: center;
+    padding: 10px 8px;
+  }
+
+  /* valor: forte, fluido e sem quebra (“+2 Milhões” numa linha) */
+  .stats-grid .stat-value,
+  .stats-grid strong,
+  .stats-grid h3{
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1.1;
+    white-space: nowrap;      /* evita quebrar o número/símbolo + */
+  }
+
+  .stat-number {font-size: 2rem !important;}
+
+  /* rótulo: menor e com leve transparência */
+  .stats-grid .stat-label,
+  .stats-grid p,
+  .stats-grid span{
+    font-size: 1.2rem;
+    line-height: 1.25;
+    margin-top: 4px;
+    opacity: .85;
+  }
+}
+
+/* 2 colunas no mobile, com itens centralizados e sem os divisores */
+@media (max-width: 428px){
+  .stats-grid{
+    display: grid;
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+    gap: 14px 16px;              /* espaçamento entre cards */
+    align-items: center;
+    justify-items: center;
+  }
+
+  /* esconde qualquer divisor vertical/horizontal */
+  .stat-divider{ display: none !important; }
+
+  /* cada item de estatística centralizado e com respiro */
+  .stats-grid > *:not(.stat-divider){
+    text-align: center;
+    padding: 10px 8px;
+  }
+
+  /* valor: forte, fluido e sem quebra (“+2 Milhões” numa linha) */
+  .stats-grid .stat-value,
+  .stats-grid strong,
+  .stats-grid h3{
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 1.1;
+    white-space: nowrap;      /* evita quebrar o número/símbolo + */
+  }
+
+  .stat-number {font-size: 2.2rem !important;}
+
+  /* rótulo: menor e com leve transparência */
+  .stats-grid .stat-label,
+  .stats-grid p,
+  .stats-grid span{
+    font-size: 1rem;
+    line-height: 1.25;
+    margin-top: 4px;
+    opacity: .85;
+  }
+}
+

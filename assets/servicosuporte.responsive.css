@@ -1,57 +1,69 @@
 /*!
- * servicosuporte.responsive.css — Inova Tecnologia (servicosuporte.html)
- * Padrão: paddings 40/100 → 60/300 ≥1920; breakpoints 1200/1024/768/500/360
- * Inclui: animações de entrada suaves e hover lift, CTAs usando classe global .cta-comprar
+ * servicosuporte.responsive.css — Inova Tecnologia (p/ servicosuporte.html)
+ * Limpeza e alinhamento com o padrão do site:
+ * - Mantidos: .suporte-section (paddings), Canais & SLA, Pricing (cards de planos)
+ * - Adicionados: responsividade da seção .servicos (igual ao index)
+ * - Removidos: blocos não usados (.suporte-card/*, .planos-grid/.plano-card, processo)
+ * - Unificado: animação .will-animate (1 única keyframe)
  */
 
-/* Barragens globais */
+/* Barragens globais (iguais ao padrão) */
 html, body{ width:100%; max-width:100%; overflow-x: clip; }
 @supports not (overflow-x: clip){ html, body{ overflow-x: hidden; } }
 *, *::before, *::after{ box-sizing: border-box; }
 img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
 main, section, header, footer{ max-width:100%; }
 
-/* ===== Seções base ===== */
+/* =========================================================
+   SEÇÕES BASE (usadas por #suporte-canais e #suporte-planos)
+   ========================================================= */
 .suporte-section{ padding: 40px 100px; }
-.suporte-container{ margin-inline:auto; max-width: 1280px; }
 .suporte-header{ max-width: 960px; margin: 0 auto 12px; text-align:center; }
 .suporte-subtitle{ margin: 6px auto 0; max-width: 72ch; }
 
-/* ===== Intro: cards aprimorados ===== */
-.suporte-grid{ display:grid; gap: 24px; margin-top: 18px; }
-.suporte-grid-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+/* =========================================================
+   *** NOVO ***  SEÇÃO "SERVIÇOS" (mesma estrutura do index)
+   - garante grid 3/2/1 colunas + botões 100% no mobile
+   - evita carrossel/colunas automáticas acidentais
+   ========================================================= */
+.servicos{ padding: 40px 100px; } /* mesmo padrão de seção do index */
+.servicos-header{ text-align:center; max-width:960px; margin:0 auto 12px; }
 
-.suporte-card{
-  position:relative;
-  background:#fff;
-  border-radius: 20px;
-  padding: 22px 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
-  border: 2px solid transparent;
-  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
-  overflow: hidden;
+.servicos-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 24px;
+  grid-auto-flow: row;        /* impede fluxo em colunas/carrocel */
+  grid-auto-columns: initial; /* evita valores herdados */
+  overflow: visible;          /* evita "corte" lateral */
 }
-.suporte-card:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(0,0,0,.12);
-  border-color:#25BACF;
+.servico-card{
+  width:auto; min-width:0;    /* corrige cartões estreitos no mobile */
 }
-.suporte-card:hover::after{ opacity:1; }
+.servico-cta, .servico-cta-servicos{ justify-content:center; }
 
-.suporte-icon{ width:64px; height:64px; }
-.suporte-title{ margin: 8px 0 6px; }
-.suporte-text{ margin: 0 0 8px; }
-.suporte-features{ margin: 0 0 8px 16px; display:grid; gap:6px; }
-.suporte-link{
-  display:inline-flex; align-items:center; gap:8px;
-  font-weight:600; text-decoration:none; color:#2E3F5B;
+/* Breakpoints idênticos ao index */
+@media (min-width:1920px){
+  .servicos{ padding: 60px 300px; }
 }
-.suporte-link::after{
-  content:"›"; font-size:1.1em; transform: translateX(0); transition: transform .2s ease;
+@media (max-width:1200px){
+  .servicos-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
-.suporte-link:hover::after{ transform: translateX(3px); }
+@media (max-width:768px){
+  .servicos{ padding: 32px 20px; }
+  .servicos-grid{ grid-template-columns: 1fr; gap:16px; }
+  .servico-cta, .servico-cta-servicos{ inline-size:100%; }
+}
+@media (max-width:500px){
+  .servicos{ padding: 26px 16px; }
+}
+@media (max-width:360px){
+  .servicos{ padding: 20px 12px; }
+}
 
-/* ===== Canais & SLA (ajustes leves) ===== */
+/* ======================================
+   CANAIS & SLA (mantido do seu arquivo)
+   ====================================== */
 .canais-grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: start; }
 .sla-card{ background:#fff; border-radius:14px; box-shadow:0 8px 22px rgba(0,0,0,.06); padding:18px; }
 .sla-title{ margin: 0 0 8px; }
@@ -61,80 +73,13 @@ main, section, header, footer{ max-width:100%; }
 .sla-lista li strong{ font-weight:600; }
 .sla-obs{ margin:8px 0 0; font-size:.94rem; opacity:.9; }
 
-/* ===== Planos: cards com destaque e CTA animada (usa .cta-comprar global) ===== */
-.planos-grid{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin-top: 18px; }
-.plano-card{
-  position:relative;
-  background:#fff;
-  border-radius: 16px;
-  padding: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
-  border: 2px solid transparent;
-  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
-  display:flex; flex-direction:column; gap:10px;
-}
-.plano-card:hover{ transform: translateY(-8px); box-shadow:0 20px 40px rgba(0,0,0,.12); border-color:#25BACF; }
-.plano-card.destaque{ outline:3px solid #25BACF22; }
-.plano-ribbon{
-  position:absolute; top:14px; right:-10px;
-  background:#25BACF; color:#fff; font-size:.8rem; font-weight:700;
-  padding:6px 14px; border-radius:999px;
-}
-.plano-title{ margin:0 0 4px; }
-.plano-lista{ margin:0 0 12px 16px; display:grid; gap:6px; }
-.plano-foot{ margin-top:auto; }
-.plano-foot .cta-comprar{ justify-content:center; }
-
-/* ===== Processo ===== */
-.processo-list{ display:flex; flex-direction:column; gap: 14px; max-width: 880px; margin: 12px auto 0; }
-.diferencial-icon-space img{ width: 32px; height:auto; }
-
-/* ===== Fade-up simples na entrada (sem JS) ===== */
-@keyframes suporteFadeUp{
-  from{ opacity:0; transform: translateY(14px); }
-  to{ opacity:1; transform: translateY(0); }
-}
-.will-animate{ opacity:0; animation: suporteFadeUp .6s ease both; }
-.delay-1{ animation-delay: .04s; }
-.delay-2{ animation-delay: .14s; }
-.delay-3{ animation-delay: .24s; }
-
-/* ===== Breakpoints do projeto ===== */
-@media (min-width: 1920px){
-  .suporte-section{ padding: 60px 300px; }
-}
-
-@media (max-width: 1200px){
-  .suporte-grid-3{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .planos-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-}
-
-@media (max-width: 1024px){
+@media (max-width:1024px){
   .canais-grid{ grid-template-columns: 1fr; }
 }
 
-@media (max-width: 768px){
-  .suporte-section{ padding: 32px 20px; }
-  .suporte-grid-3{ grid-template-columns: 1fr; }
-  .planos-grid{ grid-template-columns: 1fr; }
-  .plano-foot .cta-comprar{ width:100%; }
-}
-
-@media (max-width: 500px){
-  .suporte-section{ padding: 26px 16px; }
-}
-
-@media (max-width: 360px){
-  .suporte-section{ padding: 20px 12px; }
-}
-
-/* Utilitário leitor de tela (mesmo do FAB) */
-.sr-only{
-  position:absolute; width:1px; height:1px; overflow:hidden;
-  clip: rect(0 0 0 0); white-space:nowrap; border:0; padding:0; margin:-1px;
-}
-
-/* ========= Pricing Cards (inspirados em Stripe/Notion/Slack) ========= */
+/* =========================================================
+   PRICING (cards de planos) — alinhado com versão “limpa”
+   ========================================================= */
 :root{
   --pricing-ink: #2E3F5B;
   --pricing-cyan: #25BACF;
@@ -148,163 +93,163 @@ main, section, header, footer{ max-width:100%; }
 }
 .pricing-card{
   position:relative; display:flex; flex-direction:column;
-  background: var(--pricing-bg);
-  border-radius: 18px;
-  border: 2px solid transparent;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
-  padding: 20px 18px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfeff 100%);
+  border-radius: 20px;
+  border: 2px solid rgba(37,186,207,.12);
+  box-shadow: 0 10px 28px rgba(17, 28, 43, .08);
+  padding: 22px 20px;
   transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
 }
 .pricing-card:hover{
   transform: translateY(-8px);
-  box-shadow: 0 20px 44px rgba(0,0,0,.12);
+  box-shadow: 0 24px 54px rgba(17, 28, 43, .14);
   border-color: var(--pricing-cyan);
 }
 .pricing-card.featured{
   border-color: var(--pricing-cyan);
-  box-shadow: 0 22px 48px rgba(37,186,207,.18);
-}
-.pricing-badge{
-  position:absolute; top: -12px; right: 16px;
-  background: var(--pricing-cyan); color:#fff; font-weight:700;
-  padding: 6px 12px; border-radius: 999px; font-size:.8rem;
-  box-shadow: 0 6px 16px rgba(37,186,207,.28);
-}
-.pricing-head{ color: var(--pricing-ink); }
-.pricing-title{ margin:0 0 2px; }
-.pricing-kicker{ margin:0 0 10px; opacity:.85; }
-.pricing-price{ display:flex; align-items:baseline; gap:8px; margin-bottom: 8px; }
-.pricing-price .price{ font-weight:800; font-size:1.15rem; color: var(--pricing-ink); }
-.pricing-price .unit{ font-size:.9rem; opacity:.7; }
-
-.pricing-features{
-  list-style:none; padding:0; margin: 6px 0 12px; display:grid; gap:8px;
-}
-.pricing-features li{ display:flex; align-items:flex-start; gap:10px; line-height:1.35; }
-.pricing-features .check{ width:18px; height:18px; flex:0 0 18px; color: var(--pricing-cyan); margin-top: 2px; }
-
-.pricing-meta{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 14px; }
-.chip{
-  display:inline-flex; align-items:center; gap:6px;
-  border-radius: 999px; padding:6px 10px; font-size:.85rem;
-  background: var(--pricing-soft); color: var(--pricing-ink);
-}
-
-.pricing-cta{ margin-top:auto; }
-.pricing-cta .cta-comprar{justify-content:center; }
-
-/* Fade-up (reutiliza seu padrão) */
-@keyframes pricingFadeUp { from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none} }
-.will-animate{ opacity:0; animation: pricingFadeUp .6s ease both; }
-.delay-1{ animation-delay:.04s } .delay-2{ animation-delay:.14s } .delay-3{ animation-delay:.24s }
-
-/* -------- Breakpoints (mesmo padrão do projeto) -------- */
-@media (min-width:1920px){
-  .pricing-grid{ gap: 28px; }
-}
-@media (max-width:1200px){
-  .pricing-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-}
-@media (max-width:768px){
-  .pricing-grid{ grid-template-columns: 1fr; }
-  .pricing-cta .cta-comprar{ width:100%; }
-}
-
-/* ====== Ajustes de layout & tipografia da seção de Planos ====== */
-
-/* Título maior (sem afetar outros h2) */
-#suporte-planos .servicos-title.title-xl{
-  font-size: clamp(2.1rem, 2.2vw + 1rem, 2.8rem);
-  line-height: 1.1;
-  letter-spacing: .2px;
-}
-
-/* Grid mais “arejado” (mantém seus breakpoints) */
-#suporte-planos .pricing-grid{
-  gap: 28px;
-  align-items: stretch;
-}
-
-/* Card: mais contraste, raio maior e sombra mais suave */
-#suporte-planos .pricing-card{
-  border-radius: 20px;
-  border: 2px solid rgba(37,186,207,.12);
-  box-shadow: 0 10px 28px rgba(17, 28, 43, .08);
-  background: linear-gradient(180deg, #ffffff 0%, #fbfeff 100%);
-  padding: 22px 20px;
-}
-
-/* Hover com “lift” mais elegante */
-#suporte-planos .pricing-card:hover{
-  transform: translateY(-8px);
-  border-color: #25BACF;
-  box-shadow: 0 24px 54px rgba(17, 28, 43, .14);
-}
-
-/* Headings e subtítulo dentro do card */
-#suporte-planos .pricing-title{ font-weight: 800; letter-spacing: .2px; }
-#suporte-planos .pricing-kicker{ opacity: .85; }
-
-/* Linha de preço (quando usada) */
-#suporte-planos .pricing-price{
-  display:flex; align-items:baseline; gap:8px; margin: 6px 0 8px;
-}
-#suporte-planos .pricing-price .price{ font-weight: 800; }
-#suporte-planos .pricing-price .unit{ opacity:.55; }
-
-/* Lista com checks mais legíveis */
-#suporte-planos .pricing-features{ gap: 10px; }
-#suporte-planos .pricing-features li{ line-height: 1.4; }
-#suporte-planos .pricing-features .check{ width: 18px; height: 18px; color:#25BACF; }
-
-/* Chips com melhor leitura */
-#suporte-planos .chip{
-  background: rgba(37,186,207,.12);
-  color: #2E3F5B;
-  border: 1px solid rgba(37,186,207,.18);
-  padding: 6px 10px;
-}
-
-/* CTA: mantém o padrão do site; reforço mobile full-width */
-#suporte-planos .pricing-cta .cta-comprar{ justify-content:center; }
-@media (max-width: 768px){
-  #suporte-planos .pricing-cta .cta-comprar{ width: 100%; }
-}
-
-/* Destaque do plano PRO com “anel” ciano e selo alinhado ao topo */
-#suporte-planos .pricing-card.featured{
-  position: relative;
-  border-color: #25BACF;
   box-shadow: 0 22px 60px rgba(37,186,207,.18);
   background:
     radial-gradient(120% 120% at 50% -10%, rgba(37,186,207,.12) 0%, transparent 60%),
     linear-gradient(180deg, #ffffff 0%, #f5feff 100%);
 }
-#suporte-planos .pricing-card.featured::after{
-  content:""; position:absolute; inset:-2px;
-  border-radius: 22px;
-  pointer-events:none;
-  background: radial-gradient(600px 220px at 50% -8%, rgba(37,186,207,.18), transparent 60%);
-  z-index: -1;
-}
-#suporte-planos .pricing-card .pricing-badge{
-  position:absolute; top:-14px; right: 18px;
-  background:#25BACF; color:#fff; font-weight:800; font-size:.78rem;
-  padding: 6px 12px; border-radius:999px;
+.pricing-badge{
+  position:absolute; top:-14px; right:18px;
+  background: var(--pricing-cyan); color:#fff; font-weight:800;
+  padding: 6px 12px; border-radius: 999px; font-size:.78rem;
   box-shadow: 0 10px 22px rgba(37,186,207,.35);
 }
+.pricing-head{ color: var(--pricing-ink); }
+.pricing-title{ margin:0 0 2px; font-weight:800; letter-spacing:.2px; }
+.pricing-kicker{ margin:0 0 10px; opacity:.85; }
+.pricing-price{ display:flex; align-items:baseline; gap:8px; margin: 6px 0 8px; }
+.pricing-price .price{ font-weight:800; color: var(--pricing-ink); }
+.pricing-price .unit{ opacity:.55; }
 
-/* Espaçamentos finais dentro do card */
-#suporte-planos .pricing-meta{ margin: 8px 0 14px; gap: 10px; }
-#suporte-planos .pricing-cta{ margin-top: auto; }
-
-/* Responsividade coerente com o restante do projeto */
-@media (min-width: 1920px){
-  #suporte-planos .pricing-grid{ gap: 32px; }
+.pricing-features{
+  list-style:none; padding:0; margin: 6px 0 12px; display:grid; gap:10px;
 }
-@media (max-width: 1200px){
-  #suporte-planos .pricing-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+.pricing-features li{ display:flex; align-items:flex-start; gap:10px; line-height:1.4; }
+.pricing-features .check{ width:18px; height:18px; flex:0 0 18px; color: var(--pricing-cyan); margin-top: 2px; }
+
+.pricing-meta{ display:flex; flex-wrap:wrap; gap:10px; margin: 8px 0 14px; }
+.chip{
+  display:inline-flex; align-items:center; gap:6px;
+  border-radius: 999px; padding:6px 10px; font-size:.85rem;
+  background: var(--pricing-soft); color: var(--pricing-ink);
+  border: 1px solid rgba(37,186,207,.18);
+}
+
+.pricing-cta{ margin-top:auto; }
+.pricing-cta .cta-comprar{ min-width:180px; justify-content:center; }
+@media (max-width:768px){
+  .pricing-grid{ grid-template-columns: 1fr; }
+  .pricing-cta .cta-comprar{ width:100%; }
+}
+@media (max-width:1200px){
+  .pricing-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (min-width:1920px){
+  .pricing-grid{ gap: 28px; }
+}
+
+/* =========================================================
+   Animação única (aplicável onde usar .will-animate)
+   ========================================================= */
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(14px) } to{ opacity:1; transform:none } }
+.will-animate{ opacity:0; animation: fadeUp .6s ease both; }
+.delay-1{ animation-delay:.04s } .delay-2{ animation-delay:.14s } .delay-3{ animation-delay:.24s }
+
+/* =========================================================
+   Acessibilidade
+   ========================================================= */
+.sr-only{
+  position:absolute; width:1px; height:1px; overflow:hidden;
+  clip: rect(0 0 0 0); white-space:nowrap; border:0; padding:0; margin:-1px;
+}
+
+/* =========================================================
+   Proteções extras p/ botão de CTA não sumir no mobile
+   ========================================================= */
+#suporte-planos .pricing-card, .servico-card{
+  display:flex; flex-direction:column;
+}
+#suporte-planos .pricing-cta{ display:flex; align-items:center; }
+@media (max-width:768px){
+  #suporte-planos .pricing-cta .cta-comprar,
+  .servico-cta, .servico-cta-servicos{
+    display:inline-flex !important;
+    width:100%;
+    max-width:none;
+  }
+}
+
+/* =========================================================
+   Paddings responsivos das seções suporte-*
+   (mantém consistência com o projeto)
+   ========================================================= */
+@media (min-width: 1920px){
+  .suporte-section{ padding: 60px 300px; }
 }
 @media (max-width: 768px){
-  #suporte-planos .pricing-grid{ grid-template-columns: 1fr; }
+  .suporte-section{ padding: 32px 20px; }
+}
+@media (max-width: 500px){
+  .suporte-section{ padding: 26px 16px; }
+}
+@media (max-width: 360px){
+  .suporte-section{ padding: 20px 12px; }
+}
+
+/* === FIX Planos de suporte (mobile) === */
+
+/* 1) Garante grid normal (sem carrossel) */
+#suporte-planos .pricing-grid{
+  grid-auto-flow: row;
+  grid-auto-columns: initial;
+}
+
+/* 2) Quebra correta de colunas por breakpoint (força e com especificidade) */
+@media (max-width: 1200px){
+  #suporte-planos .pricing-grid{
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+}
+@media (max-width: 768px){
+  #suporte-planos .pricing-grid{
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 3) Cartões não “estreitam” e ocupam a largura da coluna */
+#suporte-planos .pricing-card{
+  width: auto;
+  min-width: 0;
+}
+
+/* 4) Botão: sempre visível e full-width no mobile */
+#suporte-planos .pricing-cta{
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px){
+  #suporte-planos .pricing-cta .cta-comprar{
+    display: inline-flex !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
+
+/* 5) Tipografia da linha “Sob consulta / contrato” não quebrar a palavra */
+#suporte-planos .pricing-price .unit{
+  white-space: nowrap;
+}
+
+/* 6) Selo “Mais procurado” não empurrar layout no mobile */
+@media (max-width: 768px){
+  #suporte-planos .pricing-badge{
+    top: -10px;
+    right: 14px;
+    transform: scale(.95);
+  }
 }

@@ -689,7 +689,7 @@ html{
 .stat-number {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     color: #2E3F5B;
     line-height: 1;
     display: flex;
@@ -1491,13 +1491,6 @@ html{
 .sol-v4__step h4{ margin:0 0 4px; color:var(--solv4-ink); font-size: 1rem; }
 .sol-v4__step p{ margin:0; color:#4A4A4A; font-size:.95rem; }
 
-/* Mosaico assimétrico */
-.sol-v4__mosaic{
-  margin-top: 35px;
-  display:grid; gap:12px;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: 170px;
-}
 .mosaic__item{ position:relative; border-radius:16px; overflow:hidden; }
 .mosaic__item img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter: saturate(105%); transition: transform .35s ease; }
 .mosaic__overlay{
@@ -1508,13 +1501,6 @@ html{
 .mosaic__overlay p{ font-size:.95rem; opacity:.95; }
 
 .mosaic__item:hover img{ transform: scale(1.04); }
-
-/* Áreas (desktop) */
-.mosaic__item.a{ grid-column: span 6; grid-row: span 2; }
-.mosaic__item.b{ grid-column: span 3; grid-row: span 1; }
-.mosaic__item.c{ grid-column: span 3; grid-row: span 1; }
-.mosaic__item.d{ grid-column: span 4; grid-row: span 1; }
-.mosaic__item.e{ grid-column: span 8; grid-row: span 1; }
 
 /* Comparativo 3x */
 .sol-v4__compare{
@@ -4690,10 +4676,10 @@ html{
 .sol-v4__list{ margin:6px 0 0; padding-left:18px; color:#2E3F5B; }
 
 /* Timeline */
-.sol-v4__rail{ position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; background:#fff; border:1px solid rgba(37,186,207,.18); border-radius:18px; padding:18px; box-shadow:0 12px 26px rgba(0,0,0,.08); overflow:hidden; }
+.sol-v4__rail{ position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:16px; background:#fff; border:1px solid rgba(37,186,207,.18); border-radius:18px; padding:30px; box-shadow:0 12px 26px rgba(0,0,0,.08); overflow:hidden; }
 .sol-v4__rail::before{ content:""; position:absolute; top:34px; left:24px; right:24px; height:3px; background:linear-gradient(90deg,#25BACF,#2E3F5B); opacity:.35; border-radius:3px; }
 .sol-v4__step{ text-align:center; padding-top:24px; }
-.sol-v4__dot{ width:36px; height:36px; border-radius:999px; margin:-42px auto 8px; display:grid; place-items:center; background:#2E3F5B; color:#fff; font-weight:800; border:2px solid #25BACF; box-shadow:0 8px 20px rgba(0,0,0,.12); }
+.sol-v4__dot{z-index: 3; width:36px; height:36px; border-radius:999px; margin:-42px auto 8px; display:grid; place-items:center; background:#2E3F5B; color:#fff; font-weight:800; border:2px solid #25BACF; box-shadow:0 8px 20px rgba(0,0,0,.12); }
 
 .seg {padding: 40px 0px;}
 
@@ -4735,6 +4721,75 @@ html{
   .footer, footer{ padding-left:12px !important; padding-right:12px !important; }
 }
 
+/* ===========================
+   FOOTER — MOBILE IMPROVEMENTS
+   (sobrescreve regras do main.css)
+   =========================== */
+
+/* Até 768px: brand em cima; nav e contato lado a lado */
+@media (max-width: 768px){
+  .footer{ padding: 32px 20px; }
+
+  .footer-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand brand"
+      "nav   contact";
+    gap: 16px;
+    align-items: start;
+  }
+
+  .footer-brand   { grid-area: brand; align-items: center; }
+  .footer-nav     { grid-area: nav; }
+  .footer-contact { grid-area: contact; }
+
+  /* títulos e lista mais compactos */
+  .footer-title{ text-align: left; margin-bottom: 6px; }
+  .footer-title::after{ width: 80px; }
+
+  /* menu em 2 colunas quando couber */
+  .footer-links{
+    columns: 2;             /* duas colunas fluidas */
+    column-gap: 14px;
+  }
+  .footer-links li{ break-inside: avoid; }
+
+  /* card de contato mais enxuto e CTA cheio */
+  .contact-box{ padding: 18px; }
+  .whatsapp-button{
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  /* mapa ocupa toda a largura do bloco */
+  .company-map iframe{
+    width: 100% !important;
+    height: 220px;          /* ajuste de altura para mobile */
+    border-radius: 12px;
+  }
+
+  /* ícones sociais centralizados */
+  .social-media-container{ justify-content: center; gap: 12px; }
+}
+
+/* Telas bem estreitas: volta para 1 coluna para não “apertar”*/
+@media (max-width: 580px){
+  .footer-container{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "brand"
+      "nav"
+      "contact";
+  }
+  .footer-links{ columns: 1; }    /* menu em 1 coluna */
+}
+
+/* Micro-ajustes extras para ultra-pequenas */
+@media (max-width: 400px){
+  .footer{ padding-left: 16px; padding-right: 16px; }
+  .footer-title::after{ width: 64px; }
+}
 
 /* ===== Banner / Título ===== */
 .banner-educacao{ position: relative; overflow: hidden; width:100%; }
@@ -4839,7 +4894,7 @@ html{
 
 /* Ocultar barra no mobile */
 @media (max-width: 768px){
-  .footer-title {text-align: center;}
+  .footer-title {text-align: left;}
  
 }
 
@@ -5177,46 +5232,4 @@ html{
 .sr-only{
   position:absolute; width:1px; height:1px; overflow:hidden;
   clip: rect(0 0 0 0); white-space:nowrap; border:0; padding:0; margin:-1px;
-}
-/* ====== BOTÃO DOS PLANOS: nunca some no mobile ====== */
-/* Garante layout em coluna e reserva espaço p/ o CTA */
-#suporte-planos .pricing-card{
-  display: flex;
-  flex-direction: column;
-  overflow: visible;               /* evita corte do botão */
-}
-
-/* A área do botão encosta no rodapé do card */
-#suporte-planos .pricing-cta{
-  margin-top: auto;
-  display: flex;                   /* evita herdar display:none */
-  align-items: center;
-  justify-content: flex-start;
-}
-
-/* Força visibilidade e largura total no mobile (sem afetar o header) */
-@media (max-width: 768px){
-  #suporte-planos .pricing-cta .cta-comprar{
-    display: inline-flex !important;  /* anula qualquer regra global */
-    width: 100%;
-    max-width: none;
-  }
-}
-
-/* Se usar o card “neo” (aquele com canto recortado), 
-   no mobile tire o absolute do rodapé para ele não sobrepor conteúdo */
-@media (max-width: 768px){
-  .pricing-neo .neo-card{ padding-bottom: 20px; }
-  .pricing-neo .neo-bottom{
-    position: static;              /* deixa o botão entrar no fluxo */
-    margin-top: 12px;
-  }
-  .pricing-neo .neo-bottom .cta-comprar{ width: 100%; }
-}
-
-/* Camada acima de decorações (anéis/brilhos) */
-#suporte-planos .pricing-cta,
-#suporte-planos .pricing-cta .cta-comprar{
-  position: relative;
-  z-index: 2;
 }
