@@ -58,6 +58,13 @@ img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
 .recurso-body{ min-width:0; }
 @media (max-width:500px){ .recurso-row{ grid-template-columns:32px 1fr; padding:14px; gap:10px; } .recurso-icon{ width:32px; height:32px; } }
 
+@media (max-width:1920px){ 
+  .ponto-section{padding: 80px 300px 60px 300px;}
+  .ponto-consultoria{padding: 60px 300px;}  
+  .ponto-recursos-avancados{padding: 60px 300px;}  
+  .ponto-recursos-sistema{padding: 60px 300px;}  
+}
+
 /* Banda de benefícios 4→2→1 */
 .ponto-band{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:16px; align-items:center; padding:14px; border-radius:12px; }
 @media (max-width:1024px){ .ponto-band{ grid-template-columns: 1fr 1fr !important; } }

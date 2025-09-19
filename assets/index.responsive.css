@@ -1,169 +1,218 @@
 /* =====================================================================
-   INOVA — INDEX (CSS ÚNICO CONSOLIDADO)
-   Este arquivo substitui os patches anteriores para a home.
-   Escopos cobertos: HERO (desktop/mobile + CTA), QUEM-CONFIA, SEGMENTOS,
-   e proteções gerais de overflow.
-   Carregue este arquivo após o main.css (ou em vez de index.responsive.css).
+   INDEX — RESPONSIVO (v2.1)  |  Carregar DEPOIS de main.css
+   Alterações nesta versão:
+   1) CTA “nossas-solucoes” visível <650px
+   2) Logos “quem-confia” menores e fluídas
+   3) CTA do HERO 100% do card (não “atravessa”)
+   4) Paddings alinhados com educacao.responsive.css
    ===================================================================== */
 
-/* ---------- Proteções globais ---------- */
-html, body { max-width: 100%; overflow-x: hidden; }
-*, *::before, *::after { box-sizing: border-box; }
-img, svg, video, canvas, iframe { max-width: 100%; height: auto; display: block; }
+/* Proteções globais */
+html, body{ max-width:100%; overflow-x:hidden; }
+*, *::before, *::after{ box-sizing:border-box; }
+img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
+main, section, header, footer{ max-width:100%; }
 
 /* =====================================================================
-   HERO — DESKTOP (≥768px): foto fullscreen ao fundo + card azul no texto
+   PADRÃO DE PADDING POR SECTION  (mesmo do educacao.responsive.css)
    ===================================================================== */
-@media (min-width: 768px){
-  .hero{
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
+.stats, .nossas-solucoes, .quem-confia, .segmentos,
+.tecnologias, .nova-sessao, .servicos, .video-section,
+.tecnologias-section, .whatsapp-comercial, .fale-conosco{
+  padding: 40px 100px;
+}
+@media (min-width:1920px){
+  .stats, .nossas-solucoes, .quem-confia, .segmentos,
+  .tecnologias, .nova-sessao, .servicos, .video-section,
+  .tecnologias-section, .whatsapp-comercial, .fale-conosco{
+    padding: 60px 300px;
   }
-  .hero-background{ position:absolute; inset:0; z-index:0; }
-  .hero-image{
-    position:absolute; inset:0;
-    width:100%; height:100%;
-    object-fit: cover; object-position: center;
-    opacity: 1;
+}
+@media (max-width:768px){
+  .stats, .nossas-solucoes, .quem-confia, .segmentos,
+  .tecnologias, .nova-sessao, .servicos, .video-section,
+  .tecnologias-section, .whatsapp-comercial, .fale-conosco{
+    padding: 32px 20px;
   }
-  .hero-overlay{
-    position:absolute; inset:0;
-    background: rgba(255,255,255,.70);   /* véu claro padrão do site */
-    z-index: 1;
-    pointer-events: none;                /* não cobre cliques */
+}
+@media (max-width:500px){
+  .stats, .nossas-solucoes, .quem-confia, .segmentos,
+  .tecnologias, .nova-sessao, .servicos, .video-section,
+  .tecnologias-section, .whatsapp-comercial, .fale-conosco{
+    padding: 26px 16px;
   }
-  .hero-content{
-    position:relative; z-index: 2;
-    display:flex; align-items:center; justify-content:flex-start;
-    padding-left: clamp(40px, 8vw, 120px);
-    padding-right: clamp(40px, 6vw, 120px);
-    min-height: 100vh;
-  }
-
-  :root{ --hero-blue: #1AB1C7; }
-
-  .hero-text{
-    background: color-mix(in srgb, var(--hero-blue) 92%, #0d5c6b 8%);
-    color:#fff;
-    padding: clamp(20px, 3vw, 36px);
-    border-radius: 16px;
-    box-shadow: 0 14px 36px rgba(0,0,0,.18);
-    max-width: 760px;
-    backdrop-filter: saturate(110%) blur(1px);
-  }
-  .hero-title{
-    color:#fff;
-    font-size: clamp(2rem, 4vw, 4rem);
-    line-height: 1.08;
-    margin: 0 0 12px;
-  }
-  .hero-description{ color: rgba(255,255,255,.96); margin: 0 0 18px; }
-
-  /* CTA com mesmíssima largura interna do card de texto */
-  .hero-text .hero-cta{
-    display: block !important;          /* derruba qualquer inline-block */
-    inline-size: 100% !important;       /* ocupa toda a largura do card */
-    max-inline-size: 640px;             /* limite opcional */
-    height: 56px;
-    background:#2E3F5B; color:#fff;
-    border-radius: 12px; text-align:center;
-    display:flex !important; align-items:center; justify-content:center;
-    box-shadow: 0 10px 24px rgba(0,0,0,.16);
-  }
-  .hero-text .hero-cta:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 14px 28px rgba(0,0,0,.18);
+}
+@media (max-width:360px){
+  .stats, .nossas-solucoes, .quem-confia, .segmentos,
+  .tecnologias, .nova-sessao, .servicos, .video-section,
+  .tecnologias-section, .whatsapp-comercial, .fale-conosco{
+    padding: 20px 12px;
   }
 }
 
 /* =====================================================================
-   HERO — MOBILE (≤767px): sem carrossel, fundo azul, centralizado
+   HERO — imagem 100% largura / CTA 100% do card
    ===================================================================== */
-@media (max-width: 767.98px){
-  .hero{
-    min-height: clamp(420px, 64vh, 680px);
-    background: linear-gradient(180deg, #1AB1C7 0%, #158BA2 100%);
-    display:grid; place-items:center;
-    padding: 24px 16px;
-    position: relative;
-  }
-  .hero-background, .hero-overlay{ display:none !important; } /* remove imagens */
-  .hero-content{
-    position:relative; inset:auto;
-    display:grid; place-items:center; text-align:center;
-    min-height:auto; padding:0;
-    z-index:2;
-  }
-  .hero-text{ background: transparent; max-width: 52ch; }
-  .hero-title{ font-size: clamp(1.6rem, 7vw, 2.3rem); line-height:1.15; margin:0 0 10px; }
-  .hero-description{ color: rgba(255,255,255,.95); margin:0 0 16px; }
-  .hero-cta{
-    display:block; width:100%;
-    padding: 14px 18px; border-radius: 14px;
-    background:#2E3F5B; color:#fff; text-align:center;
-    box-shadow: 0 10px 24px rgba(0,0,0,.18);
+:root{
+  --hero-maxw: 640px;
+}
+
+.hero{
+  position:relative; display:flex; align-items:center;
+  min-height: clamp(480px, 64vh, 720px);
+  overflow:hidden;
+}
+.hero-background{ position:absolute; inset:0; width:100%; height:100%; }
+.hero-image{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  opacity:0; visibility:hidden; transition:opacity .6s ease, visibility .6s ease;
+}
+.hero-image.active{ opacity:1; visibility:visible; }
+.hero-overlay{ position:absolute; inset:0; background:rgba(255,255,255,.7); }
+.hero-content{ position:relative; z-index:2; width:100%; padding: 40px 100px; }
+@media (min-width:1920px){ .hero-content{ padding:60px 300px; } }
+@media (max-width:768px){ .hero-content{ padding:32px 20px; } }
+@media (max-width:500px){ .hero-content{ padding:26px 16px; } }
+@media (max-width:360px){ .hero-content{ padding:20px 12px; } }
+
+.hero-text{
+  background:#25BACF; color:#fff; border-radius:16px;
+  padding: clamp(16px, 2.6vw, 28px);
+  max-width: var(--hero-maxw);
+  box-shadow:0 14px 36px rgba(0,0,0,.18);
+  display:grid; gap:14px;    /* garante respiro interno e layout do CTA */
+}
+.hero-title{ font:900 clamp(26px,4vw,52px)/1.1 "Poppins",system-ui; margin:0; }
+.hero-description{ margin:0; color:#fff; }
+
+/* CTA do HERO — 100% do cartão SEM exceder bordas */
+.hero-cta{
+  display:flex; align-items:center; justify-content:center;
+  width:100%; max-width:100%;    /* remove limite que gerava “atravessar” */
+  min-height:52px; padding:0 18px; border-radius:12px;
+  background:#2E3F5B; color:#fff; text-decoration:none; font-weight:700;
+  box-shadow:0 10px 24px rgba(0,0,0,.16);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.hero-cta:hover{ transform:translateY(-2px); box-shadow:0 14px 28px rgba(0,0,0,.2); }
+@media (max-width:600px){ .hero-title{ font-size:clamp(22px,7.5vw,30px); } }
+
+/* =====================================================================
+   STATS
+   ===================================================================== */
+.stat-divider{ display:none; }
+.stats-grid{ grid-template-columns:1fr; row-gap:22px; }
+@media (min-width:768px){
+  .stat-divider{ display:block; }
+  .stats-grid{ grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; }
+}
+
+/* =====================================================================
+   NOSSAS SOLUÇÕES
+   ===================================================================== */
+.solucoes-grid{ grid-template-columns:repeat(3,1fr); gap:24px; }
+.solucoes-grid-app{ grid-template-columns:repeat(2,1fr); gap:24px; }
+@media (max-width:1200px){ .solucoes-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:768px){
+  .solucoes-grid, .solucoes-grid-app{ grid-template-columns:1fr; gap:16px; }
+  .solucao-cta{ width:100%; justify-content:center; }
+}
+
+/* (1) Forçar CTA visível em <650px — sobrepõe regra global que escondia */
+@media (max-width:650px){
+  .nossas-solucoes .solucao-cta,
+  .nossas-solucoes .cta-comprar{
+    display:inline-flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    width:100%;
+    justify-content:center;
   }
 }
 
 /* =====================================================================
-   QUEM CONFIA — evita overflow e ajusta logos
+   QUEM CONFIA — logos menores e fluídas
    ===================================================================== */
-.quem-confia .carousel-container{ overflow:hidden; }
-.quem-confia .carousel-track{
-  display:flex; align-items:center; gap: 28px;
-  will-change: transform;
+
+.quem-confia .carousel-track{ display:flex; gap:28px; align-items:center; }
+
+/* (2) Tamanho das logos por viewport */
+.quem-confia .carousel-item img{
+  height: clamp(120px, 12.6vw, 200px);   /* reduz e torna fluído */
+  width: auto;
+  object-fit: contain;
+  filter: none;
 }
-.client-logo{ height: 80px; width:auto; display:block; margin:0 auto; }
-@media (max-width: 600px){
-  .quem-confia .carousel-track{ flex-wrap: wrap; justify-content: center; gap: 18px; }
-  .client-logo{ height: 56px; }
+.quem-confia .carousel-track{ gap:100px; }
+@media (max-width:600px){
+  .quem-confia .carousel-track{ gap:50px; }
+  .quem-confia .carousel-item{ width:50px; }
 }
 
 /* =====================================================================
-   SEGMENTOS — imagem em cima, linha lateral no título, CTA visível
+   SEGMENTOS
    ===================================================================== */
-.segmentos .segmento-item{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-  align-items: start;
-  border-radius: 12px;
-  padding: 14px;
+.segmentos .carousel-content{ overflow:hidden; }
+.segmentos .segmento-item{ display:grid; }
+.segmentos .segmento-image img{
+  width:100%; height:100%; object-fit:cover; border-radius:12px;
 }
-.segmentos .segmento-image img{ width:100%; border-radius:12px; border-radius: 12px;}
+.segmento-titulo{ position:relative; padding-left:14px; margin:0 0 6px; }
+.cta-verifique-sections{ display:inline-flex; align-items:center; gap:8px; }
+@media (max-width:768px){ .cta-verifique-sections{ width:100%; justify-content:center; } }
 
-.segmentos .segmento-titulo{
-  position: relative;
-  padding-left: 14px;
-  margin: 0 0 6px;
-}
-.segmentos .segmento-titulo::before{
-  content:"";
-  position:absolute; left:0; top:0.15em; bottom:0.15em;
-  width: 6px; border-radius:3px; background:#1AB1C7;
-}
+/* =====================================================================
+   TECNOLOGIAS
+   ===================================================================== */
+.tecnologias-content{ grid-template-columns:1fr 1fr; gap:40px; }
+@media (max-width:1024px){ .tecnologias-content{ grid-template-columns:1fr; } }
 
-/* CTA por segmento — sempre visível, no mobile ocupa 100% */
-.cta-verifique-sections{
-  display:inline-flex; align-items:center; justify-content:center;
-  gap: 8px;
-  background:#2E3F5B; color:#fff;
-  padding: 12px 16px; border-radius: 12px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.12);
-  text-align:center;
-}
-.cta-verifique-sections a{ color:#fff; text-decoration:none; }
-@media (max-width: 768px){
-  .cta-verifique-sections{ width:100%; }
+/* =====================================================================
+   PARCEIROS / PROJETOS
+   ===================================================================== */
+.parceiros-grid{ grid-template-columns:repeat(2,1fr); gap:24px; }
+@media (max-width:1200px){ .parceiros-grid{ grid-template-columns:1fr; } }
+
+/* =====================================================================
+   SERVIÇOS
+   ===================================================================== */
+.servicos-grid{ grid-template-columns:repeat(3,1fr); gap:24px; }
+@media (max-width:1200px){ .servicos-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:768px){
+  .servicos-grid{ grid-template-columns:1fr; gap:16px; }
+  .servico-cta, .servico-cta-servicos{ width:100%; justify-content:center; }
 }
 
 /* =====================================================================
-   Extras de segurança/respiração
+   VÍDEO
    ===================================================================== */
-.servicos-grid, .solucoes-grid, .stats-grid, .segmentos .carousel-content{ min-width:0; }
-@media (max-width: 360px){
-  .servicos, .stats, .nossas-solucoes, .quem-confia, .segmentos{
-    padding-left: 12px !important; padding-right: 12px !important;
+.video-container{ max-width:1100px; margin-inline:auto; }
+
+/* =====================================================================
+   WHATSAPP COMERCIAL
+   ===================================================================== */
+.whatsapp-comercial{ display:flex; gap:20px; align-items:center; }
+@media (max-width:768px){
+  .whatsapp-comercial{ flex-direction:column; align-items:stretch; }
+  .whatsapp-comercial-content{ grid-template-columns:1fr; gap:16px; }
+  .whatsapp-comercial-button{ width:100%; }
+}
+
+/* =====================================================================
+   FALE CONOSCO
+   ===================================================================== */
+.fale-conosco-content{ grid-template-columns:1.5fr 1fr; gap:30px; }
+@media (max-width:1024px){ .fale-conosco-content{ grid-template-columns:1fr; } }
+.form-button{ width:100%; }
+
+/* =====================================================================
+   BOTÕES — regra comum p/ telas pequenas
+   ===================================================================== */
+@media (max-width:480px){
+  .cta-comprar, .solucao-cta, .segmento-cta, .cta-verifique-sections,
+  .acesso-cta, .servico-cta, .servico-cta-servicos, .tecnologia-cta{
+    inline-size:100%;
+    justify-content:center;
   }
 }

@@ -17,8 +17,6 @@ img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
 main, section, header, footer{ max-width:100%; }
 
 /* ===== Seção Serviços (cards 3→2→1) ===== */
-.servicos-container{ max-width: 1200px; margin-inline:auto; }
-.servicos-header{ max-width: 960px; margin: 0 auto 12px; text-align:center; }
 .servicos-grid{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin-top: 18px; }
 .servico-card{ display:flex; flex-direction:column; gap:12px; padding:18px; min-width:0; }
 .servico-icon{ width:64px; height:64px; }
@@ -32,8 +30,6 @@ main, section, header, footer{ max-width:100%; }
 @media (max-width:768px){ .servicos-grid{ grid-template-columns: 1fr; } }
 
 /* ===== Nossas Soluções (2 cards lado a lado → 1) ===== */
-.nossas-solucoes-container{ max-width: 1200px; margin-inline:auto; }
-.nossas-solucoes-header{ max-width: 960px; margin: 0 auto 12px; text-align:center; }
 .solucoes-grid-app{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 18px; }
 .solucao-card{ display:flex; flex-direction:column; gap: 10px; padding: 18px; min-width:0; }
 .solucao-imagem-app{ width:100%; border-radius:12px; }
@@ -42,7 +38,6 @@ main, section, header, footer{ max-width:100%; }
 @media (max-width:1024px){ .solucoes-grid-app{ grid-template-columns: 1fr; } }
 
 /* ===== Diferenciais (2 colunas → 1; texto sem padding-left em mobile) ===== */
-.porque-escolher-container{ max-width: 1200px; margin-inline:auto; }
 .porque-escolher-content{ display:grid; grid-template-columns: 1fr 1.1fr; gap: 24px; align-items:center; }
 .float-wrapper{ display:flex; justify-content:center; }
 .phone{ width: 280px; position: relative; }
@@ -73,6 +68,11 @@ main, section, header, footer{ max-width:100%; }
     width: 0;
     height: 0;                   /* Chrome/Safari/Edge */
   }
+}
+@media (max-width: 1920px){
+  .servicos {padding: 80px 300px 60px 300px;}
+  .nossas-solucoes {padding: 60px 300px;}
+  .porque-escolher-educacao {padding: 60px 300px;}
 }
 
 /* === Mobile padding override (alta especificidade) === */

@@ -1,73 +1,74 @@
-// ========================================
-// DROPDOWN MENU SEGMENTOS
-// ========================================
+/* ===========================
+   MENU HAMBÚRGUER – OFF-CANVAS
+   =========================== */
+(function () {
+  const navbar = document.querySelector(".navbar");
+  const toggleBtn = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  const desktopBreakpoint = 993; // >= 993px volta para layout desktop
 
-// ========== MENU MOBILE (acessível, sem duplicação) ==========
-// ========== MENU MOBILE (acessível, sem duplicação) ==========
-(() => {
-  const btn  = document.querySelector('.menu-toggle');
-  const nav  = document.querySelector('.navbar');
-  const list = nav ? nav.querySelector('.nav-links') : null;
-  if (!btn || !nav || !list) return;
+  if (!navbar || !toggleBtn || !navLinks) return;
 
-  const open = () => {
-    nav.classList.add('active');
-    btn.setAttribute('aria-expanded','true');
-    document.documentElement.style.overflow = 'hidden'; // trava scroll de fundo
-  };
-  const close = () => {
-    nav.classList.remove('active');
-    btn.setAttribute('aria-expanded','false');
-    document.documentElement.style.overflow = '';
-  };
+  // Clonar CTA para dentro do painel mobile (como último item)
+  let ctaInjected = false;
+  function ensureMobileCTA() {
+    if (ctaInjected) return;
+    const cta = document.querySelector(".cta-comprar");
+    if (!cta) return;
 
-  btn.addEventListener('click', () => nav.classList.contains('active') ? close() : open());
+    const li = document.createElement("li");
+    li.className = "cta-mobile";
+    const cloned = cta.cloneNode(true);
+    cloned.classList.remove("cta-comprar");
+    cloned.classList.add("cta-mobile-link");
+    li.appendChild(cloned);
+    navLinks.appendChild(li);
+    ctaInjected = true;
+  }
 
-  // Fecha ao clicar fora do painel ou em um link
-  document.addEventListener('click', (e) => {
-    const insideNav = e.target.closest('.navbar');
-    const link = e.target.closest('.nav-links a');
-    if ((!insideNav && nav.classList.contains('active')) || link) close();
-  });
+  // ABRIR/FECHAR
+  function openMenu() {
+    navbar.classList.add("is-open");
+    toggleBtn.setAttribute("aria-expanded", "true");
+    document.body.classList.add("no-scroll");
+    ensureMobileCTA();
+  }
+  function closeMenu() {
+    navbar.classList.remove("is-open");
+    toggleBtn.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("no-scroll");
+  }
+  function toggleMenu(e) {
+    e?.stopPropagation();
+    if (navbar.classList.contains("is-open")) closeMenu();
+    else openMenu();
+  }
 
-  // Fecha no ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && nav.classList.contains('active')) close();
-  });
+  // Clique no botão
+  toggleBtn.addEventListener("click", toggleMenu);
 
-  // Se voltou para desktop, reseta
-  const mq = window.matchMedia('(min-width:1025px)');
-  mq.addEventListener('change', () => mq.matches && close());
-})();
-
-// ========== DROPDOWNS (desktop = hover; mobile = clique) ==========
-(() => {
-  const DROPDOWN_BP = 1024;
-  document.querySelectorAll('.dropdown').forEach(dd => {
-    const toggle = dd.querySelector('.dropdown-toggle');
-    const menu   = dd.querySelector('.dropdown-menu');
-    if (!toggle || !menu) return;
-
-    // Desktop: manter hover via CSS; Mobile: clique para abrir/fechar
-    toggle.addEventListener('click', (e) => {
-      if (window.innerWidth <= DROPDOWN_BP) {
-        e.preventDefault();
-        const open = !dd.classList.contains('mobile-open');
-        document.querySelectorAll('.dropdown.mobile-open').forEach(x => x.classList.remove('mobile-open'));
-        dd.classList.toggle('mobile-open', open);
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      }
-    });
-  });
-
-  // Fecha dropdowns ao clicar fora
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown')) {
-      document.querySelectorAll('.dropdown.mobile-open').forEach(x => x.classList.remove('mobile-open'));
+  // Clique fora do painel para fechar
+  document.addEventListener("click", (e) => {
+    if (!navbar.classList.contains("is-open")) return;
+    if (!navLinks.contains(e.target) && e.target !== toggleBtn) {
+      closeMenu();
     }
   });
-})();
 
+  // Tecla ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  // Ao redimensionar para desktop, garante reset
+  function handleResize() {
+    if (window.innerWidth >= desktopBreakpoint) {
+      closeMenu();
+    }
+  }
+  window.addEventListener("resize", handleResize);
+  handleResize();
+ });
 // ========================================
 // CARROSSEL DO HERO - VERSÃO CORRIGIDA
 // ========================================
@@ -158,16 +159,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-// Toggle menu mobile
-const menuToggle = document.querySelector('.menu-toggle');
-const navbar = document.querySelector('.navbar');
-
-if (menuToggle && navbar) {
-    menuToggle.addEventListener('click', () => {
-        navbar.classList.toggle('active');
-    });
-}
 
 // ========================================
 // NAVEGAÇÃO ATIVA
@@ -855,45 +846,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-(function () {
-    const btn  = document.querySelector('.menu-toggle');
-    const nav  = document.querySelector('.navbar');
-    const list = nav ? nav.querySelector('.nav-links') : null;
-
-    if (!btn || !nav || !list) return;
-
-    const open = () => {
-      nav.classList.add('active');
-      btn.setAttribute('aria-expanded', 'true');
-      document.documentElement.style.overflow = 'hidden';  // bloqueia scroll do fundo
-    };
-    const close = () => {
-      nav.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
-      document.documentElement.style.overflow = '';        // libera scroll
-    };
-
-    btn.addEventListener('click', () => {
-      nav.classList.contains('active') ? close() : open();
-    });
-
-    // Fecha ao clicar em link ou fora do painel
-    document.addEventListener('click', (e) => {
-      const clickedInside = e.target.closest('.navbar');
-      if (!clickedInside && nav.classList.contains('active')) close();
-      const link = e.target.closest('.nav-links a');
-      if (link) close();
-    });
-
-    // Fecha no ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && nav.classList.contains('active')) close();
-    });
-
-    // Se voltar para >1024px, reseta
-    const mq = window.matchMedia('(min-width:1025px)');
-    mq.addEventListener('change', () => mq.matches && close());
-  })();
+;
 
 /* ========== Tabs de Arquitetura ========== */
 (() => {
