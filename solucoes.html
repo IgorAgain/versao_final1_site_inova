@@ -25,6 +25,23 @@
                 <div class="logo">
                     <a href="index.html"><img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image"></a>
                 </div>
+
+                <button class="menu-toggle"
+                    aria-label="Abrir menu"
+                    aria-controls="primary-navigation"
+                    aria-expanded="false">
+                    <!-- Ícone hambúrguer -->
+                    <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 6h18M3 12h18M3 18h18"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <!-- Ícone X -->
+                    <svg class="icon icon-x" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 6l12 12M18 6L6 18"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+
                 <nav class="navbar" id="primary-navigation">
                     <ul class="nav-links" role="menubar" aria-label="Navegação principal">
                         <li><a href="index.html">HOME</a></li>
@@ -54,13 +71,6 @@
 
                     <!-- CTA como link (sem <button> extra) -->
                     <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
-
-                    <!-- Botão hambúrguer acessível -->
-                    <button class="menu-toggle" aria-label="Abrir menu" aria-controls="primary-navigation" aria-expanded="false">
-                        <span class="bar" aria-hidden="true"></span>
-                        <span class="bar" aria-hidden="true"></span>
-                        <span class="bar" aria-hidden="true"></span>
-                    </button>
                 </nav>
             </div>
         </header>
@@ -99,9 +109,9 @@
             <header class="seg-head">
                 <div class="servicos-header">
                 <h2 class="servicos-title">Controle de Acesso, Aplicativos e Ponto Eletrônico</h2>
-                <h3 class="servicos-subtitle">
+                <p class="servicos-subtitle">
                     Segurança e agilidade com <strong>reconhecimento facial</strong>, <strong>QR Code</strong> e <strong>cartão RFID</strong>, aplicativo de credencial digital (iOS/Android) e <strong>ponto eletrônico conforme Portaria 671</strong>. Tudo integrado ao seu <strong>ERP</strong> (Empresas e Condomínios) ou <strong>ERP/SGA</strong> (Instituições de Ensino).
-                </h3>
+                </p>
                 </div>
             </header>
 
@@ -126,7 +136,7 @@
             <header class="seg-head">
                 <div class="servicos-header">
                 <h2 class="servicos-title">Portfólio de Soluções Inova</h2>
-                <h3 class="servicos-subtitle">Contrate Acessos, Aplicativos, Ponto e Integrações como módulos independentes ou em pacote integrado ao seu <strong>ERP</strong> (Empresas e Condomínios) ou <strong>ERP/SGA</strong> (Instituições de Ensino).</h3>
+                <p class="servicos-subtitle">Contrate Acessos, Aplicativos, Ponto e Integrações como módulos independentes ou em pacote integrado ao seu <strong>ERP</strong> (Empresas e Condomínios) ou <strong>ERP/SGA</strong> (Instituições de Ensino).</p>
                 </div>
             </header>
 
@@ -222,7 +232,7 @@
             <header class="seg-head">
                 <div class="servicos-header">
                 <h2 class="servicos-title">Como funciona a implantação</h2>
-                <h3 class="servicos-subtitle">Descobrimos o cenário, implantamos, <strong>integramos ao seu ERP</strong> (ou <strong>ERP/SGA</strong> em Instituições de Ensino) e garantimos o go-live com <strong>suporte contínuo</strong>.</h3>
+                <p class="servicos-subtitle">Descobrimos o cenário, implantamos, <strong>integramos ao seu ERP</strong> (ou <strong>ERP/SGA</strong> em Instituições de Ensino) e garantimos o go-live com <strong>suporte contínuo</strong>.</p>
                 </div>
             </header>
 
@@ -255,7 +265,7 @@
                 <header class="seg-head">
                     <div class="servicos-header">
                     <h2 class="servicos-title">Casos de uso por segmento</h2>
-                    <h3 class="servicos-subtitle">Aplicações em <strong>Instituições de Ensino</strong>, <strong>Empresas</strong> e <strong>Ponto Eletrônico</strong>.</h3>
+                    <p class="servicos-subtitle">Aplicações em <strong>Instituições de Ensino</strong>, <strong>Empresas</strong> e <strong>Ponto Eletrônico</strong>.</p>
                     </div>
                 </header>
 
@@ -265,8 +275,8 @@
                     <img src="assets/img/imagem controle de acesso 1.png"
                         alt="Instituições de Ensino — entrada, biblioteca, eventos e portal do aluno" loading="lazy" decoding="async">
                     <div class="stripe-overlay">
-                        <h3>Instituições de Ensino</h3>
-                        <p>Entrada, biblioteca, eventos e portal do aluno.</p>
+                        <h3>Controles de Acesso</h3>
+                        <p>Entrada, segurança, eventos e gestão de pessoas.</p>
                     </div>
                     </a>
 
@@ -275,8 +285,8 @@
                     <img src="assets/img/imagem controle de acesso 2.jpg"
                         alt="Empresas — portarias, visitantes, auditoria e compliance" loading="lazy" decoding="async">
                     <div class="stripe-overlay">
-                        <h3>Empresas</h3>
-                        <p>Portarias, visitantes, auditoria e compliance.</p>
+                        <h3>Aplicativos</h3>
+                        <p>QR Code dinâmico, entradas e informações gerais.</p>
                     </div>
                     </a>
 
@@ -297,7 +307,7 @@
             <header class="seg-head">
                 <div class="servicos-header">
                 <h2 class="servicos-title">Comparativo de credenciais de acesso</h2>
-                <h3 class="servicos-subtitle"><strong>Reconhecimento facial</strong> vs. <strong>QR Code</strong> vs. <strong>Cartão RFID</strong>: quando usar cada um.</h3>
+                <p class="servicos-subtitle"><strong>Reconhecimento facial</strong> vs. <strong>QR Code</strong> vs. <strong>Cartão RFID</strong>: quando usar cada um.</p>
                 </div>
             </header>
 

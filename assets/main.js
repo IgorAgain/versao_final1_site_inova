@@ -2,35 +2,65 @@
    MENU HAMBÚRGUER – OFF-CANVAS
    =========================== */
 (() => {
-  const btn  = document.querySelector('.menu-toggle');
-  const nav  = document.querySelector('.navbar');
+  const btn = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('.navbar');
   if (!btn || !nav) return;
+
+  // Cria o backdrop uma vez
+  let backdrop = document.querySelector('.nav-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+  }
 
   const open = () => {
     nav.classList.add('active');
     btn.classList.add('is-open');
-    btn.setAttribute('aria-expanded','true');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Fechar menu');
     document.body.classList.add('no-scroll');
+    backdrop.classList.add('show');
   };
+
   const close = () => {
     nav.classList.remove('active');
     btn.classList.remove('is-open');
-    btn.setAttribute('aria-expanded','false');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Abrir menu');
     document.body.classList.remove('no-scroll');
+    backdrop.classList.remove('show');
   };
 
-  btn.addEventListener('click', () =>
-    nav.classList.contains('active') ? close() : open()
-  );
-
-  document.addEventListener('click', (e) => {
-    if (nav.classList.contains('active') && !e.target.closest('.navbar')) close();
+  // Toggle no botão
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); // impede fechar imediato pelo handler global
+    nav.classList.contains('active') ? close() : open();
   });
 
+  // Clique fora: fecha (ignora cliques no botão)
+  document.addEventListener('click', (e) => {
+    if (
+      nav.classList.contains('active') &&
+      !e.target.closest('.navbar') &&
+      !e.target.closest('.menu-toggle')
+    ) {
+      close();
+    }
+  });
+
+  // Backdrop fecha
+  backdrop.addEventListener('click', close);
+
+  // Tecla ESC fecha
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && nav.classList.contains('active')) close();
   });
+
+  // Garante estado fechado no carregamento
+  close();
 })();
+
 // ========================================
 // CARROSSEL DO HERO - VERSÃO CORRIGIDA
 // ========================================

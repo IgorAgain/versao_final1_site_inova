@@ -81,23 +81,7 @@ html{
     min-height: 100vh;
 }
 
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 200;
-}
 
-.menu-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #2E3F5B;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
 
 /* Header */
 .header{
@@ -4862,15 +4846,7 @@ html{
   }
 }
 
-/* ===== Regra global: esconder CTA do header em <650px ===== */
-@media (max-width: 650px){
-  .btn-contratar,
-  .cta-contratar,
-  .header .nav-cta,
-  .navbar a[href*="contratar"]{
-    display: none !important;
-  }
-}
+
 
 /* Ocultar barra no mobile */
 @media (max-width: 500px){
@@ -4976,182 +4952,6 @@ html{
   .banner-title {margin-left: 0 !important;}
 }
 
-@media (max-width:1024px){
-  .header .navbar .nav-links{
-    position: fixed !important;
-    top: 0; right: 0; bottom: 0;
-    width: min(88vw, 360px);
-    background: #fff;
-    padding: 24px 20px;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 14px;
-    transform: translateX(100%);
-    transition: transform .35s cubic-bezier(.2,.8,.2,1);
-    box-shadow: -12px 0 30px rgba(0,0,0,.14);
-    border-radius: 12px 0 0 12px;
-    z-index: 2200;
-    /* o JS seta height/max-height/overflow para 100vh quando abre */
-  }
-  .header .navbar.active .nav-links{ transform: translateX(0); }
-
-  .nav-overlay{
-    position: fixed; inset: 0;
-    background: rgba(0,0,0,.4);
-    opacity: 0; pointer-events: none;
-    transition: opacity .3s ease;
-    z-index: 2100;
-  }
-  .navbar.active ~ .nav-overlay{ opacity: 1; pointer-events: auto; }
-
-  /* hambúrguer → X (as três barras) */
-  .menu-toggle.is-open .bar:nth-child(1){ transform: translateY(8px) rotate(45deg); }
-  .menu-toggle.is-open .bar:nth-child(2){ opacity: 0; }
-  .menu-toggle.is-open .bar:nth-child(3){ transform: translateY(-8px) rotate(-45deg); }
-
-  /* acordeão dos submenus (o JS controla max-height) */
-  .nav-links .has-dropdown > .dropdown,
-  .nav-links .has-dropdown > .submenu,
-  .nav-links .has-dropdown > .dropdown-menu{
-    overflow: hidden;
-  }
-}
-
-/* ==========================================================
-   OFF-CANVAS (MOBILE) – MENU HAMBÚRGUER
-   ========================================================== */
-.menu-toggle {
-  display: none;
-  background: transparent;
-  border: 0;
-  padding: 8px;
-  cursor: pointer;
-}
-.menu-toggle .bar {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: #2E3F5B;
-  margin: 5px 0;
-  transition: transform .3s ease, opacity .3s ease;
-}
-
-/* Evita rolagem do body quando o menu está aberto */
-.no-scroll { overflow: hidden; }
-
-/* Backdrop usando pseudo-elemento do .navbar */
-.navbar { position: relative; z-index: 10; }
-.navbar::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, .45);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .3s ease;
-}
-.navbar.is-open::before {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Painel lateral */
-@media (max-width: 992px) {
-
-  /* Mostra botão hambúrguer no mobile */
-  .menu-toggle { display: inline-flex; align-items: center; justify-content: center; margin-left: auto; z-index: 1001; }
-
-  /* Animação do hambúrguer para "X" */
-  .navbar.is-open .menu-toggle .bar:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-  .navbar.is-open .menu-toggle .bar:nth-child(2) {
-    opacity: 0;
-  }
-  .navbar.is-open .menu-toggle .bar:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-
-  /* Transforma a UL em painel off-canvas */
-  .navbar .nav-links {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: min(84vw, 420px);
-    transform: translateX(100%);
-    transition: transform .35s ease;
-    background: #fff;
-    border-radius: 16px 0 0 16px;
-    box-shadow: -16px 0 32px rgba(0,0,0,.18);
-    padding: 24px 24px 120px;   /* espaço para o CTA fixo ao fim */
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    overflow-y: auto;
-    z-index: 1000;
-  }
-  .navbar.is-open .nav-links { transform: translateX(0); }
-
-  /* Links principais */
-  .navbar .nav-links > li > a {
-    display: block;
-    padding: 12px 4px;
-    font-size: 16px;
-    font-weight: 500;
-    color: #2E3F5B;
-  }
-
-  /* Submenus SEM necessidade de clicar: sempre visíveis no mobile */
-  .navbar .dropdown .dropdown-menu {
-    display: block !important;
-    background: #F6F8FA;
-    border-radius: 12px;
-    padding: 14px 16px;
-    margin: 8px 0 14px;
-  }
-  .navbar .dropdown .drop-down-menu-item {
-    display: block;
-    padding: 8px 0;
-    color: #46556F;
-    font-size: 15px;
-  }
-
-  /* Esconde o CTA do topo no mobile (vamos inserir um clone no painel) */
-  .cta-comprar { display: none !important; }
-
-  /* CTA móvel no fim do painel (clonado por JS) */
-  .nav-links .cta-mobile {
-    list-style: none;
-    margin-top: 8px;
-    padding-top: 12px;
-    position: sticky;
-    bottom: 0;
-    background: #fff;
-  }
-  .nav-links .cta-mobile-link,
-  .nav-links .cta-mobile-link span,
-  .nav-links .cta-mobile-link span a {
-    display: block;
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
-  }
-  .nav-links .cta-mobile-link {
-    background: #2E3F5B;
-    color: #fff;
-    border-radius: 12px;
-    padding: 14px 16px;
-    font-weight: 600;
-  }
-  .nav-links .cta-mobile-link:hover { filter: brightness(1.05); }
-}
-
-/* Garante layout desktop intacto */
-@media (min-width: 993px) {
-  .navbar .nav-links { transform: none !important; position: static; height: auto; width: auto; padding: 0; box-shadow: none; border-radius: 0; }
-  .navbar::before { display: none; }
-}
 
 /* ===== WhatsApp FAB (flutuante) ===== */
 :root{
@@ -5220,43 +5020,184 @@ html{
   clip: rect(0 0 0 0); white-space:nowrap; border:0; padding:0; margin:-1px;
 }
 
-/* ==== NAV MOBILE – Drawer unificado ==== */
-@media (max-width:1024px){
-  .menu-toggle{display:inline-flex; margin-left:auto; z-index:2201}
-  .navbar{position:relative; z-index:2200}
-
-  /* Backdrop (alinhado com .active do JS) */
-  .navbar::before{
-    content:""; position:fixed; inset:0;
-    background:rgba(0,0,0,.45);
-    opacity:0; pointer-events:none; transition:opacity .3s ease;
+/* ===========================
+   NAV MOBILE (OFF-CANVAS)
+   =========================== */
+@media (max-width: 1024px) {
+  /* Gaveta lateral */
+  .header .navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(86vw, 360px);
+    height: 100dvh;
+    padding: 24px 16px 32px;
+    background: #fff;
+    box-shadow: -12px 0 28px rgba(0,0,0,.16);
+    transform: translateX(100%);          /* escondido por padrão */
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), visibility 0s linear .35s;
+    visibility: hidden;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
   }
-  .navbar.active::before{opacity:1; pointer-events:auto}
-
-  /* Painel lateral (“drawer”) */
-  .navbar .nav-links{
-    position:fixed; top:0; right:0;
-    height:100dvh;                    /* corrige barra de URL do mobile */
-    width:min(88vw, 380px);
-    transform:translateX(100%);
-    transition:transform .35s ease;
-    background:#fff; border-radius:16px 0 0 16px;
-    box-shadow:-16px 0 32px rgba(0,0,0,.18);
-    padding:24px 20px max(24px, env(safe-area-inset-bottom));
-    display:flex; flex-direction:column; gap:10px;
-    overflow:auto; z-index:2202;
-  }
-  .navbar.active .nav-links{ transform:translateX(0) }
-
-  /* Muito pequenas: ocupar toda a largura */
-  @media (max-width:360px){
-    .navbar .nav-links{ width:100vw; border-radius:0 }
+  .header .navbar.active {
+    transform: translateX(0);
+    visibility: visible;
+    transition-delay: 0s;
   }
 
-  /* Dropdown como acordeão no mobile */
-  .nav-links .dropdown-menu{ display:none; background:#F6F8FA; border-radius:12px; padding:12px; margin:6px 0 10px }
-  .nav-links .dropdown.mobile-open .dropdown-menu{ display:block }
+  .header .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    overflow: auto;
+    padding-right: 6px;
+    margin: 12px 0 16px;
+  }
+
+  /* Botão CTA vai para o rodapé da gaveta */
+  .header .cta-comprar {
+    margin-top: auto;
+  }
+
+  /* Botão hambúrguer */
+  .menu-toggle {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    z-index: 1100; /* acima da gaveta e do backdrop */
+    cursor: pointer;
+  }
+  .menu-toggle .bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #2E3F5B;
+    border-radius: 2px;
+    transition: transform .3s ease, opacity .2s ease;
+  }
+  .menu-toggle .bar + .bar { margin-top: 5px; }
+
+  /* Animação para "X" */
+  .menu-toggle.is-open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .menu-toggle.is-open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.is-open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Bloqueia scroll do body quando menu aberto */
+  body.no-scroll { overflow: hidden; }
+
+  /* Backdrop (clicar fora) */
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s ease;
+    z-index: 950;
+  }
+  .nav-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
-/* Bloquear rolagem do body quando o menu está aberto */
-.no-scroll{ overflow:hidden }
+/* Desktop mantém layout atual e esconde o hambúrguer */
+@media (min-width: 1025px) {
+  .menu-toggle { display: none; }
+  .header .navbar {
+    position: static;
+    transform: none !important;
+    visibility: visible !important;
+    box-shadow: none;
+    height: auto;
+    width: auto;
+  }
+  .header .nav-links {
+    flex-direction: row;
+    overflow: visible;
+    gap: 24px;
+    margin: 0;
+  }
+}
+
+/* Header como linha: logo à esquerda, botão à direita */
+.header .header-content{
+  display:flex;
+  align-items:center;           /* centraliza verticalmente com o logo */
+}
+
+/* Botão quadrado “flutuante” mas alinhado visualmente ao header */
+@media (max-width:1024px){
+  .menu-toggle{
+    position: relative;         /* (antes era fixed) fica dentro da linha do header */
+    margin-left:auto;           /* vai para a direita */
+    width:44px; height:44px;
+    display:inline-flex; align-items:center; justify-content:center;
+    background:#fff; border:0; border-radius:12px;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+    z-index:1100;               /* acima da gaveta e do backdrop */
+    cursor:pointer;
+  }
+
+  /* Ícones */
+  .menu-toggle .icon{ width:22px; height:22px; color:#2E3F5B; display:block }
+  .menu-toggle .icon-x{ display:none }
+  .menu-toggle.is-open .icon-menu{ display:none }
+  .menu-toggle.is-open .icon-x{ display:block }
+}
+
+/* Em desktop, esconder botão */
+@media (min-width:1025px){
+  .menu-toggle{ display:none }
+}
+
+/* Alinhamento do header no mobile */
+@media (max-width:1024px){
+  .header .header-content{
+    position: relative;         /* referência para o botão */
+    display: flex;
+    align-items: center;        /* alinha a logo verticalmente */
+    padding: 10px 16px;
+    min-height: 64px;           /* altura confortável do header */
+  }
+
+  /* evita “sombra” de linha de base da imagem sem mudar seu tamanho */
+  .header .logo img{
+    display: block;             /* sem alterar width/height */
+  }
+
+  /* Botão: centralizado verticalmente na mesma linha da logo */
+  .menu-toggle{
+    position: absolute;
+    right: 16px;                /* distância da borda direita */
+    top: 50%;
+    transform: translateY(-50%);/* centraliza verticalmente */
+    margin: 0;                  /* zera qualquer margem antiga */
+    z-index: 1100;
+  }
+}
+
+/* ===== Desliga qualquer backdrop do menu mobile ===== */
+.navbar::before { content: none !important; }
+.navbar.active::before,
+.navbar.is-open::before { opacity: 0 !important; pointer-events: none !important; }
+
+/* Se existir o elemento injetado via JS, mantenha-o invisível */
+.nav-backdrop { display: none !important; }

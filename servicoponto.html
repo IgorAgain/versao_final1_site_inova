@@ -24,9 +24,26 @@
                 <div class="logo">
                     <a href="index.html"><img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image"></a>
                 </div>
+
+                <button class="menu-toggle"
+                    aria-label="Abrir menu"
+                    aria-controls="primary-navigation"
+                    aria-expanded="false">
+                    <!-- Ícone hambúrguer -->
+                    <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 6h18M3 12h18M3 18h18"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <!-- Ícone X -->
+                    <svg class="icon icon-x" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6 6l12 12M18 6L6 18"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+
                 <nav class="navbar" id="primary-navigation">
                     <ul class="nav-links" role="menubar" aria-label="Navegação principal">
-                        <li><a  href="index.html">HOME</a></li>
+                        <li><a href="index.html">HOME</a></li>
                         <li><a href="solucoes.html">SOLUÇÕES</a></li>
 
                         <li class="dropdown">
@@ -53,13 +70,6 @@
 
                     <!-- CTA como link (sem <button> extra) -->
                     <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
-
-                    <!-- Botão hambúrguer acessível -->
-                    <button class="menu-toggle" aria-label="Abrir menu" aria-controls="primary-navigation" aria-expanded="false">
-                        <span class="bar" aria-hidden="true"></span>
-                        <span class="bar" aria-hidden="true"></span>
-                        <span class="bar" aria-hidden="true"></span>
-                    </button>
                 </nav>
             </div>
         </header>
