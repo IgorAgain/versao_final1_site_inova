@@ -58,7 +58,9 @@ img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
 .recurso-body{ min-width:0; }
 @media (max-width:500px){ .recurso-row{ grid-template-columns:32px 1fr; padding:14px; gap:10px; } .recurso-icon{ width:32px; height:32px; } }
 
-@media (max-width:1920px){ 
+
+
+@media (min-width:1920px){ 
   .ponto-section{padding: 80px 300px 60px 300px;}
   .ponto-consultoria{padding: 60px 300px;}  
   .ponto-recursos-avancados{padding: 60px 300px;}  
@@ -105,3 +107,24 @@ img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
 
 /* garante que o arredondado do container não “corte” feio */
 .ponto-band{ overflow: hidden; }
+
+/* layout em colunas da seção */
+.ponto-recursos-avancados .recursos-rail{
+  display: grid;
+  grid-template-columns: minmax(280px,420px) 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* deixa o aside “grudado” enquanto rola */
+.ponto-recursos-avancados .recursos-aside{
+  position: sticky;
+  top: 110px;         /* ajuste conforme a altura do seu header */
+  align-self: start;  /* garante que o sticky funcione dentro do grid */
+}
+
+/* mobile: desativa o sticky e empilha */
+@media (max-width:1024px){
+  .ponto-recursos-avancados .recursos-rail{ grid-template-columns: 1fr; }
+  .ponto-recursos-avancados .recursos-aside{ position: static; }
+}

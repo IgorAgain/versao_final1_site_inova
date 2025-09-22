@@ -1,559 +1,533 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inova Tecnologia -Soluções de Controle de Acesso para Condomínios</title>
-    <link rel="stylesheet" href="assets/main.css">
-    <link rel="stylesheet" href="assets/condominios.responsive.css">
-    <script src="assets/main.js" defer></script>
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Controle de Acesso para Condomínios | Inova Access com QR Code, Reconhecimento Facial e Cartão RFID</title>
 
-    <!-- Favicon - Logo na guia do navegador -->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+  <meta name="description" content="Portarias inteligentes para condomínios: Inova Access com QR Code, Reconhecimento Facial, Cartão RFID, convites de visitantes e compatibilidade multimarcas. Suporte com instalação, treinamentos e visitas técnicas."/>
+  <link rel="stylesheet" href="assets/main.css"/>
+  <link rel="stylesheet" href="assets/condominios.responsive.css"/>
+  <script src="assets/main.js" defer></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
 </head>
 <body>
     <div class="page-container">
         <!-- Header -->
         <header class="header">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html"><img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image"></a>
-                </div>
-                <nav class="navbar" id="primary-navigation">
-                    <ul class="nav-links" role="menubar" aria-label="Navegação principal">
-                        <li><a  href="index.html">HOME</a></li>
-                        <li><a href="solucoes.html">SOLUÇÕES</a></li>
-
-                        <li class="dropdown">
-                        <a href="segmentos.html" class="dropdown-toggle active" role="button" aria-expanded="false" aria-controls="menu-segmentos">SEGMENTOS</a>
-                        <ul id="menu-segmentos" class="dropdown-menu">
-                            <li><a class="drop-down-menu-item" href="educacao.html">Instituições de Ensino</a></li>
-                            <li><a class="drop-down-menu-item" href="empresas.html">Empresas</a></li>
-                            <li><a class="drop-down-menu-item" href="condominios.html">Condomínios</a></li>
-                        </ul>
-                        </li>
-
-                        <li class="dropdown">
-                        <a href="servicos.html" class="dropdown-toggle" role="button" aria-expanded="false" aria-controls="menu-servicos">SERVIÇOS</a>
-                        <ul id="menu-servicos" class="dropdown-menu">
-                            <li><a class="drop-down-menu-item" href="servicoacesso.html">Acessos</a></li>
-                            <li><a class="drop-down-menu-item" href="servicoaplicativo.html">Aplicativos</a></li>
-                            <li><a class="drop-down-menu-item" href="servicoponto.html">Ponto</a></li>
-                            <li><a class="drop-down-menu-item" href="servicosuporte.html">Suporte</a></li>
-                        </ul>
-                        </li>
-
-                        <li><a href="clientes.html">CLIENTES</a></li>
-                    </ul>
-
-                    <!-- CTA como link (sem <button> extra) -->
-                    <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
-
-                    <!-- Botão hambúrguer acessível -->
-                    <button class="menu-toggle" aria-label="Abrir menu" aria-controls="primary-navigation" aria-expanded="false">
-                        <span class="bar" aria-hidden="true"></span>
-                        <span class="bar" aria-hidden="true"></span>
-                        <span class="bar" aria-hidden="true"></span>
-                    </button>
-                </nav>
+        <div class="header-content">
+            <div class="logo">
+            <a href="index.html"><img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image"></a>
             </div>
+
+            <nav class="navbar" id="primary-navigation">
+            <ul class="nav-links" role="menubar" aria-label="Navegação principal">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="solucoes.html">SOLUÇÕES</a></li>
+
+                <li class="dropdown">
+                <a href="segmentos.html" class="dropdown-toggle active" role="button" aria-expanded="false" aria-controls="menu-segmentos">SEGMENTOS</a>
+                <ul id="menu-segmentos" class="dropdown-menu">
+                    <li><a class="drop-down-menu-item" href="educacao.html">Instituições de Ensino</a></li>
+                    <li><a class="drop-down-menu-item" href="empresas.html">Empresas</a></li>
+                    <li><a class="drop-down-menu-item" href="condominios.html">Condomínios</a></li>
+                </ul>
+                </li>
+
+                <li class="dropdown">
+                <a href="servicos.html" class="dropdown-toggle" role="button" aria-expanded="false" aria-controls="menu-servicos">SERVIÇOS</a>
+                <ul id="menu-servicos" class="dropdown-menu">
+                    <li><a class="drop-down-menu-item" href="servicoacesso.html">Acessos</a></li>
+                    <li><a class="drop-down-menu-item" href="servicoaplicativo.html">Aplicativos</a></li>
+                    <li><a class="drop-down-menu-item" href="servicoponto.html">Ponto</a></li>
+                    <li><a class="drop-down-menu-item" href="servicosuporte.html">Suporte</a></li>
+                </ul>
+                </li>
+
+                <li><a href="clientes.html">CLIENTES</a></li>
+            </ul>
+
+            <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
+
+            <!-- Menu mobile -->
+            <button class="menu-toggle" aria-label="Abrir menu" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
+            </nav>
+        </div>
         </header>
 
-        <!-- Botão flutuante do WhatsApp -->
-        <a
-            class="whatsapp-fab"
-            href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia."
-            aria-label="Falar com a Inova pelo WhatsApp"
-            target="_blank"
-            rel="noopener"
-            >
-            <!-- Ícone WhatsApp em SVG (usa a cor do botão) -->
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/>
-            </svg>
-            <span class="sr-only">WhatsApp</span>
+        <!-- WhatsApp FAB -->
+        <a class="whatsapp-fab"
+        href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia."
+        aria-label="Falar com a Inova pelo WhatsApp"
+        target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/></svg>
+        <span class="sr-only">WhatsApp</span>
         </a>
 
-        <!-- Banner Educação -->
+        <!-- Banner -->
         <section class="banner-educacao">
-            <img src="assets/img/imagem controle de acesso 1.png" alt="Banner Educação" class="banner-image">
-            <div class="banner-overlay"></div>
-            <div class="banner-content">
-                <h1 class="banner-title">Controle de Acesso para Condomínios</h1>
-            </div>
+        <img src="assets/img/imagem controle de acesso 1.png" alt="Banner Condomínios - Controle de Acesso" class="banner-image">
+        <div class="banner-overlay"></div>
+        <div class="banner-content">
+            <h1 class="banner-title">Controle de Acesso para Condomínios</h1>
+        </div>
         </section>
 
-        <!-- Sessão Introdução -->
+        <!-- Introdução -->
         <section class="introducao-educacao">
-            <div class="introducao-header">
-                <h2 class="servicos-title">O que você vai encontrar aqui</h2>
-                <h3 class="nova-sessao-subtitle">
-                    Conheça de maneira aprofundada como nossas soluções ajudam condomínios a melhorar a segurança, 
-                    otimizar a gestão e oferecer mais praticidade para alunos, professores e gestores.
-                </h3>
+        <div class="introducao-header">
+            <h2 class="servicos-title">O que você vai encontrar aqui</h2>
+            <h3 class="nova-sessao-subtitle">
+            Portarias inteligentes com <strong>Reconhecimento Facial</strong>, <strong>QR Code</strong> no <strong>Inova Access</strong> e <strong>Cartão RFID</strong>.
+            Convites digitais para visitantes, painéis em tempo real e <strong>compatibilidade multimarcas</strong>.
+            </h3>
+        </div>
+
+        <div class="introducao-grid">
+            <!-- Card 1 -->
+            <div class="introducao-card">
+            <div class="card-icon">
+                <img src="assets/img/icone catraca site.svg" alt="Ícone catraca de segurança Inova">
+            </div>
+            <h3 class="card-title">Controles de Acesso</h3>
+            <p class="card-text">
+                Catracas e portas com <strong>Reconhecimento Facial</strong>, <strong>QR Code</strong> e <strong>Cartão RFID</strong>.
+                Regras por torre/bloco, horário e área comum, além de <strong>controle por andar</strong> nos elevadores.
+            </p>
+            <div class="cta-container">
+                <a href="#acessos">
+                <button class="cta-comprar-integracao" aria-label="Verificar Acessos"><span>Verificar Acessos</span></button>
+                </a>
+            </div>
             </div>
 
-            <div class="introducao-grid">
-                <div class="introducao-card">
-                    <div class="card-icon">
-                        <img src="assets/img/icone catraca site.svg" alt="Ícone catraca de segurança inova">
-                    </div>
-                    <h3 class="card-title">Controle por Andar</h3>
-                    <p class="card-text">
-                        Libere o destino do elevador por perfil e horário e restrinja portas por área/andar em um único 
-                        fluxo. A integração com elevadores permite liberar o andar certo de forma automática,
-                         mantendo o acesso rápido e seguro.
-                    </p>
-                    <div class="cta-container">
-                        <a href="#acessos">
-                            <button class="cta-comprar-integracao" aria-label="Quero uma integração completa"><span>Verificar Acessos</span></button>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="introducao-card">
-                    <div class="card-icon">
-                        <img src="assets/img/suporte icon site.svg" alt="Ícone de parceria Inova">
-                    </div>
-                    <h3 class="card-title">Convidados pelo app Inova Access</h3>
-                    <p class="card-text">
-                        Envie convites digitais para visitantes e prestadores direto do app: cada convite gera um 
-                        QR Code seguro com validade e você acompanha o uso em tempo real. O app também concentra reservas 
-                        de áreas, facilitando a portaria e reduzindo papelada.
-                    </p>
-                    <div class="cta-container">
-                        <a href="#parceria">
-                            <button class="cta-comprar-integracao" aria-label="Quero uma integração completa"><span>Verificar Parceria</span></button>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="introducao-card">
-                    <div class="card-icon">
-                        <img src="assets/img/controle acesso site.svg" alt="Ícone de experiência do usuário">
-                    </div>
-                    <h3 class="card-title">Gestão integrada do condomínio</h3>
-                    <p class="card-text">
-                        Centralize entradas, saídas e permissões numa plataforma completa para condomínios comerciais 
-                        e residenciais, com reconhecimento facial, QR Code e biometria, tudo pronto para a integração
-                        entre equipamentos.
-                    </p>
-                    <div class="cta-container">
-                        <a href="#aplicativo">
-                            <button class="cta-comprar-integracao" aria-label="Quero uma integração completa"><span>Verificar Aplicativo</span></button>
-                        </a>
-                    </div>
-                </div>
+            <!-- Card 2 -->
+            <div class="introducao-card">
+            <div class="card-icon">
+                <img src="assets/img/suporte icon site.svg" alt="Ícone do aplicativo Inova Access">
             </div>
+            <h3 class="card-title">Inova Access (App)</h3>
+            <p class="card-text">
+                Convites de visitantes e prestadores com <strong>QR Code</strong> e validade. Notificações, reservas de áreas e
+                acompanhamento de entradas em tempo real para síndicos e portaria.
+            </p>
+            <div class="cta-container">
+                <a href="#aplicativo">
+                <button class="cta-comprar-integracao" aria-label="Verificar Aplicativo"><span>Verificar Aplicativo</span></button>
+                </a>
+            </div>
+            </div>
+
+            <!-- Card 3 (Multimarcas & Retrofit) -->
+            <div class="introducao-card">
+            <div class="card-icon">
+                <img src="assets/img/controle acesso site.svg" alt="Ícone Multimarcas e Retrofit">
+            </div>
+            <h3 class="card-title">Compatibilidade Multimarcas &amp; Retrofit</h3>
+            <p class="card-text">
+                Integramos <strong>catracas</strong>, <strong>controladoras</strong> e <strong>leitores</strong> de diferentes fabricantes no mesmo sistema.
+                Faça o <strong>retrofit por fases</strong>, aproveitando a infraestrutura existente e reduzindo custos.
+            </p>
+            <div class="cta-container">
+                <a href="#acessos">
+                <button class="cta-comprar-integracao" aria-label="Ver compatibilidade multimarcas"><span>Verificar Acessos</span></button>
+                </a>
+            </div>
+            </div>
+        </div>
         </section>
 
-        <!-- Sessão ACESSOS -->
+        <!-- Acessos -->
         <section id="acessos" class="acessos">
-            <div class="acessos-container">
-                <div class="acessos-header">
-                    <h2 class="servicos-title">Conheça um pouco sobre nossos acessos e monitoramento.</h2>
-                    <h3 class="nova-sessao-subtitle">
-                        Tecnologias que aceleram a entrada, elevam a segurança.
-                    </h3>
-                </div>
-
-                    <div class="acessos-grid">
-                        <!-- Card 1 – Catracas com Reconhecimento Facial -->
-                        <article class="acesso-card">
-                            <!-- removido: <div class="acesso-topbar"></div> -->
-                            <div class="acesso-icon">
-                                <img src="assets/img/catraca vidro icon site.svg" alt="Ícone de reconhecimento facial" width="72" height="72" loading="lazy" decoding="async">
-                            </div>
-                            <h3 class="acesso-title">Catracas com Reconhecimento Facial</h3>
-                            <p class="acesso-text">Autenticação sem contato, alta velocidade e baixa taxa de fraude. Ideal para picos de entrada.</p>
-                            <ul class="servico-lista">
-                                <li>Validação em <strong>&lt; 1s</strong></li>
-                                <li>Liberação automática do andar/porta por perfil</li>
-                                <li>Trilhas de auditoria e conformidade LGPD</li>
-                            </ul>
-                        </article>
-
-                        <!-- Card 2 – Catracas com QR Code -->
-                        <article class="acesso-card">
-                            <!-- removido: <div class="acesso-topbar"></div> -->
-                            <div class="acesso-icon">
-                                <img src="assets/img/qr-code.png" alt="Ícone de reconhecimento facial" width="72" height="72" loading="lazy" decoding="async">
-                            </div>
-                            <h3 class="acesso-title">Catracas com QR Code</h3>
-                            <p class="acesso-text">Praticidade para condôminos e visitantes com QR Code dinâmicos e criptografados no APP.</p>
-                            <ul class="servico-lista">
-                                <li>Convite via app com QR Code dinâmico e expiração</li>
-                                <li>Acesso restrito por bloco/andar/horário</li>
-                                <li>Logs em tempo real para síndico/portaria</li>
-                            </ul>
-                        </article>
-
-                        <!-- Card 3 – Catracas com Biometria -->
-                        <article class="acesso-card">
-                            <!-- removido: <div class="acesso-topbar"></div> -->
-                            <div class="acesso-icon">
-                                <img src="assets/img/controle acesso site.svg" alt="Ícone de reconhecimento facial" width="72" height="72" loading="lazy" decoding="async">
-                            </div>
-                            <h3 class="acesso-title">Controle de acesso nos Elevadores</h3>
-                            <p class="acesso-text">Direcione o elevador automaticamente para o andar autorizado de condôminos, visitantes e prestadores.</p>
-                            <ul class="servico-lista">
-                                <li>Liberação por perfil e horário</li>
-                                <li>Integração com catracas/portas e credenciais</li>
-                                <li>Logs e auditoria por viagem/andar para síndico e segurança</li>
-                            </ul>
-                        </article>
-
-                        <!-- Card 4 – Câmeras com Reconhecimento Facial (IA) -->
-                        <article class="acesso-card">
-                            <!-- removido: <div class="acesso-topbar"></div> -->
-                            <div class="acesso-icon">
-                                <img src="assets/img/suporte icon site.svg" alt="Ícone de reconhecimento facial" width="72" height="72" loading="lazy" decoding="async">
-                            </div>
-                            <h3 class="acesso-title">Cadastro de convidados no app</h3>
-                            <p class="acesso-text">O condômino faz o convite digital pelo Inova Access e o visitante recebe um QR Code dinâmico com validade.</p>
-                            <ul class="servico-lista">
-                                <li>Convite com QR Code temporário</li>
-                                <li>Notificações e gestão pelo condôminoS</li>
-                                <li>Histórico de entrada/saída e relatórios para a administração</li>
-                            </ul>
-                        </article>
-                    </div>
-                    <a class="acesso-cta" href="servicoacesso.html">Ver com mais detalhes</a>
-                </div>
+        <div class="acessos-container">
+            <div class="acessos-header">
+            <h2 class="servicos-title">Acessos inteligentes para portarias mais ágeis</h2>
+            <h3 class="nova-sessao-subtitle">
+                <strong>Reconhecimento Facial</strong>, <strong>QR Code</strong> no Inova Access e <strong>Cartão RFID</strong> para elevar a segurança sem travar o fluxo.
+            </h3>
             </div>
+
+            <div class="acessos-grid">
+            <!-- Facial -->
+            <article class="acesso-card">
+                <div class="acesso-icon">
+                <img src="assets/img/catraca vidro icon site.svg" alt="Reconhecimento Facial" width="72" height="72" loading="lazy" decoding="async">
+                </div>
+                <h3 class="acesso-title">Catracas com Reconhecimento Facial</h3>
+                <p class="acesso-text">Autenticação sem contato, alta velocidade e baixa taxa de fraude. Ideal para picos de entrada.</p>
+                <ul class="servico-lista">
+                <li>Validação em <strong>&lt; 1s</strong></li>
+                <li>Compatível com equipamentos <strong>multimarcas</strong></li>
+                <li>Trilhas de auditoria e conformidade LGPD</li>
+                </ul>
+            </article>
+
+            <!-- QR Code -->
+            <article class="acesso-card">
+                <div class="acesso-icon">
+                <img src="assets/img/qr-code.png" alt="QR Code dinâmico" width="72" height="72" loading="lazy" decoding="async">
+                </div>
+                <h3 class="acesso-title">Catracas com QR Code</h3>
+                <p class="acesso-text">Credencial móvel no <strong>Inova Access</strong> agiliza a liberação de moradores, visitantes e prestadores.</p>
+                <ul class="servico-lista">
+                <li>QR Code dinâmico com expiração</li>
+                <li>Convites digitais e notificações</li>
+                <li>Logs em tempo real para a administração</li>
+                </ul>
+            </article>
+
+            <!-- Cartão RFID (substitui elevadores) -->
+            <article class="acesso-card">
+                <div class="acesso-icon">
+                <img src="assets/img/controle acesso site.svg" alt="Cartão RFID" width="72" height="72" loading="lazy" decoding="async">
+                </div>
+                <h3 class="acesso-title">Catracas com Cartão RFID</h3>
+                <p class="acesso-text">Credencial física de proximidade para rotinas do condomínio com operação simples e estável.</p>
+                <ul class="servico-lista">
+                <li>Emissão e bloqueio por unidade/bloco</li>
+                <li>Regras por horário e áreas comuns</li>
+                <li>Compatível com controladoras <strong>multimarcas</strong></li>
+                </ul>
+            </article>
+
+            <!-- Convidados pelo app -->
+            <article class="acesso-card">
+                <div class="acesso-icon">
+                <img src="assets/img/suporte icon site.svg" alt="Cadastro de convidados pelo app" width="72" height="72" loading="lazy" decoding="async">
+                </div>
+                <h3 class="acesso-title">Convidados pelo App</h3>
+                <p class="acesso-text">O morador cria o convite no Inova Access e o visitante usa um <strong>QR Code</strong> seguro.</p>
+                <ul class="servico-lista">
+                <li>Validade e restrições por torre/bloco/horário</li>
+                <li>Confirmações e alertas em tempo real</li>
+                <li>Histórico de entradas e saídas</li>
+                </ul>
+            </article>
+            </div>
+
+            <a class="acesso-cta" href="servicoacesso.html">Ver com mais detalhes</a>
+        </div>
         </section>
 
-        <!-- Sessão PARCEIROS Atualizada -->
+        <!-- Projetos de Sucesso -->
         <section class="nova-sessao">
-            <div class="nova-sessao-container">
-                <div class="nova-sessao-header">
-                    <h2 class="servicos-title">Projetos de Sucesso: Gestão e Segurança em Condomínios</h2>
-                    <h3 class="nova-sessao-subtitle">
-                        Conheça alguns dos principais projetos que desenvolvemos para instituições de ensino, 
-                        transformando a segurança e gestão de acesso em ambientes educacionais.
-                    </h3>
+        <div class="nova-sessao-container">
+            <div class="nova-sessao-header">
+            <h2 class="servicos-title">Projetos de Sucesso: Gestão e Segurança em Condomínios</h2>
+            <h3 class="nova-sessao-subtitle">
+                Cases com <strong>Inova Access</strong>, <strong>QR Code</strong>, <strong>Reconhecimento Facial</strong> e compatibilidade <strong>multimarcas</strong>.
+            </h3>
+            </div>
+            
+            <div class="parceiros-grid">
+            <!-- Card 1 - NBC -->
+            <div class="parceiro-card">
+                <div class="parceiro-header">
+                <div class="parceiro-logo">
+                    <img src="assets/img/logo nbc.svg" alt="New Business Center Castelo Branco">
                 </div>
-                
-                <div class="parceiros-grid">
-                    <!-- Card 1 - Centro Universitário Belas Artes -->
-                    <div class="parceiro-card">
-                        <div class="parceiro-header">
-                            <div class="parceiro-logo">
-                                <img src="assets/img/logo nbc.svg" alt="Centro Universitário Belas Artes">
-                            </div>
-                            <div class="parceiro-info">
-                                <h3>New Business Center Castelo Branco</h3>
-                                <span class="categoria">Condomínio</span>
-                            </div>
-                        </div>
+                <div class="parceiro-info">
+                    <h3>New Business Center Castelo Branco</h3>
+                    <span class="categoria">Condomínio</span>
+                </div>
+                </div>
 
-                        <div class="info-section">
-                            <h4 class="info-title">Sobre o Projeto</h4>
-                            <p class="info-content">
-                                O NBC modernizou o controle de acesso de 5 mil usuários com catracas, torniquetes e 
-                                elevadores integrados ao Inova Access em nuvem.
-                            </p>
-                        </div>
+                <div class="info-section">
+                <h4 class="info-title">Sobre o Projeto</h4>
+                <p class="info-content">
+                    Modernização do acesso de milhares de usuários com catracas e torniquetes integrados ao <strong>Inova Access</strong> em nuvem.
+                </p>
+                </div>
 
-                        <div class="info-section">
-                            <h4 class="info-title">Desafio</h4>
-                            <p class="info-content">
-                                Modernizar e integrar acessos com controle inteligente via facial e cartões.
-                            </p>
-                        </div>
+                <div class="info-section">
+                <h4 class="info-title">Desafio</h4>
+                <p class="info-content">
+                    Reduzir filas, elevar a segurança e padronizar regras por torre, bloco e horário.
+                </p>
+                </div>
 
-                        <div class="info-section">
-                            <h4 class="info-title">Solução Implementada</h4>
-                            <p class="info-content">
-                                8 catracas, 1 torniquete de vidro e 7 portas com reconhecimento facial, 
-                                integradas aos elevadores TKE.
-                            </p>
-                        </div>
+                <div class="info-section">
+                <h4 class="info-title">Solução Implementada</h4>
+                <p class="info-content">
+                    Catracas com <strong>Reconhecimento Facial</strong> e <strong>QR Code</strong>, convites digitais e auditoria centralizada para a administração.
+                </p>
+                </div>
 
-                        <div class="info-section">
-                            <h4 class="info-title">Tecnologias Utilizadas</h4>
-                            <div class="tecnologias-tags">
-                                <span class="tech-tag">Inova Access</span>
-                                <span class="tech-tag">Reconhecimento Facial</span>
-                                <span class="tech-tag">Integração com Elevadores</span>
-                            </div>
-                        </div>
+                <div class="info-section">
+                <h4 class="info-title">Tecnologias Utilizadas</h4>
+                <div class="tecnologias-tags">
+                    <span class="tech-tag">Inova Access</span>
+                    <span class="tech-tag">Reconhecimento Facial</span>
+                    <span class="tech-tag">QR Code</span>
+                    <span class="tech-tag">Multimarcas</span>
+                </div>
+                </div>
 
-                        <div class="info-section">
-                            <h4 class="info-title">Resultados Alcançados</h4>
-                            <div class="resultados-grid">
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">100%</div>
-                                    <div class="resultado-descricao">Gerenciamento centralizado</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">90%</div>
-                                    <div class="resultado-descricao">Acesso por múltiplas autenticações</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">80%</div>
-                                    <div class="resultado-descricao">Mais agilidade e segurança</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">95%</div>
-                                    <div class="resultado-descricao">Satisfação dos usuários</div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="info-section">
+                <h4 class="info-title">Resultados Alcançados</h4>
+                <div class="resultados-grid">
+                    <div class="resultado-item">
+                    <div class="resultado-numero">100%</div>
+                    <div class="resultado-descricao">Gestão centralizada</div>
                     </div>
-
-                    <!-- Card 2 - Exemplo adicional  trocar o case-->
-                    <div class="parceiro-card">
-                        <div class="parceiro-header">
-                            <div class="parceiro-logo">
-                                <img src="assets/img/logo obelisco.svg" alt="Colégio Exemplo">
-                            </div>
-                            <div class="parceiro-info">
-                                <h3>Obelisco Tower</h3>
-                                <span class="categoria">Condomínio</span>
-                            </div>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Sobre o Projeto</h4>
-                            <p class="info-content">
-                                O condomínio empresarial Obelisco substituiu catracas antigas por modelos modernos 
-                                com biometria e integração ao W-Access.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Desafio</h4>
-                            <p class="info-content">
-                                Modernizar o sistema obsoleto e melhorar a segurança.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Solução Implementada</h4>
-                            <p class="info-content">
-                                Catracas iD Block com leitura biométrica e sistema W-Access.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Tecnologias Utilizadas</h4>
-                            <div class="tecnologias-tags">
-                                <span class="tech-tag">W-Access</span>
-                                <span class="tech-tag">Biometria</span>
-                                <span class="tech-tag">Integração com App</span>
-                                <span class="tech-tag">Alinhamento com a LGPD</span>
-                            </div>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Resultados Alcançados</h4>
-                            <div class="resultados-grid">
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">100%</div>
-                                    <div class="resultado-descricao">Sistema centralizado</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">Melhoria</div>
-                                    <div class="resultado-descricao">Autenticação biométrica</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">80%</div>
-                                    <div class="resultado-descricao">Melhoria na fluidez e segurança do acesso</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">90%</div>
-                                    <div class="resultado-descricao">Redução tempo administrativo</div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="resultado-item">
+                    <div class="resultado-numero">90%</div>
+                    <div class="resultado-descricao">Fluxo mais ágil</div>
                     </div>
+                    <div class="resultado-item">
+                    <div class="resultado-numero">95%</div>
+                    <div class="resultado-descricao">Satisfação dos usuários</div>
+                    </div>
+                </div>
                 </div>
             </div>
+
+            <!-- Card 2 - Obelisco Tower -->
+            <div class="parceiro-card">
+                <div class="parceiro-header">
+                <div class="parceiro-logo">
+                    <img src="assets/img/logo obelisco.svg" alt="Obelisco Tower">
+                </div>
+                <div class="parceiro-info">
+                    <h3>Obelisco Tower</h3>
+                    <span class="categoria">Condomínio</span>
+                </div>
+                </div>
+
+                <div class="info-section">
+                <h4 class="info-title">Sobre o Projeto</h4>
+                <p class="info-content">
+                    Substituição de catracas antigas por modelos modernos com <strong>Reconhecimento Facial</strong> e credenciais <strong>QR Code</strong> no <strong>Inova Access</strong>.
+                </p>
+                </div>
+
+                <div class="info-section">
+                <h4 class="info-title">Desafio</h4>
+                <p class="info-content">
+                    Atualizar parque legado, reduzir fraudes e disponibilizar relatórios em tempo real para a administração.
+                </p>
+                </div>
+
+                <div class="info-section">
+                <h4 class="info-title">Solução Implementada</h4>
+                <p class="info-content">
+                    Catracas de última geração, convites digitais e painel único para portaria e síndico.
+                </p>
+                </div>
+
+                <div class="info-section">
+                <h4 class="info-title">Tecnologias Utilizadas</h4>
+                <div class="tecnologias-tags">
+                    <span class="tech-tag">Inova Access</span>
+                    <span class="tech-tag">Reconhecimento Facial</span>
+                    <span class="tech-tag">QR Code</span>
+                    <span class="tech-tag">Multimarcas</span>
+                </div>
+                </div>
+
+                <div class="info-section">
+                <h4 class="info-title">Resultados Alcançados</h4>
+                <div class="resultados-grid">
+                    <div class="resultado-item">
+                    <div class="resultado-numero">90%</div>
+                    <div class="resultado-descricao">Redução no tempo de entrada</div>
+                    </div>
+                    <div class="resultado-item">
+                    <div class="resultado-numero">100%</div>
+                    <div class="resultado-descricao">Rastreabilidade de acessos</div>
+                    </div>
+                    <div class="resultado-item">
+                    <div class="resultado-numero">Zero</div>
+                    <div class="resultado-descricao">Incidentes relevantes</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div><!-- .parceiros-grid -->
+        </div>
         </section>
 
-        <!-- Sessão iNTEGRAÇÃO -->
+        <!-- Integração / App -->
         <section id="aplicativo" class="integracao-section">
-            <div class="integracao-container">
-                <div class="integracao-header">
-                    <h2 class="header-badge">
-                        Integração Completa para Condomínios Inteligentes
-                    </h2>
-                    <div class="main-connector"></div>
+        <div class="integracao-container">
+            <div class="integracao-header">
+            <h2 class="header-badge">Integração Completa para Condomínios Inteligentes</h2>
+            <div class="main-connector"></div>
+            </div>
+            
+            <div class="integracao-diagram">
+            <div class="horizontal-connector"></div>
+            <div class="apps-grid">
+                <!-- Suporte para Condomínios (substitui "Elevadores") -->
+                <div class="app-card">
+                <div class="card-connector"></div>
+                <div class="app-icon">
+                    <img src="assets/img/suporte icon site.svg" alt="Ícone Suporte para Condomínios">
                 </div>
-                
-                <div class="integracao-diagram">
-                    <div class="horizontal-connector"></div>
-                    <div class="apps-grid">
-                        <div class="app-card">
-                            <div class="card-connector"></div>
-                            <div class="app-icon">
-                                <img src="assets/img/controle acesso site.svg" alt="Ícone de integração de sistemas">
-                            </div>
-                            <h3 class="app-title">Controle de Acesso nos Elevadores</h3>
-                            <p class="app-description">
-                                Libere automaticamente o andar autorizado de condôminos, visitantes e prestadores. 
-                                Regras por perfil e horário, integração com catracas/portas e logs por viagem 
-                                garantem segurança sem travar o fluxo.
-                            </p>
-                        </div>
-                        
-                        <div class="app-card">
-                            <div class="card-connector"></div>
-                            <div class="app-icon">
-                                <img src="assets/img/back-in-time.png" alt="Icone relógio solução rápida">
-                            </div>
-                            <h3 class="app-title">Convites e Visitantes no App</h3>
-                            <p class="app-description">
-                                O morador cria o convite digital e o visitante recebe um QR seguro com validade e 
-                                restrições (torre/andar/horário). A portaria valida em segundos e todo o histórico 
-                                fica registrado para a administração.
-                            </p>
-                        </div>
-                        
-                        <div class="app-card">
-                            <div class="card-connector"></div>
-                            <div class="app-icon">
-                                <img src="assets/img/centralized.png" alt="Icone dados unificados">
-                            </div>
-                            <h3 class="app-title">Painéis e Relatórios do Condomínio</h3>
-                            <p class="app-description">
-                                Centralize entradas/saídas, elevadores, LPR e áreas comuns em dashboards de fácil 
-                                leitura. Gere relatórios por unidade ou período e exporte em um clique para 
-                                auditorias e comunicados.
-                            </p>
-                        </div>
-                        
-                        <div class="app-card">
-                            <div class="card-connector"></div>
-                            <div class="app-icon">
-                                <img src="assets/img/biometric-identification.png" alt="Ícone de segurança potencializada">
-                            </div>
-                            <h3 class="app-title">Segurança & LGPD</h3>
-                            <p class="app-description">
-                                Criptografia ponta a ponta, revogação imediata de credenciais, facial anti-spoofing 
-                                e auditoria detalhada de cada evento. Políticas de acesso padronizadas por torre e 
-                                bloqueios automatizados por regra.
-                            </p>
-                        </div>
-                    </div>
+                <h3 class="app-title">Suporte para Condomínios</h3>
+                <p class="app-description">
+                    Equipe própria para <strong>instalação</strong>, <strong>treinamentos</strong> (portaria e administração) e <strong>visitas técnicas</strong>.
+                    Atendimento com <strong>SLA</strong>, acompanhamento pós-implantação e manutenções programadas.
+                </p>
                 </div>
-                <div class="cta-container">
-                    <a href="contratar.html">
-                    <button class="cta-comprar-integracao" aria-label="Quero uma integração completa"><span>Quero modernizar meu condomínio</span></button>
-                    </a>
+
+                <!-- Convites & Visitantes -->
+                <div class="app-card">
+                <div class="card-connector"></div>
+                <div class="app-icon">
+                    <img src="assets/img/back-in-time.png" alt="Ícone convites e visitantes">
+                </div>
+                <h3 class="app-title">Convites &amp; Visitantes</h3>
+                <p class="app-description">
+                    Morador cria o convite no <strong>Inova Access</strong>; visitante recebe <strong>QR Code</strong> com validade e restrições
+                    (torre/bloco/horário). Validação em segundos na portaria.
+                </p>
+                </div>
+
+                <!-- Painéis e Relatórios -->
+                <div class="app-card">
+                <div class="card-connector"></div>
+                <div class="app-icon">
+                    <img src="assets/img/centralized.png" alt="Ícone painéis e relatórios">
+                </div>
+                <h3 class="app-title">Painéis e Relatórios</h3>
+                <p class="app-description">
+                    Entradas, áreas comuns e <strong>LPR</strong> (leitura de placas) em dashboards de fácil leitura. Exporte relatórios por unidade ou período.
+                </p>
+                </div>
+
+                <!-- Segurança & LGPD -->
+                <div class="app-card">
+                <div class="card-connector"></div>
+                <div class="app-icon">
+                    <img src="assets/img/biometric-identification.png" alt="Ícone segurança e LGPD">
+                </div>
+                <h3 class="app-title">Segurança &amp; LGPD</h3>
+                <p class="app-description">
+                    Criptografia ponta a ponta, revogação imediata de credenciais e facial anti-spoofing. Políticas padronizadas por torre/bloco e
+                    <strong>bloqueios automatizados</strong>.
+                </p>
                 </div>
             </div>
+            </div>
+
+            <div class="cta-container">
+            <a href="contratar.html">
+                <button class="cta-comprar-integracao" aria-label="Quero modernizar meu condomínio">
+                <span>Quero modernizar meu condomínio</span>
+                </button>
+            </a>
+            </div>
+        </div>
         </section>
 
-        <!-- Sessão DIFERENCIAL -->
+        <!-- Diferenciais -->
         <section class="porque-escolher-educacao">
-            <div class="porque-escolher-container">
-                <!-- Título centralizado fora do conteúdo -->
-                <div class="nova-sessao-header">
-                    <h2 class="servicos-title">Nossos Diferenciais dentro dos Condomínios</h2>
-                    <h3 class="nova-sessao-subtitle">
-                        Conheça algumas das principais características pelas quais nossos clientes decidiram inovar
-                        seu controle de acesso.
-                    </h3>
-                </div>
-                
-                <div class="porque-escolher-content">
-                    <div class="float-wrapper">
-                        <div class="phone">
-                            <img src="assets/img/tela inicio inova access.png" alt="SuperApp Inova Access" class="phone-img">
-                            <div class="notch"></div>
-                        </div>
-                    </div>
-
-                    <!-- Lado direito - Conteúdo -->
-                    <div class="porque-escolher-text">
-                        <!-- Lista de diferenciais -->
-                        <div class="diferenciais-list">
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">Controle por andar nos elevadores e portas</h4>
-                                    <div class="diferencial-text">
-                                        <p>
-                                            O usuário só acessa o andar autorizado. Regras por torre/bloco/horário e integração com catracas garantem fluxo rápido e rastreável.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">Convites e visitantes no app</h4>
-                                    <div class="diferencial-text">
-                                        <p>
-                                            Morador envia convite digital e o visitante usa QR seguro com expiração. A portaria valida em segundos e todo o histórico fica registrado.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">Painéis e relatórios do condomínio</h4>
-                                    <div class="diferencial-text">
-                                        <p>
-                                            Eventos de acesso, viagens de elevador e leitura de placas (LPR) em um só lugar. Dashboards por unidade/período facilitam auditorias e decisões.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <div class="porque-escolher-container">
+            <div class="nova-sessao-header">
+            <h2 class="servicos-title">Nossos Diferenciais dentro dos Condomínios</h2>
+            <h3 class="nova-sessao-subtitle">
+                App <strong>Inova Access</strong>, compatibilidade <strong>multimarcas</strong> e convites com <strong>QR Code</strong> — com <strong>Reconhecimento Facial</strong> e auditoria completa.
+            </h3>
+            </div>
+            
+            <div class="porque-escolher-content">
+            <div class="float-wrapper">
+                <div class="phone">
+                <img src="assets/img/tela inicio inova access.png" alt="App Inova Access" class="phone-img">
+                <div class="notch"></div>
                 </div>
             </div>
+
+            <div class="porque-escolher-text">
+                <div class="diferenciais-list">
+                <!-- Multimarcas / Retrofit -->
+                <div class="diferencial-item">
+                    <div class="diferencial-icon-space">
+                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Diferencial 1">
+                    </div>
+                    <div class="diferencial-content">
+                    <h4 class="diferencial-title">Compatibilidade Multimarcas (Retrofit)</h4>
+                    <div class="diferencial-text">
+                        <p>Operamos com diversas marcas de catracas, controladoras e leitores. Unifique tudo no <strong>Inova Access</strong>,
+                        evite trocas desnecessárias e evolua por etapas, com governança e rastreabilidade.</p>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Convites & Visitantes -->
+                <div class="diferencial-item">
+                    <div class="diferencial-icon-space">
+                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Diferencial 2">
+                    </div>
+                    <div class="diferencial-content">
+                    <h4 class="diferencial-title">Convites e visitantes no app</h4>
+                    <div class="diferencial-text">
+                        <p>Morador envia convite; visitante utiliza <strong>QR Code</strong> com expiração e restrições.
+                        Portaria valida em segundos, com logs em tempo real.</p>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Painéis & Relatórios -->
+                <div class="diferencial-item">
+                    <div class="diferencial-icon-space">
+                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Diferencial 3">
+                    </div>
+                    <div class="diferencial-content">
+                    <h4 class="diferencial-title">Painéis e relatórios do condomínio</h4>
+                    <div class="diferencial-text">
+                        <p>Eventos de acesso e <strong>LPR</strong> centralizados. Dashboards por unidade/período facilitam auditorias e decisões da administração.</p>
+                    </div>
+                    </div>
+                </div>
+                </div><!-- .diferenciais-list -->
+            </div>
+            </div>
+        </div>
         </section>
 
-        <!-- Seção Vídeo -->
+        <!-- Vídeo -->
         <section class="video-section">
-            <div class="video-container">
-                <div class="video-header">
-                    <h2 class="servicos-title">Veja como funciona na prática</h2>
-                    <p class="nova-sessao-subtitle">
-                        Conheça nosso sistema de controle de acesso em ação e descubra como 
-                        podemos transformar a segurança da sua instituição de ensino.
-                    </p>
-                </div>
-                
-                <div class="video-wrapper">
-                    <div class="video-frame">
-                        <iframe 
-                            src="https://www.youtube.com/embed/bokAVmGeRPg" 
-                            title="Inova Tecnologia - Sistema de Controle de Acesso"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                
-                <div class="video-cta">
-                    <p class="video-cta-text">
-                        Gostou do que viu? Entre em contato conosco e solicite uma demonstração personalizada.
-                    </p>
-                    <button class="cta-comprar">
-                        <span><a href="contratar.html">Solicitar Demonstração</a></span>
-                    </button>
-                </div>
+        <div class="video-container">
+            <div class="video-header">
+            <h2 class="servicos-title">Veja como funciona na prática</h2>
+            <p class="nova-sessao-subtitle">
+                Conheça nosso sistema em ação e veja como o <strong>Inova Access</strong> transforma a segurança do seu condomínio.
+            </p>
             </div>
+            
+            <div class="video-wrapper">
+            <div class="video-frame">
+                <iframe 
+                src="https://www.youtube.com/embed/bokAVmGeRPg" 
+                title="Inova Tecnologia - Sistema de Controle de Acesso"
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+                </iframe>
+            </div>
+            </div>
+            
+            <div class="video-cta">
+            <p class="video-cta-text">
+                Quer ver aplicado no seu prédio? Fale com nossa equipe e peça uma demonstração personalizada.
+            </p>
+            <button class="cta-comprar">
+                <span><a href="contratar.html">Solicitar Demonstração</a></span>
+            </button>
+            </div>
+        </div>
         </section>
 
         <!-- Footer atualizado -->
@@ -666,3 +640,6 @@
                 <p>© 2025 Inova Tecnologia. Todos os direitos reservados.</p>
             </div>
         </footer>
+    </div>
+</body>
+</html>

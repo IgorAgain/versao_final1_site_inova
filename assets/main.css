@@ -99,20 +99,6 @@ html{
     transition: all 0.3s ease;
 }
 
-/* Menu mobile ativo */
-.navbar.active .nav-links {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 80px;
-    right: 20px;
-    background: #F8F9FA;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    gap: 15px;
-}
-
 /* Header */
 .header{
   position: sticky;
@@ -4473,7 +4459,7 @@ html{
 .ponto-retrofit-layout{ display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:start; }
 .ponto-panel{ min-height:280px; align-items:center; text-align:center; }
 .ponto-panel::before{ transform:scaleX(1); } /* barra sempre visível */
-.ponto-steps{ display:grid; grid-template-columns:1fr; gap:7px; }
+.ponto-steps{ display:grid; grid-template-columns:1fr; gap:20px; }
 .ponto-step-card{ position:relative; padding:22px; border-radius:18px; border:2px solid transparent; background:#FEFEFE; box-shadow:0 10px 30px rgba(0,0,0,.08); overflow:hidden; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; text-align:center; display:flex; flex-direction:column; align-items:center; gap:10px; min-height:150px; }
 .ponto-step-card::before{ content:""; position:absolute; top:0; left:0; width:100%; height:4px; background:linear-gradient(90deg,#25BACF,#2E3F5B); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
 .ponto-step-card:hover{ transform:translateY(-6px); border-color:#25BACF; box-shadow:0 18px 40px rgba(0,0,0,.12); }
@@ -5233,3 +5219,44 @@ html{
   position:absolute; width:1px; height:1px; overflow:hidden;
   clip: rect(0 0 0 0); white-space:nowrap; border:0; padding:0; margin:-1px;
 }
+
+/* ==== NAV MOBILE – Drawer unificado ==== */
+@media (max-width:1024px){
+  .menu-toggle{display:inline-flex; margin-left:auto; z-index:2201}
+  .navbar{position:relative; z-index:2200}
+
+  /* Backdrop (alinhado com .active do JS) */
+  .navbar::before{
+    content:""; position:fixed; inset:0;
+    background:rgba(0,0,0,.45);
+    opacity:0; pointer-events:none; transition:opacity .3s ease;
+  }
+  .navbar.active::before{opacity:1; pointer-events:auto}
+
+  /* Painel lateral (“drawer”) */
+  .navbar .nav-links{
+    position:fixed; top:0; right:0;
+    height:100dvh;                    /* corrige barra de URL do mobile */
+    width:min(88vw, 380px);
+    transform:translateX(100%);
+    transition:transform .35s ease;
+    background:#fff; border-radius:16px 0 0 16px;
+    box-shadow:-16px 0 32px rgba(0,0,0,.18);
+    padding:24px 20px max(24px, env(safe-area-inset-bottom));
+    display:flex; flex-direction:column; gap:10px;
+    overflow:auto; z-index:2202;
+  }
+  .navbar.active .nav-links{ transform:translateX(0) }
+
+  /* Muito pequenas: ocupar toda a largura */
+  @media (max-width:360px){
+    .navbar .nav-links{ width:100vw; border-radius:0 }
+  }
+
+  /* Dropdown como acordeão no mobile */
+  .nav-links .dropdown-menu{ display:none; background:#F6F8FA; border-radius:12px; padding:12px; margin:6px 0 10px }
+  .nav-links .dropdown.mobile-open .dropdown-menu{ display:block }
+}
+
+/* Bloquear rolagem do body quando o menu está aberto */
+.no-scroll{ overflow:hidden }

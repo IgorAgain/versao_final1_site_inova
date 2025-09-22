@@ -1,74 +1,36 @@
 /* ===========================
    MENU HAMBÚRGUER – OFF-CANVAS
    =========================== */
-(function () {
-  const navbar = document.querySelector(".navbar");
-  const toggleBtn = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
-  const desktopBreakpoint = 993; // >= 993px volta para layout desktop
+(() => {
+  const btn  = document.querySelector('.menu-toggle');
+  const nav  = document.querySelector('.navbar');
+  if (!btn || !nav) return;
 
-  if (!navbar || !toggleBtn || !navLinks) return;
+  const open = () => {
+    nav.classList.add('active');
+    btn.classList.add('is-open');
+    btn.setAttribute('aria-expanded','true');
+    document.body.classList.add('no-scroll');
+  };
+  const close = () => {
+    nav.classList.remove('active');
+    btn.classList.remove('is-open');
+    btn.setAttribute('aria-expanded','false');
+    document.body.classList.remove('no-scroll');
+  };
 
-  // Clonar CTA para dentro do painel mobile (como último item)
-  let ctaInjected = false;
-  function ensureMobileCTA() {
-    if (ctaInjected) return;
-    const cta = document.querySelector(".cta-comprar");
-    if (!cta) return;
+  btn.addEventListener('click', () =>
+    nav.classList.contains('active') ? close() : open()
+  );
 
-    const li = document.createElement("li");
-    li.className = "cta-mobile";
-    const cloned = cta.cloneNode(true);
-    cloned.classList.remove("cta-comprar");
-    cloned.classList.add("cta-mobile-link");
-    li.appendChild(cloned);
-    navLinks.appendChild(li);
-    ctaInjected = true;
-  }
-
-  // ABRIR/FECHAR
-  function openMenu() {
-    navbar.classList.add("is-open");
-    toggleBtn.setAttribute("aria-expanded", "true");
-    document.body.classList.add("no-scroll");
-    ensureMobileCTA();
-  }
-  function closeMenu() {
-    navbar.classList.remove("is-open");
-    toggleBtn.setAttribute("aria-expanded", "false");
-    document.body.classList.remove("no-scroll");
-  }
-  function toggleMenu(e) {
-    e?.stopPropagation();
-    if (navbar.classList.contains("is-open")) closeMenu();
-    else openMenu();
-  }
-
-  // Clique no botão
-  toggleBtn.addEventListener("click", toggleMenu);
-
-  // Clique fora do painel para fechar
-  document.addEventListener("click", (e) => {
-    if (!navbar.classList.contains("is-open")) return;
-    if (!navLinks.contains(e.target) && e.target !== toggleBtn) {
-      closeMenu();
-    }
+  document.addEventListener('click', (e) => {
+    if (nav.classList.contains('active') && !e.target.closest('.navbar')) close();
   });
 
-  // Tecla ESC
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('active')) close();
   });
-
-  // Ao redimensionar para desktop, garante reset
-  function handleResize() {
-    if (window.innerWidth >= desktopBreakpoint) {
-      closeMenu();
-    }
-  }
-  window.addEventListener("resize", handleResize);
-  handleResize();
- });
+})();
 // ========================================
 // CARROSSEL DO HERO - VERSÃO CORRIGIDA
 // ========================================
