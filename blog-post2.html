@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inova Tecnologia - QR Code dinâmico: segurança e boas práticas</title>
+  <link rel="stylesheet" href="assets/main.css">
+  <!-- Reutilize o mesmo CSS do primeiro post -->
+  <link rel="stylesheet" href="assets/post1.css">
+  <script src="assets/main.js" defer></script>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+</head>
+<body>
+  <div class="page-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image">
+          </a>
+        </div>
+
+        <button class="menu-toggle" aria-label="Abrir menu" aria-controls="primary-navigation" aria-expanded="false">
+          <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="icon icon-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+
+        <nav class="navbar" id="primary-navigation">
+          <ul class="nav-links" role="menubar" aria-label="Navegação principal">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="solucoes.html">SOLUÇÕES</a></li>
+            <li class="dropdown">
+              <a href="segmentos.html" class="dropdown-toggle" role="button" aria-expanded="false" aria-controls="menu-segmentos">SEGMENTOS</a>
+              <ul id="menu-segmentos" class="dropdown-menu">
+                <li><a class="drop-down-menu-item" href="educacao.html">Instituições de Ensino</a></li>
+                <li><a class="drop-down-menu-item" href="empresas.html">Empresas</a></li>
+                <li><a class="drop-down-menu-item" href="condominios.html">Condomínios</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="servicos.html" class="dropdown-toggle" role="button" aria-expanded="false" aria-controls="menu-servicos">SERVIÇOS</a>
+              <ul id="menu-servicos" class="dropdown-menu">
+                <li><a class="drop-down-menu-item" href="servicoacesso.html">Acessos</a></li>
+                <li><a class="drop-down-menu-item" href="servicoaplicativo.html">Aplicativos</a></li>
+                <li><a class="drop-down-menu-item" href="servicoponto.html">Ponto</a></li>
+                <li><a class="drop-down-menu-item" href="servicosuporte.html">Suporte</a></li>
+              </ul>
+            </li>
+            <li><a class="active" href="blog.html">BLOG</a></li>
+            <li><a href="clientes.html">CLIENTES</a></li>
+          </ul>
+          <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- WhatsApp FAB -->
+    <a class="whatsapp-fab" href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia." target="_blank" rel="noopener" aria-label="Falar com a Inova pelo WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/></svg>
+      <span class="sr-only">WhatsApp</span>
+    </a>
+
+    <!-- Banner -->
+    <section class="banner-educacao">
+      <img src="assets/img/imagem controle de acesso 1.png" alt="Banner Blog" class="banner-image">
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h1 class="banner-title">Blog da Inova</h1>
+      </div>
+    </section>
+
+    <!-- ======================
+         ARTIGO — QR Code dinâmico
+         ====================== -->
+    <section class="post-page" id="post">
+      <div class="post-container">
+        <!-- Cabeçalho do post -->
+        <header class="post-hero">
+          <div class="post-meta">
+            <div class="meta-left">
+              <span class="icon">
+                <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="17" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                  <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                  <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </span>
+              <time datetime="2025-09-26">26/09/2025</time>
+            </div>
+
+            <div class="meta-right">
+              <span class="icon">
+                <svg class="svg-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.59 13.41L12 22 2 12 10.59 3.41a2 2 0 0 1 1.41-.59H18a2 2 0 0 1 2 2v6a2 2 0 0 1-.59 1.41Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="15.5" cy="8.5" r="1.5" fill="currentColor"/>
+                </svg>
+              </span>
+              <ul class="post-tags">
+                <li><a href="index.html">Controle de Acesso</a></li>
+                <li><a href="index.html">Segurança</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <h1 class="post-title">QR Code dinâmico: segurança e boas práticas</h1>
+          <p class="post-lead">
+            QR Code é um padrão de código bidimensional amplamente adotado. Para usá-lo como credencial de acesso físico, o ideal é adotar códigos <strong>dinâmicos</strong> (válidos por poucos segundos/minutos, com validação no servidor e assinatura), reduzir risco de clonagem e treinar usuários contra golpes de “quishing”. A seguir, veja como projetar um fluxo seguro e onde aplicar em Empresas, Condomínios e Educação.
+          </p>
+        </header>
+
+        <!-- Conteúdo -->
+        <article class="post-content" itemscope itemtype="https://schema.org/Article">
+          <h2>O que é e por que “dinâmico”?</h2>
+          <p>
+            O QR Code é definido pela norma ISO/IEC 18004 e suporta alto nível de correção de erros e diferentes modos de codificação — por isso funciona bem impresso ou na tela do celular.
+            Em controles de acesso, “dinâmico” significa que o conteúdo do QR muda periodicamente (ex.: a cada 15–60s) e é validado no servidor, evitando reutilização (replay) de um código capturado. 
+          </p>
+
+          <h2>Ameaças comuns</h2>
+          <ul class="checklist">
+            <li><strong>Quishing (phishing via QR):</strong> códigos maliciosos que levam a sites falsos ou instalam malware; atenção a e-mails, adesivos em locais públicos e PDFs com QR. </li>
+            <li><strong>Reprodução/clonagem:</strong> foto, print ou compartilhamento de tela para “emprestar” um QR; em ambientes críticos, QR pode ser copiado até por videochamada, exigindo mitigações adicionais.</li>
+            <li><strong>Troca física de etiquetas:</strong> adulteração de QR legítimo por outro fraudulento (ex.: estacionamentos).</li>
+          </ul>
+
+          <h2>Boas práticas técnicas</h2>
+          <ul class="checklist">
+            <li><strong>Validade curta + servidor:</strong> gere tokens com TTL curto e valide no backend, registrando consumo e auditando tentativas.</li>
+            <li><strong>Assinatura criptográfica:</strong> codifique no QR um token assinado (ex.: JWS/COSE) e verifique a assinatura antes de autorizar. Um exemplo público de QR assinado foi o <em>EU Digital COVID Certificate</em>, com verificação offline baseada em chaves públicas.</li>
+            <li><strong>Antirreplicação:</strong> inclua nonce/contador de uso, expiração e escopo (porta/horário/visitante), além de <em>device binding</em> quando aplicável.</li>
+            <li><strong>Leitor dedicado:</strong> use leitores/firmwares preparados para telas (contraste, brilho, anti-reflexo) e priorize conexão segura com o controlador.</li>
+            <li><strong>Operação &amp; UX:</strong> instruções claras (posição do celular, brilho), fila bem sinalizada e suporte a fallback (ex.: recepção) para exceções.</li>
+          </ul>
+
+          <h2>Como aplicar por segmento</h2>
+          <h3>Empresas</h3>
+          <p>
+            <strong>Visitantes e terceiros:</strong> convite com QR dinâmico (expira após o horário agendado), verificação online e registro automático. 
+            <strong>Funcionários:</strong> QR como credencial secundária para contingência; preferencial em recepção/eventos.
+            Em áreas críticas, combine com crachá/biometria.
+          </p>
+
+          <h3>Condomínios</h3>
+          <p>
+            <strong>Convidados:</strong> envio pelo app com validade curta e regras por horário/portaria.
+            <strong>Portaria/catracas:</strong> moradores podem usar credenciais principais (facial/cartão); QR dinâmico acelera o fluxo de visitantes.
+            <strong>Elevadores por andar:</strong> autorização vinculada à unidade, com expiração automática após a visita.
+          </p>
+
+          <h3>Instituições de Ensino</h3>
+          <p>
+            <strong>Carteirinha digital:</strong> acesso a catracas e bibliotecas com QR dinâmico e vínculo ao cadastro do aluno.
+            <strong>Eventos/vestibulares:</strong> credenciais temporárias para participantes e fornecedores.
+            <strong>Áreas restritas:</strong> preferir combinação com biometria em laboratórios ou salas de TI.
+          </p>
+
+          <h2>Checklist rápido de segurança</h2>
+          <ul class="checklist">
+            <li>Evitar QR <strong>estático</strong> para acesso físico; prefira tokens dinâmicos com expiração.</li>
+            <li>Assinar o conteúdo e validar assinatura/expiração/escopo antes de autorizar.</li>
+            <li>Registrar auditoria e bloquear reuso (nonce/contador/blacklist de tokens usados).</li>
+            <li>Treinar usuários contra <em>quishing</em>; desconfiar de adesivos e e-mails com QR inesperados.</li>
+            <li>Prever contingências (falha de rede/bateria) sem afrouxar política de segurança.</li>
+          </ul>
+
+          <blockquote>
+            QR dinâmico funciona muito bem para visitantes e acessos ocasionais. Para credenciais de uso contínuo em áreas críticas, combine com métodos mais fortes e políticas anti-replay.
+          </blockquote>
+        </article>
+
+        <!-- Rodapé do post -->
+        <footer class="post-footer">
+          <a href="blog.html" class="post-cta">← Voltar para o Blog</a>
+          <div class="post-share">
+            <a class="share wa" href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia." aria-label="Compartilhar no WhatsApp">WhatsApp</a>
+            <a class="share in" href="https://www.linkedin.com/company/inova-tecnologia-ltda/posts/?feedView=all" aria-label="Compartilhar no LinkedIn">LinkedIn</a>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <!-- ... (mesmo footer do seu site; pode reutilizar o do blog-post1) ... -->
+      <div class="footer-container">
+        <div class="footer-brand">
+          <div class="footer-logo"><img src="assets/img/logo inova rodape site.png" alt="Inova Tecnologia"></div>
+          <div class="social-media-container">
+            <a href="https://www.facebook.com/socialinova/" target="_blank" class="social-icon facebook" aria-label="Facebook"></a>
+            <a href="https://www.instagram.com/inova.tecnologia/" target="_blank" class="social-icon instagram" aria-label="Instagram"></a>
+            <a href="https://www.linkedin.com/company/inova-tecnologia-ltda/posts/?feedView=all" target="_blank" class="social-icon linkedin" aria-label="LinkedIn"></a>
+          </div>
+        </div>
+        <div class="footer-nav">
+          <h3 class="footer-title">Navegação</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">HOME</a></li><li><a href="solucoes.html">SOLUÇÕES</a></li><li><a href="educacao.html">INSTITUIÇÕES DE ENSINO</a></li><li><a href="empresas.html">EMPRESAS</a></li><li><a href="condominios.html">CONDOMÍNIOS</a></li><li><a href="servicos.html">SERVIÇOS</a></li><li><a href="blog.html">BLOG</a></li><li><a href="clientes.html">CLIENTES</a></li><li><a href="contratar.html">CONTRATAR</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3 class="footer-title">Contatos</h3>
+          <div class="contact-box">
+            <div class="contact-item">
+              <div class="contact-icon"></div>
+              <a href="https://www.google.com/maps/place/Inova+Tecnologia/" target="_blank" class="contact-info-value-footer">
+                Av. Marcos Penteado de Ulhoa Rodrigues, 1119 - Sala 714 – Tamboré - Barueri/SP, 06460-040
+              </a>
+            </div>
+            <div class="contact-item"><div class="contact-icon"></div><a href="tel:+551142801002" class="contact-info-value-footer">(11) 4280-1002</a></div>
+            <div class="contact-item"><div class="contact-icon"></div><a href="https://wa.me/5511912214289" target="_blank" class="contact-info-value-footer">(11) 91221-4289</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-marca"><p>© 2025 Inova Tecnologia. Todos os direitos reservados.</p></div>
+    </footer>
+  </div>
+</body>
+</html>

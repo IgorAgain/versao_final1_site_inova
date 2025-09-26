@@ -5270,3 +5270,104 @@ html{
     width: calc(min(88vw, 360px) - 36px);
   }
 }
+
+html, body{ width:100%; max-width:100%; overflow-x: clip; }
+@supports not (overflow-x: clip){ html, body{ overflow-x: hidden; } }
+*, *::before, *::after{ box-sizing: border-box; }
+img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
+main, section, header, footer{ max-width: 100%; }
+
+/* ============================
+   MOBILE PATCH (≤768px): 2-up + compactação
+   ============================ */
+@media (max-width: 768px){
+
+  /* 1) Paddings menores nas seções largas */
+  .acessos, .servicos, .nossas-solucoes, .segmentos,
+  .tecnologias, .tecnologias-section, .ponto-section,
+  .ponto-section-numebers, .ponto-recursos-avancados, .ponto-consultoria,
+  .cl-section, .cl-testimonials.cl-v2, .fale-conosco,
+  .nova-sessao, .porque-escolher-educacao, .video-section,
+  .integracao-section, .sol-v4.section,
+  #acessos-comparativo, #acessos-kits, #acessos-operacao{
+    padding: 28px 20px;
+  }
+
+  /* 2) 2 cards por linha nos grids principais */
+  .solucoes-grid,
+  .solucoes-grid-app,
+  .servicos-grid,
+  .sol-v4__grid,
+  .sol-v4__kpis,
+  .sol-v4__compare,
+  .svc-compare .use-cases,
+  .acessos-grid,
+  .ax-grid,
+  .ponto-grid-4,
+  .ponto-grid-3,
+  .ponto-metrics,
+  .cl-logo-grid,
+  .cl-t-track,
+  .cl-cases-track,
+  .resultados-grid,
+  .tecnologias-boxes-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 12px;
+  }
+
+  /* 3) Listas do artigo em 2 colunas (quando couber) */
+  .post-content .checklist{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 8px 14px;
+  }
+  .post-content .checklist li{ margin: 6px 0; }
+
+  /* 4) Blog (lista de cards) — cobre vários nomes possíveis */
+  .blog-grid, .blog-list, .blog-cards{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 12px;
+  }
+
+  /* 5) Post: topo mais compacto */
+  .post-page{ padding: 28px 16px; }
+  .post-hero{ padding: 18px; }
+  .post-lead{ font-size: .98rem; }
+  .post-footer{ gap: 10px; }
+}
+
+/* Telas muito estreitas (≤420px): volta pra 1 coluna */
+@media (max-width: 420px){
+  .solucoes-grid,
+  .solucoes-grid-app,
+  .servicos-grid,
+  .sol-v4__grid,
+  .sol-v4__kpis,
+  .sol-v4__compare,
+  .svc-compare .use-cases,
+  .acessos-grid,
+  .ax-grid,
+  .ponto-grid-4,
+  .ponto-grid-3,
+  .ponto-metrics,
+  .cl-logo-grid,
+  .cl-t-track,
+  .cl-cases-track,
+  .resultados-grid,
+  .tecnologias-boxes-grid,
+  .blog-grid, .blog-list, .blog-cards{
+    grid-template-columns: 1fr;
+  }
+  .post-content .checklist{ grid-template-columns: 1fr; }
+}
+
+/* Utilidade: aplique em QUALQUER container para forçar 2-up no mobile
+   <div class="stack-sm-2"> ... </div> */
+@media (max-width: 768px){
+  .stack-sm-2{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; }
+}
+@media (max-width:420px){
+  .stack-sm-2{ grid-template-columns:1fr; }
+}

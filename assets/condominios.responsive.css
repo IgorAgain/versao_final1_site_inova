@@ -11,11 +11,6 @@
  */
 
 /* ===== Barragens globais ===== */
-html, body{ width:100%; max-width:100%; overflow-x: clip; }
-@supports not (overflow-x: clip){ html, body{ overflow-x: hidden; } }
-*, *::before, *::after{ box-sizing: border-box; }
-img, svg, video, canvas, iframe{ max-width:100%; height:auto; display:block; }
-main, section, header, footer{ max-width:100%; }
 
 /* ===== Containers / Paddings ===== */
 .section, .introducao-educacao, .acessos, .nova-sessao, .integracao-section, .porque-escolher-educacao, .video-section{

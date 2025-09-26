@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inova Tecnologia - Segmentos em Controle de Acesso</title>
+    <title>Inova Tecnologia - Blog Controle de Acesso</title>
     <link rel="stylesheet" href="assets/main.css">
-    <link rel="stylesheet" href="assets/segmentos.responsive.css">
+    <link rel="stylesheet" href="assets/blog.css">
     <script src="assets/main.js" defer></script>
     <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
 
@@ -47,7 +47,7 @@
                         <li><a href="solucoes.html">SOLUÇÕES</a></li>
 
                         <li class="dropdown">
-                        <a href="segmentos.html" class="dropdown-toggle active" role="button" aria-expanded="false" aria-controls="menu-segmentos">SEGMENTOS</a>
+                        <a href="segmentos.html" class="dropdown-toggle" role="button" aria-expanded="false" aria-controls="menu-segmentos">SEGMENTOS</a>
                         <ul id="menu-segmentos" class="dropdown-menu">
                             <li><a class="drop-down-menu-item" href="educacao.html">Instituições de Ensino</a></li>
                             <li><a class="drop-down-menu-item" href="empresas.html">Empresas</a></li>
@@ -64,8 +64,8 @@
                             <li><a class="drop-down-menu-item" href="servicosuporte.html">Suporte</a></li>
                         </ul>
                         </li>
-
-                        <li><a href="blog.html">BLOG</a></li>
+                        
+                        <li><a class="active" href="blog.html">BLOG</a></li>
                         <li><a href="clientes.html">CLIENTES</a></li>
                     </ul>
 
@@ -83,106 +83,66 @@
             target="_blank"
             rel="noopener"
             >
-            <!-- Ícone WhatsApp em SVG -->
+            <!-- Ícone WhatsApp em SVG (usa a cor do botão) -->
             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                 <path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/>
             </svg>
             <span class="sr-only">WhatsApp</span>
         </a>
 
-        <!-- Banner -->
+        <!-- Banner Educação -->
         <section class="banner-educacao">
-            <img src="assets/img/imagem controle de acesso 1.png" alt="Segmentos atendidos pela Inova Tecnologia" class="banner-image">
+            <img src="assets/img/imagem controle de acesso 3.jpg" alt="Banner Blog" class="banner-image">
             <div class="banner-overlay"></div>
             <div class="banner-content">
-                <h1 class="banner-title">Nossos principais Segmentos em Controle de Acesso</h1>
+                <h1 class="banner-title">Blog da Inova (TESTE)</h1>
             </div>
         </section>
 
-        <!-- Seção Segmentos -->
-        <section class="servicos">
-            <div class="servicos-container">
-                <div class="servicos-header">
-                    <h2 class="servicos-title">Nossos Principais Segmentos</h2>
-                    <p class="servicos-subtitle">
-                        Soluções completas de <strong>controle de acesso</strong>, <strong>aplicativos com QR Code</strong> e <strong>integrações com ERP</strong> — do planejamento à operação.
-                    </p>
-                </div>
-                
-                <div class="servicos-grid">
-                    <!-- Card: Instituições de Ensino -->
-                    <div class="servico-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="servico-icon">
-                            <img class="servico-icon-change" src="assets/img/school (1).png" alt="Controle de acesso para Instituições de Ensino">
-                        </div>
-                        <h3 class="servico-titulo">Instituições de Ensino</h3>
-                        <p class="servico-descricao">
-                            Acesso seguro e ágil para alunos, responsáveis, docentes e visitantes, integrado ao ERP/SGA.
-                        </p>
-                        <ul class="servico-lista">
-                            <li>Carteirinha digital com <strong>QR Code</strong> dinâmico (inclusive offline)</li>
-                            <li><strong>Reconhecimento facial</strong> nas catracas e portarias</li>
-                            <li>Controle de entrada em <strong>biblioteca, laboratórios e eventos</strong></li>
-                            <li>Convites de visitantes via app com validade e auditoria</li>
-                            <li>Relatórios de presença por turma, campus e turnos</li>
-                        </ul>
-                        <a href="educacao.html">
-                            <button class="servico-cta-servicos" aria-label="Ver soluções para Instituições de Ensino">
-                                <span>Ver soluções</span>
-                            </button>
-                        </a>
-                    </div>
+        <!-- ======================
+            SEÇÃO: BLOG
+            ====================== -->
+        <section class="blog" id="blog">
+        <div class="blog-container">
 
-                    <!-- Card: Empresas -->
-                    <div class="servico-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="servico-icon">
-                            <img class="servico-icon-change" src="assets/img/office-building (1).png" alt="Controle de acesso para Empresas">
-                        </div>
-                        <h3 class="servico-titulo">Empresas</h3>
-                        <p class="servico-descricao">
-                            Segurança perimetral, fluxo de pessoas e visitantes com integração ao seu ERP.
-                        </p>
-                        <ul class="servico-lista">
-                            <li><strong>Controle por andar</strong> em elevadores e portas por perfil</li>
-                            <li><strong>QR Code</strong> para visitantes e prestadores (convites com validade)</li>
-                            <li>Auditoria centralizada e <strong>LGPD</strong> com trilhas de acesso</li>
-                            <li>Câmeras com IA e relatórios de compliance</li>
-                            <li>Alta disponibilidade e operação offline</li>
-                        </ul>
-                        <a href="empresas.html">
-                            <button class="servico-cta-servicos" aria-label="Ver soluções para Empresas">
-                                <span>Ver soluções</span>
-                            </button>
-                        </a>
-                    </div>
+            <div class="blog-grid">
+            <!-- Card 1 -->
+            <article class="blog-card" itemscope itemtype="https://schema.org/BlogPosting">
+                <figure class="blog-media">
+                <img src="assets/img/imagem controle de acesso 3.jpg" alt="Tecnologias de acesso em catracas" loading="lazy" itemprop="image">
+                </figure>
+                <h3 class="blog-title" itemprop="headline">Facial, QR Code ou Biometria: qual escolher?</h3>
+                <a class="blog-cta" href="blog-post1.html" itemprop="url" aria-label="Ler artigo: Facial, QR Code ou Biometria">
+                <span>Ler artigo</span>
+                </a>
+            </article>
 
-                    <!-- Card: Condomínios -->
-                    <div class="servico-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="servico-icon">
-                            <img class="servico-icon-change" src="assets/img/house (1).png" alt="Controle de acesso para Condomínios">
-                        </div>
-                        <h3 class="servico-titulo">Condomínios</h3>
-                        <p class="servico-descricao">
-                            Portarias inteligentes com credenciais QR Code, facial e cartão RFID promovendo uma gestão simplificada.
-                        </p>
-                        <ul class="servico-lista">
-                            <li>Cadastro e liberação de visitantes via app (convite com validade)</li>
-                            <li><strong>Controle por andar</strong> em elevadores e áreas comuns</li>
-                            <li><strong>LPR</strong> para veículos e integração com estacionamentos</li>
-                            <li>Reservas de espaços e notificações para condôminos</li>
-                            <li>Relatórios e auditoria centralizada</li>
-                        </ul>
-                        <a href="condominios.html">
-                            <button class="servico-cta-servicos" aria-label="Ver soluções para Condomínios">
-                                <span>Ver soluções</span>
-                            </button>
-                        </a>
-                    </div>
-                </div>
+            <!-- Card 2 -->
+            <article class="blog-card" itemscope itemtype="https://schema.org/BlogPosting">
+                <figure class="blog-media">
+                <img src="assets/img/imagem controle de acesso 2.jpg" alt="QR Code dinâmico em aplicativo de acesso" loading="lazy" itemprop="image">
+                </figure>
+                <h3 class="blog-title" itemprop="headline">QR Code dinâmico: segurança e boas práticas</h3>
+                <a class="blog-cta" href="blog-post2.html" itemprop="url" aria-label="Ler artigo: QR Code dinâmico">
+                <span>Ler artigo</span>
+                </a>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="blog-card" itemscope itemtype="https://schema.org/BlogPosting">
+                <figure class="blog-media">
+                <img src="assets/img/imagem controle de acesso 1.png" alt="Controle de acesso por andar em elevadores" loading="lazy" itemprop="image">
+                </figure>
+                <h3 class="blog-title" itemprop="headline">Importância do Controle de Acesso em Instituições de Ensino</h3>
+                <a class="blog-cta" href="blog-post3.html" itemprop="url" aria-label="Ler artigo: Controle por andar">
+                <span>Ler artigo</span>
+                </a>
+            </article>
             </div>
+        </div>
         </section>
 
-        <!-- Footer -->
+        <!-- Footer atualizado -->
         <footer class="footer">
             <div class="footer-container">
                 <!-- Coluna do Logo -->
@@ -293,6 +253,3 @@
                 <p>© 2025 Inova Tecnologia. Todos os direitos reservados.</p>
             </div>
         </footer>
-    </div>
-</body>
-</html>
