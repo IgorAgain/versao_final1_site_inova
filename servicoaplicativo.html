@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sistema de Ponto Eletrônico (Portaria 671) | Inova Tecnologia</title>
-  <meta name="description" content="Controle de Ponto em conformidade com a Portaria 671 e LGPD. Dashboards, detalhamento de cálculos, app mobile com geolocalização, reconhecimento facial, integração com REPs e folha. Teste grátis por 40 dias."/>
-  <link rel="stylesheet" href="assets/main.css"/>
-  <link rel="stylesheet" href="assets/servicoponto.responsive.css"/>
-  <script defer src="assets/main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inova Tecnologia - Controle de Acesso</title>
+    <link rel="stylesheet" href="assets/main.css">
+    <script src="assets/main.js" defer></script>
+    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+    <!-- Favicon - Logo na guia do navegador -->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
 </head>
 <body>
     <div class="page-container">
@@ -76,351 +75,241 @@
         </header>
 
         <!-- WhatsApp FAB -->
-        <a class="whatsapp-fab"
-        href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia."
-        aria-label="Falar com a Inova pelo WhatsApp"
-        target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/></svg>
-        <span class="sr-only">WhatsApp</span>
+        <a
+            class="whatsapp-fab"
+            href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia."
+            aria-label="Falar com a Inova pelo WhatsApp"
+            target="_blank"
+            rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/>
+            </svg>
+            <span class="sr-only">WhatsApp</span>
         </a>
 
-        <!-- Banner -->
+        <!-- Banner Serviços -->
         <section class="banner-educacao">
-        <img src="assets/img/imagem controle de acesso 1.png" alt="Banner Sistema de Ponto" class="banner-image">
-        <div class="banner-overlay"></div>
-        <div class="banner-content">
-            <h1 class="banner-title">Serviço de Ponto</h1>
-        </div>
+            <img src="assets/img/imagem controle de acesso 1.png" alt="Banner Educação" class="banner-image">
+            <div class="banner-overlay"></div>
+            <div class="banner-content">
+                <h1 class="banner-title">Nossos Aplicativos Excusivos</h1>
+            </div>
         </section>
 
-        <!-- INTRO + BENEFÍCIOS -->
-        <section id="ponto-intro" class="ponto-section ponto-intro">
-        <div class="ponto-container">
-            <header class="ponto-header">
-            <h2 class="servicos-title">Sistema de Controle de Ponto Eletrônico para Empresas</h2>
-            <p class="ponto-subtitle">
-                Chega de complicação: simplifique sua gestão de ponto com <strong>segurança</strong>, <strong>agilidade</strong> e
-                <strong>conformidade legal</strong> (Portaria 671 e LGPD). Reduza custos, automatize processos e mantenha tudo sob controle.
-            </p>
-            </header>
+        <!-- Seção Serviços -->
+        <section class="servicos">
+            <div class="servicos-container">
+                <div class="servicos-header">
+                    <h2 class="servicos-title">Serviços que Modernizam o Controle de Acesso</h2>
+                    <h3 class="servicos-subtitle">Oferecemos um ecossistema completo para condomínios, empresas e instituições de ensino do hardware à integração com seus sistemas, tudo com implantação assistida por especialistas.</h3>
+                </div>
+                
+                <div class="servicos-grid">
+                    <!-- Card Acessos -->
+                    <div class="servico-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="servico-icon">
+                            <img class="servico-icon-change" src="assets/img/catraca vidro icon site.svg" alt="icone catra">
+                        </div>
+                        <h3 class="servico-titulo">White Label</h3>
+                        <p class="servico-descricao">Versão personalizada com a identidade visual da sua instituição ou empresa, fortalecendo a marca e melhorando a experiência do usuário.</p>
+                        <!-- Conteúdo expandido - adicione antes do botão "Descubra sobre" -->
+                        <div class="servico-expandido">
+                            <div class="servico-imagem-container">
+                                <img src="assets/img/imagem controle de acesso 4.jpg" alt="Descrição da imagem" class="servico-imagem">
+                            </div>
+                            <ul class="servico-lista">
+                                <li>Layout customizado com logotipo e cores institucionais</li>
+                                <li>App exclusivo para sua instituição</li>
+                                <li>Experiência única para alunos, colaboradores ou condôminos</li>
+                            </ul>
+                        </div>
 
-            <div class="ponto-grid ponto-grid-3">
-            <article class="ponto-card ponto-card-center">
-                <div class="ponto-icon"><img src="assets/img/economia icon site.svg" alt="Ícone economia"></div>
-                <h3 class="ponto-title">Reduza custos</h3>
-                <p class="ponto-text">Menos retrabalho e menos erros na folha com processos automatizados e relatórios oficiais.</p>
-            </article>
+                        <!-- Modifique o botão existente para incluir data-action -->
+                        <button class="servico-cta" data-action="expand" aria-label="Botão para expandir o conteúdo">
+                            <span>Mostrar mais</span>
+                        </button>
+                    </div>
 
-            <article class="ponto-card ponto-card-center">
-                <div class="ponto-icon"><img src="assets/img/back-in-time.png" alt="Ícone automação"></div>
-                <h3 class="ponto-title">Automatize processos</h3>
-                <p class="ponto-text">Cálculos, regras e integrações configuradas de ponta a ponta para fechamento rápido e preciso.</p>
-            </article>
+                    <!-- Card Aplicativos -->
+                    <div class="servico-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="servico-icon">
+                            <img class="servico-icon-change" src="assets/img/suporte icon site.svg" alt="aplicativos icon">
+                        </div>
+                        <h3 class="servico-titulo">Aplicativos</h3>
+                        <p class="servico-descricao">Apps de ponto e acesso digital para alunos, colaboradores e gestores, com carteirinha digital, relatórios em tempo real e experiência prática no dia a dia.</p>
+                        <!-- Conteúdo expandido - adicione antes do botão "Descubra sobre" -->
+                        <div class="servico-expandido">
+                            <div class="servico-imagem-container">
+                                <img src="assets/img/imagem controle de acesso 2.jpg" alt="Descrição da imagem" class="servico-imagem">
+                            </div>
+                            <ul class="servico-lista">
+                                <li>Acesso de usuários com carteirinha digital ou física</li>
+                                <li>Disponibilização de QR Code offline e dinâmico para acesso de catracas</li>
+                                <li>Gestão inteligente de acessos e serviços com relatórios diários e dashboards interativos</li>
+                            </ul>
+                        </div>
 
-            <article class="ponto-card ponto-card-center">
-                <div class="ponto-icon"><img src="assets/img/tablet.png" alt="Ícone controle"></div>
-                <h3 class="ponto-title">Tudo sob controle</h3>
-                <p class="ponto-text">Dashboards, logs e trilha de auditoria asseguram transparência e segurança jurídica.</p>
-            </article>
+                        <!-- Modifique o botão existente para incluir data-action -->
+                        <button class="servico-cta" data-action="expand" aria-label="Botão para expandir o conteúdo">
+                            <span>Mostrar mais</span>
+                        </button>
+                    </div>
+
+                    <!-- Card Integração -->
+                    <div class="servico-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="servico-icon">
+                            <img class="servico-icon-change" src="assets/img/controle acesso site.svg" alt="icone integração">
+                        </div>
+                        <h3 class="servico-titulo">Integração</h3>
+                        <p class="servico-descricao">Conexão simples com sistemas acadêmicos, RH e folha. Além de APIs abertas para ampliar recursos e integrações.</p>
+                        <!-- Conteúdo expandido - adicione antes do botão "Descubra sobre" -->
+                        <div class="servico-expandido">
+                            <div class="servico-imagem-container">
+                                <img src="assets/img/imagem controle de acesso 1.png" alt="Descrição da imagem" class="servico-imagem">
+                            </div>
+                            <ul class="servico-lista">
+                                <li>Integração com sistemas acadêmicos (SGA) e ERPs existentes.</li>
+                                <li>Sincronização com folha de pagamento e controle de jornada.</li>
+                                <li>Automação do processo de autorização de acessos.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Modifique o botão existente para incluir data-action -->
+                        <button class="servico-cta" data-action="expand" aria-label="Botão para expandir o conteúdo">
+                            <span>Mostrar mais</span>
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="ponto-container">
-            <div class="ponto-metrics">
-            <div class="ponto-metric"><span class="ponto-metric-number">280 mil+</span><span class="ponto-metric-label">Clientes no Brasil</span></div>
-            <div class="ponto-metric"><span class="ponto-metric-number">11 milhões+</span><span class="ponto-metric-label">Colaboradores</span></div>
-            <div class="ponto-metric"><span class="ponto-metric-number">44 milhões/dia</span><span class="ponto-metric-label">Registros processados</span></div>
-            </div>
-        </div>
-
-        <div class="cta-container">
-            <a href="contratar.html">
-            <button class="cta-comprar-integracao" aria-label="Testar Ponto gratuitamente por 40 dias">
-                <span>Teste grátis por 40 dias</span>
-            </button>
-            </a>
-        </div>
         </section>
 
-        <!-- CONSULTORIA & SERVIÇOS -->
-        <section id="ponto-consultoria" class="ponto-consultoria">
-        <div class="ponto-container">
-            <header class="ponto-header">
-            <h2 class="servicos-title">Consultoria em Ponto & Serviços Especializados</h2>
-            <p class="ponto-subtitle">Implantação rápida, suporte contínuo e conformidade com a Portaria 671 e a LGPD — para uma gestão de ponto segura e eficiente.</p>
-            </header>
-
-            <div class="ponto-retrofit-layout">
-            <div class="solucao-card empresas">
-                <div class="foto-ponto">
-                <img src="assets/img/relogio ponto control id.jpg" alt="Relógio de Ponto - Assistência técnica">
+        <!-- Seção Nossas Soluções -->
+        <section class="nossas-solucoes" id="solucoes">
+            <div class="nossas-solucoes-container">
+                <div class="nossas-solucoes-header">
+                    <h2 class="servicos-title">Soluções em Controle de Acesso que geram resultados</h2>
+                    <h3 class="nossas-solucoes-subtitle">
+                        Desenvolvemos soluções sob medida para cada segmento, com foco em escala, segurança e usabilidade.
+                    </h3>
                 </div>
-                <h3 class="solucao-titulo">Demonstração grátis (Ponto Secullum Web)</h3>
-                <p class="solucao-descricao">
-                Conheça nossa consultoria e aproveite <strong>40 dias gratuitos</strong> para descomplicar e otimizar sua gestão de ponto.
-                </p>
-                <ul class="servico-lista">
-                <li>Consultoria especializada: Portaria 671, LGPD e arquivos do MTP</li>
-                <li>Suporte remoto ilimitado: telefone, WhatsApp, chat e chamado (seg–sex, 8h–18h)</li>
-                <li>Manutenção de equipamentos REP-A/REP-C (trocas, desbloqueios, atualizações)</li>
-                <li>Conectividade e integração com folha de pagamento</li>
-                <li>Treinamentos (Secullum Web/Offline/Ponto 4, Central do Funcionário e Ponto Virtual)</li>
-                <li>Personalização conforme a necessidade do seu negócio</li>
-                </ul>
-                <button class="cta-comprar" aria-label="Solicitar demonstração">
-                <span><a href="contratar.html">Testar Gratuitamente</a></span>
-                </button>
+            
+                <div class="solucoes-grid-app">
+                    <!-- Card Educação -->
+                    <div class="solucao-card educacao">
+                        <h3 class="solucao-titulo">Carteirinha</h3>
+                        <img src="assets/img/imagem app carteirinha.jpg" alt="Carteirinha digital sendo lida em catraca — controle de acesso escolar" class="solucao-imagem-app">
+                        <p class="solucao-descricao">
+                            Solução completa para gestão acadêmica com carteirinha digital, controle de acesso e portal do aluno integrado.
+                        </p>
+                        <ul class="servico-lista">
+                            <li>Carteirinha digital estudantil</li>
+                            <li>QR Code criptografado e offline</li>
+                            <li>Portal do aluno integrado</li>
+                            <li>Controle de acesso por reconhecimento facial</li>
+                            <li>Integração com sistemas acadêmicos</li>
+                            <li>Gestão de bibliotecas</li>
+                            <li>Comunicação institucional</li>
+                        </ul>
+                        <button class="cta-comprar" aria-label="Ver soluções para instituições de ensino"><span><a href="educacao.html">Obter o Aplicativo</a></span></button>
+                    </div>
+                
+                    <!-- Card Empresas -->
+                    <div class="solucao-card empresas">
+                        <h3 class="solucao-titulo">InovaAccess</h3>
+                        <img src="assets/img/imagem app inova access.jpg" alt="Funcionário passando cartão/qr code em catraca empresarial" class="solucao-imagem-app">
+                        <p class="solucao-descricao">
+                            Plataforma completa para gestão de condomínios com controle de acesso, comunicação e administração integrada.
+                        </p>
+                        <ul class="servico-lista">
+                            <li>Controle de acesso de moradores</li>
+                            <li>Gestão de visitantes e prestadores</li>
+                            <li>Comunicação interna e avisos</li>
+                            <li>Reserva de áreas comuns</li>
+                            <li>Integração com elevadores, cancelas e portões</li>
+                            <li>Relatórios de movimentação</li>
+                            <li>Sistema de delivery e encomendas</li>
+                        </ul>
+                        <button class="cta-comprar" aria-label="Solicitar demonstração para empresas"><span><a href="empresas.html">Obter o Aplicativo</a></span></button>
+                    </div>
+                </div>
             </div>
-
-            <div class="ponto-steps">
-                <div class="diferencial-item">
-                <div class="diferencial-icon-space"><img src="assets/img/triangulo-lado-direito-site.svg" alt=""></div>
-                <div class="diferencial-content">
-                    <h4 class="diferencial-title">Diagnóstico & Plano</h4>
-                    <div class="diferencial-text"><p>Mapeamos regras de jornada e integrações, alinhando o sistema à legislação vigente.</p></div>
-                </div>
-                </div>
-
-                <div class="diferencial-item">
-                <div class="diferencial-icon-space"><img src="assets/img/triangulo-lado-direito-site.svg" alt=""></div>
-                <div class="diferencial-content">
-                    <h4 class="diferencial-title">Implantação & Integração</h4>
-                    <div class="diferencial-text"><p>Configuração completa, migração de dados e comunicação com folha e REPs.</p></div>
-                </div>
-                </div>
-
-                <div class="diferencial-item">
-                <div class="diferencial-icon-space"><img src="assets/img/triangulo-lado-direito-site.svg" alt=""></div>
-                <div class="diferencial-content">
-                    <h4 class="diferencial-title">Go-Live & Suporte</h4>
-                    <div class="diferencial-text"><p>Treinamento da equipe, acompanhamento próximo e suporte remoto ilimitado.</p></div>
-                </div>
-                </div>
-
-                <div class="diferencial-item">
-                <div class="diferencial-icon-space"><img src="assets/img/triangulo-lado-direito-site.svg" alt=""></div>
-                <div class="diferencial-content">
-                    <h4 class="diferencial-title">Conformidade Legal</h4>
-                    <div class="diferencial-text"><p>Atualizações contínuas conforme a Portaria 671 e decretos trabalhistas.</p></div>
-                </div>
-                </div>
-            </div><!-- .ponto-steps -->
-            </div>
-        </div>
         </section>
 
-        <!-- RECURSOS DO SISTEMA -->
-        <section id="ponto-recursos" class="ponto-recursos-avancados recursos-v2">
-        <div class="ponto-container recursos-rail">
-            <aside class="recursos-aside">
-            <h2 class="servicos-title">Recursos do sistema</h2>
-            <p class="ponto-subtitle">Funcionalidades que automatizam o controle de jornada, garantem conformidade e simplificam o dia a dia do RH.</p>
-            <div class="cta-container">
-                <a href="contratar.html"><button class="cta-comprar-integracao" aria-label="Quero obter os recursos de ponto"><span>Quero obter os recursos</span></button></a>
+        <!-- Sessão DIFERENCIAL -->
+        <section class="porque-escolher-educacao">
+            <div class="porque-escolher-container">
+                <!-- Título centralizado fora do conteúdo -->
+                <div class="nova-sessao-header">
+                    <h2 class="servicos-title">Nossos Diferenciais dentro das Instituições de Ensino</h2>
+                    <h3 class="nova-sessao-subtitle">
+                        Conheça algumas das principais características pelas quais nossos clientes decidiram inovar
+                        seu controle de acesso.
+                    </h3>
+                </div>
+                
+                <div class="porque-escolher-content">
+                    <div class="float-wrapper">
+                        <div class="phone">
+                            <img src="assets/img/inicio app carteirinha.png" alt="SuperApp Inova Access" class="phone-img">
+                            <div class="notch"></div>
+                        </div>
+                    </div>
+
+                    <!-- Lado direito - Conteúdo -->
+                    <div class="porque-escolher-text">
+                        <!-- Lista de diferenciais -->
+                        <div class="diferenciais-list">
+                            <div class="diferencial-item">
+                                <div class="diferencial-icon-space">
+                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
+                                </div>
+                                <div class="diferencial-content">
+                                    <h4 class="diferencial-title">Escalabilidade com dados inteligentes</h4>
+                                    <div class="diferencial-text">
+                                        <p>
+                                            A Inova transforma dados já existentes em informações estratégicas, 
+                                            permitindo que nossas soluções sejam aplicadas em empresas de qualquer 
+                                            porte, com eficiência e alta performance.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="diferencial-item">
+                                <div class="diferencial-icon-space">
+                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
+                                </div>
+                                <div class="diferencial-content">
+                                    <h4 class="diferencial-title">White Label</h4>
+                                    <div class="diferencial-text">
+                                        <p>
+                                            Seu app com a identidade da instituição: nome, ícone e cores próprias. 
+                                            Entrega uma experiência profissional, aumenta o engajamento e fortalece a 
+                                            marca em todos os pontos de contato.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="diferencial-item">
+                                <div class="diferencial-icon-space">
+                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
+                                </div>
+                                <div class="diferencial-content">
+                                    <h4 class="diferencial-title">Instalação especializada e suporte completo</h4>
+                                    <div class="diferencial-text">
+                                        <p>
+                                            Implantação ponta a ponta: levantamento, configuração, testes e treinamento. 
+                                            Após o go-live, monitoramento proativo, SLA de atendimento e base de conhecimento 
+                                            para TI e secretarias.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </aside>
-
-            <div class="recursos-list">
-            <!-- Linha 1 -->
-            <article class="recurso-row">
-                <div class="recurso-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="3" height="8" rx="1.5" stroke="#2E3F5B" stroke-width="2"/><rect x="10.5" y="6" width="3" height="12" rx="1.5" stroke="#2E3F5B" stroke-width="2"/><rect x="17" y="3" width="3" height="15" rx="1.5" stroke="#2E3F5B" stroke-width="2"/></svg>
-                </div>
-                <div class="recurso-body">
-                <h3>Dashboard gerencial</h3>
-                <p>Indicadores em tempo real e resumos diários: horas extras, absenteísmo e produtividade para decisões mais rápidas.</p>
-                <div class="recurso-meta"><span class="tech-tag">Tempo Real</span></div>
-                </div>
-            </article>
-
-            <!-- Linha 2 -->
-            <article class="recurso-row">
-                <div class="recurso-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h9" stroke="#2E3F5B" stroke-width="2" stroke-linecap="round"/></svg>
-                </div>
-                <div class="recurso-body">
-                <h3>Detalhamento de cálculos</h3>
-                <p>Transparência total: veja como o sistema calcula atrasos, adicionais, compensações e banco de horas.</p>
-                <div class="recurso-meta"><span class="tech-tag">Auditoria</span></div>
-                </div>
-            </article>
-
-            <!-- Linha 3 -->
-            <article class="recurso-row">
-                <div class="recurso-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="8" y="3" width="8" height="18" rx="2" stroke="#2E3F5B" stroke-width="2"/><path d="M12 7v6" stroke="#25BACF" stroke-width="2" stroke-linecap="round"/></svg>
-                </div>
-                <div class="recurso-body">
-                <h3>Registro por smartphone</h3>
-                <p>App de ponto digital com geolocalização, justificativas, espelho e ajustes — ideal para modelos híbridos e remotos.</p>
-                <div class="recurso-meta"><span class="tech-tag">Mobile</span></div>
-                </div>
-            </article>
-
-            <!-- Linha 4 -->
-            <article class="recurso-row">
-                <div class="recurso-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="4" stroke="#2E3F5B" stroke-width="2"/><circle cx="12" cy="12" r="3" stroke="#25BACF" stroke-width="2"/></svg>
-                </div>
-                <div class="recurso-body">
-                <h3>Reconhecimento facial</h3>
-                <p>Biometria facial com anti-spoofing para autenticação confiável e trilha de auditoria.</p>
-                <div class="recurso-meta"><span class="tech-tag">IA</span></div>
-                </div>
-            </article>
-
-            <!-- Linha 5 -->
-            <article class="recurso-row">
-                <div class="recurso-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#2E3F5B" stroke-width="2"/><path d="M8 8h8M8 12h8" stroke="#25BACF" stroke-width="2" stroke-linecap="round"/></svg>
-                </div>
-                <div class="recurso-body">
-                <h3>Conformidade legal</h3>
-                <p>Atualizado com a Portaria 671 e LGPD, com relatórios oficiais para segurança jurídica.</p>
-                <div class="recurso-meta"><span class="tech-tag">Compliant</span></div>
-                </div>
-            </article>
-
-            <!-- Linha 6 -->
-            <article class="recurso-row">
-                <div class="recurso-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="#2E3F5B" stroke-width="2"/></svg>
-                </div>
-                <div class="recurso-body">
-                <h3>Integração com REPs e folha</h3>
-                <p>Compatível com principais relógios REP-A/REP-C e integrado aos maiores sistemas de folha e RH.</p>
-                <div class="recurso-meta"><span class="tech-tag">Integração</span></div>
-                </div>
-            </article>
-            </div>
-        </div>
-        </section>
-
-        <!-- RECURSOS AVANÇADOS (ACCORDION) -->
-        <section id="ponto-avancados" class="ponto-recursos-sistema avancados-v2">
-        <div class="ponto-container">
-            <header class="ponto-header">
-            <h2 class="servicos-title">Recursos avançados</h2>
-            <p class="ponto-subtitle">Abra para ver detalhes e exemplos.</p>
-            </header>
-
-            <div class="av-accordion">
-            <!-- Item 1 -->
-            <details class="av-item" open>
-                <summary class="av-summary">
-                <span class="av-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#2E3F5B" stroke-width="2"/><path d="M8 8h8M8 12h8" stroke="#25BACF" stroke-width="2" stroke-linecap="round"/></svg>
-                </span>
-                <h3>Gestão de documentos</h3>
-                <span class="chev" aria-hidden="true"></span>
-                </summary>
-                <div class="av-content">
-                <div class="av-media"><img src="assets/img/imagem controle de acesso 4.jpg" alt="Gestão de Documentos"/></div>
-                <ul class="recursos-avancados-list">
-                    <li>Armazenamento seguro com controle de validade e versões.</li>
-                    <li>Assinatura eletrônica integrada ao cartão-ponto.</li>
-                    <li>Alertas automáticos para pendências e documentos vencidos.</li>
-                </ul>
-                </div>
-            </details>
-
-            <!-- Item 2 -->
-            <details class="av-item">
-                <summary class="av-summary">
-                <span class="av-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M8 12h8M12 8v8" stroke="#25BACF" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#2E3F5B" stroke-width="2"/></svg>
-                </span>
-                <h3>QV do trabalhador</h3>
-                <span class="chev" aria-hidden="true"></span>
-                </summary>
-                <div class="av-content">
-                <div class="av-media"><img src="assets/img/imagem controle de acesso 3.jpg" alt="QV do trabalhador"/></div>
-                <ul class="recursos-avancados-list">
-                    <li>Pesquisas no app Central do Funcionário para clima e satisfação.</li>
-                    <li>Identifique padrões de excesso de horas extras, faltas e atrasos.</li>
-                    <li>Use os dados para reduzir absenteísmo e elevar o engajamento.</li>
-                </ul>
-                </div>
-            </details>
-
-            <!-- Item 3 -->
-            <details class="av-item">
-                <summary class="av-summary">
-                <span class="av-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="8" y="3" width="8" height="18" rx="2" stroke="#2E3F5B" stroke-width="2"/><path d="M12 7v6" stroke="#25BACF" stroke-width="2" stroke-linecap="round"/></svg>
-                </span>
-                <h3>App com indicadores</h3>
-                <span class="chev" aria-hidden="true"></span>
-                </summary>
-                <div class="av-content">
-                <div class="av-media"><img src="assets/img/imagem controle de acesso 2.jpg" alt="Indicadores no app"/></div>
-                <ul class="recursos-avancados-list">
-                    <li>Transparência para o colaborador: horários, atrasos, faltas e horas extras.</li>
-                    <li>Gestão em tempo real, de qualquer lugar (Android e iOS).</li>
-                    <li>Registros, justificativas e ajustes direto no celular.</li>
-                </ul>
-                </div>
-            </details>
-
-            <!-- Item 4 -->
-            <details class="av-item">
-                <summary class="av-summary">
-                <span class="av-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M6 8h12M6 12h8M6 16h10" stroke="#2E3F5B" stroke-width="2" stroke-linecap="round"/></svg>
-                </span>
-                <h3>Assinatura eletrônica</h3>
-                <span class="chev" aria-hidden="true"></span>
-                </summary>
-                <div class="av-content">
-                <div class="av-media"><img src="assets/img/imagem controle de acesso 1.png" alt="Assinatura eletrônica"/></div>
-                <ul class="recursos-avancados-list">
-                    <li>Autenticação avançada e validade jurídica.</li>
-                    <li>Elimine papéis e ganhe agilidade.</li>
-                    <li>Cartão-ponto assinado digitalmente.</li>
-                </ul>
-                </div>
-            </details>
-            </div>
-        </div>
-        </section>
-
-        <!-- EQUIPAMENTOS & ASSISTÊNCIA -->
-        <section id="ponto-equipamentos" class="ponto-section ponto-equipamentos">
-        <div class="ponto-container">
-            <header class="ponto-header">
-            <h2 class="servicos-title">Equipamentos de Ponto & Assistência Técnica</h2>
-            <p class="ponto-subtitle">Representamos as principais marcas de relógio de ponto e oferecemos assistência completa — atualizações, desbloqueios e integração com seus sistemas.</p>
-            </header>
-
-            <div class="ponto-grid ponto-grid-3">
-            <article class="ponto-card ponto-card-center">
-                <div class="ponto-icon"><img src="assets/img/economia icon site.svg" alt="Ícone REP"></div>
-                <h3 class="ponto-title">REP-A / REP-C</h3>
-                <p class="ponto-text">Trocas, desbloqueios e atualizações para manter seu parque em conformidade (Portaria 671).</p>
-            </article>
-
-            <article class="ponto-card ponto-card-center">
-                <div class="ponto-icon"><img src="assets/img/controle acesso site.svg" alt="Ícone conectividade"></div>
-                <h3 class="ponto-title">Conectividade</h3>
-                <p class="ponto-text">Comunicação segura entre relógios e sistema, garantindo registros consistentes e sem falhas.</p>
-            </article>
-
-            <article class="ponto-card ponto-card-center">
-                <div class="ponto-icon"><img src="assets/img/centralized.png" alt="Ícone integração folha"></div>
-                <h3 class="ponto-title">Integração com folha</h3>
-                <p class="ponto-text">Integração automática com os principais sistemas de folha e RH, reduzindo erros manuais.</p>
-            </article>
-            </div>
-        </div>
-
-        <div class="ponto-experimente ponto-container">
-            <div class="ponto-band">
-            <div class="ponto-band-item"><strong>100% Seguro</strong><span>Proteção dos dados.</span></div>
-            <div class="ponto-band-item"><strong>24/7 Disponível</strong><span>Acesso remoto.</span></div>
-            <div class="ponto-band-item"><strong>Custo inicial 0</strong><span>Teste de 40 dias.</span></div>
-            <a class="ponto-cta" href="contratar.html">Experimentar agora</a>
-            </div>
-        </div>
         </section>
 
         <!-- Footer atualizado -->

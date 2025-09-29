@@ -20,7 +20,7 @@
 .cl-container{ margin-inline:auto; }
 .cl-header{ max-width:960px; margin:0 auto 12px; text-align:center; }
 .cl-subtitle{ margin:0; }
-.cl-logo-grid{ list-style:none; padding:0; margin:18px 0 0; display:grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 18px; align-items:center; justify-items:center; }
+.cl-logo-grid{ list-style:none; padding:0; margin:18px 0 0; display:grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 45px; align-items:center; justify-items:center; }
 .cl-logo-grid li{ display:flex; align-items:center; justify-content:center; }
 .cl-logo-grid img{ height:auto; width: 100%; }
 @media (max-width:1200px){ .cl-logo-grid{ grid-template-columns: repeat(5, minmax(0,1fr)); } .cl-logo-grid img{ max-height:80px; } }
@@ -36,7 +36,7 @@
 .cl-t-role{ opacity:.9; font-size:.95rem; }
 .cl-t-quote p{ margin:10px 0 0; }
 .cl-t-foot{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:12px; flex-wrap:wrap; }
-.cl-t-stars{ letter-spacing:2px; }
+.cl-t-stars{ letter-spacing:2px; margin: 0 auto;}
 .cl-badge{ display:inline-block; padding:4px 8px; border-radius:999px; font-size:.8rem; }
 .cl-t-track{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:18px; }
 .cl-t-track .cl-t-card{ border-radius:14px; padding:16px; min-width:0; }
