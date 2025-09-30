@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -511,7 +509,7 @@ html{
 }
 
 .hero-background {
-    position: absolute;
+    aspect-ratio: 16/6;
     top: 0;
     right: 0;
     width: 80%;
@@ -521,7 +519,7 @@ html{
 }
 
 .hero-image {
-    position: absolute;
+    aspect-ratio: 16/6;
     top: 0;
     left: 0;
     width: 100%;
@@ -539,7 +537,7 @@ html{
 }
 
 .hero-overlay {
-    position: absolute;
+    aspect-ratio: 16/6;
     top: 0;
     left: 0;
     width: 100%;
@@ -882,7 +880,6 @@ html{
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-width: 180px; /* Garantir largura mínima */
 }
 
 .carousel-item:hover {
@@ -892,16 +889,12 @@ html{
 /* Logos dos clientes */
 .client-logo {
     max-width: 180px;
-    max-height: 120px;
-    width: auto;
     height: auto;
     object-fit: contain;
     transition: all 0.3s ease;
 }
 
 .carousel-item:hover .client-logo {
-    filter: grayscale(0%);
-    opacity: 1;
     transform: scale(1.05);
 }
 
@@ -2029,7 +2022,7 @@ html{
 }
 
 .banner-image {
-    position: absolute;
+    aspect-ratio: 16/6;
     top: 0;
     left: 0;
     width: 100%;
@@ -2040,7 +2033,7 @@ html{
 }
 
 .banner-educacao .banner-overlay {
-    position: absolute;
+    aspect-ratio: 16/6;
     top: 0;
     left: 0;
     width: 100%;
@@ -4757,7 +4750,7 @@ html{
 }
 
 /* ===== Banner / Título ===== */
-.banner-educacao{ position: relative; overflow: hidden; width:100%; }
+.banner-educacao{ aspect-ratio: 16/6; overflow: hidden; width:100%; }
 .banner-educacao .banner-image{
   width:100%; height: clamp(260px, 36vw, 520px);
   object-fit: cover; object-position: center;
@@ -4895,7 +4888,7 @@ html{
   overflow: hidden;
 }
 .banner-educacao .banner-image{
-  position: absolute;
+  aspect-ratio: 16/6;
   inset: 0;
   width: 100%;
   height: 100% !important;         /* cobre todo o banner */

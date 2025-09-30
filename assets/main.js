@@ -354,9 +354,9 @@ function setupInteractionHandlers() {
         carousel.addEventListener('mouseleave', startAutoSlide);
         
         // Pausa auto-slide no touch (mobile)
-        carousel.addEventListener('touchstart', stopAutoSlide);
+        carousel.addEventListener('touchstart', stopAutoSlide, {passive:true});
         carousel.addEventListener('touchend', () => {
-            setTimeout(startAutoSlide, 2000); // Reativa após 2s
+            setTimeout(startAutoSlide, 2000), {passive:true}; // Reativa após 2s
         });
     }
 }
