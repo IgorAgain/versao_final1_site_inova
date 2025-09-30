@@ -536,6 +536,7 @@ html{
     visibility: visible;
 }
 
+/*
 .hero-overlay {
     aspect-ratio: 16/6;
     top: 0;
@@ -545,6 +546,7 @@ html{
     background: #25BACF;
     z-index: 2;
 }
+*/
 
 .hero-content {
     width: 100%;
@@ -1018,15 +1020,11 @@ html{
     overflow: hidden;
 }
         
-.segmento-image img {
+.segmento-image picture {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
-}
-        
-.segmento-item.active .segmento-image img {
-    transform: scale(1.02);
 }
         
 /* Caixa de Conteúdo */
@@ -2030,6 +2028,11 @@ html{
     object-fit: contain;
     filter: brightness(1.2) contrast(0.5) saturate(0.4);
     z-index: 1;
+}
+
+.banner-image picture img{
+    width: 100%;
+    height: 100%;
 }
 
 .banner-educacao .banner-overlay {
@@ -4767,13 +4770,13 @@ html{
 .banner-educacao .banner-overlay{ position:absolute; inset:0; }
 .banner-educacao .banner-content{ position:absolute; inset:0; display:flex; align-items:center; }
 .banner-title{
-  margin-left: min(6vw, 64px); margin-right: min(6vw, 64px);
+  margin-left: 100px;
   font-size: clamp(1.6rem, 7.2vw, 3rem);
   line-height: 1.15; letter-spacing:-.02em;
   text-wrap: balance; max-inline-size: 22ch;
   word-break: normal !important; overflow-wrap: break-word;
 }
-.banner-title{ margin-left: 100px !important; }
+
 
 @media (max-width: 1024px){
   .banner-educacao .banner-overlay{
@@ -4909,7 +4912,7 @@ html{
 .banner-educacao .banner-title{
   font-size: clamp(1.6rem, 6.6vw, 3rem);
   line-height: 1.15;
-  margin: 0 min(6vw, 64px);
+  margin-left: 100px;
   padding-left: 16px;
 }
 
@@ -5162,7 +5165,6 @@ html{
     position: relative;         /* referência para o botão */
     display: flex;
     align-items: center;        /* alinha a logo verticalmente */
-    padding: 10px 16px;
     min-height: 64px;           /* altura confortável do header */
   }
 

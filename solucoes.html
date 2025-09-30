@@ -20,7 +20,7 @@
     <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
     </noscript>
-    
+
     <!-- Favicon - Logo na guia do navegador -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
@@ -104,7 +104,18 @@
 
         <!-- Banner Serviços -->
         <section class="banner-educacao">
-            <img src="assets/img/imagem controle de acesso 3.jpg" alt="Banner soluções Inova Tecnologia" class="banner-image">
+            <div class="banner-image">
+                <picture>
+                    <source type="image/avif"
+                            srcset="assets/img/imagem-controle-de-acesso-5.avif 640w, assets/img/imagem-controle-de-acesso-5.avif 960w, assets/img/imagem-controle-de-acesso-5.avif 1280w"
+                            sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
+                    <img
+                        src="assets/img/imagem-controle-de-acesso-5.jpg"
+                        srcset="assets/img/imagem-controle-de-acesso-5.jpg 640w, assets/img/imagem-controle-de-acesso-5.jpg 960w, assets/img/imagem-controle-de-acesso-5.jpg 1280w"
+                        sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+                        width="960" height="640" loading="lazy" decoding="async" fetchpriority="low" alt="Imagem catraca intituição de ensino">
+                </picture>
+            </div>
             <div class="banner-overlay"></div>
             <div class="banner-content">
                 <h1 class="banner-title">
@@ -284,7 +295,7 @@
                 <div class="sol-stripes">
                     <!-- 1) Educação -->
                     <a class="stripe" href="servicoacesso.html">
-                    <img src="assets/img/imagem controle de acesso 1.png"
+                    <img src="assets/img/imagem-controle-de-acesso-2.jpg"
                         alt="Controle de Acesso — entrada, biblioteca, eventos e portal do aluno" loading="lazy" decoding="async">
                     <div class="stripe-overlay">
                         <h3>Controle de Acesso</h3>
@@ -294,7 +305,7 @@
 
                     <!-- 2) Empresas -->
                     <a class="stripe" href="servicoaplicativo.html">
-                    <img src="assets/img/imagem controle de acesso 2.jpg"
+                    <img src="assets/img/imagem-controle-de-acesso-4.jpg"
                         alt="Aplicativos — portarias, visitantes, auditoria e compliance" loading="lazy" decoding="async">
                     <div class="stripe-overlay">
                         <h3>Aplicativos</h3>
@@ -304,7 +315,7 @@
 
                     <!-- 3) Ponto -->
                     <a class="stripe" href="servicoponto.html">
-                    <img src="assets/img/relogio ponto control id.jpg"
+                    <img src="assets/img/relogio-ponto-control-id.jpg"
                         alt="Ponto Eletrônico — regras, cálculos e integração com folha" loading="lazy" decoding="async">
                     <div class="stripe-overlay">
                         <h3>Ponto Eletrônico</h3>

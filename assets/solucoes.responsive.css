@@ -127,7 +127,7 @@
 .stripe-overlay{
   position: absolute; left: 16px; right: 16px; bottom: 14px;
   color: #fff; z-index: 1;
-  text-shadow: 0 2px 8px rgba(0,0,0,.4);
+  text-shadow: 0 3px 8px rgba(0,0,0,10);
 }
 .stripe-overlay h3{
   margin: 0 0 4px; font-weight: 700;
@@ -144,7 +144,7 @@
 /* ====== Breakpoints (alinhados ao projeto) ====== */
 @media (min-width: 1920px){
   .sol-stripes{ gap: 18px; }
-  .stripe img{ height: 5vh; }
+  .stripe img{ height: 10vh; }
 }
 @media (max-width: 768px){
   .sol-stripes{ gap: 12px; }

@@ -103,7 +103,18 @@
         
         <!-- Banner Serviços -->
         <section class="banner-educacao">
-            <img src="assets/img/imagem controle de acesso 4.jpg" alt="Banner Educação" class="banner-image">
+            <div class="banner-image">
+                <picture>
+                    <source type="image/avif"
+                            srcset="assets/img/imagem-controle-de-acesso-1.avif 640w, assets/img/imagem-controle-de-acesso-1.avif 960w, assets/img/imagem-controle-de-acesso-1.avif 1280w"
+                            sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
+                    <img
+                        src="assets/img/imagem-controle-de-acesso-1.jpg"
+                        srcset="assets/img/imagem-controle-de-acesso-1.jpg 640w, assets/img/imagem-controle-de-acesso-1.jpg 960w, assets/img/imagem-controle-de-acesso-1.jpg 1280w"
+                        sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+                        width="960" height="640" loading="lazy" decoding="async" fetchpriority="low" alt="Imagem catraca intituição de ensino">
+                </picture>
+            </div>
             <div class="banner-overlay"></div>
             <div class="banner-content">
                 <h1 class="banner-title">Nossos Serviços em Controle de Acesso</h1>
