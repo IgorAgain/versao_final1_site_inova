@@ -162,3 +162,24 @@
    pode apagar as regras de .sol-v4__mosaic, .mosaic__item e .mosaic__overlay,
    pois este novo layout não usa esses seletores. */
 
+/* Evita o navegador “inventar” negrito/itálico com métricas diferentes */
+html { font-synthesis-weight: none; }
+
+/* Pilhas de fonte com fallback estável */
+:root{
+  --ff-heading: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --ff-body: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+h1, h2, h3, .servicos-title { font-family: var(--ff-heading); }
+body, .servicos-subtitle, .sol-v4__kpis { font-family: var(--ff-body); }
+
+/* Reserva de espaço e linhas previsíveis no bloco dos KPIs */
+.sol-v4__kpis{
+  display: grid;
+  grid-auto-flow: column;
+  gap: 12px;
+  min-height: 56px;          /* reserva vertical */
+}
+.sol-v4__kpis li{ min-width: 110px; }  /* reserva horizontal básica */
+.sol-v4__kpis strong{ display:block; line-height:1; }
+.sol-v4__kpis span{ display:block; line-height:1.15; }
