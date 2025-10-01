@@ -30,6 +30,16 @@
                     assets/img/imagem-controle-de-acesso-1.avif 1920w"
         imagesizes="100vw">
 
+    <!-- HEAD -->
+    <link rel="preload" as="image"
+        href="assets/img/imagem-controle-de-acesso-1.jpg"
+        imagesrcset="assets/img/imagem-controle-de-acesso-1.jpg 640w,
+                    assets/img/imagem-controle-de-acesso-1.jpg 960w,
+                    assets/img/imagem-controle-de-acesso-1.jpg 1280w,
+                    assets/img/imagem-controle-de-acesso-1.jpg 1920w"
+        imagesizes="100vw"
+        fetchpriority="high">
+
     <!-- Favicon - Logo na guia do navegador -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
@@ -102,20 +112,14 @@
                 <picture>
                     <source type="image/avif"
                             srcset="assets/img/imagem-controle-de-acesso-1.avif 640w,
-                                    assets/img/imagem-controle-de-acesso-1.avif 960w,
-                                    assets/img/imagem-controle-de-acesso-1.avif 1280w,
-                                    assets/img/imagem-controle-de-acesso-1.avif 1920w"
-                            sizes="100vw">
+                                    960w, 1280w, 1920w" sizes="100vw">
                     <img class="hero-image active"
                         src="assets/img/imagem-controle-de-acesso-1.jpg"
                         srcset="assets/img/imagem-controle-de-acesso-1.jpg 640w,
-                                assets/img/imagem-controle-de-acesso-1.jpg 960w,
-                                assets/img/imagem-controle-de-acesso-1.jpg 1280w,
-                                assets/img/imagem-controle-de-acesso-1.jpg 1920w"
+                                960w, 1280w, 1920w"
                         sizes="100vw"
                         width="1280" height="720"
                         alt="Imagem contendo catraca de controle de acesso"
-                        decoding="async"
                         fetchpriority="high">
                 </picture>
 
