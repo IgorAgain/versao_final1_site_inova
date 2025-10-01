@@ -4,15 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inova Tecnologia - Controle de Acesso</title>
-
-    <link rel="preload" as="image"
-      href="assets/img/imagem-controle-acesso-instituicoes-ensino.jpg"
-      imagesrcset="assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 640w,
-                   assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 960w,
-                   assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 1280w"
-      imagesizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-      fetchpriority="high">
-
     <meta name="description" content="Controle de acesso para escolas e universidades com carteirinha digital. Entrada por QR Code, facial ou RFID, integração acadêmica e relatórios de presença.">
     <link rel="stylesheet" href="assets/main.css">
     <link rel="stylesheet" href="assets/educacao.responsive.css">
@@ -20,11 +11,15 @@
     <link rel="preload" href="https://fonts.gstatic.com/s/poppin...8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- HEAD comum -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
     <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
-
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
+    </noscript>
 
     <!-- Favicon - Logo na guia do navegador -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -111,25 +106,20 @@
         <section class="banner-educacao">
             <div class="banner-image">
                 <picture>
-                <source type="image/avif"
-                        srcset="assets/img/imagem-controle-acesso-instituicoes-ensino.avif 640w,
-                                assets/img/imagem-controle-acesso-instituicoes-ensino.avif 960w,
-                                assets/img/imagem-controle-acesso-instituicoes-ensino.avif 1280w"
-                        sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
-                <img
-                    src="assets/img/imagem-controle-acesso-instituicoes-ensino.jpg"
-                    srcset="assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 640w,
-                            assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 960w,
-                            assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 1280w"
-                    sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-                    width="960" height="640"
-                    decoding="async"
-                    fetchpriority="high"            <!-- ✅ prioridade máxima -->
-                    alt="Imagem catraca instituição de ensino">
+                    <source type="image/avif"
+                            srcset="assets/img/imagem-controle-acesso-instituicoes-ensino.avif 640w, assets/img/imagem-controle-acesso-instituicoes-ensino.avif 960w, assets/img/imagem-controle-acesso-instituicoes-ensino.avif 1280w"
+                            sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
+                    <img
+                        src="assets/img/imagem-controle-acesso-instituicoes-ensino.jpg"
+                        srcset="assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 640w, assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 960w, assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 1280w"
+                        sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+                        width="960" height="640" loading="lazy" decoding="async" fetchpriority="low" alt="Imagem catraca intituição de ensino">
                 </picture>
             </div>
             <div class="banner-overlay"></div>
-            <div class="banner-content">…</div>
+            <div class="banner-content">
+                <h1 class="banner-title">Controle de Acesso & Aplicativos para Instituições de Ensino</h1>
+            </div>
         </section>
 
         <!-- Sessão Introdução (mantida, texto ajustado) -->
@@ -145,9 +135,7 @@
             <div class="introducao-grid">
                 <div class="introducao-card">
                     <div class="card-icon">
-                        <img src="assets/img/icone catraca site.svg" alt="Ícone catraca de segurança inova"
-                        width="44" height="44"
-                        loading="lazy" decoding="async" fetchpriority="low">
+                        <img src="assets/img/icone catraca site.svg" alt="Ícone catraca de segurança inova">
                     </div>
                     <h3 class="card-title">Controle de Acesso</h3>
                     <p class="card-text">
@@ -163,9 +151,7 @@
 
                 <div class="introducao-card">
                     <div class="card-icon">
-                        <img src="assets/img/suporte icon site.svg" alt="Ícone de aplicativo Carteirinha"
-                        width="44" height="44"
-                        loading="lazy" decoding="async" fetchpriority="low">
+                        <img src="assets/img/suporte icon site.svg" alt="Ícone de aplicativo Carteirinha">
                     </div>
                     <h3 class="card-title">App Carteirinha</h3>
                     <p class="card-text">
@@ -181,9 +167,7 @@
 
                 <div class="introducao-card">
                     <div class="card-icon">
-                        <img src="assets/img/back-in-time.png" alt="Ícone do app de Ponto"
-                        width="44" height="44"
-                        loading="lazy" decoding="async" fetchpriority="low">
+                        <img src="assets/img/back-in-time.png" alt="Ícone do app de Ponto">
                     </div>
                     <h3 class="card-title">Suporte Especializado</h3>
                     <p class="card-text">
@@ -213,7 +197,7 @@
                     <!-- Card 1 – Reconhecimento Facial -->
                     <article class="acesso-card">
                         <div class="acesso-icon">
-                            <img src="assets/img/catraca vidro icon site.svg" alt="Reconhecimento facial" width="72" height="72" loading="lazy" decoding="async" fetchpriority="low">
+                            <img src="assets/img/catraca vidro icon site.svg" alt="Reconhecimento facial" width="72" height="72" loading="lazy" decoding="async">
                         </div>
                         <h3 class="acesso-title">Catracas com Reconhecimento Facial</h3>
                         <p class="acesso-text">Autenticação sem contato, rápida e antifraude; ideal para picos de entrada.</p>
@@ -227,7 +211,7 @@
                     <!-- Card 2 – QR Code -->
                     <article class="acesso-card">
                         <div class="acesso-icon">
-                            <img src="assets/img/qr-code.png" alt="QR Code dinâmico" width="72" height="72" loading="lazy" decoding="async" fetchpriority="low">
+                            <img src="assets/img/qr-code.png" alt="QR Code dinâmico" width="72" height="72" loading="lazy" decoding="async">
                         </div>
                         <h3 class="acesso-title">Catracas com QR Code</h3>
                         <p class="acesso-text">Praticidade para alunos e visitantes com tokens dinâmicos no app Carteirinha.</p>
@@ -241,7 +225,7 @@
                     <!-- Card 3 – Biometria -->
                     <article class="acesso-card">
                         <div class="acesso-icon">
-                            <img src="assets/img/controle acesso site.svg" alt="Biometria" width="72" height="72" loading="lazy" decoding="async" fetchpriority="low">
+                            <img src="assets/img/controle acesso site.svg" alt="Biometria" width="72" height="72" loading="lazy" decoding="async">
                         </div>
                         <h3 class="acesso-title">Catracas com Cartão RFID</h3>
                         <p class="acesso-text">Operação rápida e estável com cartões de proximidade e credencial física prática para rotinas acadêmicas.</p>
@@ -255,7 +239,7 @@
                     <!-- Card 4 – Câmeras IA -->
                     <article class="acesso-card">
                         <div class="acesso-icon">
-                            <img src="assets/img/icone camera monitoramente.svg" alt="Câmeras com IA" width="72" height="72" loading="lazy" decoding="async" fetchpriority="low">
+                            <img src="assets/img/icone camera monitoramente.svg" alt="Câmeras com IA" width="72" height="72" loading="lazy" decoding="async">
                         </div>
                         <h3 class="acesso-title">Câmeras com IA</h3>
                         <p class="acesso-text">Análise em tempo real e geração de alertas; relatórios e auditoria centralizada.</p>
@@ -331,9 +315,7 @@
                     <div class="parceiro-card">
                         <div class="parceiro-header">
                             <div class="parceiro-logo">
-                                <img src="assets/img/logo-belas-artes.svg" alt="Centro Universitário Belas Artes"
-                                width="360" height="720"
-                                loading="lazy" decoding="async" fetchpriority="low">
+                                <img src="assets/img/logo-belas-artes.svg" alt="Centro Universitário Belas Artes">
                             </div>
                             <div class="parceiro-info">
                                 <h3>Centro Universitário Belas Artes</h3>
@@ -399,9 +381,7 @@
                     <div class="parceiro-card">
                         <div class="parceiro-header">
                             <div class="parceiro-logo">
-                                <img src="assets/img/logo-anima-educacao.svg" alt="Ânima Educação"
-                                width="360" height="720"
-                                loading="lazy" decoding="async" fetchpriority="low">
+                                <img src="assets/img/logo-anima-educacao.svg" alt="Ânima Educação">
                             </div>
                             <div class="parceiro-info">
                                 <h3>Ânima Educação</h3>
@@ -479,9 +459,7 @@
                         <div class="app-card">
                             <div class="card-connector"></div>
                             <div class="app-icon">
-                                <img src="assets/img/controle acesso site.svg" alt="Ícone de integração de sistemas"
-                                width="360" height="720"
-                                loading="lazy" decoding="async" fetchpriority="low">
+                                <img src="assets/img/controle acesso site.svg" alt="Ícone de integração de sistemas">
                             </div>
                             <h3 class="app-title">Sincronização Automática</h3>
                             <p class="app-description">
@@ -492,9 +470,7 @@
                         <div class="app-card">
                             <div class="card-connector"></div>
                             <div class="app-icon">
-                                <img src="assets/img/back-in-time.png" alt="Ícone de suporte e compatibilidade"
-                                width="360" height="720"
-                                loading="lazy" decoding="async" fetchpriority="low">>
+                                <img src="assets/img/back-in-time.png" alt="Ícone de suporte e compatibilidade">
                             </div>
                             <h3 class="app-title">Suporte &amp; Multimarcas</h3>
                             <p class="app-description">
@@ -505,9 +481,7 @@
                         <div class="app-card">
                             <div class="card-connector"></div>
                             <div class="app-icon">
-                                <img src="assets/img/centralized.png" alt="Ícone dados unificados"
-                                width="360" height="720"
-                                loading="lazy" decoding="async" fetchpriority="low">
+                                <img src="assets/img/centralized.png" alt="Ícone dados unificados">
                             </div>
                             <h3 class="app-title">Dados Unificados</h3>
                             <p class="app-description">
@@ -518,9 +492,7 @@
                         <div class="app-card">
                             <div class="card-connector"></div>
                             <div class="app-icon">
-                                <img src="assets/img/biometric-identification.png" alt="Ícone de segurança e LGPD"
-                                width="360" height="720"
-                                loading="lazy" decoding="async" fetchpriority="low">
+                                <img src="assets/img/biometric-identification.png" alt="Ícone de segurança e LGPD">
                             </div>
                             <h3 class="app-title">Segurança e LGPD</h3>
                             <p class="app-description">
@@ -551,9 +523,7 @@
                 <div class="porque-escolher-content">
                     <div class="float-wrapper">
                         <div class="phone">
-                            <img src="assets/img/inicio app carteirinha.png" alt="App Carteirinha" class="phone-img"
-                            width="360" height="720"
-                                loading="lazy" decoding="async" fetchpriority="low">
+                            <img src="assets/img/inicio app carteirinha.png" alt="App Carteirinha" class="phone-img">
                             <div class="notch"></div>
                         </div>
                     </div>
@@ -562,9 +532,7 @@
                         <div class="diferenciais-list">
                             <div class="diferencial-item">
                                 <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito"
-                                    width="360" height="720"
-                                    loading="lazy" decoding="async" fetchpriority="low">
+                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
                                 </div>
                                 <div class="diferencial-content">
                                     <h4 class="diferencial-title">Controle por área, turma e turno</h4>
@@ -576,9 +544,7 @@
 
                             <div class="diferencial-item">
                                 <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito"
-                                    width="360" height="720"
-                                    loading="lazy" decoding="async" fetchpriority="low">
+                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
                                 </div>
                                 <div class="diferencial-content">
                                     <h4 class="diferencial-title">Bloqueio de inadimplentes</h4>
@@ -590,9 +556,7 @@
 
                             <div class="diferencial-item">
                                 <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito"
-                                    width="360" height="720"
-                                    loading="lazy" decoding="async" fetchpriority="low">
+                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
                                 </div>
                                 <div class="diferencial-content">
                                     <h4 class="diferencial-title">Comunicação e reservas no app</h4>
@@ -604,9 +568,7 @@
 
                             <div class="diferencial-item">
                                 <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito"
-                                    width="360" height="720"
-                                    loading="lazy" decoding="async" fetchpriority="low">
+                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
                                 </div>
                                 <div class="diferencial-content">
                                     <h4 class="diferencial-title">LGPD & Auditoria</h4>
@@ -661,9 +623,7 @@
                 <!-- Coluna do Logo -->
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="assets/img/logo inova rodape site.png" alt="Inova Tecnologia"
-                        width="360" height="720"
-                        loading="lazy" decoding="async" fetchpriority="low">
+                        <img src="assets/img/logo inova rodape site.png" alt="Inova Tecnologia">
                     </div>
                     
                     <!-- Ícones das redes sociais -->
