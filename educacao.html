@@ -1,623 +1,533 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inova Tecnologia - Controle de Acesso</title>
-    <meta name="description" content="Controle de acesso para escolas e universidades com carteirinha digital. Entrada por QR Code, facial ou RFID, integração acadêmica e relatórios de presença.">
-    <link rel="stylesheet" href="assets/main.css">
-    <link rel="stylesheet" href="assets/educacao.responsive.css">
-    <script src="assets/main.js" defer></script>
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppin...8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inova Tecnologia - Controle de Acesso (Educação)</title>
+  <meta name="description" content="Controle de acesso para escolas e universidades com carteirinha digital. Entrada por QR Code, facial ou RFID, integração acadêmica e relatórios de presença.">
 
-    <!-- HEAD comum -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-    <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
-    </noscript>
+  <!-- CSS/JS -->
+  <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="assets/educacao.responsive.css">
+  <script src="assets/main.js" defer></script>
 
-    <!-- Favicon - Logo na guia do navegador -->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+  <!-- Google Fonts (evita CLS por troca de fonte) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Preload da imagem LCP (banner) | ajuste o caminho se seu banner usar outro nome -->
+  <link rel="preload" as="image"
+        href="assets/img/imagem-controle-acesso-instituicoes-ensino.jpg"
+        imagesrcset="assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 640w,
+                     assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 960w,
+                     assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 1280w"
+        imagesizes="100vw"
+        fetchpriority="high">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+
+  <!-- Ajustes anti-CLS e tipografia estável -->
+  <style>
+    :root{--font-sans:"Poppins","Open Sans",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;}
+    html{font-family:var(--font-sans); font-synthesis-weight:none;}
+    .banner-title,.servicos-title{line-height:1.2}
+    .nova-sessao-subtitle,.servicos-subtitle{line-height:1.45}
+    .banner-content{min-height:3.2rem} /* reserva do título no primeiro paint */
+    img{height:auto} /* garante proporção quando definimos width/height */
+  </style>
 </head>
 <body>
-    <div class="page-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html"><img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image"></a>
-                </div>
+  <div class="page-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image" width="160" height="40" decoding="async">
+          </a>
+        </div>
 
-                <button class="menu-toggle"
-                    aria-label="Abrir menu"
-                    aria-controls="primary-navigation"
-                    aria-expanded="false">
-                    <!-- Ícone hambúrguer -->
-                    <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M3 6h18M3 12h18M3 18h18"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    <!-- Ícone X -->
-                    <svg class="icon icon-x" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M6 6l12 12M18 6L6 18"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </button>
+        <button class="menu-toggle" aria-label="Abrir menu" aria-controls="primary-navigation" aria-expanded="false">
+          <!-- Ícone hambúrguer -->
+          <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <!-- Ícone X -->
+          <svg class="icon icon-x" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
 
-                <nav class="navbar" id="primary-navigation">
-                    <ul class="nav-links" role="menubar" aria-label="Navegação principal">
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="solucoes.html">SOLUÇÕES</a></li>
+        <nav class="navbar" id="primary-navigation">
+          <ul class="nav-links" role="menubar" aria-label="Navegação principal">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="solucoes.html">SOLUÇÕES</a></li>
 
-                        <li class="dropdown">
-                        <a href="segmentos.html" class="dropdown-toggle active" role="button" aria-expanded="false" aria-controls="menu-segmentos">SEGMENTOS</a>
-                        <ul id="menu-segmentos" class="dropdown-menu">
-                            <li><a class="drop-down-menu-item" href="educacao.html">Instituições de Ensino</a></li>
-                            <li><a class="drop-down-menu-item" href="empresas.html">Empresas</a></li>
-                            <li><a class="drop-down-menu-item" href="condominios.html">Condomínios</a></li>
-                        </ul>
-                        </li>
+            <li class="dropdown">
+              <a href="segmentos.html" class="dropdown-toggle active" role="button" aria-expanded="false" aria-controls="menu-segmentos">SEGMENTOS</a>
+              <ul id="menu-segmentos" class="dropdown-menu">
+                <li><a class="drop-down-menu-item" href="educacao.html">Instituições de Ensino</a></li>
+                <li><a class="drop-down-menu-item" href="empresas.html">Empresas</a></li>
+                <li><a class="drop-down-menu-item" href="condominios.html">Condomínios</a></li>
+              </ul>
+            </li>
 
-                        <li class="dropdown">
-                        <a href="servicos.html" class="dropdown-toggle" role="button" aria-expanded="false" aria-controls="menu-servicos">SERVIÇOS</a>
-                        <ul id="menu-servicos" class="dropdown-menu">
-                            <li><a class="drop-down-menu-item" href="servicoacesso.html">Acessos</a></li>
-                            <li><a class="drop-down-menu-item" href="servicoaplicativo.html">Aplicativos</a></li>
-                            <li><a class="drop-down-menu-item" href="servicoponto.html">Ponto</a></li>
-                            <li><a class="drop-down-menu-item" href="servicosuporte.html">Suporte</a></li>
-                        </ul>
-                        </li>
+            <li class="dropdown">
+              <a href="servicos.html" class="dropdown-toggle" role="button" aria-expanded="false" aria-controls="menu-servicos">SERVIÇOS</a>
+              <ul id="menu-servicos" class="dropdown-menu">
+                <li><a class="drop-down-menu-item" href="servicoacesso.html">Acessos</a></li>
+                <li><a class="drop-down-menu-item" href="servicoaplicativo.html">Aplicativos</a></li>
+                <li><a class="drop-down-menu-item" href="servicoponto.html">Ponto</a></li>
+                <li><a class="drop-down-menu-item" href="servicosuporte.html">Suporte</a></li>
+              </ul>
+            </li>
 
-                        <li><a href="blog.html">BLOG</a></li>
-                        <li><a href="clientes.html">CLIENTES</a></li>
-                    </ul>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="clientes.html">CLIENTES</a></li>
+          </ul>
 
-                    <!-- CTA como link (sem <button> extra) -->
-                    <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
-                </nav>
+          <!-- CTA -->
+          <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- WhatsApp FAB -->
+    <a class="whatsapp-fab"
+       href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia."
+       aria-label="Falar com a Inova pelo WhatsApp"
+       target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/>
+      </svg>
+      <span class="sr-only">WhatsApp</span>
+    </a>
+
+    <!-- Banner Educação (LCP) -->
+    <section class="banner-educacao">
+      <div class="banner-image">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/img/imagem-controle-acesso-instituicoes-ensino.avif 640w,
+                          assets/img/imagem-controle-acesso-instituicoes-ensino.avif 960w,
+                          assets/img/imagem-controle-acesso-instituicoes-ensino.avif 1280w"
+                  sizes="100vw">
+          <img src="assets/img/imagem-controle-acesso-instituicoes-ensino.jpg"
+               srcset="assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 640w,
+                       assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 960w,
+                       assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 1280w"
+               sizes="100vw"
+               width="960" height="640" decoding="async" fetchpriority="high"
+               alt="Imagem de catracas em instituição de ensino">
+        </picture>
+      </div>
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h1 class="banner-title">Controle de Acesso &amp; Aplicativos para Instituições de Ensino</h1>
+      </div>
+    </section>
+
+    <!-- Introdução -->
+    <section class="introducao-educacao">
+      <div class="introducao-header">
+        <h2 class="servicos-title">O que você vai encontrar aqui</h2>
+        <h3 class="nova-sessao-subtitle">
+          Conheça como nossas soluções melhoram a segurança, otimizam a gestão e trazem praticidade para alunos, professores e gestores.
+        </h3>
+      </div>
+
+      <div class="introducao-grid">
+        <div class="introducao-card">
+          <div class="card-icon">
+            <img src="assets/img/icone catraca site.svg" alt="Ícone catraca de segurança inova" width="72" height="72" loading="lazy" decoding="async">
+          </div>
+          <h3 class="card-title">Controle de Acesso</h3>
+          <p class="card-text">
+            Catracas e portas com <strong>QR Code</strong>, <strong>reconhecimento facial</strong> e <strong>biometria</strong>,
+            com regras por curso, área, turno e horários, tudo em conformidade com a LGPD.
+          </p>
+          <div class="cta-container">
+            <a href="#acessos">
+              <button class="cta-comprar-integracao" aria-label="Verificar Acessos"><span>Verificar Acessos</span></button>
+            </a>
+          </div>
+        </div>
+
+        <div class="introducao-card">
+          <div class="card-icon">
+            <img src="assets/img/suporte icon site.svg" alt="Ícone de aplicativo Carteirinha" width="72" height="72" loading="lazy" decoding="async">
+          </div>
+          <h3 class="card-title">App Carteirinha</h3>
+          <p class="card-text">
+            Aplicativo <strong>Carteirinha</strong> integrado ao <strong>ERP/SGA</strong>: credencial com <strong>QR Code</strong> dinâmico,
+            notas, faltas e comunicados em um só lugar. Versão <strong>White Label</strong> com a identidade visual da sua instituição.
+          </p>
+          <div class="cta-container">
+            <a href="#aplicativo">
+              <button class="cta-comprar-integracao" aria-label="Verificar Aplicativo"><span>Verificar Aplicativo</span></button>
+            </a>
+          </div>
+        </div>
+
+        <div class="introducao-card">
+          <div class="card-icon">
+            <img src="assets/img/back-in-time.png" alt="Ícone do app de Ponto" width="72" height="72" loading="lazy" decoding="async">
+          </div>
+          <h3 class="card-title">Suporte Especializado</h3>
+          <p class="card-text">
+            Suporte com <strong>treinamentos</strong>, <strong>instalação</strong> e <strong>visitas técnicas</strong>
+            realizadas por especialistas do início da implantação ao dia a dia da operação.
+          </p>
+          <div class="cta-container">
+            <a href="servicosuporte.html">
+              <button class="cta-comprar-integracao" aria-label="Conhecer Suporte"><span>Conhecer Suporte</span></button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACESSOS -->
+    <section id="acessos" class="acessos">
+      <div class="acessos-container">
+        <div class="acessos-header">
+          <h2 class="servicos-title">Conheça um pouco sobre nossos acessos e monitoramento.</h2>
+          <h3 class="nova-sessao-subtitle">
+            Tecnologias que aceleram a entrada, elevam a segurança e integram com o <strong>ERP/SGA</strong> com <strong>atualizações em tempo real</strong>.
+          </h3>
+        </div>
+
+        <div class="acessos-grid">
+          <!-- Facial -->
+          <article class="acesso-card">
+            <div class="acesso-icon">
+              <img src="assets/img/catraca vidro icon site.svg" alt="Reconhecimento facial" width="72" height="72" loading="lazy" decoding="async">
             </div>
-        </header>
+            <h3 class="acesso-title">Catracas com Reconhecimento Facial</h3>
+            <p class="acesso-text">Autenticação sem contato, rápida e antifraude; ideal para picos de entrada.</p>
+            <ul class="servico-lista">
+              <li>Validação em <strong>&lt; 1s</strong> com anti-spoofing</li>
+              <li>Perfis e áreas por curso/turno</li>
+              <li>Auditoria e LGPD</li>
+            </ul>
+          </article>
 
-        <!-- Botão flutuante do WhatsApp -->
-        <a
-            class="whatsapp-fab"
-            href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia."
-            aria-label="Falar com a Inova pelo WhatsApp"
-            target="_blank"
-            rel="noopener"
-            >
-            <!-- Ícone WhatsApp em SVG (usa a cor do botão) -->
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/>
-            </svg>
-            <span class="sr-only">WhatsApp</span>
-        </a>
-
-        <!-- Banner Educação -->
-        <section class="banner-educacao">
-            <div class="banner-image">
-                <picture>
-                    <source type="image/avif"
-                            srcset="assets/img/imagem-controle-acesso-instituicoes-ensino.avif 640w, assets/img/imagem-controle-acesso-instituicoes-ensino.avif 960w, assets/img/imagem-controle-acesso-instituicoes-ensino.avif 1280w"
-                            sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
-                    <img
-                        src="assets/img/imagem-controle-acesso-instituicoes-ensino.jpg"
-                        srcset="assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 640w, assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 960w, assets/img/imagem-controle-acesso-instituicoes-ensino.jpg 1280w"
-                        sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-                        width="960" height="640" loading="lazy" decoding="async" fetchpriority="low" alt="Imagem catraca intituição de ensino">
-                </picture>
+          <!-- QR Code -->
+          <article class="acesso-card">
+            <div class="acesso-icon">
+              <img src="assets/img/qr-code.png" alt="QR Code dinâmico" width="72" height="72" loading="lazy" decoding="async">
             </div>
-            <div class="banner-overlay"></div>
-            <div class="banner-content">
-                <h1 class="banner-title">Controle de Acesso & Aplicativos para Instituições de Ensino</h1>
+            <h3 class="acesso-title">Catracas com QR Code</h3>
+            <p class="acesso-text">Praticidade para alunos e visitantes com tokens dinâmicos no app Carteirinha.</p>
+            <ul class="servico-lista">
+              <li>QR Code dinâmico e criptografado</li>
+              <li>Válido em carteirinha digital</li>
+              <li>Logs completos por evento</li>
+            </ul>
+          </article>
+
+          <!-- RFID -->
+          <article class="acesso-card">
+            <div class="acesso-icon">
+              <img src="assets/img/controle acesso site.svg" alt="Cartão RFID" width="72" height="72" loading="lazy" decoding="async">
             </div>
-        </section>
+            <h3 class="acesso-title">Catracas com Cartão RFID</h3>
+            <p class="acesso-text">Operação rápida e estável com cartões de proximidade e credencial física prática para rotinas acadêmicas.</p>
+            <ul class="servico-lista">
+              <li>Cartão de proximidade (RFID)</li>
+              <li>Bloqueio de cartões por perfil/área</li>
+              <li>Compatível com catracas e controladoras multimarcas</li>
+            </ul>
+          </article>
 
-        <!-- Sessão Introdução (mantida, texto ajustado) -->
-        <section class="introducao-educacao">
-            <div class="introducao-header">
-                <h2 class="servicos-title">O que você vai encontrar aqui</h2>
-                <h3 class="nova-sessao-subtitle">
-                    Conheça de maneira aprofundada como nossas soluções ajudam instituições de ensino a melhorar a segurança, 
-                    otimizar a gestão e oferecer mais praticidade para alunos, professores e gestores.
-                </h3>
+          <!-- Câmeras IA -->
+          <article class="acesso-card">
+            <div class="acesso-icon">
+              <img src="assets/img/icone camera monitoramente.svg" alt="Câmeras com IA" width="72" height="72" loading="lazy" decoding="async">
             </div>
+            <h3 class="acesso-title">Câmeras com IA</h3>
+            <p class="acesso-text">Análise em tempo real e geração de alertas; relatórios e auditoria centralizada.</p>
+            <ul class="servico-lista">
+              <li>Detecção e match em tempo real</li>
+              <li>Alertas por evento</li>
+              <li>Relatórios centralizados</li>
+            </ul>
+          </article>
+        </div>
 
-            <div class="introducao-grid">
-                <div class="introducao-card">
-                    <div class="card-icon">
-                        <img src="assets/img/icone catraca site.svg" alt="Ícone catraca de segurança inova">
-                    </div>
-                    <h3 class="card-title">Controle de Acesso</h3>
-                    <p class="card-text">
-                        Catracas e portas com <strong>QR Code</strong>, <strong>reconhecimento facial</strong> e <strong>biometria</strong>, 
-                        com regras por curso, área, turno e horários, tudo em conformidade com a LGPD.
-                    </p>
-                    <div class="cta-container">
-                        <a href="#acessos">
-                            <button class="cta-comprar-integracao" aria-label="Verificar Acessos"><span>Verificar Acessos</span></button>
-                        </a>
-                    </div>
-                </div>
+        <a class="acesso-cta" href="servicoacesso.html">Ver com mais detalhes</a>
+      </div>
+    </section>
 
-                <div class="introducao-card">
-                    <div class="card-icon">
-                        <img src="assets/img/suporte icon site.svg" alt="Ícone de aplicativo Carteirinha">
-                    </div>
-                    <h3 class="card-title">App Carteirinha</h3>
-                    <p class="card-text">
-                        Aplicativo <strong>Carteirinha</strong> integrado ao <strong>ERP/SGA</strong>: credencial com <strong>QR Code</strong> dinâmico, 
-                        notas, faltas e comunicados em um só lugar. Versão <strong>White Label</strong> com a identidade visual da sua instituição.
-                    </p>
-                    <div class="cta-container">
-                        <a href="#aplicativo">
-                            <button class="cta-comprar-integracao" aria-label="Verificar Aplicativo"><span>Verificar Aplicativo</span></button>
-                        </a>
-                    </div>
-                </div>
+    <!-- PROJETOS DE SUCESSO -->
+    <section class="nova-sessao">
+      <div class="nova-sessao-container">
+        <div class="nova-sessao-header">
+          <h2 class="servicos-title">Projetos de Sucesso: Gestão e Segurança em Instituições de Ensino</h2>
+          <h3 class="nova-sessao-subtitle">
+            Conheça alguns dos principais projetos que desenvolvemos para instituições de ensino,
+            transformando a segurança e gestão de acesso em ambientes educacionais.
+          </h3>
+        </div>
 
-                <div class="introducao-card">
-                    <div class="card-icon">
-                        <img src="assets/img/back-in-time.png" alt="Ícone do app de Ponto">
-                    </div>
-                    <h3 class="card-title">Suporte Especializado</h3>
-                    <p class="card-text">
-                        Suporte com <strong>treinamentos</strong>, <strong>instalação</strong> e <strong>visitas técnicas</strong> 
-                        realizadas por especialistas do início da implantação ao dia a dia da operação.
-                    </p>
-                    <div class="cta-container">
-                        <a href="servicosuporte.html">
-                            <button class="cta-comprar-integracao" aria-label="Conhecer Ponto Eletrônico"><span>Conhecer Suporte</span></button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sessão ACESSOS (texto ajustado para inadimplentes) -->
-        <section id="acessos" class="acessos">
-            <div class="acessos-container">
-                <div class="acessos-header">
-                    <h2 class="servicos-title">Conheça um pouco sobre nossos acessos e monitoramento.</h2>
-                    <h3 class="nova-sessao-subtitle">
-                        Tecnologias que aceleram a entrada, elevam a segurança e integram com o <strong>ERP/SGA</strong> com <strong>atualizações em tempo real</strong>.
-                    </h3>
-                </div>
-
-                <div class="acessos-grid">
-                    <!-- Card 1 – Reconhecimento Facial -->
-                    <article class="acesso-card">
-                        <div class="acesso-icon">
-                            <img src="assets/img/catraca vidro icon site.svg" alt="Reconhecimento facial" width="72" height="72" loading="lazy" decoding="async">
-                        </div>
-                        <h3 class="acesso-title">Catracas com Reconhecimento Facial</h3>
-                        <p class="acesso-text">Autenticação sem contato, rápida e antifraude; ideal para picos de entrada.</p>
-                        <ul class="servico-lista">
-                            <li>Validação em <strong>&lt; 1s</strong> com anti-spoofing</li>
-                            <li>Perfis e áreas por curso/turno</li>
-                            <li>Auditoria e LGPD</li>
-                        </ul>
-                    </article>
-
-                    <!-- Card 2 – QR Code -->
-                    <article class="acesso-card">
-                        <div class="acesso-icon">
-                            <img src="assets/img/qr-code.png" alt="QR Code dinâmico" width="72" height="72" loading="lazy" decoding="async">
-                        </div>
-                        <h3 class="acesso-title">Catracas com QR Code</h3>
-                        <p class="acesso-text">Praticidade para alunos e visitantes com tokens dinâmicos no app Carteirinha.</p>
-                        <ul class="servico-lista">
-                            <li>QR Code dinâmico e criptografado</li>
-                            <li>Válido em carteirinha digital</li>
-                            <li>Logs completos por evento</li>
-                        </ul>
-                    </article>
-
-                    <!-- Card 3 – Biometria -->
-                    <article class="acesso-card">
-                        <div class="acesso-icon">
-                            <img src="assets/img/controle acesso site.svg" alt="Biometria" width="72" height="72" loading="lazy" decoding="async">
-                        </div>
-                        <h3 class="acesso-title">Catracas com Cartão RFID</h3>
-                        <p class="acesso-text">Operação rápida e estável com cartões de proximidade e credencial física prática para rotinas acadêmicas.</p>
-                        <ul class="servico-lista">
-                            <li>Cartão de proximidade (RFID)</li>
-                            <li>Bloqueio de cartões por perfil/área</li>
-                            <li>Compatível com catracas e controladoras multimarcas</li>
-                        </ul>
-                    </article>
-
-                    <!-- Card 4 – Câmeras IA -->
-                    <article class="acesso-card">
-                        <div class="acesso-icon">
-                            <img src="assets/img/icone camera monitoramente.svg" alt="Câmeras com IA" width="72" height="72" loading="lazy" decoding="async">
-                        </div>
-                        <h3 class="acesso-title">Câmeras com IA</h3>
-                        <p class="acesso-text">Análise em tempo real e geração de alertas; relatórios e auditoria centralizada.</p>
-                        <ul class="servico-lista">
-                            <li>Detecção e match em tempo real</li>
-                            <li>Alertas por evento</li>
-                            <li>Relatórios centralizados</li>
-                        </ul>
-                    </article>
-                </div>
-
-                <a class="acesso-cta" href="servicoacesso.html">Ver com mais detalhes</a>
-            </div>
-        </section>
-
-        <!-- =======================================================
-        <section id="parceria" class="parceria-exclusiva">
-            <div class="parceria-header">
-                <h2>Parceria Exclusiva visando a Segurança nas Instituições de Ensino</h2>
-                <h3 class="nova-sessao-subtitle">Inova Tecnologia + Santander Educação</h3>
+        <div class="parceiros-grid">
+          <!-- Card 1 -->
+          <div class="parceiro-card">
+            <div class="parceiro-header">
+              <div class="parceiro-logo">
+                <img src="assets/img/logo-belas-artes.svg" alt="Centro Universitário Belas Artes" loading="lazy" decoding="async">
+              </div>
+              <div class="parceiro-info">
+                <h3>Centro Universitário Belas Artes</h3>
+                <span class="categoria">Ensino Superior</span>
+              </div>
             </div>
 
-            <div class="parceria-grid">
-                <div class="parceria-texto">
-                    <p>
-                        Através da parceria entre <strong>Inova Tecnologia</strong> e 
-                        <strong>Santander Educação</strong>, oferecemos condições diferenciadas 
-                        para escolas de educação básica em todo o Brasil.
-                    </p>
-
-                    <h3 class="beneficios-title">Benefícios exclusivos:</h3>
-                    <ul class="beneficios-lista">
-                        <li>Até 30% de desconto na implementação do sistema</li>
-                        <li>Financiamento em até 36x sem juros</li>
-                        <li>Equipamentos inclusos nos planos Premium</li>
-                        <li>Suporte prioritário 24/7</li>
-                        <li>Treinamento gratuito para toda a equipe</li>
-                    </ul>
-                    <div class="parceria-cta">
-                        <a href="contratar.html">
-                            <button class="btn-parceria">
-                                Solicitar Proposta
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-arrow">
-                                    <path d="m9 18 6-6-6-6"/>
-                                </svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="parceria-card">
-                    <div class="floating-square square-1"></div>
-                    <div class="floating-square square-2"></div>
-                    <img src="assets/img/Group 59.png" alt="Imagem da logo Inova e Santander" class="parceria-img">
-                </div>
+            <div class="info-section">
+              <h4 class="info-title">Sobre o Projeto</h4>
+              <p class="info-content">
+                Retrofit completo das catracas e integração com App White Label "Carteirinha BA".
+                Implantação do sistema de Presença Digital em Sala de Aula.
+              </p>
             </div>
-        </section>
-        ======================================================= -->
 
-        <!-- Sessão PROJETOS DE SUCESSO (mantida; tech-tags ajustadas p/ Carteirinha) -->
-        <section class="nova-sessao">
-            <div class="nova-sessao-container">
-                <div class="nova-sessao-header">
-                    <h2 class="servicos-title">Projetos de Sucesso: Gestão e Segurança em Instituições de Ensino</h2>
-                    <h3 class="nova-sessao-subtitle">
-                        Conheça alguns dos principais projetos que desenvolvemos para instituições de ensino, 
-                        transformando a segurança e gestão de acesso em ambientes educacionais.
-                    </h3>
-                </div>
-                
-                <div class="parceiros-grid">
-                    <!-- Card 1 - Centro Universitário Belas Artes -->
-                    <div class="parceiro-card">
-                        <div class="parceiro-header">
-                            <div class="parceiro-logo">
-                                <img src="assets/img/logo-belas-artes.svg" alt="Centro Universitário Belas Artes">
-                            </div>
-                            <div class="parceiro-info">
-                                <h3>Centro Universitário Belas Artes</h3>
-                                <span class="categoria">Ensino Superior</span>
-                            </div>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Sobre o Projeto</h4>
-                            <p class="info-content">
-                                Retrofit completo das catracas da Belas Artes e integração com o App White Label 
-                                "Carteirinha BA", melhorando o fluxo e a segurança no acesso. Implantação do 
-                                sistema de Presença Digital em Sala de Aula.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Desafio</h4>
-                            <p class="info-content">
-                                Atualizar o sistema de controle de acesso para mais de 17 mil usuários 
-                                mantendo a identidade visual existente.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Solução Implementada</h4>
-                            <p class="info-content">
-                                Instalação de 21 catracas e 2 torniquetes modernizados, com integração ao ERP e 
-                                ao App White Label "Carteirinha BA".
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Tecnologias Utilizadas</h4>
-                            <div class="tecnologias-tags">
-                                <span class="tech-tag">QR Code</span>
-                                <span class="tech-tag">App Carteirinha</span>
-                                <span class="tech-tag">Controle de Acesso</span>
-                                <span class="tech-tag">Biometria</span>
-                            </div>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Resultados Alcançados</h4>
-                            <div class="resultados-grid">
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">85%</div>
-                                    <div class="resultado-descricao">Redução no tempo de entrada</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">100%</div>
-                                    <div class="resultado-descricao">Precisão no controle de frequência</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">60%</div>
-                                    <div class="resultado-descricao">Queda em filas nos horários de pico</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 - Ânima Educação -->
-                    <div class="parceiro-card">
-                        <div class="parceiro-header">
-                            <div class="parceiro-logo">
-                                <img src="assets/img/logo-anima-educacao.svg" alt="Ânima Educação">
-                            </div>
-                            <div class="parceiro-info">
-                                <h3>Ânima Educação</h3>
-                                <span class="categoria">Ensino Superior</span>
-                            </div>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Sobre o Projeto</h4>
-                            <p class="info-content">
-                                Modernização de controle de acesso para mais de 190 mil usuários nas marcas UAM, 
-                                LE CORDON BLEU, COMMUNITY EDUCATION, UNICURITIBA, UNP e UNIFACS com QR Code criptografado.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Desafio</h4>
-                            <p class="info-content">
-                                Unificar políticas de acesso e reduzir custos operacionais mantendo a experiência do aluno.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Solução Implementada</h4>
-                            <p class="info-content">
-                                Integração ao <strong>ERP/SGA</strong>, carteirinha digital com <strong>QR Code</strong> dinâmico e auditoria centralizada.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Tecnologias Utilizadas</h4>
-                            <div class="tecnologias-tags">
-                                <span class="tech-tag">App Carteirinha</span>
-                                <span class="tech-tag">Cartão Virtual</span>
-                                <span class="tech-tag">Controle de Acesso</span>
-                                <span class="tech-tag">Integração com App</span>
-                            </div>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Resultados Alcançados</h4>
-                            <div class="resultados-grid">
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">100%</div>
-                                    <div class="resultado-descricao">Rastreabilidade de alunos</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">90%</div>
-                                    <div class="resultado-descricao">Satisfação dos responsáveis</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">Zero</div>
-                                    <div class="resultado-descricao">Incidentes de segurança</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- .parceiros-grid -->
+            <div class="info-section">
+              <h4 class="info-title">Desafio</h4>
+              <p class="info-content">Atualizar o sistema para mais de 17 mil usuários mantendo a identidade visual.</p>
             </div>
-        </section>
 
-        <!-- Sessão INTEGRAÇÃO / APP (mantida; 1 card substituído por Suporte & Multimarcas) -->
-        <section id="aplicativo" class="integracao-section">
-            <div class="integracao-container">
-                <div class="integracao-header">
-                    <h2 class="header-badge">
-                        Integração Completa para Instituições de Ensino
-                    </h2>
-                    <div class="main-connector"></div>
-                </div>
-                
-                <div class="integracao-diagram">
-                    <div class="horizontal-connector"></div>
-                    <div class="apps-grid">
-                        <div class="app-card">
-                            <div class="card-connector"></div>
-                            <div class="app-icon">
-                                <img src="assets/img/controle acesso site.svg" alt="Ícone de integração de sistemas">
-                            </div>
-                            <h3 class="app-title">Sincronização Automática</h3>
-                            <p class="app-description">
-                                Usuários, turmas, cursos e permissões sincronizados em tempo real com o <strong>ERP/SGA</strong>, incluindo <strong>bloqueio automático de inadimplentes</strong> no acesso ao campus.
-                            </p>
-                        </div>
-                        
-                        <div class="app-card">
-                            <div class="card-connector"></div>
-                            <div class="app-icon">
-                                <img src="assets/img/back-in-time.png" alt="Ícone de suporte e compatibilidade">
-                            </div>
-                            <h3 class="app-title">Suporte &amp; Multimarcas</h3>
-                            <p class="app-description">
-                                Atendimento próximo com <strong>SLA</strong> e compatibilidade com catracas, controladoras e leitores <strong>multimarcas</strong>. Aproveite a infraestrutura existente e reduza custos de troca.
-                            </p>
-                        </div>
-                        
-                        <div class="app-card">
-                            <div class="card-connector"></div>
-                            <div class="app-icon">
-                                <img src="assets/img/centralized.png" alt="Ícone dados unificados">
-                            </div>
-                            <h3 class="app-title">Dados Unificados</h3>
-                            <p class="app-description">
-                                Centralize carteirinha digital, comunicados, reservas e relatórios em um único fluxo sempre com o <strong>ERP/SGA</strong> como fonte de verdade.
-                            </p>
-                        </div>
-                        
-                        <div class="app-card">
-                            <div class="card-connector"></div>
-                            <div class="app-icon">
-                                <img src="assets/img/biometric-identification.png" alt="Ícone de segurança e LGPD">
-                            </div>
-                            <h3 class="app-title">Segurança e LGPD</h3>
-                            <p class="app-description">
-                                Permissões por perfil/área, criptografia em trânsito e em repouso, e trilhas de auditoria.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cta-container">
-                    <a href="contratar.html">
-                        <button class="cta-comprar-integracao" aria-label="Quero integração com ERP/SGA"><span>Quero integração com ERP/SGA</span></button>
-                    </a>
-                </div>
+            <div class="info-section">
+              <h4 class="info-title">Solução Implementada</h4>
+              <p class="info-content">
+                Instalação de 21 catracas e 2 torniquetes modernizados, integrados ao ERP e ao App "Carteirinha BA".
+              </p>
             </div>
-        </section>
 
-        <!-- Sessão DIFERENCIAL (mantida; alt atualizado) -->
-        <section class="porque-escolher-educacao">
-            <div class="porque-escolher-container">
-                <div class="nova-sessao-header">
-                    <h2 class="servicos-title">Diferenciais que impactam a rotina</h2>
-                    <h3 class="nova-sessao-subtitle">
-                        Menos filas, mais segurança e gestão simples com regras por perfil e
-                        <strong>bloqueio automático de inadimplentes</strong> no acesso ao campus.
-                    </h3>
-                </div>
-                
-                <div class="porque-escolher-content">
-                    <div class="float-wrapper">
-                        <div class="phone">
-                            <img src="assets/img/inicio app carteirinha.png" alt="App Carteirinha" class="phone-img">
-                            <div class="notch"></div>
-                        </div>
-                    </div>
-
-                    <div class="porque-escolher-text">
-                        <div class="diferenciais-list">
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">Controle por área, turma e turno</h4>
-                                    <div class="diferencial-text">
-                                        <p>Permissões de acesso por campus, prédio, laboratório e horários, tudo vindo do <strong>ERP/SGA</strong>.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">Bloqueio de inadimplentes</h4>
-                                    <div class="diferencial-text">
-                                        <p>Regras automáticas de <strong>bloqueio</strong> para alunos inadimplentes, com registros auditáveis.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">Comunicação e reservas no app</h4>
-                                    <div class="diferencial-text">
-                                        <p>Carteirinha digital com <strong>QR Code</strong>, avisos e reservas de espaços com práticidade para alunos e gestores.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">LGPD & Auditoria</h4>
-                                    <div class="diferencial-text">
-                                        <p>Trilhas de acesso, criptografia e gestão de consentimento para total conformidade.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- .diferenciais-list -->
-                    </div>
-                </div>
+            <div class="info-section">
+              <h4 class="info-title">Tecnologias Utilizadas</h4>
+              <div class="tecnologias-tags">
+                <span class="tech-tag">QR Code</span>
+                <span class="tech-tag">App Carteirinha</span>
+                <span class="tech-tag">Controle de Acesso</span>
+                <span class="tech-tag">Biometria</span>
+              </div>
             </div>
-        </section>
 
-        <!-- Seção Vídeo -->
-        <section class="video-section">
-            <div class="video-container">
-                <div class="video-header">
-                    <h2 class="servicos-title">Veja como funciona na prática</h2>
-                    <p class="nova-sessao-subtitle">
-                        Descubra na prática como a Carteirinha integrada ao <strong>ERP/SGA</strong> 
-                        agiliza a entrada e fortalece a segurança no campus.
-                    </p>
-                </div>
-                
-                <div class="video-wrapper">
-                    <div class="video-frame">
-                        <iframe 
-                            src="https://www.youtube.com/embed/WVkeNp5CLzE" 
-                            title="Demonstração do Aplicativo Carteirinha (1 min)"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                
-                <div class="video-cta">
-                    <p class="video-cta-text">
-                        Gostou do que viu? Entre em contato e solicite uma demonstração personalizada.
-                    </p>
-                    <button class="cta-comprar">
-                        <span><a href="contratar.html">Solicitar Demonstração</a></span>
-                    </button>
-                </div>
+            <div class="info-section">
+              <h4 class="info-title">Resultados Alcançados</h4>
+              <div class="resultados-grid">
+                <div class="resultado-item"><div class="resultado-numero">85%</div><div class="resultado-descricao">Redução no tempo de entrada</div></div>
+                <div class="resultado-item"><div class="resultado-numero">100%</div><div class="resultado-descricao">Precisão no controle de frequência</div></div>
+                <div class="resultado-item"><div class="resultado-numero">60%</div><div class="resultado-descricao">Queda em filas nos horários de pico</div></div>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <!-- Footer atualizado -->
+          <!-- Card 2 -->
+          <div class="parceiro-card">
+            <div class="parceiro-header">
+              <div class="parceiro-logo">
+                <img src="assets/img/logo-anima-educacao.svg" alt="Ânima Educação" loading="lazy" decoding="async">
+              </div>
+              <div class="parceiro-info">
+                <h3>Ânima Educação</h3>
+                <span class="categoria">Ensino Superior</span>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h4 class="info-title">Sobre o Projeto</h4>
+              <p class="info-content">
+                Modernização de controle de acesso para mais de 190 mil usuários nas marcas do grupo, com QR Code criptografado.
+              </p>
+            </div>
+
+            <div class="info-section">
+              <h4 class="info-title">Desafio</h4>
+              <p class="info-content">Unificar políticas de acesso e reduzir custos mantendo a experiência do aluno.</p>
+            </div>
+
+            <div class="info-section">
+              <h4 class="info-title">Solução Implementada</h4>
+              <p class="info-content">Integração ao <strong>ERP/SGA</strong>, carteirinha digital com <strong>QR Code</strong> dinâmico e auditoria centralizada.</p>
+            </div>
+
+            <div class="info-section">
+              <h4 class="info-title">Tecnologias Utilizadas</h4>
+              <div class="tecnologias-tags">
+                <span class="tech-tag">App Carteirinha</span>
+                <span class="tech-tag">Cartão Virtual</span>
+                <span class="tech-tag">Controle de Acesso</span>
+                <span class="tech-tag">Integração com App</span>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h4 class="info-title">Resultados Alcançados</h4>
+              <div class="resultados-grid">
+                <div class="resultado-item"><div class="resultado-numero">100%</div><div class="resultado-descricao">Rastreabilidade de alunos</div></div>
+                <div class="resultado-item"><div class="resultado-numero">90%</div><div class="resultado-descricao">Satisfação dos responsáveis</div></div>
+                <div class="resultado-item"><div class="resultado-numero">Zero</div><div class="resultado-descricao">Incidentes de segurança</div></div>
+              </div>
+            </div>
+          </div>
+        </div><!-- .parceiros-grid -->
+      </div>
+    </section>
+
+    <!-- INTEGRAÇÃO / APP -->
+    <section id="aplicativo" class="integracao-section">
+      <div class="integracao-container">
+        <div class="integracao-header">
+          <h2 class="header-badge">Integração Completa para Instituições de Ensino</h2>
+          <div class="main-connector"></div>
+        </div>
+
+        <div class="integracao-diagram">
+          <div class="horizontal-connector"></div>
+          <div class="apps-grid">
+            <div class="app-card">
+              <div class="card-connector"></div>
+              <div class="app-icon"><img src="assets/img/controle acesso site.svg" alt="Ícone de integração de sistemas" width="64" height="64" loading="lazy" decoding="async"></div>
+              <h3 class="app-title">Sincronização Automática</h3>
+              <p class="app-description">
+                Usuários, turmas, cursos e permissões sincronizados em tempo real com o <strong>ERP/SGA</strong>,
+                incluindo <strong>bloqueio automático de inadimplentes</strong> no acesso ao campus.
+              </p>
+            </div>
+
+            <div class="app-card">
+              <div class="card-connector"></div>
+              <div class="app-icon"><img src="assets/img/back-in-time.png" alt="Ícone de suporte e compatibilidade" width="64" height="64" loading="lazy" decoding="async"></div>
+              <h3 class="app-title">Suporte &amp; Multimarcas</h3>
+              <p class="app-description">
+                Atendimento com <strong>SLA</strong> e compatibilidade com catracas, controladoras e leitores <strong>multimarcas</strong>.
+                Aproveite a infraestrutura existente e reduza custos de troca.
+              </p>
+            </div>
+
+            <div class="app-card">
+              <div class="card-connector"></div>
+              <div class="app-icon"><img src="assets/img/centralized.png" alt="Ícone dados unificados" width="64" height="64" loading="lazy" decoding="async"></div>
+              <h3 class="app-title">Dados Unificados</h3>
+              <p class="app-description">
+                Centralize carteirinha digital, comunicados, reservas e relatórios com o <strong>ERP/SGA</strong> como fonte de verdade.
+              </p>
+            </div>
+
+            <div class="app-card">
+              <div class="card-connector"></div>
+              <div class="app-icon"><img src="assets/img/biometric-identification.png" alt="Ícone de segurança e LGPD" width="64" height="64" loading="lazy" decoding="async"></div>
+              <h3 class="app-title">Segurança e LGPD</h3>
+              <p class="app-description">
+                Permissões por perfil/área, criptografia em trânsito e em repouso, e trilhas de auditoria.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-container">
+          <a href="contratar.html">
+            <button class="cta-comprar-integracao" aria-label="Quero integração com ERP/SGA"><span>Quero integração com ERP/SGA</span></button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="porque-escolher-educacao">
+      <div class="porque-escolher-container">
+        <div class="nova-sessao-header">
+          <h2 class="servicos-title">Diferenciais que impactam a rotina</h2>
+          <h3 class="nova-sessao-subtitle">
+            Menos filas, mais segurança e gestão simples com regras por perfil e <strong>bloqueio automático de inadimplentes</strong> no acesso ao campus.
+          </h3>
+        </div>
+
+        <div class="porque-escolher-content">
+          <div class="float-wrapper">
+            <div class="phone">
+              <img src="assets/img/inicio app carteirinha.png" alt="App Carteirinha" class="phone-img" loading="lazy" decoding="async">
+              <div class="notch"></div>
+            </div>
+          </div>
+
+          <div class="porque-escolher-text">
+            <div class="diferenciais-list">
+              <div class="diferencial-item">
+                <div class="diferencial-icon-space"><img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova" width="32" height="32" loading="lazy" decoding="async"></div>
+                <div class="diferencial-content">
+                  <h4 class="diferencial-title">Controle por área, turma e turno</h4>
+                  <div class="diferencial-text"><p>Permissões de acesso por campus, prédio, laboratório e horários, tudo vindo do <strong>ERP/SGA</strong>.</p></div>
+                </div>
+              </div>
+
+              <div class="diferencial-item">
+                <div class="diferencial-icon-space"><img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova" width="32" height="32" loading="lazy" decoding="async"></div>
+                <div class="diferencial-content">
+                  <h4 class="diferencial-title">Bloqueio de inadimplentes</h4>
+                  <div class="diferencial-text"><p>Regras automáticas de <strong>bloqueio</strong> com registros auditáveis.</p></div>
+                </div>
+              </div>
+
+              <div class="diferencial-item">
+                <div class="diferencial-icon-space"><img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova" width="32" height="32" loading="lazy" decoding="async"></div>
+                <div class="diferencial-content">
+                  <h4 class="diferencial-title">Comunicação e reservas no app</h4>
+                  <div class="diferencial-text"><p>Carteirinha com <strong>QR Code</strong>, avisos e reservas de espaços com praticidade.</p></div>
+                </div>
+              </div>
+
+              <div class="diferencial-item">
+                <div class="diferencial-icon-space"><img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova" width="32" height="32" loading="lazy" decoding="async"></div>
+                <div class="diferencial-content">
+                  <h4 class="diferencial-title">LGPD &amp; Auditoria</h4>
+                  <div class="diferencial-text"><p>Trilhas de acesso, criptografia e gestão de consentimento para total conformidade.</p></div>
+                </div>
+              </div>
+            </div><!-- .diferenciais-list -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VÍDEO -->
+    <section class="video-section">
+      <div class="video-container">
+        <div class="video-header">
+          <h2 class="servicos-title">Veja como funciona na prática</h2>
+          <p class="nova-sessao-subtitle">
+            Descubra na prática como a Carteirinha integrada ao <strong>ERP/SGA</strong>
+            agiliza a entrada e fortalece a segurança no campus.
+          </p>
+        </div>
+
+        <div class="video-wrapper">
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/WVkeNp5CLzE"
+              title="Demonstração do Aplicativo Carteirinha (1 min)"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <div class="video-cta">
+          <p class="video-cta-text">Gostou do que viu? Entre em contato e solicite uma demonstração personalizada.</p>
+          <button class="cta-comprar"><span><a href="contratar.html">Solicitar Demonstração</a></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer atualizado -->
         <footer class="footer">
             <div class="footer-container">
                 <!-- Coluna do Logo -->
@@ -729,6 +639,6 @@
                 <p>© 2025 Inova Tecnologia. Todos os direitos reservados.</p>
             </div>
         </footer>
-    </div>
+  </div><!-- .page-container -->
 </body>
 </html>
