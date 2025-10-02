@@ -1,219 +1,226 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inova Tecnologia - Segmentos em Controle de Acesso</title>
-    <meta name="description" content="Soluções de controle de acesso por segmento: empresas, condomínios e ensino. Integração com ERP/RH, retrofit de catracas e relatórios em tempo real.">
-    <link rel="stylesheet" href="assets/main.css">
-    <link rel="stylesheet" href="assets/segmentos.responsive.css">
-    <script src="assets/main.js" defer></script>
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inova Tecnologia - Segmentos em Controle de Acesso</title>
+  <meta name="description" content="Soluções de controle de acesso por segmento: empresas, condomínios e ensino. Integração com ERP/RH, retrofit de catracas e relatórios em tempo real.">
+  <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="assets/segmentos.responsive.css">
+  <script src="assets/main.js" defer></script>
 
-    <!-- HEAD comum -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-    <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
-    </noscript>
+  <!-- Google Fonts (sem shift de layout) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
-    <link rel="preload" as="image"
-      href="assets/img/imagem-controle-de-acesso-3.jpg"
-      imagesrcset="assets/img/imagem-controle-de-acesso-3.jpg 640w,
-                   assets/img/imagem-controle-de-acesso-3.jpg 960w,
-                   assets/img/imagem-controle-de-acesso-3.jpg 1280w"
-      imagesizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-      fetchpriority="high">
+  <!-- Preload da imagem LCP (banner) -->
+  <link rel="preload" as="image"
+        href="assets/img/imagem-controle-de-acesso-3.jpg"
+        imagesrcset="assets/img/imagem-controle-de-acesso-3.jpg 640w,
+                     assets/img/imagem-controle-de-acesso-3.jpg 960w,
+                     assets/img/imagem-controle-de-acesso-3.jpg 1280w"
+        imagesizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 100vw"
+        fetchpriority="high">
 
-    <!-- Favicon - Logo na guia do navegador -->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+
+  <!-- Ajustes anti-CLS e tipografia estável -->
+  <style>
+    :root{--font-sans:"Poppins","Open Sans",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;}
+    html{font-family:var(--font-sans); font-synthesis-weight:none;}
+    .banner-title,.servicos-title{line-height:1.2}
+    .servicos-subtitle{line-height:1.45}
+    .banner-content{min-height:3.2rem} /* reserva do título no primeiro paint */
+    .nowrap{white-space:nowrap}
+    img{height:auto} /* evita esticar ao definir width/height */
+  </style>
 </head>
 <body>
-    <div class="page-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html"><img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image"></a>
-                </div>
+  <div class="page-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image"
+                 width="160" height="40" loading="lazy" decoding="async">
+          </a>
+        </div>
 
-                <button class="menu-toggle"
-                    aria-label="Abrir menu"
-                    aria-controls="primary-navigation"
-                    aria-expanded="false">
-                    <!-- Ícone hambúrguer -->
-                    <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M3 6h18M3 12h18M3 18h18"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    <!-- Ícone X -->
-                    <svg class="icon icon-x" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M6 6l12 12M18 6L6 18"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </button>
+        <button class="menu-toggle" aria-label="Abrir menu" aria-controls="primary-navigation" aria-expanded="false">
+          <!-- Ícone hambúrguer -->
+          <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <!-- Ícone X -->
+          <svg class="icon icon-x" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
 
-                <nav class="navbar" id="primary-navigation">
-                    <ul class="nav-links" role="menubar" aria-label="Navegação principal">
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="solucoes.html">SOLUÇÕES</a></li>
+        <nav class="navbar" id="primary-navigation">
+          <ul class="nav-links" role="menubar" aria-label="Navegação principal">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="solucoes.html">SOLUÇÕES</a></li>
 
-                        <li class="dropdown">
-                        <a href="segmentos.html" class="dropdown-toggle active" role="button" aria-expanded="false" aria-controls="menu-segmentos">SEGMENTOS</a>
-                        <ul id="menu-segmentos" class="dropdown-menu">
-                            <li><a class="drop-down-menu-item" href="educacao.html">Instituições de Ensino</a></li>
-                            <li><a class="drop-down-menu-item" href="empresas.html">Empresas</a></li>
-                            <li><a class="drop-down-menu-item" href="condominios.html">Condomínios</a></li>
-                        </ul>
-                        </li>
+            <li class="dropdown">
+              <a href="segmentos.html" class="dropdown-toggle active" role="button" aria-expanded="false" aria-controls="menu-segmentos">SEGMENTOS</a>
+              <ul id="menu-segmentos" class="dropdown-menu">
+                <li><a class="drop-down-menu-item" href="educacao.html">Instituições de Ensino</a></li>
+                <li><a class="drop-down-menu-item" href="empresas.html">Empresas</a></li>
+                <li><a class="drop-down-menu-item" href="condominios.html">Condomínios</a></li>
+              </ul>
+            </li>
 
-                        <li class="dropdown">
-                        <a href="servicos.html" class="dropdown-toggle" role="button" aria-expanded="false" aria-controls="menu-servicos">SERVIÇOS</a>
-                        <ul id="menu-servicos" class="dropdown-menu">
-                            <li><a class="drop-down-menu-item" href="servicoacesso.html">Acessos</a></li>
-                            <li><a class="drop-down-menu-item" href="servicoaplicativo.html">Aplicativos</a></li>
-                            <li><a class="drop-down-menu-item" href="servicoponto.html">Ponto</a></li>
-                            <li><a class="drop-down-menu-item" href="servicosuporte.html">Suporte</a></li>
-                        </ul>
-                        </li>
+            <li class="dropdown">
+              <a href="servicos.html" class="dropdown-toggle" role="button" aria-expanded="false" aria-controls="menu-servicos">SERVIÇOS</a>
+              <ul id="menu-servicos" class="dropdown-menu">
+                <li><a class="drop-down-menu-item" href="servicoacesso.html">Acessos</a></li>
+                <li><a class="drop-down-menu-item" href="servicoaplicativo.html">Aplicativos</a></li>
+                <li><a class="drop-down-menu-item" href="servicoponto.html">Ponto</a></li>
+                <li><a class="drop-down-menu-item" href="servicosuporte.html">Suporte</a></li>
+              </ul>
+            </li>
 
-                        <li><a href="blog.html">BLOG</a></li>
-                        <li><a href="clientes.html">CLIENTES</a></li>
-                    </ul>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="clientes.html">CLIENTES</a></li>
+          </ul>
 
-                    <!-- CTA como link (sem <button> extra) -->
-                    <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
-                </nav>
+          <!-- CTA -->
+          <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- WhatsApp FAB -->
+    <a class="whatsapp-fab" href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia."
+       aria-label="Falar com a Inova pelo WhatsApp" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/>
+      </svg>
+      <span class="sr-only">WhatsApp</span>
+    </a>
+
+    <!-- Banner (LCP) -->
+    <section class="banner-educacao">
+      <div class="banner-image">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/img/imagem-controle-de-acesso-3.avif 640w,
+                          assets/img/imagem-controle-de-acesso-3.avif 960w,
+                          assets/img/imagem-controle-de-acesso-3.avif 1280w"
+                  sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 100vw">
+          <img src="assets/img/imagem-controle-de-acesso-3.jpg"
+               srcset="assets/img/imagem-controle-de-acesso-3.jpg 640w,
+                       assets/img/imagem-controle-de-acesso-3.jpg 960w,
+                       assets/img/imagem-controle-de-acesso-3.jpg 1280w"
+               sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 100vw"
+               width="960" height="640" decoding="async" fetchpriority="high"
+               alt="Imagem catraca intituição de ensino">
+        </picture>
+      </div>
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h1 class="banner-title">Nossos principais Segmentos em Controle de Acesso</h1>
+      </div>
+    </section>
+
+    <!-- Seção Segmentos -->
+    <section class="servicos">
+      <div class="servicos-container">
+        <div class="servicos-header">
+          <h2 class="servicos-title">Nossos Principais Segmentos</h2>
+          <p class="servicos-subtitle">
+            Soluções completas de <strong>controle de acesso</strong>, <strong>aplicativos com QR Code</strong> e <strong>integrações com ERP</strong> — do planejamento à operação.
+          </p>
+        </div>
+
+        <div class="servicos-grid">
+          <!-- Card: Instituições de Ensino -->
+          <div class="servico-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="servico-icon">
+              <img class="servico-icon-change" src="assets/img/school (1).png"
+                   alt="Controle de acesso para Instituições de Ensino"
+                   width="72" height="72" loading="lazy" decoding="async">
             </div>
-        </header>
+            <h3 class="servico-titulo">Instituições de Ensino</h3>
+            <p class="servico-descricao">
+              Acesso seguro e ágil para alunos, responsáveis, docentes e visitantes, integrado ao ERP/SGA.
+            </p>
+            <ul class="servico-lista">
+              <li>Carteirinha digital com <strong>QR Code</strong> dinâmico (inclusive offline)</li>
+              <li><strong>Reconhecimento facial</strong> nas catracas e portarias</li>
+              <li>Controle de entrada em <strong>biblioteca, laboratórios e eventos</strong></li>
+              <li>Convites de visitantes via app com validade e auditoria</li>
+              <li>Relatórios de presença por turma, campus e turnos</li>
+            </ul>
+            <a href="educacao.html">
+              <button class="servico-cta-servicos" aria-label="Ver soluções para Instituições de Ensino">
+                <span>Ver soluções</span>
+              </button>
+            </a>
+          </div>
 
-        <!-- Botão flutuante do WhatsApp -->
-        <a
-            class="whatsapp-fab"
-            href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia."
-            aria-label="Falar com a Inova pelo WhatsApp"
-            target="_blank"
-            rel="noopener"
-            >
-            <!-- Ícone WhatsApp em SVG -->
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/>
-            </svg>
-            <span class="sr-only">WhatsApp</span>
-        </a>
-
-        <!-- Banner -->
-        <section class="banner-educacao">
-            <div class="banner-image">
-                <picture>
-                    <source type="image/avif"
-                            srcset="assets/img/imagem-controle-de-acesso-3.avif 640w, assets/img/imagem-controle-de-acesso-3.avif 960w, assets/img/imagem-controle-de-acesso-3.avif 1280w"
-                            sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
-                    <img
-                        src="assets/img/imagem-controle-de-acesso-3.jpg"
-                        srcset="assets/img/imagem-controle-de-acesso-3.jpg 640w, assets/img/imagem-controle-de-acesso-3.jpg 960w, assets/img/imagem-controle-de-acesso-3.jpg 1280w"
-                        sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-                        width="960" height="640" decoding="async" fetchpriority="high" alt="Imagem catraca intituição de ensino">
-                </picture>
+          <!-- Card: Empresas -->
+          <div class="servico-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="servico-icon">
+              <img class="servico-icon-change" src="assets/img/office-building (1).png"
+                   alt="Controle de acesso para Empresas"
+                   width="72" height="72" loading="lazy" decoding="async">
             </div>
-            <div class="banner-overlay"></div>
-            <div class="banner-content">
-                <h1 class="banner-title">Nossos principais Segmentos em Controle de Acesso</h1>
+            <h3 class="servico-titulo">Empresas</h3>
+            <p class="servico-descricao">
+              Segurança perimetral, fluxo de pessoas e visitantes com integração ao seu ERP.
+            </p>
+            <ul class="servico-lista">
+              <li><strong>Controle por andar</strong> em elevadores e portas por perfil</li>
+              <li><strong>QR Code</strong> para visitantes e prestadores (convites com validade)</li>
+              <li>Auditoria centralizada e <strong>LGPD</strong> com trilhas de acesso</li>
+              <li>Câmeras com IA e relatórios de compliance</li>
+              <li>Alta disponibilidade e operação offline</li>
+            </ul>
+            <a href="empresas.html">
+              <button class="servico-cta-servicos" aria-label="Ver soluções para Empresas">
+                <span>Ver soluções</span>
+              </button>
+            </a>
+          </div>
+
+          <!-- Card: Condomínios -->
+          <div class="servico-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="servico-icon">
+              <img class="servico-icon-change" src="assets/img/house (1).png"
+                   alt="Controle de acesso para Condomínios"
+                   width="72" height="72" loading="lazy" decoding="async">
             </div>
-        </section>
+            <h3 class="servico-titulo">Condomínios</h3>
+            <p class="servico-descricao">
+              Portarias inteligentes com credenciais QR Code, facial e cartão RFID promovendo uma gestão simplificada.
+            </p>
+            <ul class="servico-lista">
+              <li>Cadastro e liberação de visitantes via app (convite com validade)</li>
+              <li><strong>Controle por andar</strong> em elevadores e áreas comuns</li>
+              <li><strong>LPR</strong> para veículos e integração com estacionamentos</li>
+              <li>Reservas de espaços e notificações para condôminos</li>
+              <li>Relatórios e auditoria centralizada</li>
+            </ul>
+            <a href="condominios.html">
+              <button class="servico-cta-servicos" aria-label="Ver soluções para Condomínios">
+                <span>Ver soluções</span>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Seção Segmentos -->
-        <section class="servicos">
-            <div class="servicos-container">
-                <div class="servicos-header">
-                    <h2 class="servicos-title">Nossos Principais Segmentos</h2>
-                    <p class="servicos-subtitle">
-                        Soluções completas de <strong>controle de acesso</strong>, <strong>aplicativos com QR Code</strong> e <strong>integrações com ERP</strong> — do planejamento à operação.
-                    </p>
-                </div>
-                
-                <div class="servicos-grid">
-                    <!-- Card: Instituições de Ensino -->
-                    <div class="servico-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="servico-icon">
-                            <img class="servico-icon-change" src="assets/img/school (1).png" alt="Controle de acesso para Instituições de Ensino">
-                        </div>
-                        <h3 class="servico-titulo">Instituições de Ensino</h3>
-                        <p class="servico-descricao">
-                            Acesso seguro e ágil para alunos, responsáveis, docentes e visitantes, integrado ao ERP/SGA.
-                        </p>
-                        <ul class="servico-lista">
-                            <li>Carteirinha digital com <strong>QR Code</strong> dinâmico (inclusive offline)</li>
-                            <li><strong>Reconhecimento facial</strong> nas catracas e portarias</li>
-                            <li>Controle de entrada em <strong>biblioteca, laboratórios e eventos</strong></li>
-                            <li>Convites de visitantes via app com validade e auditoria</li>
-                            <li>Relatórios de presença por turma, campus e turnos</li>
-                        </ul>
-                        <a href="educacao.html">
-                            <button class="servico-cta-servicos" aria-label="Ver soluções para Instituições de Ensino">
-                                <span>Ver soluções</span>
-                            </button>
-                        </a>
-                    </div>
-
-                    <!-- Card: Empresas -->
-                    <div class="servico-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="servico-icon">
-                            <img class="servico-icon-change" src="assets/img/office-building (1).png" alt="Controle de acesso para Empresas">
-                        </div>
-                        <h3 class="servico-titulo">Empresas</h3>
-                        <p class="servico-descricao">
-                            Segurança perimetral, fluxo de pessoas e visitantes com integração ao seu ERP.
-                        </p>
-                        <ul class="servico-lista">
-                            <li><strong>Controle por andar</strong> em elevadores e portas por perfil</li>
-                            <li><strong>QR Code</strong> para visitantes e prestadores (convites com validade)</li>
-                            <li>Auditoria centralizada e <strong>LGPD</strong> com trilhas de acesso</li>
-                            <li>Câmeras com IA e relatórios de compliance</li>
-                            <li>Alta disponibilidade e operação offline</li>
-                        </ul>
-                        <a href="empresas.html">
-                            <button class="servico-cta-servicos" aria-label="Ver soluções para Empresas">
-                                <span>Ver soluções</span>
-                            </button>
-                        </a>
-                    </div>
-
-                    <!-- Card: Condomínios -->
-                    <div class="servico-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="servico-icon">
-                            <img class="servico-icon-change" src="assets/img/house (1).png" alt="Controle de acesso para Condomínios">
-                        </div>
-                        <h3 class="servico-titulo">Condomínios</h3>
-                        <p class="servico-descricao">
-                            Portarias inteligentes com credenciais QR Code, facial e cartão RFID promovendo uma gestão simplificada.
-                        </p>
-                        <ul class="servico-lista">
-                            <li>Cadastro e liberação de visitantes via app (convite com validade)</li>
-                            <li><strong>Controle por andar</strong> em elevadores e áreas comuns</li>
-                            <li><strong>LPR</strong> para veículos e integração com estacionamentos</li>
-                            <li>Reservas de espaços e notificações para condôminos</li>
-                            <li>Relatórios e auditoria centralizada</li>
-                        </ul>
-                        <a href="condominios.html">
-                            <button class="servico-cta-servicos" aria-label="Ver soluções para Condomínios">
-                                <span>Ver soluções</span>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
+    <!-- Footer atualizado -->
         <footer class="footer">
             <div class="footer-container">
                 <!-- Coluna do Logo -->
@@ -325,6 +332,6 @@
                 <p>© 2025 Inova Tecnologia. Todos os direitos reservados.</p>
             </div>
         </footer>
-    </div>
+  </div>
 </body>
 </html>
