@@ -64,13 +64,14 @@
     height: 0;                   /* Chrome/Safari/Edge */
   }
 }
-@media (max-width: 1920px){
-  .servicos {padding: 80px 300px 60px 300px;}
-  .nossas-solucoes {padding: 60px 300px;}
-  .porque-escolher-educacao {padding: 60px 300px;}
-}
 
 /* === Mobile padding override (alta especificidade) === */
+@media (min-width: 1920px){
+  .servicos {padding: 60px 300px !important;}
+  .nossas-solucoes {padding: 60px 300px !important;}
+  .porque-escolher-educacao {padding: 60px 300px !important;}
+}
+
 @media (max-width: 1024px){
   section.servicos,
   section#servicos,

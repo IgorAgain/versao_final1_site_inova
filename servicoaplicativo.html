@@ -1,371 +1,375 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inova Tecnologia - Controle de Acesso</title>
-    <meta name="description" content="Aplicativos Inova: Inova Access para empresas e condomínios e Carteirinha digital para escolas. Acesso por QR Code/facial, notificações e gestão pelo celular.">
-    <link rel="stylesheet" href="assets/main.css">
-    <script src="assets/main.js" defer></script>
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inova Tecnologia - Aplicativos</title>
+  <meta name="description" content="Aplicativos Inova: Inova Access para empresas e condomínios e Carteirinha digital para escolas. Acesso por QR Code/facial, notificações e gestão pelo celular.">
 
-    <!-- Substitua o bloco atual das fontes por: -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="assets/servicoaplicativo.responsive.css">
 
-    <!-- Carregue o CSS das fontes de forma direta (sem onload) -->
+  <!-- JS -->
+  <script src="assets/main.js" defer></script>
+
+  <!-- Google Fonts (pré-conexão + carregamento não-bloqueante) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
+  </noscript>
 
-    <!-- PRELOAD dos WOFF2 realmente usados acima da dobra (exemplos; use os seus URLs) -->
-    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLEj6.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JHgFVrLCz7.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/opensans/v34/memvYaGs126MiZpBA-UFVZ0e.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/opensans/v34/memvYaGs126MiZpBA-UFW50d.woff2" type="font/woff2" crossorigin>
+  <!-- Preload da imagem LCP (banner Aplicativos) -->
+  <link rel="preload" as="image"
+        href="assets/img/imagem-controle-de-acesso-4.jpg"
+        imagesrcset="assets/img/imagem-controle-de-acesso-4.jpg 640w,
+                     assets/img/imagem-controle-de-acesso-4.jpg 960w,
+                     assets/img/imagem-controle-de-acesso-4.jpg 1280w"
+        imagesizes="100vw"
+        fetchpriority="high">
 
-    <!-- Favicon - Logo na guia do navegador -->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+
+  <!-- Ajustes anti-CLS e tipografia estável acima da dobra -->
+  <style>
+    :root{--font-sans:"Poppins","Open Sans",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;}
+    html{font-family:var(--font-sans); font-synthesis-weight:none;}
+    .banner-title{line-height:1.2}
+    .banner-content{min-height:3.2rem} /* reserva para evitar salto no first paint */
+    img{height:auto}
+  </style>
 </head>
 <body>
-    <div class="page-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html"><img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image"></a>
-                </div>
+  <div class="page-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image" width="160" height="40" loading="lazy" decoding="async">
+          </a>
+        </div>
 
-                <button class="menu-toggle"
-                    aria-label="Abrir menu"
-                    aria-controls="primary-navigation"
-                    aria-expanded="false">
-                    <!-- Ícone hambúrguer -->
-                    <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M3 6h18M3 12h18M3 18h18"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    <!-- Ícone X -->
-                    <svg class="icon icon-x" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M6 6l12 12M18 6L6 18"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </button>
+        <button class="menu-toggle"
+            aria-label="Abrir menu"
+            aria-controls="primary-navigation"
+            aria-expanded="false">
+          <!-- Ícone hambúrguer -->
+          <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <!-- Ícone X -->
+          <svg class="icon icon-x" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
 
-                <nav class="navbar" id="primary-navigation">
-                    <ul class="nav-links" role="menubar" aria-label="Navegação principal">
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="solucoes.html">SOLUÇÕES</a></li>
+        <nav class="navbar" id="primary-navigation">
+          <ul class="nav-links" role="menubar" aria-label="Navegação principal">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="solucoes.html">SOLUÇÕES</a></li>
 
-                        <li class="dropdown">
-                        <a href="segmentos.html" class="dropdown-toggle" role="button" aria-expanded="false" aria-controls="menu-segmentos">SEGMENTOS</a>
-                        <ul id="menu-segmentos" class="dropdown-menu">
-                            <li><a class="drop-down-menu-item" href="educacao.html">Instituições de Ensino</a></li>
-                            <li><a class="drop-down-menu-item" href="empresas.html">Empresas</a></li>
-                            <li><a class="drop-down-menu-item" href="condominios.html">Condomínios</a></li>
-                        </ul>
-                        </li>
+            <li class="dropdown">
+              <a href="segmentos.html" class="dropdown-toggle" role="button" aria-expanded="false" aria-controls="menu-segmentos">SEGMENTOS</a>
+              <ul id="menu-segmentos" class="dropdown-menu">
+                <li><a class="drop-down-menu-item" href="educacao.html">Instituições de Ensino</a></li>
+                <li><a class="drop-down-menu-item" href="empresas.html">Empresas</a></li>
+                <li><a class="drop-down-menu-item" href="condominios.html">Condomínios</a></li>
+              </ul>
+            </li>
 
-                        <li class="dropdown">
-                        <a href="servicos.html" class="dropdown-toggle active" role="button" aria-expanded="false" aria-controls="menu-servicos">SERVIÇOS</a>
-                        <ul id="menu-servicos" class="dropdown-menu">
-                            <li><a class="drop-down-menu-item" href="servicoacesso.html">Acessos</a></li>
-                            <li><a class="drop-down-menu-item" href="servicoaplicativo.html">Aplicativos</a></li>
-                            <li><a class="drop-down-menu-item" href="servicoponto.html">Ponto</a></li>
-                            <li><a class="drop-down-menu-item" href="servicosuporte.html">Suporte</a></li>
-                        </ul>
-                        </li>
+            <li class="dropdown">
+              <a href="servicos.html" class="dropdown-toggle active" role="button" aria-expanded="false" aria-controls="menu-servicos">SERVIÇOS</a>
+              <ul id="menu-servicos" class="dropdown-menu">
+                <li><a class="drop-down-menu-item" href="servicoacesso.html">Acessos</a></li>
+                <li><a class="drop-down-menu-item" href="servicoaplicativo.html">Aplicativos</a></li>
+                <li><a class="drop-down-menu-item" href="servicoponto.html">Ponto</a></li>
+                <li><a class="drop-down-menu-item" href="servicosuporte.html">Suporte</a></li>
+              </ul>
+            </li>
 
-                        <li><a href="blog.html">BLOG</a></li>
-                        <li><a href="clientes.html">CLIENTES</a></li>
-                    </ul>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="clientes.html">CLIENTES</a></li>
+          </ul>
 
-                    <!-- CTA como link (sem <button> extra) -->
-                    <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
-                </nav>
+          <!-- CTA como link (sem button) -->
+          <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- WhatsApp FAB -->
+    <a
+      class="whatsapp-fab"
+      href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia."
+      aria-label="Falar com a Inova pelo WhatsApp"
+      target="_blank"
+      rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/>
+      </svg>
+      <span class="sr-only">WhatsApp</span>
+    </a>
+
+    <!-- Banner (LCP) -->
+    <section class="banner-educacao">
+      <div class="banner-image">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/img/imagem-controle-de-acesso-4.avif 640w,
+                          assets/img/imagem-controle-de-acesso-4.avif 960w,
+                          assets/img/imagem-controle-de-acesso-4.avif 1280w"
+                  sizes="100vw">
+          <img
+            src="assets/img/imagem-controle-de-acesso-4.jpg"
+            srcset="assets/img/imagem-controle-de-acesso-4.jpg 640w,
+                    assets/img/imagem-controle-de-acesso-4.jpg 960w,
+                    assets/img/imagem-controle-de-acesso-4.jpg 1280w"
+            sizes="100vw"
+            width="960" height="640" decoding="async" fetchpriority="high"
+            alt="Aplicativo lendo QR Code em catraca de controle de acesso">
+        </picture>
+      </div>
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h1 class="banner-title">Nossos Aplicativos Exclusivos</h1>
+      </div>
+    </section>
+
+    <!-- Cards de Aplicativos / Serviços -->
+    <section class="servicos">
+      <div class="servicos-container">
+        <div class="servicos-header">
+          <h2 class="servicos-title">Apps que modernizam o controle de acesso</h2>
+          <h3 class="servicos-subtitle">Experiências móveis para instituições de ensino, empresas e condomínios: acesso seguro, comunicação e gestão em tempo real.</h3>
+        </div>
+        
+        <div class="servicos-grid">
+          <!-- Card White Label -->
+          <div class="servico-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="servico-icon">
+              <img class="servico-icon-change" src="assets/img/catraca vidro icon site.svg" alt="Ícone White Label" width="64" height="64" loading="lazy" decoding="async">
             </div>
-        </header>
-
-        <!-- WhatsApp FAB -->
-        <a
-            class="whatsapp-fab"
-            href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia."
-            aria-label="Falar com a Inova pelo WhatsApp"
-            target="_blank"
-            rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                <path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/>
-            </svg>
-            <span class="sr-only">WhatsApp</span>
-        </a>
-
-        <!-- Banner Serviços -->
-        <section class="banner-educacao">
-            <div class="banner-image">
+            <h3 class="servico-titulo">White Label</h3>
+            <p class="servico-descricao">Seu app com nome, ícone e cores da sua instituição ou empresa. Fortalece a marca e melhora a adoção pelos usuários.</p>
+            <div class="servico-expandido">
+              <div class="servico-imagem-container">
                 <picture>
-                    <source type="image/avif"
-                            srcset="assets/img/imagem-controle-de-acesso-4.avif 640w, assets/img/imagem-controle-de-acesso-4.avif 960w, assets/img/imagem-controle-de-acesso-4.avif 1280w"
-                            sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
-                    <img
-                        src="assets/img/imagem-controle-de-acesso-4.jpg"
-                        srcset="assets/img/imagem-controle-de-acesso-4.jpg 640w, assets/img/imagem-controle-de-acesso-4.jpg 960w, assets/img/imagem-controle-de-acesso-4.jpg 1280w"
-                        sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-                        width="960" height="640" loading="lazy" decoding="async" fetchpriority="low" alt="Imagem catraca intituição de ensino">
+                  <source type="image/avif"
+                          srcset="assets/img/imagem-controle-de-acesso-2.avif 640w,
+                                  assets/img/imagem-controle-de-acesso-2.avif 960w,
+                                  assets/img/imagem-controle-de-acesso-2.avif 1280w"
+                          sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
+                  <img class="servico-imagem"
+                       src="assets/img/imagem-controle-de-acesso-2.jpg"
+                       srcset="assets/img/imagem-controle-de-acesso-2.jpg 640w,
+                               assets/img/imagem-controle-de-acesso-2.jpg 960w,
+                               assets/img/imagem-controle-de-acesso-2.jpg 1280w"
+                       sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+                       width="960" height="640" loading="lazy" decoding="async" alt="Layout do app com identidade personalizada">
                 </picture>
+              </div>
+              <ul class="servico-lista">
+                <li>Layout customizado com logotipo e cores</li>
+                <li>Publicação dedicada (quando aplicável)</li>
+                <li>Experiência única para alunos, colaboradores ou condôminos</li>
+              </ul>
             </div>
-            <div class="banner-overlay"></div>
-            <div class="banner-content">
-                <h1 class="banner-title">
-                    Nossos Aplicativos Excusivos
-                </h1>
+            <button class="servico-cta" data-action="expand" aria-label="Mostrar mais sobre White Label">
+              <span>Mostrar mais</span>
+            </button>
+          </div>
+
+          <!-- Card Aplicativos -->
+          <div class="servico-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="servico-icon">
+              <img class="servico-icon-change" src="assets/img/suporte icon site.svg" alt="Ícone Aplicativos" width="64" height="64" loading="lazy" decoding="async">
             </div>
-        </section>
-
-        <!-- Seção Serviços -->
-        <section class="servicos">
-            <div class="servicos-container">
-                <div class="servicos-header">
-                    <h2 class="servicos-title">Serviços que Modernizam o Controle de Acesso</h2>
-                    <h3 class="servicos-subtitle">Oferecemos um ecossistema completo para condomínios, empresas e instituições de ensino do hardware à integração com seus sistemas, tudo com implantação assistida por especialistas.</h3>
-                </div>
-                
-                <div class="servicos-grid">
-                    <!-- Card Acessos -->
-                    <div class="servico-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="servico-icon">
-                            <img class="servico-icon-change" src="assets/img/catraca vidro icon site.svg" alt="icone catra">
-                        </div>
-                        <h3 class="servico-titulo">White Label</h3>
-                        <p class="servico-descricao">Versão personalizada com a identidade visual da sua instituição ou empresa, fortalecendo a marca e melhorando a experiência do usuário.</p>
-                        <!-- Conteúdo expandido - adicione antes do botão "Descubra sobre" -->
-                        <div class="servico-expandido">
-                            <div class="servico-imagem-container">
-                                <picture>
-                                    <source type="image/avif"
-                                            srcset="assets/img/imagem-controle-de-acesso-2.avif 640w, assets/img/imagem-controle-de-acesso-2.avif 960w, assets/img/imagem-controle-de-acesso-2.avif 1280w"
-                                            sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
-                                    <img class="servico-imagem"
-                                        src="assets/img/imagem-controle-de-acesso-2.jpg"
-                                        srcset="assets/img/imagem-controle-de-acesso-4.jpg 640w, assets/img/imagem-controle-de-acesso-2.jpg 960w, assets/img/imagem-controle-de-acesso-2.jpg 1280w"
-                                        sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-                                        width="960" height="640" loading="lazy" decoding="async" fetchpriority="low" alt="">
-                                </picture>
-                            </div>
-                            <ul class="servico-lista">
-                                <li>Layout customizado com logotipo e cores institucionais</li>
-                                <li>App exclusivo para sua instituição</li>
-                                <li>Experiência única para alunos, colaboradores ou condôminos</li>
-                            </ul>
-                        </div>
-
-                        <!-- Modifique o botão existente para incluir data-action -->
-                        <button class="servico-cta" data-action="expand" aria-label="Botão para expandir o conteúdo">
-                            <span>Mostrar mais</span>
-                        </button>
-                    </div>
-
-                    <!-- Card Aplicativos -->
-                    <div class="servico-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="servico-icon">
-                            <img class="servico-icon-change" src="assets/img/suporte icon site.svg" alt="aplicativos icon">
-                        </div>
-                        <h3 class="servico-titulo">Aplicativos</h3>
-                        <p class="servico-descricao">Apps de ponto e acesso digital para alunos, colaboradores e gestores, com carteirinha digital, relatórios em tempo real e experiência prática no dia a dia.</p>
-                        <!-- Conteúdo expandido - adicione antes do botão "Descubra sobre" -->
-                        <div class="servico-expandido">
-                            <div class="servico-imagem-container">
-                                <picture>
-                                    <source type="image/avif"
-                                            srcset="assets/img/imagem-controle-de-acesso-3.avif 640w, assets/img/imagem-controle-de-acesso-3.avif 960w, assets/img/imagem-controle-de-acesso-3.avif 1280w"
-                                            sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
-                                    <img class="servico-imagem"
-                                        src="assets/img/imagem-controle-de-acesso-3.jpg"
-                                        srcset="assets/img/imagem-controle-de-acesso-3.jpg 640w, assets/img/imagem-controle-de-acesso-3.jpg 960w, assets/img/imagem-controle-de-acesso-3.jpg 1280w"
-                                        sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-                                        width="960" height="640" loading="lazy" decoding="async" fetchpriority="low" alt="">
-                                </picture>
-                            </div>
-                            <ul class="servico-lista">
-                                <li>Acesso de usuários com carteirinha digital ou física</li>
-                                <li>Disponibilização de QR Code offline e dinâmico para acesso de catracas</li>
-                                <li>Gestão inteligente de acessos e serviços com relatórios diários e dashboards interativos</li>
-                            </ul>
-                        </div>
-
-                        <!-- Modifique o botão existente para incluir data-action -->
-                        <button class="servico-cta" data-action="expand" aria-label="Botão para expandir o conteúdo">
-                            <span>Mostrar mais</span>
-                        </button>
-                    </div>
-
-                    <!-- Card Integração -->
-                    <div class="servico-card" data-aos="fade-up" data-aos-delay="500">
-                        <div class="servico-icon">
-                            <img class="servico-icon-change" src="assets/img/controle acesso site.svg" alt="icone integração">
-                        </div>
-                        <h3 class="servico-titulo">Integração</h3>
-                        <p class="servico-descricao">Conexão simples com sistemas acadêmicos, RH e folha. Além de APIs abertas para ampliar recursos e integrações.</p>
-                        <!-- Conteúdo expandido - adicione antes do botão "Descubra sobre" -->
-                        <div class="servico-expandido">
-                            <div class="servico-imagem-container">
-                                <picture>
-                                    <source type="image/avif"
-                                            srcset="assets/img/imagem-controle-de-acesso-4.avif 640w, assets/img/imagem-controle-de-acesso-4.avif 960w, assets/img/imagem-controle-de-acesso-4.avif 1280w"
-                                            sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
-                                    <img class="servico-imagem"
-                                        src="assets/img/imagem-controle-de-acesso-4.jpg"
-                                        srcset="assets/img/imagem-controle-de-acesso-4.jpg 640w, assets/img/imagem-controle-de-acesso-4.jpg 960w, assets/img/imagem-controle-de-acesso-4.jpg 1280w"
-                                        sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-                                        width="960" height="640" loading="lazy" decoding="async" fetchpriority="low" alt="">
-                                </picture>
-                            </div>
-                            <ul class="servico-lista">
-                                <li>Integração com sistemas acadêmicos (SGA) e ERPs existentes.</li>
-                                <li>Sincronização com folha de pagamento e controle de jornada.</li>
-                                <li>Automação do processo de autorização de acessos.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Modifique o botão existente para incluir data-action -->
-                        <button class="servico-cta" data-action="expand" aria-label="Botão para expandir o conteúdo">
-                            <span>Mostrar mais</span>
-                        </button>
-                    </div>
-                </div>
+            <h3 class="servico-titulo">Aplicativos</h3>
+            <p class="servico-descricao">Carteirinha digital, acesso por QR Code dinâmico/offline, relatórios e dashboards — tudo no celular.</p>
+            <div class="servico-expandido">
+              <div class="servico-imagem-container">
+                <picture>
+                  <source type="image/avif"
+                          srcset="assets/img/imagem-controle-de-acesso-3.avif 640w,
+                                  assets/img/imagem-controle-de-acesso-3.avif 960w,
+                                  assets/img/imagem-controle-de-acesso-3.avif 1280w"
+                          sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
+                  <img class="servico-imagem"
+                       src="assets/img/imagem-controle-de-acesso-3.jpg"
+                       srcset="assets/img/imagem-controle-de-acesso-3.jpg 640w,
+                               assets/img/imagem-controle-de-acesso-3.jpg 960w,
+                               assets/img/imagem-controle-de-acesso-3.jpg 1280w"
+                       sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+                       width="960" height="640" loading="lazy" decoding="async" alt="Aplicativo com carteirinha e QR Code">
+                </picture>
+              </div>
+              <ul class="servico-lista">
+                <li>Acesso com carteirinha digital ou física</li>
+                <li>QR Code dinâmico e offline</li>
+                <li>Relatórios diários e dashboards</li>
+              </ul>
             </div>
-        </section>
+            <button class="servico-cta" data-action="expand" aria-label="Mostrar mais sobre Aplicativos">
+              <span>Mostrar mais</span>
+            </button>
+          </div>
 
-        <!-- Seção Nossas Soluções -->
-        <section class="nossas-solucoes" id="solucoes">
-            <div class="nossas-solucoes-container">
-                <div class="nossas-solucoes-header">
-                    <h2 class="servicos-title">Soluções em Controle de Acesso que geram resultados</h2>
-                    <h3 class="nossas-solucoes-subtitle">
-                        Desenvolvemos soluções sob medida para cada segmento, com foco em escala, segurança e usabilidade.
-                    </h3>
-                </div>
-            
-                <div class="solucoes-grid-app">
-                    <!-- Card Educação -->
-                    <div class="solucao-card educacao">
-                        <h3 class="solucao-titulo">Carteirinha</h3>
-                        <img src="assets/img/imagem app carteirinha.jpg" alt="Carteirinha digital sendo lida em catraca — controle de acesso escolar" class="solucao-imagem-app">
-                        <p class="solucao-descricao">
-                            Solução completa para gestão acadêmica com carteirinha digital, controle de acesso e portal do aluno integrado.
-                        </p>
-                        <ul class="servico-lista">
-                            <li>Carteirinha digital estudantil</li>
-                            <li>QR Code criptografado e offline</li>
-                            <li>Portal do aluno integrado</li>
-                            <li>Controle de acesso por reconhecimento facial</li>
-                            <li>Integração com sistemas acadêmicos</li>
-                            <li>Gestão de bibliotecas</li>
-                            <li>Comunicação institucional</li>
-                        </ul>
-                        <button class="cta-comprar" aria-label="Ver soluções para instituições de ensino"><span><a href="educacao.html">Obter o Aplicativo</a></span></button>
-                    </div>
-                
-                    <!-- Card Empresas -->
-                    <div class="solucao-card empresas">
-                        <h3 class="solucao-titulo">InovaAccess</h3>
-                        <img src="assets/img/imagem app inova access.jpg" alt="Funcionário passando cartão/qr code em catraca empresarial" class="solucao-imagem-app">
-                        <p class="solucao-descricao">
-                            Plataforma completa para gestão de condomínios com controle de acesso, comunicação e administração integrada.
-                        </p>
-                        <ul class="servico-lista">
-                            <li>Controle de acesso de moradores</li>
-                            <li>Gestão de visitantes e prestadores</li>
-                            <li>Comunicação interna e avisos</li>
-                            <li>Reserva de áreas comuns</li>
-                            <li>Integração com elevadores, cancelas e portões</li>
-                            <li>Relatórios de movimentação</li>
-                            <li>Sistema de delivery e encomendas</li>
-                        </ul>
-                        <button class="cta-comprar" aria-label="Solicitar demonstração para empresas"><span><a href="empresas.html">Obter o Aplicativo</a></span></button>
-                    </div>
-                </div>
+          <!-- Card Integração -->
+          <div class="servico-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="servico-icon">
+              <img class="servico-icon-change" src="assets/img/controle acesso site.svg" alt="Ícone Integração" width="64" height="64" loading="lazy" decoding="async">
             </div>
-        </section>
-
-        <!-- Sessão DIFERENCIAL -->
-        <section class="porque-escolher-educacao">
-            <div class="porque-escolher-container">
-                <!-- Título centralizado fora do conteúdo -->
-                <div class="nova-sessao-header">
-                    <h2 class="servicos-title">Nossos Diferenciais dentro das Instituições de Ensino</h2>
-                    <h3 class="nova-sessao-subtitle">
-                        Conheça algumas das principais características pelas quais nossos clientes decidiram inovar
-                        seu controle de acesso.
-                    </h3>
-                </div>
-                
-                <div class="porque-escolher-content">
-                    <div class="float-wrapper">
-                        <div class="phone">
-                            <img src="assets/img/inicio app carteirinha.png" alt="SuperApp Inova Access" class="phone-img">
-                            <div class="notch"></div>
-                        </div>
-                    </div>
-
-                    <!-- Lado direito - Conteúdo -->
-                    <div class="porque-escolher-text">
-                        <!-- Lista de diferenciais -->
-                        <div class="diferenciais-list">
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">Escalabilidade com dados inteligentes</h4>
-                                    <div class="diferencial-text">
-                                        <p>
-                                            A Inova transforma dados já existentes em informações estratégicas, 
-                                            permitindo que nossas soluções sejam aplicadas em empresas de qualquer 
-                                            porte, com eficiência e alta performance.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">White Label</h4>
-                                    <div class="diferencial-text">
-                                        <p>
-                                            Seu app com a identidade da instituição: nome, ícone e cores próprias. 
-                                            Entrega uma experiência profissional, aumenta o engajamento e fortalece a 
-                                            marca em todos os pontos de contato.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">Instalação especializada e suporte completo</h4>
-                                    <div class="diferencial-text">
-                                        <p>
-                                            Implantação ponta a ponta: levantamento, configuração, testes e treinamento. 
-                                            Após o go-live, monitoramento proativo, SLA de atendimento e base de conhecimento 
-                                            para TI e secretarias.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <h3 class="servico-titulo">Integração</h3>
+            <p class="servico-descricao">Integra com ERPs, SGA e RH; APIs abertas para ampliar recursos e automatizar autorizações.</p>
+            <div class="servico-expandido">
+              <div class="servico-imagem-container">
+                <picture>
+                  <source type="image/avif"
+                          srcset="assets/img/imagem-controle-de-acesso-4.avif 640w,
+                                  assets/img/imagem-controle-de-acesso-4.avif 960w,
+                                  assets/img/imagem-controle-de-acesso-4.avif 1280w"
+                          sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
+                  <img class="servico-imagem"
+                       src="assets/img/imagem-controle-de-acesso-4.jpg"
+                       srcset="assets/img/imagem-controle-de-acesso-4.jpg 640w,
+                               assets/img/imagem-controle-de-acesso-4.jpg 960w,
+                               assets/img/imagem-controle-de-acesso-4.jpg 1280w"
+                       sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+                       width="960" height="640" loading="lazy" decoding="async" alt="Integração com ERPs e sistemas acadêmicos">
+                </picture>
+              </div>
+              <ul class="servico-lista">
+                <li>Integração com SGA/ERP existentes</li>
+                <li>Sincronização com folha de pagamento</li>
+                <li>Automação de autorizações de acesso</li>
+              </ul>
             </div>
-        </section>
+            <button class="servico-cta" data-action="expand" aria-label="Mostrar mais sobre Integração">
+              <span>Mostrar mais</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Nossas Soluções -->
+    <section class="nossas-solucoes" id="solucoes">
+      <div class="nossas-solucoes-container">
+        <div class="nossas-solucoes-header">
+          <h2 class="servicos-title">Soluções que geram resultados</h2>
+          <h3 class="nossas-solucoes-subtitle">
+            Escolha o app ideal para cada cenário com foco em escala, segurança e usabilidade.
+          </h3>
+        </div>
+    
+        <div class="solucoes-grid-app">
+          <!-- Card Carteirinha (Educação) -->
+          <div class="solucao-card educacao">
+            <h3 class="solucao-titulo">Carteirinha</h3>
+            <img src="assets/img/imagem app carteirinha.jpg" alt="Carteirinha digital: acesso escolar por QR Code" class="solucao-imagem-app" loading="lazy" decoding="async">
+            <p class="solucao-descricao">
+              Carteirinha digital com controle de acesso, QR Code criptografado e integração com sistemas acadêmicos.
+            </p>
+            <ul class="servico-lista">
+              <li>Carteirinha digital estudantil</li>
+              <li>QR Code criptografado e offline</li>
+              <li>Portal do aluno integrado</li>
+              <li>Reconhecimento facial</li>
+              <li>Integração com SGA</li>
+            </ul>
+            <a class="cta-comprar" aria-label="Obter o aplicativo Carteirinha" href="educacao.html"><span>Obter o Aplicativo</span></a>
+          </div>
+      
+          <!-- Card Inova Access (Empresas/Condomínios) -->
+          <div class="solucao-card empresas">
+            <h3 class="solucao-titulo">Inova Access</h3>
+            <img src="assets/img/imagem app inova access.jpg" alt="Inova Access: gestão de acesso em empresas e condomínios" class="solucao-imagem-app" loading="lazy" decoding="async">
+            <p class="solucao-descricao">
+              Gestão de empresas e condomínios com controle de acesso, comunicação e administração integrada.
+            </p>
+            <ul class="servico-lista">
+              <li>Gestão de visitantes e prestadores</li>
+              <li>Avisos, reservas e integrações com elevadores/cancelas</li>
+              <li>Relatórios de movimentação</li>
+            </ul>
+            <a class="cta-comprar" aria-label="Obter o aplicativo Inova Access" href="empresas.html"><span>Obter o Aplicativo</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="porque-escolher-educacao">
+      <div class="porque-escolher-container">
+        <div class="nova-sessao-header">
+          <h2 class="servicos-title">Diferenciais para Instituições de Ensino</h2>
+          <h3 class="nova-sessao-subtitle">
+            Por que clientes escolhem a Inova para digitalizar o acesso?
+          </h3>
+        </div>
+        
+        <div class="porque-escolher-content">
+          <div class="float-wrapper">
+            <div class="phone">
+              <img src="assets/img/inicio app carteirinha.png" alt="SuperApp Inova Access" class="phone-img" loading="lazy" decoding="async">
+              <div class="notch"></div>
+            </div>
+          </div>
+
+          <div class="porque-escolher-text">
+            <div class="diferenciais-list">
+              <div class="diferencial-item">
+                <div class="diferencial-icon-space">
+                  <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito" loading="lazy" decoding="async">
+                </div>
+                <div class="diferencial-content">
+                  <h4 class="diferencial-title">Escalabilidade com dados inteligentes</h4>
+                  <div class="diferencial-text">
+                    <p>Aproveitamos dados existentes para entregar performance em qualquer porte de instituição.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="diferencial-item">
+                <div class="diferencial-icon-space">
+                  <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito" loading="lazy" decoding="async">
+                </div>
+                <div class="diferencial-content">
+                  <h4 class="diferencial-title">White Label</h4>
+                  <div class="diferencial-text">
+                    <p>Identidade da instituição em todos os pontos de contato: nome, ícone e cores próprias.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="diferencial-item">
+                <div class="diferencial-icon-space">
+                  <img src="assets/img/triangulo-lado-direito-site.svg" alt="Triângulo Inova azul claro lado direito" loading="lazy" decoding="async">
+                </div>
+                <div class="diferencial-content">
+                  <h4 class="diferencial-title">Implantação e suporte completos</h4>
+                  <div class="diferencial-text">
+                    <p>Levantamento, configuração, testes, treinamento e pós-go-live com SLA e base de conhecimento.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
         <!-- Footer atualizado -->
         <footer class="footer">
