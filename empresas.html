@@ -1,572 +1,585 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de Acesso Corporativo (Inova Access), Ponto Eletrônico e Integração com ERP | Inova Tecnologia</title>
-    <meta name="description" content="Controle de acesso e ponto para empresas com QR Code, facial e RFID. Integração com RH/ERP, relatórios de acesso e retrofit de catracas.">
-    <link rel="stylesheet" href="assets/main.css">
-    <link rel="stylesheet" href="assets/empresas.responsive.css">
-    <script src="assets/main.js" defer></script>
-    <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Acesso Corporativo (Inova Access), Ponto Eletrônico e Integração com ERP | Inova Tecnologia</title>
+  <meta name="description" content="Controle de acesso e ponto para empresas com QR Code, facial e RFID. Integração com RH/ERP, relatórios de acesso e retrofit de catracas.">
 
-    <!-- HEAD comum -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-    <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
-    </noscript>
+  <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="assets/empresas.responsive.css">
+  <script src="assets/main.js" defer></script>
 
-    <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+  <!-- Google Fonts: aplicação rápida e sem CLS por troca de fonte -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Preload da imagem LCP (banner Empresas) -->
+  <link rel="preload" as="image"
+        href="assets/img/imagem-controle-acesso-empresa.jpg"
+        imagesrcset="assets/img/imagem-controle-acesso-empresa.jpg 640w,
+                     assets/img/imagem-controle-acesso-empresa.jpg 960w,
+                     assets/img/imagem-controle-acesso-empresa.jpg 1280w"
+        imagesizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+        fetchpriority="high">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+
+  <!-- Ajustes anti-CLS e tipografia estável -->
+  <style>
+    :root{--font-sans:"Poppins","Open Sans",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;}
+    html{font-family:var(--font-sans); font-synthesis-weight:none;}
+    .banner-title,.servicos-title{line-height:1.2}
+    .nova-sessao-subtitle{line-height:1.45}
+    .banner-content{min-height:3.2rem} /* reserva de altura para o título no primeiro paint */
+    img{height:auto} /* mantém proporção quando width/height são definidos */
+  </style>
 </head>
 <body>
-    <div class="page-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html"><img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image"></a>
-                </div>
+  <div class="page-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <a href="index.html"><img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image" width="160" height="40" loading="lazy" decoding="async"></a>
+        </div>
 
-                <button class="menu-toggle"
-                    aria-label="Abrir menu"
-                    aria-controls="primary-navigation"
-                    aria-expanded="false">
-                    <!-- Ícone hambúrguer -->
-                    <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M3 6h18M3 12h18M3 18h18"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                    <!-- Ícone X -->
-                    <svg class="icon icon-x" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M6 6l12 12M18 6L6 18"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </button>
+        <button class="menu-toggle"
+          aria-label="Abrir menu"
+          aria-controls="primary-navigation"
+          aria-expanded="false">
+          <!-- Ícone hambúrguer -->
+          <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 6h18M3 12h18M3 18h18"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <!-- Ícone X -->
+          <svg class="icon icon-x" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
 
-                <nav class="navbar" id="primary-navigation">
-                    <ul class="nav-links" role="menubar" aria-label="Navegação principal">
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="solucoes.html">SOLUÇÕES</a></li>
+        <nav class="navbar" id="primary-navigation">
+          <ul class="nav-links" role="menubar" aria-label="Navegação principal">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="solucoes.html">SOLUÇÕES</a></li>
 
-                        <li class="dropdown">
-                        <a href="segmentos.html" class="dropdown-toggle active" role="button" aria-expanded="false" aria-controls="menu-segmentos">SEGMENTOS</a>
-                        <ul id="menu-segmentos" class="dropdown-menu">
-                            <li><a class="drop-down-menu-item" href="educacao.html">Instituições de Ensino</a></li>
-                            <li><a class="drop-down-menu-item" href="empresas.html">Empresas</a></li>
-                            <li><a class="drop-down-menu-item" href="condominios.html">Condomínios</a></li>
-                        </ul>
-                        </li>
+            <li class="dropdown">
+              <a href="segmentos.html" class="dropdown-toggle active" role="button" aria-expanded="false" aria-controls="menu-segmentos">SEGMENTOS</a>
+              <ul id="menu-segmentos" class="dropdown-menu">
+                <li><a class="drop-down-menu-item" href="educacao.html">Instituições de Ensino</a></li>
+                <li><a class="drop-down-menu-item" href="empresas.html">Empresas</a></li>
+                <li><a class="drop-down-menu-item" href="condominios.html">Condomínios</a></li>
+              </ul>
+            </li>
 
-                        <li class="dropdown">
-                        <a href="servicos.html" class="dropdown-toggle" role="button" aria-expanded="false" aria-controls="menu-servicos">SERVIÇOS</a>
-                        <ul id="menu-servicos" class="dropdown-menu">
-                            <li><a class="drop-down-menu-item" href="servicoacesso.html">Acessos</a></li>
-                            <li><a class="drop-down-menu-item" href="servicoaplicativo.html">Aplicativos</a></li>
-                            <li><a class="drop-down-menu-item" href="servicoponto.html">Ponto</a></li>
-                            <li><a class="drop-down-menu-item" href="servicosuporte.html">Suporte</a></li>
-                        </ul>
-                        </li>
+            <li class="dropdown">
+              <a href="servicos.html" class="dropdown-toggle" role="button" aria-expanded="false" aria-controls="menu-servicos">SERVIÇOS</a>
+              <ul id="menu-servicos" class="dropdown-menu">
+                <li><a class="drop-down-menu-item" href="servicoacesso.html">Acessos</a></li>
+                <li><a class="drop-down-menu-item" href="servicoaplicativo.html">Aplicativos</a></li>
+                <li><a class="drop-down-menu-item" href="servicoponto.html">Ponto</a></li>
+                <li><a class="drop-down-menu-item" href="servicosuporte.html">Suporte</a></li>
+              </ul>
+            </li>
 
-                        <li><a href="blog.html">BLOG</a></li>
-                        <li><a href="clientes.html">CLIENTES</a></li>
-                    </ul>
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="clientes.html">CLIENTES</a></li>
+          </ul>
 
-                    <!-- CTA como link (sem <button> extra) -->
-                    <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
-                </nav>
+          <!-- CTA como link (sem <button> extra) -->
+          <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- WhatsApp FAB -->
+    <a class="whatsapp-fab"
+       href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia."
+       aria-label="Falar com a Inova pelo WhatsApp"
+       target="_blank" rel="noopener">
+       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/></svg>
+       <span class="sr-only">WhatsApp</span>
+    </a>
+
+    <!-- Banner Empresas (LCP) -->
+    <section class="banner-educacao">
+      <div class="banner-image">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/img/imagem-controle-acesso-empresa.avif 640w, assets/img/imagem-controle-acesso-empresa.avif 960w, assets/img/imagem-controle-acesso-empresa.avif 1280w"
+                  sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
+          <img
+            src="assets/img/imagem-controle-acesso-empresa.jpg"
+            srcset="assets/img/imagem-controle-acesso-empresa.jpg 640w, assets/img/imagem-controle-acesso-empresa.jpg 960w, assets/img/imagem-controle-acesso-empresa.jpg 1280w"
+            sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
+            width="960" height="640" decoding="async" fetchpriority="high" alt="Imagem catraca intituição de ensino">
+        </picture>
+      </div>
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h1 class="banner-title">Controle de Acesso e Ponto para Empresas</h1>
+      </div>
+    </section>
+
+    <!-- Introdução -->
+    <section class="introducao-educacao">
+      <div class="introducao-header">
+        <h2 class="servicos-title">O que você vai encontrar aqui</h2>
+        <h3 class="nova-sessao-subtitle">
+          Soluções corporativas para <strong>controle de acesso</strong>, <strong>Inova Access</strong> (app com QR Code) e
+          <strong>Ponto Eletrônico</strong>, tudo conectado ao seu <strong>ERP</strong> para ganho de segurança, produtividade
+          e redução de custos operacionais.
+        </h3>
+      </div>
+
+      <div class="introducao-grid">
+        <!-- Card 1 -->
+        <div class="introducao-card">
+          <div class="card-icon">
+            <img src="assets/img/catraca vidro icon site.svg" alt="Ícone catraca de segurança Inova" width="72" height="72" loading="lazy" decoding="async">
+          </div>
+          <h3 class="card-title">Controle de Acesso</h3>
+          <p class="card-text">
+            Catracas e portas com <strong>Reconhecimento Facial</strong>, <strong>QR Code</strong> no <strong>Inova Access</strong>
+            e <strong>Cartão RFID</strong>. Regras por cargo, área e turno, gestão de visitantes e
+            <strong>controle de andares/elevadores</strong> tudo em conformidade com a LGPD.
+          </p>
+          <div class="cta-container">
+            <a href="#acessos">
+              <button class="cta-comprar-integracao" aria-label="Quero verificar os controle de acesso"><span>Verificar Acessos</span></button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="introducao-card">
+          <div class="card-icon">
+            <img src="assets/img/handshake.png" alt="Ícone Ponto Eletrônico" width="72" height="72" loading="lazy" decoding="async">
+          </div>
+          <h3 class="card-title">Ponto</h3>
+          <p class="card-text">
+            App próprio com <strong>relatórios diários</strong>, <strong>dashboards interativos</strong> e
+            conformidade com a <strong>Portaria 671</strong>. Automatiza apurações, reduz erros e agiliza o fechamento da folha.
+          </p>
+          <div class="cta-container">
+            <a href="#aplicativo">
+              <button class="cta-comprar-integracao" aria-label="Quero verificar os serviços de ponto"><span>Verificar Ponto</span></button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="introducao-card">
+          <div class="card-icon">
+            <img src="assets/img/tablet.png" alt="Ícone Integração com ERP/RH" width="72" height="72" loading="lazy" decoding="async">
+          </div>
+          <h3 class="card-title">Suporte Especializado</h3>
+          <p class="card-text">
+            Suporte com <strong>treinamentos</strong>, <strong>instalação</strong> e <strong>visitas técnicas</strong> 
+            realizadas por especialistas do início da implantação ao dia a dia da operação.
+          </p>
+          <div class="cta-container">
+            <a href="#aplicativo">
+              <button class="cta-comprar-integracao" aria-label="Quero uma integração completa"><span>Verificar Integração</span></button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACESSOS -->
+    <section id="acessos" class="acessos">
+      <div class="acessos-container">
+        <div class="acessos-header">
+          <h2 class="servicos-title">Controle de Acesso Corporativo Inteligente</h2>
+          <h3 class="nova-sessao-subtitle">
+            <strong>Reconhecimento Facial</strong>, <strong>QR Code</strong> no Inova Access e <strong>Cartão RFID</strong> para
+            entradas mais rápidas, menos fraudes e integração nativa com o seu <strong>ERP</strong>.
+          </h3>
+        </div>
+
+        <div class="acessos-grid">
+          <!-- Facial -->
+          <article class="acesso-card">
+            <div class="acesso-icon">
+              <img src="assets/img/catraca vidro icon site.svg" alt="Reconhecimento Facial" width="72" height="72" loading="lazy" decoding="async">
             </div>
-        </header>
+            <h3 class="acesso-title">Catracas com Reconhecimento Facial</h3>
+            <p class="acesso-text">Autenticação sem contato para colaboradores e visitantes, ideal para portarias de alto fluxo.</p>
+            <ul class="servico-lista">
+              <li>Validação rápida com anti-spoofing</li>
+              <li>Perfis por cargo, área e turno</li>
+              <li>Auditoria e LGPD</li>
+            </ul>
+          </article>
 
-        <!-- WhatsApp FAB -->
-        <a class="whatsapp-fab"
-           href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia."
-           aria-label="Falar com a Inova pelo WhatsApp"
-           target="_blank" rel="noopener">
-           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.52 3.48A11.78 11.78 0 0 0 12.02 0C5.73 0 .62 5.11.62 11.4c0 2 .52 3.89 1.5 5.56L0 24l7.2-2.07a11.36 11.36 0 0 0 4.81 1.05h.01c6.29 0 11.4-5.1 11.4-11.39a11.3 11.3 0 0 0-2.9-7.11zM12 21.3c-1.65 0-3.25-.44-4.65-1.27l-.33-.19-3.11.89.9-3.03-.2-.31A9.41 9.41 0 0 1 2.6 11.4c0-5.19 4.22-9.4 9.41-9.4 2.52 0 4.89.98 6.68 2.77a9.36 9.36 0 0 1 2.74 6.63c0 5.19-4.22 9.4-9.4 9.4zm5.09-6.71c-.28-.14-1.64-.81-1.89-.9-.26-.1-.45-.15-.63.15-.19.29-.74.93-.91 1.12-.17.2-.34.23-.63.09-.29-.15-1.22-.45-2.3-1.45-.85-.75-1.43-1.69-1.6-1.98-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.2-.29.29-.48.1-.19.05-.36-.03-.51-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.48h-.55c-.2 0-.51.07-.78.36-.26.29-1 1-1 2.44 0 1.44 1.02 2.83 1.16 3.02.15.19 2.01 3.06 4.86 4.29 1.95.84 2.69.92 3.65.77.59-.09 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.34z"/></svg>
-           <span class="sr-only">WhatsApp</span>
-        </a>
-
-        <!-- Banner Empresas -->
-        <section class="banner-educacao">
-            <div class="banner-image">
-                <picture>
-                    <source type="image/avif"
-                            srcset="assets/img/imagem-controle-acesso-empresa.avif 640w, assets/img/imagem-controle-acesso-empresa.avif 960w, assets/img/imagem-controle-acesso-empresa.avif 1280w"
-                            sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
-                    <img
-                        src="assets/img/imagem-controle-acesso-empresa.jpg"
-                        srcset="assets/img/imagem-controle-acesso-empresa.jpg 640w, assets/img/imagem-controle-acesso-empresa.jpg 960w, assets/img/imagem-controle-acesso-empresa.jpg 1280w"
-                        sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
-                        width="960" height="640" loading="lazy" decoding="async" fetchpriority="low" alt="Imagem catraca intituição de ensino">
-                </picture>
+          <!-- QR Code -->
+          <article class="acesso-card">
+            <div class="acesso-icon">
+              <img src="assets/img/qr-code.png" alt="QR Code dinâmico" width="72" height="72" loading="lazy" decoding="async">
             </div>
-            <div class="banner-overlay"></div>
-            <div class="banner-content">
-                <h1 class="banner-title">Controle de Acesso e Ponto para Empresas</h1>
+            <h3 class="acesso-title">Catracas com QR Code</h3>
+            <p class="acesso-text">Credencial móvel no <strong>Inova Access</strong> elimina cartões físicos e agiliza a liberação.</p>
+            <ul class="servico-lista">
+              <li>QR Code dinâmico e criptografado</li>
+              <li>Logs de passagem e permissões centralizadas</li>
+              <li>Integração com processos internos de autorização</li>
+            </ul>
+          </article>
+
+          <!-- Cartão RFID -->
+          <article class="acesso-card">
+            <div class="acesso-icon">
+              <img src="assets/img/controle acesso site.svg" alt="Cartão RFID" width="72" height="72" loading="lazy" decoding="async">
             </div>
-        </section>
+            <h3 class="acesso-title">Catracas com Cartão RFID</h3>
+            <p class="acesso-text">Cartões de proximidade para operação estável e simples em ambientes corporativos.</p>
+            <ul class="servico-lista">
+              <li>Emissão, bloqueio e revalidação por perfil/área</li>
+              <li>Compatível com controladoras multimarcas</li>
+              <li>Baixa manutenção e alta durabilidade</li>
+            </ul>
+          </article>
 
-        <!-- Introdução -->
-        <section class="introducao-educacao">
-            <div class="introducao-header">
-                <h2 class="servicos-title">O que você vai encontrar aqui</h2>
-                <h3 class="nova-sessao-subtitle">
-                    Soluções corporativas para <strong>controle de acesso</strong>, <strong>Inova Access</strong> (app com QR Code) e
-                    <strong>Ponto Eletrônico</strong>, tudo conectado ao seu <strong>ERP</strong> para ganho de segurança, produtividade
-                    e redução de custos operacionais.
-                </h3>
+          <!-- Câmeras IA -->
+          <article class="acesso-card">
+            <div class="acesso-icon">
+              <img src="assets/img/icone camera monitoramente.svg" alt="Câmeras com IA" width="72" height="72" loading="lazy" decoding="async">
+            </div>
+            <h3 class="acesso-title">Câmeras integradas com IA</h3>
+            <p class="acesso-text">Monitoramento inteligente com detecção de eventos, alertas e relatórios centralizados.</p>
+            <ul class="servico-lista">
+              <li>Detecção e match em tempo real por regra/zona</li>
+              <li>Alertas por evento e perímetro</li>
+              <li>Dashboards para auditoria e compliance</li>
+            </ul>
+          </article>
+        </div>
+
+        <a class="acesso-cta" href="servicoacesso.html">Ver com mais detalhes</a>
+      </div>
+    </section>
+
+    <!-- PROJETOS DE SUCESSO -->
+    <section class="nova-sessao">
+      <div class="nova-sessao-container">
+        <div class="nova-sessao-header">
+          <h2 class="servicos-title">Projetos de Sucesso: Gestão e Segurança em Empresas</h2>
+          <h3 class="nova-sessao-subtitle">
+            Casos reais de modernização com <strong>Inova Access</strong>, QR Code, Reconhecimento Facial e controle por andar.
+          </h3>
+        </div>
+        
+        <div class="parceiros-grid">
+          <!-- Card 1 - Office Tamboré -->
+          <div class="parceiro-card">
+            <div class="parceiro-header">
+              <div class="parceiro-logo">
+                <img src="assets/img/logo-office-tambore.svg" alt="Office Tamboré" loading="lazy" decoding="async">
+              </div>
+              <div class="parceiro-info">
+                <h3>Office Tamboré</h3>
+                <span class="categoria">Empresa</span>
+              </div>
             </div>
 
-            <div class="introducao-grid">
-                <!-- Card 1 -->
-                <div class="introducao-card">
-                    <div class="card-icon">
-                        <img src="assets/img/catraca vidro icon site.svg" alt="Ícone catraca de segurança Inova">
-                    </div>
-                    <h3 class="card-title">Controle de Acesso</h3>
-                    <p class="card-text">
-                        Catracas e portas com <strong>Reconhecimento Facial</strong>, <strong>QR Code</strong> no <strong>Inova Access</strong>
-                        e <strong>Cartão RFID</strong>. Regras por cargo, área e turno, gestão de visitantes e
-                        <strong>controle de andares/elevadores</strong> tudo em conformidade com a LGPD.
-                    </p>
-                    <div class="cta-container">
-                        <a href="#acessos">
-                            <button class="cta-comprar-integracao" aria-label="Quero verificar os controle de acesso"><span>Verificar Acessos</span></button>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="introducao-card">
-                    <div class="card-icon">
-                        <img src="assets/img/handshake.png" alt="Ícone Ponto Eletrônico">
-                    </div>
-                    <h3 class="card-title">Ponto</h3>
-                    <p class="card-text">
-                        App próprio com <strong>relatórios diários</strong>, <strong>dashboards interativos</strong> e
-                        conformidade com a <strong>Portaria 671</strong>. Automatiza apurações, reduz erros e agiliza o fechamento da folha.
-                    </p>
-                    <div class="cta-container">
-                        <a href="#aplicativo">
-                            <button class="cta-comprar-integracao" aria-label="Quero verificar os serviços de ponto"><span>Verificar Ponto</span></button>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="introducao-card">
-                    <div class="card-icon">
-                        <img src="assets/img/tablet.png" alt="Ícone Integração com ERP/RH">
-                    </div>
-                    <h3 class="card-title">Suporte Especializado</h3>
-                    <p class="card-text">
-                        Suporte com <strong>treinamentos</strong>, <strong>instalação</strong> e <strong>visitas técnicas</strong> 
-                        realizadas por especialistas do início da implantação ao dia a dia da operação.
-                    </p>
-                    <div class="cta-container">
-                        <a href="#aplicativo">
-                            <button class="cta-comprar-integracao" aria-label="Quero uma integração completa"><span>Verificar Integração</span></button>
-                        </a>
-                    </div>
-                </div>
+            <div class="info-section">
+              <h4 class="info-title">Sobre o Projeto</h4>
+              <p class="info-content">
+                Modernização das portarias e andares com o <strong>Inova Access</strong>: reconhecimento facial,
+                credencial móvel via <strong>QR Code</strong> e controle de portas por andar em um único painel.
+              </p>
             </div>
-        </section>
 
-        <!-- ACESSOS -->
-        <section id="acessos" class="acessos">
-            <div class="acessos-container">
-                <div class="acessos-header">
-                    <h2 class="servicos-title">Controle de Acesso Corporativo Inteligente</h2>
-                    <h3 class="nova-sessao-subtitle">
-                        <strong>Reconhecimento Facial</strong>, <strong>QR Code</strong> no Inova Access e <strong>Cartão RFID</strong> para
-                        entradas mais rápidas, menos fraudes e integração nativa com o seu <strong>ERP</strong>.
-                    </h3>
-                </div>
-
-                <div class="acessos-grid">
-                    <!-- Facial -->
-                    <article class="acesso-card">
-                        <div class="acesso-icon">
-                            <img src="assets/img/catraca vidro icon site.svg" alt="Reconhecimento Facial" width="72" height="72" loading="lazy" decoding="async">
-                        </div>
-                        <h3 class="acesso-title">Catracas com Reconhecimento Facial</h3>
-                        <p class="acesso-text">Autenticação sem contato para colaboradores e visitantes, ideal para portarias de alto fluxo.</p>
-                        <ul class="servico-lista">
-                            <li>Validação rápida com anti-spoofing</li>
-                            <li>Perfis por cargo, área e turno</li>
-                            <li>Auditoria e LGPD</li>
-                        </ul>
-                    </article>
-
-                    <!-- QR Code -->
-                    <article class="acesso-card">
-                        <div class="acesso-icon">
-                            <img src="assets/img/qr-code.png" alt="QR Code dinâmico" width="72" height="72" loading="lazy" decoding="async">
-                        </div>
-                        <h3 class="acesso-title">Catracas com QR Code</h3>
-                        <p class="acesso-text">Credencial móvel no <strong>Inova Access</strong> elimina cartões físicos e agiliza a liberação.</p>
-                        <ul class="servico-lista">
-                            <li>QR Code dinâmico e criptografado</li>
-                            <li>Logs de passagem e permissões centralizadas</li>
-                            <li>Integração com processos internos de autorização</li>
-                        </ul>
-                    </article>
-
-                    <!-- Cartão RFID -->
-                    <article class="acesso-card">
-                        <div class="acesso-icon">
-                            <img src="assets/img/controle acesso site.svg" alt="Cartão RFID" width="72" height="72" loading="lazy" decoding="async">
-                        </div>
-                        <h3 class="acesso-title">Catracas com Cartão RFID</h3>
-                        <p class="acesso-text">Cartões de proximidade para operação estável e simples em ambientes corporativos.</p>
-                        <ul class="servico-lista">
-                            <li>Emissão, bloqueio e revalidação por perfil/área</li>
-                            <li>Compatível com controladoras multimarcas</li>
-                            <li>Baixa manutenção e alta durabilidade</li>
-                        </ul>
-                    </article>
-
-                    <!-- Câmeras IA -->
-                    <article class="acesso-card">
-                        <div class="acesso-icon">
-                            <img src="assets/img/icone camera monitoramente.svg" alt="Câmeras com IA" width="72" height="72" loading="lazy" decoding="async">
-                        </div>
-                        <h3 class="acesso-title">Câmeras integradas com IA</h3>
-                        <p class="acesso-text">Monitoramento inteligente com detecção de eventos, alertas e relatórios centralizados.</p>
-                        <ul class="servico-lista">
-                            <li>Detecção e match em tempo real por regra/zona</li>
-                            <li>Alertas por evento e perímetro</li>
-                            <li>Dashboards para auditoria e compliance</li>
-                        </ul>
-                    </article>
-                </div>
-
-                <a class="acesso-cta" href="servicoacesso.html">Ver com mais detalhes</a>
+            <div class="info-section">
+              <h4 class="info-title">Desafio</h4>
+              <p class="info-content">
+                Reduzir filas nos picos, impedir uso indevido de credenciais e manter trilha de auditoria conforme LGPD.
+              </p>
             </div>
-        </section>
 
-        <!-- PROJETOS DE SUCESSO -->
-        <section class="nova-sessao">
-            <div class="nova-sessao-container">
-                <div class="nova-sessao-header">
-                    <h2 class="servicos-title">Projetos de Sucesso: Gestão e Segurança em Empresas</h2>
-                    <h3 class="nova-sessao-subtitle">
-                        Casos reais de modernização com <strong>Inova Access</strong>, QR Code, Reconhecimento Facial e controle por andar.
-                    </h3>
-                </div>
-                
-                <div class="parceiros-grid">
-                    <!-- Card 1 - Office Tamboré -->
-                    <div class="parceiro-card">
-                        <div class="parceiro-header">
-                            <div class="parceiro-logo">
-                                <img src="assets/img/logo-office-tambore.svg" alt="Office Tamboré">
-                            </div>
-                            <div class="parceiro-info">
-                                <h3>Office Tamboré</h3>
-                                <span class="categoria">Empresa</span>
-                            </div>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Sobre o Projeto</h4>
-                            <p class="info-content">
-                                Modernização das portarias e andares com o <strong>Inova Access</strong>: reconhecimento facial,
-                                credencial móvel via <strong>QR Code</strong> e controle de portas por andar em um único painel.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Desafio</h4>
-                            <p class="info-content">
-                                Reduzir filas nos picos, impedir uso indevido de credenciais e manter trilha de auditoria conforme LGPD.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Solução Implementada</h4>
-                            <p class="info-content">
-                                Catracas com reconhecimento facial anti-spoofing e centralização do controle de acesso na portaria.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Tecnologias Utilizadas</h4>
-                            <div class="tecnologias-tags">
-                                <span class="tech-tag">Inova Access</span>
-                                <span class="tech-tag">Reconhecimento Facial</span>
-                                <span class="tech-tag">QR Code</span>
-                                <span class="tech-tag">Controle de Andares</span>
-                            </div>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Resultados Alcançados</h4>
-                            <div class="resultados-grid">
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">90%</div>
-                                    <div class="resultado-descricao">Redução no tempo de entrada</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">100%</div>
-                                    <div class="resultado-descricao">Segurança por andar</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">95%</div>
-                                    <div class="resultado-descricao">Satisfação dos usuários</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 - Praiamar Corporate -->
-                    <div class="parceiro-card">
-                        <div class="parceiro-header">
-                            <div class="parceiro-logo">
-                                <img src="assets/img/logo-praiamar.svg" alt="Praiamar Corporate">
-                            </div>
-                            <div class="parceiro-info">
-                                <h3>Praiamar Corporate</h3>
-                                <span class="categoria">Empresa</span>
-                            </div>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Sobre o Projeto</h4>
-                            <p class="info-content">
-                                Migração do controle de acesso para a nuvem com <strong>Inova Access</strong>, habilitando
-                                <strong>QR Code</strong> dinâmico e App White Label para milhares de usuários.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Desafio</h4>
-                            <p class="info-content">
-                                Integrar aplicativo e catracas em ambiente de alto fluxo, liberar por andar (elevadores) e
-                                disponibilizar relatórios em tempo real para facilities e segurança.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Solução Implementada</h4>
-                            <p class="info-content">
-                                Catracas e portas integradas, controle por andar e app personalizado com gestão centralizada.
-                            </p>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Tecnologias Utilizadas</h4>
-                            <div class="tecnologias-tags">
-                                <span class="tech-tag">Inova Access</span>
-                                <span class="tech-tag">QR Code</span>
-                                <span class="tech-tag">App White Label</span>
-                            </div>
-                        </div>
-
-                        <div class="info-section">
-                            <h4 class="info-title">Resultados Alcançados</h4>
-                            <div class="resultados-grid">
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">95%</div>
-                                    <div class="resultado-descricao">Gestão moderna e eficiente</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">Zero</div>
-                                    <div class="resultado-descricao">Incidentes de segurança</div>
-                                </div>
-                                <div class="resultado-item">
-                                    <div class="resultado-numero">80%</div>
-                                    <div class="resultado-descricao">Melhor controle de fluxo</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- .parceiros-grid -->
+            <div class="info-section">
+              <h4 class="info-title">Solução Implementada</h4>
+              <p class="info-content">
+                Catracas com reconhecimento facial anti-spoofing e centralização do controle de acesso na portaria.
+              </p>
             </div>
-        </section>
 
-        <!-- SISTEMA DE PONTO -->
-        <section id="aplicativo" class="integracao-section">
-            <div class="integracao-container">
-                <div class="integracao-header">
-                    <h2 class="header-badge">Sistema de Controle de Ponto</h2>
-                    <div class="main-connector"></div>
-                </div>
-                
-                <div class="integracao-diagram">
-                    <div class="horizontal-connector"></div>
-                    <div class="apps-grid">
-                        <div class="app-card">
-                            <div class="card-connector"></div>
-                            <div class="app-icon">
-                                <img src="assets/img/controle acesso site.svg" alt="Ícone Sincronização Automática">
-                            </div>
-                            <h3 class="app-title">Sincronização Automática</h3>
-                            <p class="app-description">
-                                Registros, escalas e justificativas sincronizados entre relógios/app e <strong>ERP/folha</strong>,
-                                garantindo dados atualizados para <strong>relatórios diários</strong>.
-                            </p>
-                        </div>
-                        
-                        <div class="app-card">
-                            <div class="card-connector"></div>
-                            <div class="app-icon">
-                                <img src="assets/img/back-in-time.png" alt="Ícone Implementação Rápida">
-                            </div>
-                            <h3 class="app-title">Implementação Rápida</h3>
-                            <p class="app-description">
-                                Comunicação dos relógios e integrações preparada em poucos passos. Processos ágeis, sem fricção entre áreas.
-                            </p>
-                        </div>
-                        
-                        <div class="app-card">
-                            <div class="card-connector"></div>
-                            <div class="app-icon">
-                                <img src="assets/img/centralized.png" alt="Ícone Dados Unificados">
-                            </div>
-                            <h3 class="app-title">Dados Unificados</h3>
-                            <p class="app-description">
-                                Dashboards diários (horas extras, banco, absenteísmo) e <strong>detalhamento dos cálculos</strong> em tela para auditoria.
-                            </p>
-                        </div>
-                        
-                        <div class="app-card">
-                            <div class="card-connector"></div>
-                            <div class="app-icon">
-                                <img src="assets/img/biometric-identification.png" alt="Ícone Segurança">
-                            </div>
-                            <h3 class="app-title">Segurança Potencializada</h3>
-                            <p class="app-description">
-                                Portaria <strong>671</strong> e <strong>LGPD</strong> cumpridas de ponta a ponta, reduzindo riscos trabalhistas e protegendo dados.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="cta-container">
-                    <a href="contratar.html">
-                        <button class="cta-comprar-integracao" aria-label="Quero integrar Ponto + ERP agora"><span>Quero integrar Ponto + ERP</span></button>
-                    </a>
-                </div>
+            <div class="info-section">
+              <h4 class="info-title">Tecnologias Utilizadas</h4>
+              <div class="tecnologias-tags">
+                <span class="tech-tag">Inova Access</span>
+                <span class="tech-tag">Reconhecimento Facial</span>
+                <span class="tech-tag">QR Code</span>
+                <span class="tech-tag">Controle de Andares</span>
+              </div>
             </div>
-        </section>
 
-        <!-- DIFERENCIAIS -->
-        <section class="porque-escolher-educacao">
-            <div class="porque-escolher-container">
-                <div class="nova-sessao-header">
-                    <h2 class="servicos-title">Nossos Diferenciais dentro das Empresas</h2>
-                    <h3 class="nova-sessao-subtitle">
-                        Plataforma cloud, compatibilidade multimarcas e app <strong>Inova Access</strong> para liberar acessos com <strong>QR Code</strong> — tudo integrado ao seu <strong>ERP</strong>.
-                    </h3>
+            <div class="info-section">
+              <h4 class="info-title">Resultados Alcançados</h4>
+              <div class="resultados-grid">
+                <div class="resultado-item">
+                  <div class="resultado-numero">90%</div>
+                  <div class="resultado-descricao">Redução no tempo de entrada</div>
                 </div>
-                
-                <div class="porque-escolher-content">
-                    <div class="float-wrapper">
-                        <div class="phone">
-                            <img src="assets/img/tela inicio inova access.png" alt="App Inova Access" class="phone-img">
-                            <div class="notch"></div>
-                        </div>
-                    </div>
-
-                    <div class="porque-escolher-text">
-                        <div class="diferenciais-list">
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Diferencial 1">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">Escalabilidade com dados inteligentes</h4>
-                                    <div class="diferencial-text">
-                                        <p>Gestão centralizada de entradas e saídas, monitoramento de equipamentos e relatórios por site/unidade para decisões rápidas.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Diferencial 2">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">Multimarcas</h4>
-                                    <div class="diferencial-text">
-                                        <strong>Compatibilidade multimarcas</strong> no mesmo controle de acesso: catracas, controladoras e leitores de diferentes fabricantes operando de forma unificada.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Diferencial 2">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">Aplicativos e Integração com ERP</h4>
-                                    <div class="diferencial-text">
-                                        <p><strong>Inova Access</strong> com <strong>QR Code</strong>, cadastro/liberação de visitantes, reservas e notificações com opção White Label e integrações robustas com <strong>ERP</strong>.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="diferencial-item">
-                                <div class="diferencial-icon-space">
-                                    <img src="assets/img/triangulo-lado-direito-site.svg" alt="Diferencial 3">
-                                </div>
-                                <div class="diferencial-content">
-                                    <h4 class="diferencial-title">Instalação especializada e suporte</h4>
-                                    <div class="diferencial-text">
-                                        <p>Projeto ponta a ponta com equipe própria: diagnóstico, implantação, <strong>treinamentos</strong> e <strong>visitas técnicas</strong>, além de compatibilidade <strong>multimarcas</strong>.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- .diferenciais-list -->
-                    </div>
+                <div class="resultado-item">
+                  <div class="resultado-numero">100%</div>
+                  <div class="resultado-descricao">Segurança por andar</div>
                 </div>
+                <div class="resultado-item">
+                  <div class="resultado-numero">95%</div>
+                  <div class="resultado-descricao">Satisfação dos usuários</div>
+                </div>
+              </div>
             </div>
-        </section>
+          </div>
 
-        <!-- VÍDEO -->
-        <section class="video-section">
-            <div class="video-container">
-                <div class="video-header">
-                    <h2 class="servicos-title">Veja como funciona na prática</h2>
-                    <p class="nova-sessao-subtitle">
-                        Descubra como o <strong>Inova Access</strong> e o <strong>Ponto Eletrônico</strong> elevam a segurança e a eficiência da sua empresa.
-                    </p>
-                </div>
-                
-                <div class="video-wrapper">
-                    <div class="video-frame">
-                        <iframe 
-                            src="https://www.youtube.com/embed/bokAVmGeRPg" 
-                            title="Demonstração do Inova Access (1 min)"
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                
-                <div class="video-cta">
-                    <p class="video-cta-text">
-                        Quer ver no seu cenário? Fale com a nossa equipe e peça uma demonstração personalizada.
-                    </p>
-                    <button class="cta-comprar">
-                        <span><a href="contratar.html">Solicitar Demonstração</a></span>
-                    </button>
-                </div>
+          <!-- Card 2 - Praiamar Corporate -->
+          <div class="parceiro-card">
+            <div class="parceiro-header">
+              <div class="parceiro-logo">
+                <img src="assets/img/logo-praiamar.svg" alt="Praiamar Corporate" loading="lazy" decoding="async">
+              </div>
+              <div class="parceiro-info">
+                <h3>Praiamar Corporate</h3>
+                <span class="categoria">Empresa</span>
+              </div>
             </div>
-        </section>
 
-        <!-- Footer atualizado -->
+            <div class="info-section">
+              <h4 class="info-title">Sobre o Projeto</h4>
+              <p class="info-content">
+                Migração do controle de acesso para a nuvem com <strong>Inova Access</strong>, habilitando
+                <strong>QR Code</strong> dinâmico e App White Label para milhares de usuários.
+              </p>
+            </div>
+
+            <div class="info-section">
+              <h4 class="info-title">Desafio</h4>
+              <p class="info-content">
+                Integrar aplicativo e catracas em ambiente de alto fluxo, liberar por andar (elevadores) e
+                disponibilizar relatórios em tempo real para facilities e segurança.
+              </p>
+            </div>
+
+            <div class="info-section">
+              <h4 class="info-title">Solução Implementada</h4>
+              <p class="info-content">
+                Catracas e portas integradas, controle por andar e app personalizado com gestão centralizada.
+              </p>
+            </div>
+
+            <div class="info-section">
+              <h4 class="info-title">Tecnologias Utilizadas</h4>
+              <div class="tecnologias-tags">
+                <span class="tech-tag">Inova Access</span>
+                <span class="tech-tag">QR Code</span>
+                <span class="tech-tag">App White Label</span>
+              </div>
+            </div>
+
+            <div class="info-section">
+              <h4 class="info-title">Resultados Alcançados</h4>
+              <div class="resultados-grid">
+                <div class="resultado-item">
+                  <div class="resultado-numero">95%</div>
+                  <div class="resultado-descricao">Gestão moderna e eficiente</div>
+                </div>
+                <div class="resultado-item">
+                  <div class="resultado-numero">Zero</div>
+                  <div class="resultado-descricao">Incidentes de segurança</div>
+                </div>
+                <div class="resultado-item">
+                  <div class="resultado-numero">80%</div>
+                  <div class="resultado-descricao">Melhor controle de fluxo</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- .parceiros-grid -->
+      </div>
+    </section>
+
+    <!-- SISTEMA DE PONTO -->
+    <section id="aplicativo" class="integracao-section">
+      <div class="integracao-container">
+        <div class="integracao-header">
+          <h2 class="header-badge">Sistema de Controle de Ponto</h2>
+          <div class="main-connector"></div>
+        </div>
+        
+        <div class="integracao-diagram">
+          <div class="horizontal-connector"></div>
+          <div class="apps-grid">
+            <div class="app-card">
+              <div class="card-connector"></div>
+              <div class="app-icon">
+                <img src="assets/img/controle acesso site.svg" alt="Ícone Sincronização Automática" width="64" height="64" loading="lazy" decoding="async">
+              </div>
+              <h3 class="app-title">Sincronização Automática</h3>
+              <p class="app-description">
+                Registros, escalas e justificativas sincronizados entre relógios/app e <strong>ERP/folha</strong>,
+                garantindo dados atualizados para <strong>relatórios diários</strong>.
+              </p>
+            </div>
+            
+            <div class="app-card">
+              <div class="card-connector"></div>
+              <div class="app-icon">
+                <img src="assets/img/back-in-time.png" alt="Ícone Implementação Rápida" width="64" height="64" loading="lazy" decoding="async">
+              </div>
+              <h3 class="app-title">Implementação Rápida</h3>
+              <p class="app-description">
+                Comunicação dos relógios e integrações preparada em poucos passos. Processos ágeis, sem fricção entre áreas.
+              </p>
+            </div>
+            
+            <div class="app-card">
+              <div class="card-connector"></div>
+              <div class="app-icon">
+                <img src="assets/img/centralized.png" alt="Ícone Dados Unificados" width="64" height="64" loading="lazy" decoding="async">
+              </div>
+              <h3 class="app-title">Dados Unificados</h3>
+              <p class="app-description">
+                Dashboards diários (horas extras, banco, absenteísmo) e <strong>detalhamento dos cálculos</strong> em tela para auditoria.
+              </p>
+            </div>
+            
+            <div class="app-card">
+              <div class="card-connector"></div>
+              <div class="app-icon">
+                <img src="assets/img/biometric-identification.png" alt="Ícone Segurança" width="64" height="64" loading="lazy" decoding="async">
+              </div>
+              <h3 class="app-title">Segurança Potencializada</h3>
+              <p class="app-description">
+                Portaria <strong>671</strong> e <strong>LGPD</strong> cumpridas de ponta a ponta, reduzindo riscos trabalhistas e protegendo dados.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="cta-container">
+          <a href="contratar.html">
+            <button class="cta-comprar-integracao" aria-label="Quero integrar Ponto + ERP agora"><span>Quero integrar Ponto + ERP</span></button>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="porque-escolher-educacao">
+      <div class="porque-escolher-container">
+        <div class="nova-sessao-header">
+          <h2 class="servicos-title">Nossos Diferenciais dentro das Empresas</h2>
+          <h3 class="nova-sessao-subtitle">
+            Plataforma cloud, compatibilidade multimarcas e app <strong>Inova Access</strong> para liberar acessos com <strong>QR Code</strong> — tudo integrado ao seu <strong>ERP</strong>.
+          </h3>
+        </div>
+        
+        <div class="porque-escolher-content">
+          <div class="float-wrapper">
+            <div class="phone">
+              <img src="assets/img/tela inicio inova access.png" alt="App Inova Access" class="phone-img" loading="lazy" decoding="async">
+              <div class="notch"></div>
+            </div>
+          </div>
+
+          <div class="porque-escolher-text">
+            <div class="diferenciais-list">
+              <div class="diferencial-item">
+                <div class="diferencial-icon-space">
+                  <img src="assets/img/triangulo-lado-direito-site.svg" alt="Diferencial 1" width="32" height="32" loading="lazy" decoding="async">
+                </div>
+                <div class="diferencial-content">
+                  <h4 class="diferencial-title">Escalabilidade com dados inteligentes</h4>
+                  <div class="diferencial-text">
+                    <p>Gestão centralizada de entradas e saídas, monitoramento de equipamentos e relatórios por site/unidade para decisões rápidas.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="diferencial-item">
+                <div class="diferencial-icon-space">
+                  <img src="assets/img/triangulo-lado-direito-site.svg" alt="Diferencial 2" width="32" height="32" loading="lazy" decoding="async">
+                </div>
+                <div class="diferencial-content">
+                  <h4 class="diferencial-title">Multimarcas</h4>
+                  <div class="diferencial-text">
+                    <strong>Compatibilidade multimarcas</strong> no mesmo controle de acesso: catracas, controladoras e leitores de diferentes fabricantes operando de forma unificada.
+                  </div>
+                </div>
+              </div>
+
+              <div class="diferencial-item">
+                <div class="diferencial-icon-space">
+                  <img src="assets/img/triangulo-lado-direito-site.svg" alt="Diferencial 2" width="32" height="32" loading="lazy" decoding="async">
+                </div>
+                <div class="diferencial-content">
+                  <h4 class="diferencial-title">Aplicativos e Integração com ERP</h4>
+                  <div class="diferencial-text">
+                    <p><strong>Inova Access</strong> com <strong>QR Code</strong>, cadastro/liberação de visitantes, reservas e notificações com opção White Label e integrações robustas com <strong>ERP</strong>.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="diferencial-item">
+                <div class="diferencial-icon-space">
+                  <img src="assets/img/triangulo-lado-direito-site.svg" alt="Diferencial 3" width="32" height="32" loading="lazy" decoding="async">
+                </div>
+                <div class="diferencial-content">
+                  <h4 class="diferencial-title">Instalação especializada e suporte</h4>
+                  <div class="diferencial-text">
+                    <p>Projeto ponta a ponta com equipe própria: diagnóstico, implantação, <strong>treinamentos</strong> e <strong>visitas técnicas</strong>, além de compatibilidade <strong>multimarcas</strong>.</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- .diferenciais-list -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VÍDEO -->
+    <section class="video-section">
+      <div class="video-container">
+        <div class="video-header">
+          <h2 class="servicos-title">Veja como funciona na prática</h2>
+          <p class="nova-sessao-subtitle">
+            Descubra como o <strong>Inova Access</strong> e o <strong>Ponto Eletrônico</strong> elevam a segurança e a eficiência da sua empresa.
+          </p>
+        </div>
+        
+        <div class="video-wrapper">
+          <div class="video-frame">
+            <iframe 
+              src="https://www.youtube.com/embed/bokAVmGeRPg" 
+              title="Demonstração do Inova Access (1 min)"
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        
+        <div class="video-cta">
+          <p class="video-cta-text">
+            Quer ver no seu cenário? Fale com a nossa equipe e peça uma demonstração personalizada.
+          </p>
+          <button class="cta-comprar">
+            <span><a href="contratar.html">Solicitar Demonstração</a></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer atualizado -->
         <footer class="footer">
             <div class="footer-container">
                 <!-- Coluna do Logo -->
@@ -678,6 +691,6 @@
                 <p>© 2025 Inova Tecnologia. Todos os direitos reservados.</p>
             </div>
         </footer>
-    </div>
+  </div>
 </body>
 </html>
