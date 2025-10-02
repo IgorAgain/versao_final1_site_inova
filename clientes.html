@@ -13,10 +13,10 @@
     <!-- JS não bloqueante -->
     <script src="assets/main.js" defer></script>
 
-    <!-- Pré-carrega variante da Poppins usada nos títulos (evita FOIT/CLS) -->
+    <!-- Pré-carrega a variante usada nos títulos (mesmo do index) -->
     <link rel="preload" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2" as="font" type="font/woff2" crossorigin>
 
-    <!-- Google Fonts com swap (já estava OK) -->
+    <!-- HEAD comum (mesmo do index) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style"
@@ -27,82 +27,28 @@
               href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
     </noscript>
 
-    <!-- Favicon -->
+    <!-- PRELOAD do LCP (segue padrão do index: AVIF com srcset) -->
+    <link rel="preload" as="image"
+        href="assets/img/imagem-controle-acesso-condominio.avif"
+        imagesrcset="assets/img/imagem-controle-acesso-condominio.avif 640w,
+                     assets/img/imagem-controle-acesso-condominio.avif 960w,
+                     assets/img/imagem-controle-acesso-condominio.avif 1280w"
+        imagesizes="100vw">
+
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
-
-    <!-- ======= CRITICAL / ANTI-CLS & LCP ======= -->
-    <!-- Preload do LCP com srcset do hero (AVIF + fallback JPEG) -->
-    <link rel="preload" as="image"
-          imagesrcset="assets/img/imagem-controle-acesso-condominio.avif 640w, assets/img/imagem-controle-acesso-condominio.avif 960w, assets/img/imagem-controle-acesso-condominio.avif 1280w"
-          imagesizes="(max-width:768px) 100vw, (max-width:1200px) 100vw, 100vw">
-    <link rel="preload" as="image"
-          imagesrcset="assets/img/imagem-controle-acesso-condominio.jpg 640w, assets/img/imagem-controle-acesso-condominio.jpg 960w, assets/img/imagem-controle-acesso-condominio.jpg 1280w"
-          imagesizes="(max-width:768px) 100vw, (max-width:1200px) 100vw, 100vw">
-
-    <style>
-      /* Fonte com métricas estáveis: melhora micro-CLS entre fallback e Poppins */
-      :root{
-        --poppins-fsa: .52; /* aproximação da x-height da Poppins */
-      }
-      body{ text-rendering: optimizeLegibility; }
-      .servicos-title{ font-size-adjust: var(--poppins-fsa); line-height:1.2; min-height: calc(1.2em * 2); }
-
-      /* Header: reserva altura/área da logo + botão, evitando empurrões */
-      .header{ min-height: 72px; }
-      .header .header-content{ display:flex; align-items:center; }
-      .logo{ inline-size: 168px; block-size: 44px; display:flex; align-items:center; }
-      .logo img{ max-inline-size:100%; max-block-size:100%; display:block; }
-
-      /* Ícone hambúrguer/X não empurra layout */
-      .menu-toggle{ inline-size: 44px; block-size: 44px; display:grid; place-items:center; }
-      .menu-toggle .icon{ inline-size:24px; block-size:24px; }
-
-      /* ===== Banner (LCP) ===== */
-      .banner-educacao{ position:relative; overflow:hidden; }
-      .banner-educacao .banner-image{ aspect-ratio: 3 / 2; /* 960x640 */ }
-      .banner-educacao picture, .banner-educacao img{ display:block; inline-size:100%; block-size:100%; object-fit:cover; }
-      .banner-overlay{ position:absolute; inset:0; }
-      .banner-content{ position:absolute; inset:0; display:grid; place-items:center; text-align:center; padding:1rem; }
-
-      /* ===== Seções abaixo da dobra: menos trabalho antes do 1º paint ===== */
-      .cl-section, .nova-sessao, .footer{
-        content-visibility: auto;
-        contain-intrinsic-size: 900px; /* “tamanho fantasma” para evitar saltos ao revelar */
-      }
-
-      /* Logo grid e depoimentos: reserva básica para evitar micro-CLS por quebra de linha */
-      .cl-subtitle{ line-height:1.35; min-height: calc(1.35em * 2); }
-      .cl-logo-grid img{ display:block; inline-size:100%; block-size:auto; }
-
-      /* Depoimentos / cards */
-      .cl-t-card{ contain: layout paint; }
-      .cl-t-name{ font-size-adjust: var(--poppins-fsa); }
-      .cl-t-avatar{ inline-size:56px; block-size:56px; object-fit:contain; }
-
-      /* Parceiros: reserva espaço do cabeçalho do card e das logos */
-      .parceiro-header{ display:flex; gap:.75rem; align-items:center; min-block-size:72px; }
-      .parceiro-logo{ inline-size:160px; block-size:60px; display:flex; align-items:center; justify-content:center; }
-      .parceiro-logo img{ max-inline-size:100%; max-block-size:100%; display:block; }
-      .info-title{ line-height:1.25; min-height: calc(1.25em * 1); }
-
-      /* Footer: reserva área da marca para não “pular” ao carregar a imagem */
-      .footer-logo{ inline-size:220px; block-size:64px; display:flex; align-items:center; }
-      .footer-logo img{ max-inline-size:100%; max-block-size:100%; display:block; }
-    </style>
 </head>
 <body>
     <div class="page-container">
-        <!-- Header -->
+        <!-- Header (mesma estrutura do index) -->
         <header class="header">
             <div class="header-content">
                 <div class="logo">
-                    <a href="index.html">
-                      <img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image" decoding="async">
-                    </a>
+                    <a href="index.html"><img src="assets/img/INOVA_HOR1.png" alt="Inova Tecnologia" class="logo-only-image"></a>
                 </div>
 
                 <button class="menu-toggle"
@@ -149,13 +95,13 @@
                         <li><a class="active" href="clientes.html">CLIENTES</a></li>
                     </ul>
 
-                    <!-- CTA como link (sem <button> extra) -->
+                    <!-- CTA como link (igual ao index) -->
                     <a class="cta-comprar" href="contratar.html" aria-label="Ir para a página de contratação"><span>CONTRATAR</span></a>
                 </nav>
             </div>
         </header>
 
-        <!-- Botão flutuante do WhatsApp -->
+        <!-- Botão flutuante do WhatsApp (inalterado) -->
         <a
             class="whatsapp-fab"
             href="https://wa.me/5511912214289?text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20as%20solu%C3%A7%C3%B5es%20da%20Inova%20Tecnologia."
@@ -168,18 +114,25 @@
             <span class="sr-only">WhatsApp</span>
         </a>
 
-        <!-- Banner (LCP) -->
+        <!-- Banner (mantido), apenas com atributos para LCP -->
         <section class="banner-educacao">
             <div class="banner-image">
                 <picture>
                     <source type="image/avif"
-                            srcset="assets/img/imagem-controle-acesso-condominio.avif 640w, assets/img/imagem-controle-acesso-condominio.avif 960w, assets/img/imagem-controle-acesso-condominio.avif 1280w"
-                            sizes="(max-width:768px) 100vw, (max-width:1200px) 100vw, 100vw">
+                            srcset="assets/img/imagem-controle-acesso-condominio.avif 640w,
+                                    assets/img/imagem-controle-acesso-condominio.avif 960w,
+                                    assets/img/imagem-controle-acesso-condominio.avif 1280w"
+                            sizes="100vw">
                     <img
                         src="assets/img/imagem-controle-acesso-condominio.jpg"
-                        srcset="assets/img/imagem-controle-acesso-condominio.jpg 640w, assets/img/imagem-controle-acesso-condominio.jpg 960w, assets/img/imagem-controle-acesso-condominio.jpg 1280w"
-                        sizes="(max-width:768px) 100vw, (max-width:1200px) 100vw, 100vw"
-                        width="960" height="640" decoding="async" fetchpriority="high" alt="Imagem catraca intituição de ensino">
+                        srcset="assets/img/imagem-controle-acesso-condominio.jpg 640w,
+                                assets/img/imagem-controle-acesso-condominio.jpg 960w,
+                                assets/img/imagem-controle-acesso-condominio.jpg 1280w"
+                        sizes="100vw"
+                        width="960" height="640"
+                        alt="Imagem catraca intituição de ensino"
+                        decoding="async"
+                        fetchpriority="high">
                 </picture>
             </div>
             <div class="banner-overlay" aria-hidden="true"></div>
@@ -188,9 +141,7 @@
             </div>
         </section>
 
-        <!-- =========================
-            CLIENTES — Logo Wall
-            ========================= -->
+        <!-- CLIENTES — Logo Wall (inalterado) -->
         <section class="cl-section cl-logos">
             <div class="cl-container">
                 <header class="cl-header">
@@ -198,7 +149,6 @@
                     <p class="cl-subtitle">Mais segurança e eficiência em instituições de ensino, empresas e condomínios.</p>
                 </header>
 
-                <!-- Grelha de logos -->
                 <ul class="cl-logo-grid">
                     <li><img src="assets/img/logo-belas-artes.svg" alt="Cliente 1" loading="lazy" width="180" height="120" decoding="async"></li>
                     <li><img src="assets/img/logo-anima-educacao.svg" alt="Cliente 1" loading="lazy" width="180" height="120" decoding="async"></li>
@@ -222,95 +172,86 @@
             </div>
         </section>
 
-        <!-- =========================
-            CLIENTES — Depoimentos (v2)
-            ========================= -->
+        <!-- CLIENTES — Depoimentos (inalterado) -->
         <section class="cl-section cl-testimonials cl-v2">
             <div class="cl-container">
-
                 <header class="cl-header">
                     <h2 class="servicos-title">O que nossos clientes dizem</h2>
                     <p class="cl-subtitle">Histórias reais de quem usa as soluções da Inova no dia a dia.</p>
                 </header>
 
-                <!-- Depoimentos (carrossel horizontal no mobile / grid no desktop) -->
                 <div class="cl-t-track">
+                    <article class="cl-t-card">
+                        <header class="cl-t-head">
+                            <img class="cl-t-avatar" src="assets/img/logo-fadi.svg" alt="Logo FADI" loading="lazy" decoding="async">
+                            <div class="cl-t-id">
+                                <strong class="cl-t-name">Gustavo Erivan</strong>
+                                <span class="cl-t-role">Diretor Financeiro — FADI - Faculdade de Direito de Sorocaba</span>
+                            </div>
+                        </header>
+                        <blockquote class="cl-t-quote">
+                            <p>A instituição está extremamente satisfeita com a implantação dos equipamentos, que proporcionaram 
+                            não apenas um controle de acesso eficiente e integrado ao sistema de carteirinhas dos alunos, 
+                            mas também mais segurança e facilidade na gestão por meio da plataforma. Todo o processo foi 
+                            conduzido com proximidade, atenção e elevado rigor técnico, o que nos transmitiu grande 
+                            tranquilidade e confiança ao longo do projeto.</p>
+                        </blockquote>
+                        <footer class="cl-t-foot" aria-label="Avaliação 5 de 5">
+                            <span class="cl-t-stars" aria-hidden="true">★★★★★</span>
+                            <span class="cl-t-badges">
+                                <em class="cl-badge">Facial</em>
+                                <em class="cl-badge">Visitantes</em>
+                            </span>
+                        </footer>
+                    </article>
 
-                <!-- Card 3 -->
-                <article class="cl-t-card">
-                    <header class="cl-t-head">
-                        <img class="cl-t-avatar" src="assets/img/logo-fadi.svg" alt="Logo FADI" loading="lazy" decoding="async">
-                        <div class="cl-t-id">
-                            <strong class="cl-t-name">Gustavo Erivan</strong>
-                            <span class="cl-t-role">Diretor Financeiro — FADI - Faculdade de Direito de Sorocaba</span>
-                        </div>
-                    </header>
-                    <blockquote class="cl-t-quote">
-                        <p>A instituição está extremamente satisfeita com a implantação dos equipamentos, que proporcionaram 
-                        não apenas um controle de acesso eficiente e integrado ao sistema de carteirinhas dos alunos, 
-                        mas também mais segurança e facilidade na gestão por meio da plataforma. Todo o processo foi 
-                        conduzido com proximidade, atenção e elevado rigor técnico, o que nos transmitiu grande 
-                        tranquilidade e confiança ao longo do projeto.</p>
-                    </blockquote>
-                    <footer class="cl-t-foot" aria-label="Avaliação 5 de 5">
-                        <span class="cl-t-stars" aria-hidden="true">★★★★★</span>
-                        <span class="cl-t-badges">
-                            <em class="cl-badge">Facial</em>
-                            <em class="cl-badge">Visitantes</em>
-                        </span>
-                    </footer>
-                </article>
+                    <article class="cl-t-card">
+                        <header class="cl-t-head">
+                            <img class="cl-t-avatar" src="assets/img/logo-office-tambore.svg" alt="Logo Office Tamboré" loading="lazy" decoding="async">
+                            <div class="cl-t-id">
+                                <strong class="cl-t-name">Mel Rodrigues</strong>
+                                <span class="cl-t-role">Gerente — Condomínio Office Tamboré</span>
+                            </div>
+                        </header>
+                        <blockquote class="cl-t-quote">
+                            <p>A Inova Tecnologia trouxe modernidade, segurança e praticidade ao condomínio com o acesso 
+                            via reconhecimento facial. Sempre ágeis no atendimento a empresa conta com excelentes 
+                            profissionais!</p>
+                        </blockquote>
+                        <footer class="cl-t-foot" aria-label="Avaliação 5 de 5">
+                            <span class="cl-t-stars" aria-hidden="true">★★★★★</span>
+                            <span class="cl-t-badges"><em class="cl-badge">Relatórios</em></span>
+                        </footer>
+                    </article>
 
-                <!-- Card 1 -->
-                <article class="cl-t-card">
-                    <header class="cl-t-head">
-                        <img class="cl-t-avatar" src="assets/img/logo-office-tambore.svg" alt="Logo Office Tamboré" loading="lazy" decoding="async">
-                        <div class="cl-t-id">
-                            <strong class="cl-t-name">Mel Rodrigues</strong>
-                            <span class="cl-t-role">Gerente — Condomínio Office Tamboré</span>
-                        </div>
-                    </header>
-                    <blockquote class="cl-t-quote">
-                        <p>A Inova Tecnologia trouxe modernidade, segurança e praticidade ao condomínio com o acesso 
-                        via reconhecimento facial. Sempre ágeis no atendimento a empresa conta com excelentes 
-                        profissionais!</p>
-                    </blockquote>
-                    <footer class="cl-t-foot" aria-label="Avaliação 5 de 5">
-                        <span class="cl-t-stars" aria-hidden="true">★★★★★</span>
-                        <span class="cl-t-badges"><em class="cl-badge">Relatórios</em></span>
-                    </footer>
-                </article>
-
-                <!-- Card 2 -->
-                <article class="cl-t-card">
-                    <header class="cl-t-head">
-                        <img class="cl-t-avatar" src="assets/img/logo-umc.svg" alt="Logo UMC" loading="lazy" decoding="async">
-                        <div class="cl-t-id">
-                            <strong class="cl-t-name">Ricardo M. Miranda</strong>
-                            <span class="cl-t-role">Gerente de TI — UMC</span>
-                        </div>
-                    </header>
-                    <blockquote class="cl-t-quote">
-                        <p>Buscando inovação para nossos alunos e colaboradores, assumimos o desafio de implantar, em menos 
-                        de um mês, 20 catracas e 3 cancelas com leitura de QR Code, integradas aos cartões físicos e 
-                        virtuais para mais de 8.000 usuários. Foi nesse momento que a Inova nos surpreendeu, não apenas 
-                        topando e entregando antes do prazo, mas também participando ativamente, sempre muito disponível e 
-                        parceira.</p>
-                    </blockquote>
-                    <footer class="cl-t-foot" aria-label="Avaliação 5 de 5">
-                        <span class="cl-t-stars" aria-hidden="true">★★★★★</span>
-                        <span class="cl-t-badges">
-                            <em class="cl-badge">Suporte</em>
-                            <em class="cl-badge">Escala</em>
-                        </span>
-                    </footer>
-                </article>
-
+                    <article class="cl-t-card">
+                        <header class="cl-t-head">
+                            <img class="cl-t-avatar" src="assets/img/logo-umc.svg" alt="Logo UMC" loading="lazy" decoding="async">
+                            <div class="cl-t-id">
+                                <strong class="cl-t-name">Ricardo M. Miranda</strong>
+                                <span class="cl-t-role">Gerente de TI — UMC</span>
+                            </div>
+                        </header>
+                        <blockquote class="cl-t-quote">
+                            <p>Buscando inovação para nossos alunos e colaboradores, assumimos o desafio de implantar, em menos 
+                            de um mês, 20 catracas e 3 cancelas com leitura de QR Code, integradas aos cartões físicos e 
+                            virtuais para mais de 8.000 usuários. Foi nesse momento que a Inova nos surpreendeu, não apenas 
+                            topando e entregando antes do prazo, mas também participando ativamente, sempre muito disponível e 
+                            parceira.</p>
+                        </blockquote>
+                        <footer class="cl-t-foot" aria-label="Avaliação 5 de 5">
+                            <span class="cl-t-stars" aria-hidden="true">★★★★★</span>
+                            <span class="cl-t-badges">
+                                <em class="cl-badge">Suporte</em>
+                                <em class="cl-badge">Escala</em>
+                            </span>
+                        </footer>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Sessão PARCEIROS -->
+        <!-- Sessão PARCEIROS (inalterada) -->
         <section class="nova-sessao">
             <div class="nova-sessao-container">
                 <div class="nova-sessao-header">
@@ -322,7 +263,7 @@
                 </div>
                 
                 <div class="parceiros-grid">
-                    <!-- Card 1 - Centro Universitário Belas Artes -->
+                    <!-- Card 1 -->
                     <div class="parceiro-card">
                         <div class="parceiro-header">
                             <div class="parceiro-logo">
@@ -466,7 +407,7 @@
             </div>
         </section>
 
-        <!-- Footer atualizado -->
+        <!-- Footer (idêntico ao index em estrutura) -->
         <footer class="footer">
             <div class="footer-container">
                 <!-- Coluna do Logo -->
@@ -494,22 +435,21 @@
                         </a>
                     </div>
                     
-                    <!-- Mapa da empresa -->
+                    <!-- Mapa -->
                     <div class="company-map">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.0234234234!2d-46.8358558!3d-23.5064977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf01000bfba25d%3A0xc31447c548ca2f19!2sOffice%20Shopping%20Tambor%C3%A9!5e0!3m2!1spt-BR!2sbr!4v1640000000000!5m2!1spt-BR!2sbr" 
-                            title = "Mapa com localização da empresa Inova"
-                            width="100%" 
-                            height="200" 
+                            title="Mapa com localização da empresa Inova"
+                            width="100%" height="200"
                             style="border:0; border-radius: 12px;" 
-                            allowfullscreen="" 
+                            allowfullscreen 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                 </div>
 
-                <!-- Coluna de Navegação -->
+                <!-- Navegação -->
                 <div class="footer-nav">
                     <h3 class="footer-title">Navegação</h3>
                     <ul class="footer-links">
@@ -525,13 +465,11 @@
                     </ul>
                 </div>
 
-                <!-- Coluna de Contatos -->
+                <!-- Contatos -->
                 <div class="footer-contact">
                     <h3 class="footer-title">Contatos</h3>
                     <div class="contact-box">
                         <div class="contact-info">
-
-                            <!-- Localização -->
                             <div class="contact-item">
                                 <div class="contact-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#2E3F5B" viewBox="0 0 24 24">
@@ -539,13 +477,12 @@
                                     </svg>
                                 </div>
                                 <a href="https://www.google.com/maps/place/Inova+Tecnologia/@-23.5064977,-46.8358558,17z/data=!4m6!3m5!1s0x94cf021ed96ff145:0xe024955498852991!8m2!3d-23.5063422!4d-46.8345553!16s%2Fg%2F11bzq2w2g3?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
-                                class="contact-info-value-footer" target="_blank">
+                                   class="contact-info-value-footer" target="_blank" rel="noopener">
                                     Av. Marcos Penteado de Ulhoa Rodrigues, 1119 - 
                                     Sala 714 – Tamboré - Barueri/SP, 06460-040
                                 </a>
                             </div>
 
-                            <!-- Telefone -->
                             <div class="contact-item">
                                 <div class="contact-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#2E3F5B" viewBox="0 0 24 24">
@@ -555,19 +492,18 @@
                                 <a href="tel:+551142801002" class="contact-info-value-footer">(11) 4280-1002</a>
                             </div>
 
-                            <!-- WhatsApp -->
                             <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#2E3F5B" viewBox="0 0 24 24">
-                                    <path d="M6.6 10.8c1.1 2.1 2.8 3.9 4.9 4.9l1.6-1.6c.2-.2.6-.3.9-.2 1 .3 2.1.5 3.3.5.5 0 .9.4.9.9V19c0 .5-.4.9-.9.9C10.8 20 4 13.2 4 5.9 4 5.4 4.4 5 4.9 5H8c.5 0 .9.4.9.9 0 1.2.2 2.3.5 3.3.1.3 0 .7-.2.9l-1.6 1.7z"/>
-                                </svg>
+                                <div class="contact-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#2E3F5B" viewBox="0 0 24 24">
+                                        <path d="M6.6 10.8c1.1 2.1 2.8 3.9 4.9 4.9l1.6-1.6c.2-.2.6-.3.9-.2 1 .3 2.1.5 3.3.5.5 0 .9.4.9.9V19c0 .5-.4.9-.9.9C10.8 20 4 13.2 4 5.9 4 5.4 4.4 5 4.9 5H8c.5 0 .9.4.9.9 0 1.2.2 2.3.5 3.3.1.3 0 .7-.2.9l-1.6 1.7z"/>
+                                    </svg>
+                                </div>
+                                <a href="https://wa.me/5511912214289?text=Ol%C3%A1%21+Gostaria+de+conhecer+as+solu%C3%A7%C3%B5es+da+Inova+Tecnologia." 
+                                   class="contact-info-value-footer" target="_blank" rel="noopener">
+                                   (11) 91221-4289
+                                </a>
                             </div>
-                            <a href="https://wa.me/5511912214289?text=Ol%C3%A1%21+Gostaria+de+conhecer+as+solu%C3%A7%C3%B5es+da+Inova+Tecnologia." 
-                                class="contact-info-value-footer" target="_blank">
-                                (11) 91221-4289
-                            </a>
-                            </div>
-                            <a href="https://api.whatsapp.com/send/?phone=5511912214289&text=Ol%C3%A1%21+Gostaria+de+conhecer+as+solu%C3%A7%C3%B5es+da+Inova+Tecnologia.&type=phone_number&app_absent=0" class="whatsapp-button" target="_blank">
+                            <a href="https://api.whatsapp.com/send/?phone=5511912214289&text=Ol%C3%A1%21+Gostaria+de+conhecer+as+solu%C3%A7%C3%B5es+da+Inova+Tecnologia.&type=phone_number&app_absent=0" class="whatsapp-button" target="_blank" rel="noopener">
                                 Falar no WhatsApp
                             </a>
                         </div>
