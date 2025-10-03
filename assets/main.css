@@ -5369,3 +5369,83 @@ main, section, header, footer{ max-width: 100%; }
     gap: 20px;
 }
 }
+
+/* =========================
+   MENU MOBILE – REFINOS
+   ========================= */
+@media (max-width: 1024px) {
+
+  /* Painel (off-canvas) e backdrop (mantém animação/blur) */
+  .navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(88vw, 360px);
+    transform: translateX(105%);
+    transition: transform .3s ease;
+    background: rgba(255,255,255,.98);
+    border-radius: 12px 0 0 12px;
+    box-shadow: -12px 0 30px rgba(16,24,40,.12);
+    z-index: 1000;
+  }
+  .navbar.active { transform: translateX(0); }
+
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(16,24,40,.55);
+    backdrop-filter: blur(2px);
+    opacity: 0; visibility: hidden;
+    transition: opacity .25s ease, visibility .25s ease;
+    z-index: 999;
+  }
+  .nav-backdrop.show { opacity: 1; visibility: visible; }
+
+  /* Botão hamburguer/fechar alinhado ao header (não sobrepõe o painel) */
+  header .menu-toggle {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    z-index: 1300;
+  }
+  /* Quando o menu abre, desloca o X para a esquerda do painel */
+  .menu-toggle.is-open {
+    right: calc(min(88vw, 360px) + 16px);
+  }
+
+  /* Conteúdo rolável do painel com respiro no topo */
+  .nav-links {
+    height: 100dvh;
+    overflow: auto;
+    padding: 88px 18px 20px; /* espaço p/ CTA no topo */
+  }
+
+  /* CTA no topo do painel (sempre visível) */
+  .navbar .cta-comprar { display: none; } /* padrão */
+  .navbar.active > .cta-comprar {
+    display: inline-flex !important;
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    left: calc(100% - min(88vw, 360px) + 18px);
+    width: calc(min(88vw, 360px) - 36px);
+    margin: 0;
+    z-index: 1022;
+  }
+
+  /* Dropdowns tocáveis no mobile (sem mexer no HTML) */
+  .navbar .dropdown > .dropdown-menu {
+    display: none !important;           /* fechado por padrão */
+    position: static;
+    opacity: 1; visibility: visible;    /* sem transições de hover */
+    transform: none;
+    border: 0; box-shadow: none;
+    padding-left: 12px;
+    margin-top: 8px;
+  }
+  .navbar .dropdown.mobile-open > .dropdown-menu {
+    display: block !important;          /* abre quando ganha a classe */
+  }
+}

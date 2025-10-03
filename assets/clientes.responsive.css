@@ -29,8 +29,8 @@
 /* Depoimentos */
 .cl-testimonials .cl-container{ margin-inline:auto; }
 .cl-t-hero{ border-radius:16px; padding:18px; margin: 10px 0 18px; }
-.cl-t-head{ display:flex; align-items:center; gap:12px; }
-.cl-t-avatar{ width:56px; height:56px; object-fit:contain; border-radius:10px; background:#fff; padding:6px; }
+.cl-t-head{ display:flex; align-items:center; gap:12px; text-align: center; margin: 0 auto; }
+.cl-t-avatar{ width:130px; height:auto; object-fit:contain; border-radius:10px; margin: 0 auto;}
 .cl-t-id{ display:flex; flex-direction:column; gap:2px; }
 .cl-t-name{ font-weight:700; }
 .cl-t-role{ opacity:.9; font-size:.95rem; }
@@ -57,7 +57,7 @@
 .parceiros-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 18px; }
 .parceiro-card{ border-radius:16px; padding:18px; display:flex; flex-direction:column; gap:14px; min-width:0; }
 .parceiro-header{ display:flex; align-items:center; gap:12px; }
-.parceiro-logo{ width:72px; height:72px; display:flex; align-items:center; justify-content:center; border-radius:12px; background:#fff; padding:8px; }
+.parceiro-logo{ width:110px; height:auto; display:flex; align-items:center; justify-content:center; border-radius:12px;}
 .parceiro-logo img{ width:100%; height:auto; object-fit:contain; }
 .parceiro-info h3{ margin:0; }
 .info-section{ display:flex; flex-direction:column; gap:6px; }
