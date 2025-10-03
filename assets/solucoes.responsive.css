@@ -9,31 +9,26 @@
  */
 
 /* ===================== PADDINGS PADRÃO POR SECTION ===================== */
-#solucoes,
-#solucoes .seg{
+#solucoes{
   padding: 40px 100px;
 }
 @media (min-width:1920px){
-  #solucoes,
-  #solucoes .seg{
+  #solucoes{
     padding: 60px 300px;
   }
 }
 @media (max-width:1024px){
-  #solucoes,
-  #solucoes .seg{
+  #solucoes{
     padding: 32px 20px;
   }
 }
 @media (max-width:500px){
-  #solucoes,
-  #solucoes .seg{
+  #solucoes{
     padding: 26px 16px;
   }
 }
 @media (max-width:360px){
-  #solucoes,
-  #solucoes .seg{
+  #solucoes{
     padding: 20px 12px;
   }
 }

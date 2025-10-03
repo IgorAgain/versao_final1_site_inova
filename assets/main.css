@@ -4609,7 +4609,7 @@ html{
 
 /* containers já existem; aqui estão reforços de layout */
 .sol-v4.section{ background:#F8F9FA; padding: var(--solv4-pad-y,40px) var(--solv4-pad-x,100px); }
-.sol-v4__container{ margin: 0 auto; display:flex; flex-direction:column; gap: 18px; }
+
 .sol-v4__header{ text-align:center; }
 .sol-v4__subtitle{ color:#4A4A4A; margin:8px auto 0; }
 
