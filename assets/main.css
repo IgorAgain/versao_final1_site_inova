@@ -3405,8 +3405,7 @@ html{
 /* Lista de características */
 .servico-lista {
     list-style: none;
-    padding-bottom: 30px;
-    margin: 0;
+    
 }
 
 .servico-lista li {
