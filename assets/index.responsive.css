@@ -141,10 +141,7 @@
   filter: none;
 }
 .quem-confia .carousel-track{ gap:100px; }
-@media (max-width:600px){
-  .quem-confia .carousel-track{ gap:50px; }
-  .quem-confia .carousel-item{ width:50px; }
-}
+
 
 /* =====================================================================
    SEGMENTOS
@@ -349,3 +346,14 @@
   }
 }
 
+@media (max-width: 600px){
+    .quem-confia .carousel-item img{
+    height: 70px;   /* reduz e torna fluído */
+    width: auto;
+    object-fit: contain;
+    filter: none;
+  }
+  .quem-confia .carousel-track{ display:flex; gap:28px; align-items:center; }
+}
+
+@media (max-width: 500px){.servicos-header h2{ font-size: clamp(1.3rem, 6vw, 1.6rem); line-height:1.25; margin-bottom:10px; } .servicos-header p{ font-size:.96rem; line-height:1.5; margin:6px auto 0; max-width:60ch; } }

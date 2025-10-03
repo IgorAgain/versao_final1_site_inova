@@ -5360,3 +5360,12 @@ main, section, header, footer{ max-width: 100%; }
 @media (max-width:420px){
   .stack-sm-2{ grid-template-columns:1fr; }
 }
+
+.navbar.active {background-color: transparent; box-shadow: none;}
+.cta-comprar {z-index: 5000;}
+
+@media (max-width: 600px) {
+  .servicos-container {
+    gap: 20px;
+}
+}

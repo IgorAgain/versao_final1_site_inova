@@ -52,3 +52,5 @@
 @media (max-width: 650px){ .contact-buttons{ grid-template-columns: 1fr; } }
 @media (max-width: 500px){ .fale-conosco{ padding: 26px 16px; } .form-row{ grid-template-columns: 1fr; } }
 @media (max-width: 360px){ .fale-conosco{ padding: 20px 12px; } }
+
+@media (max-width: 500px){.fale-conosco-title{ font-size: clamp(1.3rem, 6vw, 1.6rem); line-height:1.25; margin-bottom:10px; } .fale-conosco-subtitle{ font-size:.96rem; line-height:1.5; margin:6px auto 0; max-width:60ch; } .fale-conosco-container{gap: 20px;}}

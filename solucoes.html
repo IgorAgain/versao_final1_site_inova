@@ -9,11 +9,17 @@
     <link rel="stylesheet" href="assets/solucoes.responsive.css">
     <script src="assets/main.js" defer></script>
 
-    <!-- Google Fonts (aplicação imediata) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- HEAD comum -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+    <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
+    </noscript>
+    
     <!-- Favicon - Logo na guia do navegador -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
@@ -30,14 +36,15 @@
                     assets/img/imagem-controle-de-acesso-5.jpg 1920w"
         imagesizes="100vw">
 
-<style>
-:root{--font-sans:"Poppins","Open Sans",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;}
-html{font-family:var(--font-sans);}
-.seg-head .servicos-title,.seg-head .servicos-subtitle,.banner-title{line-height:1.2}
-.banner-content{min-height:3.2rem}
-.nowrap{white-space:nowrap}
-</style>
-
+    <style>
+        :root{--font-sans:"Poppins","Open Sans",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;}
+        html{font-family:var(--font-sans); font-synthesis-weight:none;}
+        .banner-title,.servicos-title{line-height:1.2}
+        .servicos-subtitle{line-height:1.45}
+        .banner-content{min-height:3.2rem} /* reserva do título no primeiro paint */
+        .nowrap{white-space:nowrap}
+        img{height:auto} /* evita esticar ao definir width/height */
+    </style>
 </head>
 <body>
     <div class="page-container">

@@ -99,3 +99,5 @@ ul{ padding-inline-start: 1.2em; }
   .acessos {padding: 60px 300px;}
   .svc-ops {padding: 60px 300px;}
 }
+
+@media (max-width: 500px){.servicos-header h2{ font-size: clamp(1.3rem, 6vw, 1.6rem); line-height:1.25; margin-bottom:10px; } .servicos-header p{ font-size:.96rem; line-height:1.5; margin:6px auto 0; max-width:60ch; } }
