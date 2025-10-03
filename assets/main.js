@@ -880,29 +880,3 @@ document.addEventListener('DOMContentLoaded', function() {
     track.scrollBy({ left: step(), behavior: 'smooth' });
   });
 })();
-
-/* =========================
-   DROPDOWNS NO MOBILE (TOQUE)
-   ========================= */
-(() => {
-  const toggles = document.querySelectorAll('.navbar .dropdown-toggle');
-  if (!toggles.length) return;
-
-  const isMobile = () => window.matchMedia('(max-width: 1024px)').matches;
-
-  toggles.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      if (!isMobile()) return;          // desktop continua no hover
-      e.preventDefault();
-
-      const item = btn.closest('.dropdown');
-      if (!item) return;
-
-      // fecha os outros e abre o clicado
-      document.querySelectorAll('.navbar .dropdown.mobile-open')
-        .forEach(d => { if (d !== item) d.classList.remove('mobile-open'); });
-
-      item.classList.toggle('mobile-open');
-    });
-  });
-})();

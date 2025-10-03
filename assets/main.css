@@ -5422,18 +5422,7 @@ main, section, header, footer{ max-width: 100%; }
     padding: 88px 18px 20px; /* espaço p/ CTA no topo */
   }
 
-  /* CTA no topo do painel (sempre visível) */
-  .navbar .cta-comprar { display: none; } /* padrão */
-  .navbar.active > .cta-comprar {
-    display: inline-flex !important;
-    position: fixed;
-    top: 18px;
-    right: 18px;
-    left: calc(100% - min(88vw, 360px) + 18px);
-    width: calc(min(88vw, 360px) - 36px);
-    margin: 0;
-    z-index: 1022;
-  }
+ 
 
   /* Dropdowns tocáveis no mobile (sem mexer no HTML) */
   .navbar .dropdown > .dropdown-menu {
@@ -5448,4 +5437,6 @@ main, section, header, footer{ max-width: 100%; }
   .navbar .dropdown.mobile-open > .dropdown-menu {
     display: block !important;          /* abre quando ganha a classe */
   }
+  .cta-comprar {width: 100%;}
 }
+
