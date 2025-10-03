@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="assets/img/imagem-controle-acesso-condominio.jpg" imagesrcset="assets/img/imagem-controle-acesso-condominio.jpg 640w, assets/img/imagem-controle-acesso-condominio.jpg 960w, assets/img/imagem-controle-acesso-condominio.jpg 1280w" imagesizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw">
     <title>Inova Tecnologia - Cliente com Controle de Acesso</title>
     <link rel="stylesheet" href="assets/main.css">
     <link rel="stylesheet" href="assets/clientes.responsive.css">
@@ -20,17 +21,35 @@
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap">
     </noscript>
 
-    <link rel="preload" as="image"
-        href="assets/img/imagem-controle-acesso-condominio.avif"
-        imagesrcset="assets/img/imagem-controle-acesso-condominio.avif 640w, assets/img/imagem-controle-acesso-condominio.avif 960w, assets/img/imagem-controle-acesso-condominio.avif 1280w"
-        imagesizes="100vw">
-
     <!-- Favicon - Logo na guia do navegador -->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="assets/img/android-chrome-512x512.png">
+
+    <style>
+      /* Reserve space for hero title to avoid shifts from webfont swap */
+      .banner-title{
+        line-height:1.12;
+      }
+      @media (max-width: 768px){
+        .banner-title{
+          min-height: calc(2 * 1em * 1.12); /* reserva ~2 linhas */
+        }
+      }
+
+      /* Logos: caixa estável para evitar CLS */
+      .clientes-logos img[src*="logo-"]{
+        width:180px; height:120px; object-fit:contain;
+      }
+
+      /* Avatares com dimensões fixas */
+      .cl-t-avatar{ width:72px; height:72px; border-radius:50%; object-fit:cover; }
+
+      /* Trilha de depoimentos com altura mínima para evitar "pulos" quando o JS/CSS aplica layout */
+      .cl-testimonials .cl-t-track{ min-height: 260px; }
+    </style>
 </head>
 <body>
     <div class="page-container">
@@ -178,7 +197,7 @@
                 <!-- Card 3 (exemplo extra) -->
                 <article class="cl-t-card">
                     <header class="cl-t-head">
-                        <img class="cl-t-avatar" width="72" height="72" src="assets/img/logo-fadi.svg" alt="Logo cruzeiro do sul dentro de caixa Inova" loading="lazy">
+                        <img class="cl-t-avatar" src="assets/img/logo-fadi.svg" alt="Logo cruzeiro do sul dentro de caixa Inova" loading="lazy" width="180" height="120" width="72" height="72">
                         <div class="cl-t-id">
                             <strong class="cl-t-name">Gustavo Erivan</strong>
                             <span class="cl-t-role">Diretor Financeiro — FADI - Faculdade de Direito de Sorocaba</span>
@@ -203,7 +222,7 @@
                 <!-- Card 1 -->
                 <article class="cl-t-card">
                     <header class="cl-t-head">
-                        <img class="cl-t-avatar" width="72" height="72" src="assets/img/logo-office-tambore.svg" alt="Logo Office Tamboré em caixa Inova" loading="lazy">
+                        <img class="cl-t-avatar" src="assets/img/logo-office-tambore.svg" alt="Logo Office Tamboré em caixa Inova" loading="lazy" width="180" height="120" width="72" height="72">
                             <div class="cl-t-id">
                                 <strong class="cl-t-name">Mel Rodrigues</strong>
                                 <span class="cl-t-role">Gerente — Condomínio Office Tamboré</span>
@@ -226,7 +245,7 @@
                 <!-- Card 2 -->
                 <article class="cl-t-card">
                     <header class="cl-t-head">
-                        <img class="cl-t-avatar" width="72" height="72" src="assets/img/logo-umc.svg" alt="Logo UMC dentro de caixa Inova" loading="lazy">
+                        <img class="cl-t-avatar" src="assets/img/logo-umc.svg" alt="Logo UMC dentro de caixa Inova" loading="lazy" width="180" height="120" width="72" height="72">
                         <div class="cl-t-id">
                             <strong class="cl-t-name">Ricardo M. Miranda</strong>
                             <span class="cl-t-role">Gerente de TI — UMC</span>
@@ -272,7 +291,7 @@
                     <div class="parceiro-card">
                         <div class="parceiro-header">
                             <div class="parceiro-logo">
-                                <img src="assets/img/logo-belas-artes.svg" alt="Centro Universitário Belas Artes" width="180" height="120" loading="lazy">
+                                <img src="assets/img/logo-belas-artes.svg" alt="Centro Universitário Belas Artes" width="180" height="120">
                             </div>
                             <div class="parceiro-info">
                                 <h3>Centro Universitário Belas Artes</h3>
@@ -342,7 +361,7 @@
                     <div class="parceiro-card">
                         <div class="parceiro-header">
                             <div class="parceiro-logo">
-                                <img src="assets/img/logo-anima-educacao.svg" alt="Colégio Exemplo" width="180" height="120" loading="lazy">
+                                <img src="assets/img/logo-anima-educacao.svg" alt="Colégio Exemplo" width="180" height="120">
                             </div>
                             <div class="parceiro-info">
                                 <h3>Ânima Educação</h3>
@@ -418,7 +437,7 @@
                 <!-- Coluna do Logo -->
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <img src="assets/img/logo inova rodape site.png" alt="Inova Tecnologia" loading="lazy">
+                        <img src="assets/img/logo inova rodape site.png" alt="Inova Tecnologia">
                     </div>
                     
                     <!-- Ícones das redes sociais -->
