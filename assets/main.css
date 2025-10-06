@@ -5440,3 +5440,69 @@ main, section, header, footer{ max-width: 100%; }
   .cta-comprar {width: 100%;}
 }
 
+/* === MOBILE MENU – FIX LIMPO (cola no fim do main.css) ================== */
+@media (max-width:1024px){
+  /* Gaveta off-canvas única (sobrepõe o bloco antigo) */
+  .header .navbar .nav-links{
+    position: fixed !important;
+    inset: 0 0 0 auto;              /* top:0; right:0; bottom:0; left:auto */
+    width: min(88vw, 360px);
+    transform: translateX(100%);
+    display: flex !important;
+    flex-direction: column;
+    gap: 14px;
+    padding: 120px 18px 90px;       /* espaço pro X (topo) e CTA */
+    background: #fff;
+    box-shadow: -12px 0 30px rgba(0,0,0,.15);
+    overflow-y: auto;
+    z-index: 1015;
+    border-radius: 0;               /* sem bordas arredondadas que criavam “vazios” */
+  }
+  .navbar.active .nav-links{ transform: translateX(0); }
+
+  /* Backdrop */
+  .navbar::before{
+    content:""; position:fixed; inset:0;
+    background: rgba(0,0,0,.40);
+    opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:1000;
+  }
+  .navbar.active::before{ opacity:1; pointer-events:auto; }
+
+  
+
+  /* Dropdowns como lista simples (some a “setinha” e a animação que cria espaço) */
+  .navbar .dropdown > .dropdown-menu{
+    position: static !important;
+    opacity:1 !important; visibility:visible !important; transform:none !important;
+    border:0 !important; box-shadow:none !important; padding:0 !important; margin:0 !important;
+  }
+  .navbar .dropdown-menu::before{ display:none !important; }
+  .navbar .dropdown-menu li{ opacity:1 !important; transform:none !important; transition:none !important; }
+
+  /* Links ocupam a linha toda—acabam os “buracos” de clique */
+  .header .nav-links a{ display:block; padding:12px 4px; color:#2E3F5B; }
+
+}
+
+/* Botão "X" sempre DENTRO da gaveta – CSS only */
+@media (max-width:1024px){
+  :root{ --drawer-w: min(88vw, 360px); } /* mesma largura da sua gaveta */
+
+  /* posição do botão (como já usa) */
+  .menu-toggle{
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 3000;
+  }
+
+  /* quando o menu abrir, recorta a área visível do botão
+     ao retângulo da gaveta, impedindo que ele “escape” para fora */
+  .menu-toggle.is-open{
+    clip-path: inset(0 calc(100vw - var(--drawer-w)) 0 0);
+  }
+  /* caso seu JS não use .is-open, use esta linha alternativa:
+     .navbar.active ~ .menu-toggle{ clip-path: inset(0 calc(100vw - var(--drawer-w)) 0 0); }
+  */
+}
+
