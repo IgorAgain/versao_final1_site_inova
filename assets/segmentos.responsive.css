@@ -9,6 +9,7 @@
 .servicos-header{ max-width: 960px; margin: 0 auto 12px; text-align: center; }
 .servicos-subtitle{ margin-top: 6px; }
 @media (min-width: 1920px){ .header{ padding: 30px 300px; } .servicos{ padding-left:300px; padding-right:300px; padding-top:60px; padding-bottom:60px; } }
+@media (max-width: 1024px){ .servicos{ padding: 30px 60px; } }
 @media (max-width: 768px){ .servicos{ padding: 32px 20px; } }
 @media (max-width: 500px){ .servicos{ padding: 26px 16px; } .header{ padding-left: 16px; padding-right: 16px; } .servicos-header h2{ font-size: clamp(1.3rem, 6vw, 1.6rem); line-height:1.25; margin-bottom:10px; } .servicos-header p{ font-size:.96rem; line-height:1.5; margin:6px auto 0; max-width:60ch; } }
 @media (max-width: 360px){ .servicos{ padding: 20px 12px; } .header{ padding-left: 12px; padding-right: 12px; } }

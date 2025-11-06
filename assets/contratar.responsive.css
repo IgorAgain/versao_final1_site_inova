@@ -46,7 +46,7 @@
 /* Quebras responsivas */
 @media (min-width: 1920px){ .fale-conosco{ padding: 60px 300px; } }
 @media (max-width: 1024px){
-  .fale-conosco{ padding: 32px 20px; }
+  .fale-conosco{ padding: 30px 60px; }
   .fale-conosco-content{ grid-template-columns: 1fr; }
 }
 @media (max-width: 650px){ .contact-buttons{ grid-template-columns: 1fr; } }

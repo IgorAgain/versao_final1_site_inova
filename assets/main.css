@@ -621,7 +621,7 @@ html{
 
 /* Stats Section */
 .stats {
-    background: #F8F9FA;
+    background: #2E3F5B;
     padding: 40px 60px;
     overflow: hidden;
 }
@@ -660,7 +660,7 @@ html{
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 2.1rem;
-    color: #2E3F5B;
+    color: #fefefe;
     line-height: 1;
     display: flex;
     align-items: baseline; /* Alinha o + na linha de base */
@@ -676,7 +676,7 @@ html{
 .stat-label {
     font-family: 'Open Sans', sans-serif;
     font-size: 20px;
-    color: #4A4A4A;
+    color: #fefefe;
     font-weight: 700;
     line-height: 1.4;
     max-width: 200px;
@@ -4858,7 +4858,7 @@ html{
 }
 
 @media (max-width: 1024px){
-  .header{ padding-left: 100px; padding-right: 100px; }
+  .header{ padding-left: 60px; padding-right: 60px; }
 }
 
 @media (max-width: 768px){
@@ -5506,3 +5506,6 @@ main, section, header, footer{ max-width: 100%; }
   */
 }
 
+@media (max-width:1024px){
+  .footer {padding: 30px 60px;}
+}

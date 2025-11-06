@@ -12,17 +12,25 @@
 /* =====================================================================
    PADRÃO DE PADDING POR SECTION  (mesmo do educacao.responsive.css)
    ===================================================================== */
-.stats, .nossas-solucoes, .quem-confia, .segmentos,
+.stats, .nossas-solucoes, .segmentos,
 .tecnologias, .nova-sessao, .servicos, .video-section,
 .tecnologias-section, .whatsapp-comercial, .fale-conosco{
   padding: 40px 100px;
 }
+
 @media (min-width:1920px){
   .stats, .nossas-solucoes, .quem-confia, .segmentos,
   .tecnologias, .nova-sessao, .servicos, .video-section,
   .tecnologias-section, .whatsapp-comercial, .fale-conosco{
     padding: 60px 300px;
   }
+}
+@media (max-width:1024px){
+  .servicos, .stats, .nossas-solucoes, .segmentos{padding: 30px 60px;}
+}
+
+@media (max-width:1024px){
+  .cases-wrapper{padding: 0px 60px;}
 }
 @media (max-width:768px){
   .stats, .nossas-solucoes, .quem-confia, .segmentos,
@@ -135,12 +143,12 @@
 
 /* (2) Tamanho das logos por viewport */
 .quem-confia .carousel-item img{
-  height: clamp(120px, 12.6vw, 200px);   /* reduz e torna fluído */
+  height: 110px;   /* reduz e torna fluído */
   width: auto;
   object-fit: contain;
   filter: none;
 }
-.quem-confia .carousel-track{ gap:100px; }
+.quem-confia .carousel-track{ gap:80px; }
 
 
 /* =====================================================================
@@ -357,3 +365,465 @@
 }
 
 @media (max-width: 500px){.servicos-header h2{ font-size: clamp(1.3rem, 6vw, 1.6rem); line-height:1.25; margin-bottom:10px; } .servicos-header p{ font-size:.96rem; line-height:1.5; margin:6px auto 0; max-width:60ch; } }
+
+/* ==============================
+   Seção Controle de Acesso
+   ============================== */
+.sessao-controle-acesso {
+  background: #F8F9FA;
+  padding: 50px 100px;
+}
+
+.sessao-controle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sessao-controle-texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.sessao-controle-titulo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 2.8rem;
+  line-height: 1.2;
+  color: #2E3F5B;
+}
+
+.sessao-controle-descricao {
+  font-family: 'Open Sans', sans-serif;
+  color: #4A4A4A;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.sessao-controle-botoes {
+  display: inline-flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap; /* permite que os botões quebrem linha */
+}
+
+.btn-primary {
+  background: #2E3F5B;
+  color: #FFFFFF;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #25BACF;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #2E3F5B;
+  color: #2E3F5B;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: #2E3F5B;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.sessao-controle-imagem {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.sessao-controle-imagem img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+}
+
+.cta-comprar-hero {
+    width: auto;
+    color: #2E3F5B;
+    padding: 12px 30px;
+    border-color: #2E3F5B;
+    border: solid 2px;
+    border-radius: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* ===== Carrossel de imagens no hero ===== */
+.carrossel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 400px;
+  align-items: center;
+  
+}
+
+.carrossel-item {
+  position: absolute;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1s ease, transform 1.2s ease;
+}
+
+.carrossel-item.ativo {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.quem-confia {
+  background:#2E3F5B;
+}
+
+/* ==============================
+   RESPONSIVIDADE - Seção Controle de Acesso
+   ============================== */
+
+@media (min-width: 1920px) {
+  .sessao-controle-acesso {
+    padding: 60px 300px;
+  }
+
+  .sessao-controle-container {
+    gap: 40px;
+  }
+
+  .sessao-controle-titulo {
+    font-size: 2.4rem;
+  }
+
+  .sessao-controle-descricao {
+    font-size: 1rem;
+    max-width: 500px;
+  }
+
+  .sessao-controle-imagem img {
+    max-width: 400px;
+  }
+}
+
+/* Tablet (até 1024px) */
+@media (max-width: 1024px) {
+  .sessao-controle-acesso {
+    padding: 30px 60px;
+  }
+
+  .sessao-controle-container {
+    gap: 40px;
+  }
+
+  .sessao-controle-titulo {
+    font-size: 2.4rem;
+  }
+
+  .sessao-controle-descricao {
+    font-size: 1rem;
+    max-width: 500px;
+  }
+
+  .sessao-controle-imagem img {
+    max-width: 400px;
+  }
+}
+
+/* Mobile grande (até 768px) */
+@media (max-width: 768px) {
+  .sessao-controle-acesso {
+    padding: 60px 40px;
+  }
+
+  .sessao-controle-container {
+    flex-direction: column-reverse; /* Imagem abaixo do texto */
+    text-align: center;
+    gap: 40px;
+  }
+
+  .sessao-controle-texto {
+    align-items: center;
+  }
+
+  .sessao-controle-titulo {
+    font-size: 2rem;
+  }
+
+  .sessao-controle-descricao {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .sessao-controle-botoes {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .sessao-controle-imagem img {
+    max-width: 350px;
+  }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+  .sessao-controle-acesso {
+    padding: 50px 20px;
+  }
+
+  .sessao-controle-titulo {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+
+  .sessao-controle-descricao {
+    font-size: 0.9rem;
+  }
+
+  .sessao-controle-botoes {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .cta-comprar,
+  .cta-comprar-hero {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  .sessao-controle-imagem img {
+    max-width: 280px;
+  }
+}
+
+.servicos-title-stats {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    color: #fefefe;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.servicos-title-stats-cases {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    color: #fefefe;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ========================================= */
+/* SESSÃO CASES DE SUCESSO */
+/* ========================================= */
+
+.cases-sucesso {
+    background: #2E3F5B;
+    padding: 40px 0px;
+}
+
+.cases-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Wrapper com scroll horizontal VISÍVEL */
+.cases-wrapper {
+    padding-left: 100px;
+    padding-right: 100px;
+    width: 100%;
+    cursor: grab;
+    user-select: none;
+    overflow-x: visible;
+    overflow-y: hidden;
+}
+
+.cases-wrapper::-webkit-scrollbar {
+    display: none;
+}
+.cases-wrapper {
+    -ms-overflow-style: none;  /* IE e Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+.cases-track {
+    display: flex;
+    gap: 24px;
+    padding: 10px 0;
+}
+
+/* Card individual - design moderno e limpo */
+.case-card {
+    min-width: 360px;
+    max-width: 360px;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Efeito ao passar o mouse */
+.case-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagem do card */
+.case-imagem {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.case-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.case-card:hover .case-imagem img {
+    transform: scale(1.05);
+}
+
+/* Categoria destacada sobre a imagem */
+.case-categoria {
+    position: static;
+    align-self: flex-start;
+    background: #E9F7FB;
+    color: #25BACF;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    letter-spacing: 0.3px;
+}
+
+/* Conteúdo do card */
+.case-content {
+    padding: 20px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Título */
+.case-titulo {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #1e2a44;
+    margin-bottom: 12px;
+}
+
+/* Descrição */
+.case-descricao {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.95rem;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Informações adicionais */
+.case-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    color: #2e3f5b;
+}
+
+.info-label {
+    font-weight: 600;
+}
+
+.info-value {
+    font-weight: 500;
+    color: #25BACF;
+}
+
+/* Hover effect no gradiente do topo */
+.case-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, #25BACF, #2E3F5B);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.case-card:hover::before {
+    transform: scaleX(1);
+}
+
+@media (max-width:1024px){
+  .cases-wrapper{padding: 0px 60px;}
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .case-card {
+        min-width: 300px;
+        max-width: 300px;
+    }
+    .case-imagem {
+        height: 160px;
+    }
+}
+
+.header {
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.06),
+    0 8px 20px rgba(0, 0, 0, 0.05);
+}

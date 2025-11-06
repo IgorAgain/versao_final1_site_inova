@@ -162,3 +162,5 @@
 @media (max-width: 768px){ .video-section{ padding: 32px 20px; } }
 @media (max-width: 500px){ .video-section{ padding: 26px 16px; } }
 @media (max-width: 360px){ .video-section{ padding: 20px 12px; } }
+
+@media (max-width: 1024px){ .introducao-educacao, .acessos, .nova-sessao, .integracao-section, .porque-escolher-educacao, .video-section{ padding: 30px 60px; }}

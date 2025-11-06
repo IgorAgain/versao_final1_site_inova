@@ -10,7 +10,7 @@
 @media (max-width:1024px){
   #ponto-intro, #ponto-numeros, #ponto-consultoria, #ponto-recursos, #ponto-avancados, #ponto-equipamentos, #ponto-experimente,
   .ponto-section, .recursos-v2, .avancados-v2{
-    padding-left:32px; padding-right:32px;
+    padding: 30px 60px;
   }
 }
 @media (max-width:768px){

@@ -880,3 +880,136 @@ document.addEventListener('DOMContentLoaded', function() {
     track.scrollBy({ left: step(), behavior: 'smooth' });
   });
 })();
+
+// ========================================= 
+// CARROSSEL DE CASES DE SUCESSO
+// ========================================= 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const wrapper = document.querySelector('.cases-wrapper');
+    const track = document.querySelector('.cases-track');
+    const cards = document.querySelectorAll('.case-card');
+    
+    if (!wrapper || !track || cards.length === 0) return;
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let isDragging = false;
+
+    // ========================================= 
+    // DRAG COM MOUSE
+    // ========================================= 
+    
+    wrapper.addEventListener('mousedown', (e) => {
+        isDown = true;
+        isDragging = false;
+        wrapper.style.cursor = 'grabbing';
+        startX = e.pageX - wrapper.offsetLeft;
+        scrollLeft = wrapper.scrollLeft;
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+        isDown = false;
+        wrapper.style.cursor = 'grab';
+    });
+
+    wrapper.addEventListener('mouseup', () => {
+        isDown = false;
+        wrapper.style.cursor = 'grab';
+        
+        // Pequeno delay para diferenciar click de drag
+        setTimeout(() => {
+            isDragging = false;
+        }, 50);
+    });
+
+    wrapper.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        isDragging = true;
+        
+        const x = e.pageX - wrapper.offsetLeft;
+        const walk = (x - startX) * 2; // Multiplicador para velocidade do drag
+        wrapper.scrollLeft = scrollLeft - walk;
+    });
+
+    // Previne click em links/botões durante drag
+    wrapper.addEventListener('click', (e) => {
+        if (isDragging) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }, true);
+
+    // ========================================= 
+    // TOUCH (mobile/tablet)
+    // ========================================= 
+    
+    let touchStartX = 0;
+    let touchScrollLeft = 0;
+    let isTouching = false;
+
+    wrapper.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].pageX;
+        touchScrollLeft = wrapper.scrollLeft;
+        isTouching = true;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchmove', (e) => {
+        if (!isTouching) return;
+        
+        const touchX = e.touches[0].pageX;
+        const walk = (touchStartX - touchX) * 1.5;
+        wrapper.scrollLeft = touchScrollLeft + walk;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', () => {
+        isTouching = false;
+    });
+
+    // ========================================= 
+    // SCROLL COM RODA DO MOUSE (opcional)
+    // ========================================= 
+    
+    wrapper.addEventListener('wheel', (e) => {
+        if (e.deltaY !== 0) {
+            e.preventDefault();
+            wrapper.scrollLeft += e.deltaY;
+        }
+    }, { passive: false });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const imagens = document.querySelectorAll(".carrossel-item");
+  const dots = document.querySelectorAll(".carrossel-dot");
+  let indiceAtual = 0;
+  const tempoTroca = 4000; // tempo em ms (4 segundos)
+
+  function mostrarImagem(indice) {
+    imagens.forEach((img, i) => {
+      img.classList.toggle("ativo", i === indice);
+      dots[i].classList.toggle("ativo", i === indice);
+    });
+  }
+
+  function proximaImagem() {
+    indiceAtual = (indiceAtual + 1) % imagens.length;
+    mostrarImagem(indiceAtual);
+  }
+
+  // Troca automática
+  let intervalo = setInterval(proximaImagem, tempoTroca);
+
+  // Controle manual (opcional)
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      clearInterval(intervalo);
+      mostrarImagem(i);
+      indiceAtual = i;
+      intervalo = setInterval(proximaImagem, tempoTroca);
+    });
+  });
+});

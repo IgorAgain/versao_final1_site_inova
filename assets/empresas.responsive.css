@@ -123,3 +123,5 @@
   .integracao-section {padding: 60px 300px;}
   .porque-escolher-educacao {padding: 60px 300px;}
 }
+
+@media (max-width: 1024px){ .introducao-educacao, .acessos, .nova-sessao, .integracao-section, .porque-escolher-educacao, .video-section{ padding: 30px 60px; }}

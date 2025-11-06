@@ -10,7 +10,7 @@ ul{ padding-inline-start: 1.2em; }
 
 /* ===== Gutters das seções ===== */
 @media (max-width:1024px){
-  .svc-section, .acessos, .svc-ops{ padding-left:32px; padding-right:32px; }
+  .svc-section, .acessos, .svc-ops{ padding: 30px 60px; }
 }
 @media (max-width:768px){
   .svc-section, .acessos, .svc-ops{ padding-left:20px; padding-right:20px; }
@@ -101,3 +101,5 @@ ul{ padding-inline-start: 1.2em; }
 }
 
 @media (max-width: 500px){.servicos-header h2{ font-size: clamp(1.3rem, 6vw, 1.6rem); line-height:1.25; margin-bottom:10px; } .servicos-header p{ font-size:.96rem; line-height:1.5; margin:6px auto 0; max-width:60ch; } }
+
+@media (max-width: 1024px){ .servicos{ padding: 30px 60px; }}

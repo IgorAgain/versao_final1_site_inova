@@ -82,8 +82,7 @@
   section.porque-escolher-educacao,
   section#porque-escolher-educacao,
   #porque-escolher-educacao.porque-escolher-educacao{
-    padding-left: 32px !important;
-    padding-right: 32px !important;
+    padding: 30px 60px;
   }
 }
 @media (max-width: 768px){
