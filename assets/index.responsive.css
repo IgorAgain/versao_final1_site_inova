@@ -354,48 +354,38 @@
   }
 }
 
-@media (max-width: 600px){
-    .quem-confia .carousel-item img{
-    height: 70px;   /* reduz e torna fluído */
-    width: auto;
-    object-fit: contain;
-    filter: none;
-  }
-  .quem-confia .carousel-track{ display:flex; gap:28px; align-items:center; }
-}
-
-@media (max-width: 500px){.servicos-header h2{ font-size: clamp(1.3rem, 6vw, 1.6rem); line-height:1.25; margin-bottom:10px; } .servicos-header p{ font-size:.96rem; line-height:1.5; margin:6px auto 0; max-width:60ch; } }
 
 /* ==============================
-   Seção Controle de Acesso
+   Seção Controle de Acesso — Responsiva (Padrão Inova)
    ============================== */
 .sessao-controle-acesso {
   background: #F8F9FA;
-  padding: 50px 100px;
+  padding: 20px 100px 0px 100px;
 }
 
 .sessao-controle-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 40px;
+  max-width: 1600px;
+  margin-inline: auto;
 }
 
 .sessao-controle-texto {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-
-  font-size: 1rem;
-  line-height: 1.5;
+  gap: 22px;
 }
 
-.sessao-controle-titulo {
+.sessao-controle-texto h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
-  font-size: 2.8rem;
-  line-height: 1.2;
+  font-size: clamp(2.2rem, 3vw, 3rem);
+  line-height: 1.15;
   color: #2E3F5B;
+  margin: 0;
 }
 
 .sessao-controle-descricao {
@@ -407,44 +397,32 @@
 }
 
 .sessao-controle-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.cta-comprar-hero {
   display: inline-flex;
-  gap: 10px;
-  margin-top: 10px;
-  flex-wrap: wrap; /* permite que os botões quebrem linha */
-}
-
-.btn-primary {
-  background: #2E3F5B;
-  color: #FFFFFF;
-  border: none;
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-weight: 600;
+  justify-content: center;
+  align-items: center;
   font-family: 'Open Sans', sans-serif;
-  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 12px 30px;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.btn-primary:hover {
-  background: #25BACF;
-  transform: translateY(-2px);
-}
-
-.btn-secondary {
-  background: transparent;
+.cta-comprar-hero {
   border: 2px solid #2E3F5B;
   color: #2E3F5B;
-  padding: 12px 26px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-family: 'Open Sans', sans-serif;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  background: transparent;
 }
 
-.btn-secondary:hover {
-  background: #2E3F5B;
-  color: #FFFFFF;
+.cta-comprar-hero:hover {
   transform: translateY(-2px);
 }
 
@@ -455,38 +433,21 @@
   position: relative;
 }
 
-.sessao-controle-imagem img {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  object-fit: contain;
-}
-
-.cta-comprar-hero {
-    width: auto;
-    color: #2E3F5B;
-    padding: 12px 30px;
-    border-color: #2E3F5B;
-    border: solid 2px;
-    border-radius: 10px;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-/* ===== Carrossel de imagens no hero ===== */
+/* ===== Carrossel ===== */
 .carrossel-container {
   position: relative;
   width: 100%;
-  max-width: 1100px;
-  height: 400px;
-  align-items: center;
-  
+  max-width: 520px;
+  min-height: 400px; /* Define altura mínima controlada */
+  max-height: 600px; /* Define altura máxima */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 16px;
 }
 
 .carrossel-item {
   position: absolute;
-  align-items: center;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -501,78 +462,61 @@
   z-index: 1;
 }
 
-.quem-confia {
-  background:#2E3F5B;
-}
-
 /* ==============================
-   RESPONSIVIDADE - Seção Controle de Acesso
+   BREAKPOINTS
    ============================== */
 
+/* Ultra Wide - 1920px */
 @media (min-width: 1920px) {
-  .sessao-controle-acesso {
-    padding: 60px 300px;
+  .sessao-controle-acesso { 
+    padding: 40px 300px 100px 300px; /* Removido padding-bottom excessivo */
   }
-
-  .sessao-controle-container {
-    gap: 40px;
+  .sessao-controle-container { 
+    gap: 60px;
+    align-items: center; /* Garante alinhamento central */
   }
-
-  .sessao-controle-titulo {
-    font-size: 2.4rem;
-  }
-
-  .sessao-controle-descricao {
-    font-size: 1rem;
-    max-width: 500px;
-  }
-
-  .sessao-controle-imagem img {
-    max-width: 400px;
+  .sessao-controle-texto h1 { font-size: 3.2rem; }
+  .sessao-controle-descricao { font-size: 1.1rem; }
+  .carrossel-container { 
+    max-width: 600px;
+    height: auto; /* Ajusta altura automaticamente */
   }
 }
 
-/* Tablet (até 1024px) */
+/* Notebook / Tablet Landscape - 1024px */
 @media (max-width: 1024px) {
-  .sessao-controle-acesso {
-    padding: 30px 60px;
-  }
-
-  .sessao-controle-container {
-    gap: 40px;
-  }
-
-  .sessao-controle-titulo {
-    font-size: 2.4rem;
-  }
-
-  .sessao-controle-descricao {
-    font-size: 1rem;
-    max-width: 500px;
-  }
-
-  .sessao-controle-imagem img {
-    max-width: 400px;
-  }
+  .sessao-controle-acesso { padding: 30px 60px; }
+  .sessao-controle-container { gap: 40px; }
+  .sessao-controle-texto h1 { font-size: 2.4rem; }
+  .sessao-controle-descricao { font-size: 1rem; max-width: 500px; }
+  .carrossel-container { max-width: 420px; }
 }
 
-/* Mobile grande (até 768px) */
+/* Tablet Portrait / Mobile Grande - 768px */
 @media (max-width: 768px) {
   .sessao-controle-acesso {
-    padding: 60px 40px;
+    padding: 32px 20px;
   }
 
   .sessao-controle-container {
-    flex-direction: column-reverse; /* Imagem abaixo do texto */
+    flex-direction: column;
     text-align: center;
     gap: 40px;
   }
 
   .sessao-controle-texto {
     align-items: center;
+    text-align: center;
+    order: 2; /* Texto vem depois */
   }
 
-  .sessao-controle-titulo {
+  .sessao-controle-imagem {
+    order: 1; /* Imagem vem primeiro */
+    display: flex !important; /* FORÇAR visualização */
+    width: 100%;
+  }
+
+  .sessao-controle-texto h1 {
     font-size: 2rem;
   }
 
@@ -582,49 +526,107 @@
   }
 
   .sessao-controle-botoes {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    justify-content: center;
   }
 
-  .sessao-controle-imagem img {
-    max-width: 350px;
+  .carrossel-container {
+    max-width: 380px;
+    display: block !important; /* FORÇAR visualização */
+    margin: 0 auto;
   }
 }
 
-/* Mobile pequeno (até 480px) */
-@media (max-width: 480px) {
-  .sessao-controle-acesso {
-    padding: 50px 20px;
+/* Mobile Médio - 420px */
+@media (max-width: 420px) {
+  .sessao-controle-acesso { 
+    padding: 26px 16px; 
   }
-
-  .sessao-controle-titulo {
-    font-size: 1.8rem;
-    line-height: 1.3;
+  
+  .sessao-controle-container {
+    flex-direction: column;
+    gap: 30px;
   }
-
-  .sessao-controle-descricao {
-    font-size: 0.9rem;
+  
+  .sessao-controle-texto {
+    order: 2;
+    align-items: center;
+    text-align: center;
   }
-
+  
+  .sessao-controle-imagem {
+    order: 1;
+    display: flex !important; /* FORÇAR visualização */
+    width: 100%;
+  }
+  
+  .sessao-controle-texto h1 { 
+    font-size: 1.8rem; 
+  }
+  
+  .sessao-controle-descricao { 
+    font-size: 0.9rem; 
+  }
+  
+  .carrossel-container { 
+    max-width: 300px;
+    display: block !important; /* FORÇAR visualização */
+    margin: 0 auto;
+  }
+  
   .sessao-controle-botoes {
     flex-direction: column;
     width: 100%;
   }
-
-  .btn-primary,
-  .btn-secondary,
+  
   .cta-comprar,
   .cta-comprar-hero {
     width: 100%;
     text-align: center;
     padding: 12px 0;
   }
+}
 
-  .sessao-controle-imagem img {
-    max-width: 280px;
+/* Mobile Pequeno - 360px */
+@media (max-width: 360px) {
+  .sessao-controle-acesso { 
+    padding: 20px 12px; 
+  }
+  
+  .sessao-controle-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .sessao-controle-texto {
+    order: 2;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .sessao-controle-imagem {
+    order: 1;
+    display: flex !important; /* FORÇAR visualização */
+    width: 100%;
+  }
+  
+  .sessao-controle-texto h1 { 
+    font-size: 1.6rem; 
+    line-height: 1.3; 
+  }
+  
+  .sessao-controle-descricao { 
+    font-size: 0.88rem; 
+  }
+  
+  .carrossel-container { 
+    max-width: 260px;
+    display: block !important; /* FORÇAR visualização */
+    margin: 0 auto;
   }
 }
+
+
+/* ========================================= */
 
 .servicos-title-stats {
     font-family: 'Poppins', sans-serif;
@@ -644,6 +646,9 @@
     text-align: center;
 }
 
+.quem-confia {
+  background:#2E3F5B;
+}
 /* ========================================= */
 /* SESSÃO CASES DE SUCESSO */
 /* ========================================= */
@@ -806,6 +811,9 @@
 .case-card:hover::before {
     transform: scaleX(1);
 }
+@media (min-width:1920px){
+  .cases-wrapper{padding: 0px 300px;}
+}
 
 @media (max-width:1024px){
   .cases-wrapper{padding: 0px 60px;}
@@ -820,6 +828,15 @@
     .case-imagem {
         height: 160px;
     }
+    .cases-wrapper{padding: 32px 20px;}
+}
+
+@media (max-width: 420px) {
+  .cases-wrapper{padding: 26px 16px;}
+}
+
+@media (max-width: 360px) {
+  .cases-wrapper{padding: 20px 12px;}
 }
 
 .header {

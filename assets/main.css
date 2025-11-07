@@ -568,15 +568,6 @@ html{
     margin-left: 0 auto;
 }
 
-.hero-title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 900; 
-    font-size: 3.1rem;
-    line-height: 1.1;
-    margin-bottom: 30px;
-    color: #FEFEFE;
-}
-
 .hero-description {
     font-size: 1rem;
     color: #FEFEFE;
