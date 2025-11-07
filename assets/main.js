@@ -1013,3 +1013,129 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+// ========================================
+// EFEITO TYPEWRITER NO TÍTULO DO HERO
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    initTypewriterEffect();
+});
+
+function initTypewriterEffect() {
+    // Seleciona o elemento do título
+    const titleElement = document.querySelector('.hero-inova-title');
+    
+    // Verifica se o elemento existe
+    if (!titleElement) {
+        console.warn('Elemento .hero-inova-title não encontrado');
+        return;
+    }
+
+    // ===== CONFIGURAÇÕES =====
+    
+    // Palavras que vão alternar (customize aqui!)
+    const palavrasRotativas = [
+        'Catraca',
+        'Torniquete',
+        'Ponto',
+        'CFTV',
+        'QR Code',
+        'Carteirinha',
+        'Cartão RFID',
+        'Facial',
+        'Biometria',
+    ];
+    
+    // Velocidades (em milissegundos)
+    const velocidadeDigitar = 100;      // Velocidade de digitação
+    const velocidadeApagar = 60;        // Velocidade de apagar
+    const pausaEntreTextos = 2000;      // Pausa após completar a palavra
+    const pausaAntesDeApagar = 1500;    // Pausa antes de começar a apagar
+    
+    // ===== ESTRUTURA DO HTML =====
+    
+    // Salva o texto original
+    const textoOriginal = titleElement.innerHTML;
+    
+    // Seleciona o span onde o texto vai aparecer
+    const palavraDinamica = titleElement.querySelector('.palavra-dinamica');
+    const cursor = titleElement.querySelector('.cursor-blink');
+    
+    // ===== VARIÁVEIS DE CONTROLE =====
+    
+    let indicePalavraAtual = 0;
+    let indiceLetraAtual = 0;
+    let estaDigitando = true;
+    let timeoutId = null;
+    
+    // ===== FUNÇÃO PRINCIPAL =====
+    
+    function typewriterLoop() {
+        const palavraAtual = palavrasRotativas[indicePalavraAtual];
+        
+        if (estaDigitando) {
+            // ===== MODO DIGITAÇÃO =====
+            if (indiceLetraAtual < palavraAtual.length) {
+                // Adiciona próxima letra
+                palavraDinamica.textContent = palavraAtual.substring(0, indiceLetraAtual + 1);
+                indiceLetraAtual++;
+                timeoutId = setTimeout(typewriterLoop, velocidadeDigitar);
+            } else {
+                // Palavra completa - aguarda antes de apagar
+                estaDigitando = false;
+                timeoutId = setTimeout(typewriterLoop, pausaAntesDeApagar);
+            }
+        } else {
+            // ===== MODO APAGAR =====
+            if (indiceLetraAtual > 0) {
+                // Remove última letra
+                indiceLetraAtual--;
+                palavraDinamica.textContent = palavraAtual.substring(0, indiceLetraAtual);
+                timeoutId = setTimeout(typewriterLoop, velocidadeApagar);
+            } else {
+                // Texto apagado - próxima palavra
+                estaDigitando = true;
+                indicePalavraAtual = (indicePalavraAtual + 1) % palavrasRotativas.length;
+                timeoutId = setTimeout(typewriterLoop, pausaEntreTextos);
+            }
+        }
+    }
+    
+    // ===== INICIA O EFEITO =====
+    
+    // Pequeno delay antes de começar
+    setTimeout(() => {
+        typewriterLoop();
+    }, 500);
+    
+    // ===== CONTROLES DE VISIBILIDADE =====
+    
+    // Pausa quando a página não está visível
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            clearTimeout(timeoutId);
+        } else {
+            typewriterLoop();
+        }
+    });
+    
+    // ===== CONTROLE GLOBAL PARA DEBUG =====
+    
+    window.typewriterControls = {
+        stop: () => clearTimeout(timeoutId),
+        start: () => typewriterLoop(),
+        setPalavras: (novasPalavras) => {
+            palavrasRotativas.length = 0;
+            palavrasRotativas.push(...novasPalavras);
+            indicePalavraAtual = 0;
+            indiceLetraAtual = 0;
+            estaDigitando = true;
+            clearTimeout(timeoutId);
+            typewriterLoop();
+        },
+        getPalavras: () => palavrasRotativas,
+        getCurrentWord: () => palavrasRotativas[indicePalavraAtual]
+    };
+}
